@@ -13,6 +13,7 @@ export default function Map() {
             title: "",
             subtitle: "",
             type: "",
+            character: "",
             map: "greenisland",
             lng,
             lat,
