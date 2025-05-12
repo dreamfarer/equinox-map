@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Marker } from '../types/marker'
+import styles from "./map.module.css";
 
 export default function Map() {
     const mapContainer = useRef<HTMLDivElement>(null)
@@ -35,7 +36,7 @@ export default function Map() {
                 sources: {
                     gameMap: {
                         type: 'raster',
-                        tiles: ['/tiles/greenisland/{z}/{y}/{x}.png'],
+                        tiles: ['https://cdn.equinoxmap.app/greenisland/{z}/{y}/{x}.png'],
                         tileSize: 256,
                         scheme: 'xyz',
                         maxzoom: 5,
@@ -73,5 +74,5 @@ export default function Map() {
         return () => map.remove()
     }, [])
 
-    return <div ref={mapContainer} style={{ height: '100vh', width: '100%' }} />
+    return <div ref={mapContainer} className={styles.map} />
 }
