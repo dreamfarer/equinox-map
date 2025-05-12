@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const Map = dynamic(() => import('./map'), {
-    ssr: false,
-})
+  ssr: false,
+});
 
 export default function MapWrapper() {
-    return <Map />
+  return <Map />;
 }

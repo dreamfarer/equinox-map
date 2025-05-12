@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
-import Image from "next/image";
-import styles from "./moon.module.css";
+import type { NextPage } from 'next';
+import Image from 'next/image';
+import styles from './moon.module.css';
 
 export type MoonType = {
   className?: string;
@@ -9,9 +9,9 @@ export type MoonType = {
   size?: 48;
 };
 
-const Moon: NextPage<MoonType> = ({ className = "", size = 48 }) => {
+const Moon: NextPage<MoonType> = ({ className = '', size = 48 }) => {
   return (
-    <div className={[styles.moon, className].join(" ")} data-size={size}>
+    <div className={[styles.moon, className].join(' ')} data-size={size}>
       <div className={styles.wrapperIcon}>
         <Image
           className={styles.icon}

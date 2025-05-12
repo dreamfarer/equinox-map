@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.top {
+.cluster {
   flex-direction: column;
   padding: var(--padding-3xs);
   gap: var(--gap-3xs);

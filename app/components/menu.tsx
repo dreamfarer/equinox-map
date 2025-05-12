@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import styles from "./menu.module.css";
+import type { NextPage } from 'next';
+import styles from './menu.module.css';
 
 export type MenuType = {
   className?: string;
 };
 
-const Menu: NextPage<MenuType> = ({ className = "" }) => {
+const Menu: NextPage<MenuType> = ({ className = '' }) => {
   return (
-    <div className={[styles.menu, className].join(" ")}>
+    <div className={[styles.menu, className].join(' ')}>
       <div className={styles.searchBar}>
         <div className={styles.placeholderText}>Filter ...</div>
       </div>

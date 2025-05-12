@@ -1,9 +1,9 @@
 export type Marker = {
-    title: string;
-    subtitle: string;
-    type: string;
-    character: string;
-    map: string;
-    lng: number;
-    lat: number;
-}
+  title: string;
+  subtitle: string;
+  type: string;
+  character: string;
+  map: string;
+  lng: number;
+  lat: number;
+};
