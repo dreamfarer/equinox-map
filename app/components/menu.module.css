@@ -1,0 +1,127 @@
+.placeholderText {
+  flex: 1;
+  position: relative;
+}
+.searchBar {
+  align-self: stretch;
+  height: 2.5rem;
+  background-color: var(--accent-dark);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-mini);
+  box-sizing: border-box;
+}
+.title {
+  align-self: stretch;
+  position: relative;
+  width: 14.563rem;
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+.entryLeftActive,
+.entryRightInactive {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  min-width: 7.563rem;
+}
+.entryRightInactive {
+  text-decoration: line-through;
+  color: var(--text-disabled-dark);
+}
+.category,
+.entryRow {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.entryRow {
+  flex-direction: row;
+  row-gap: var(--gap-xl);
+  font-size: var(--font-size-mini);
+}
+.category {
+  flex-direction: column;
+  gap: var(--gap-8xs);
+}
+.title1 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-xl);
+}
+.entryRow1 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: var(--gap-xl);
+}
+.categoryActive {
+  gap: var(--gap-8xs);
+  font-size: var(--font-size-mini);
+}
+.categoryActive,
+.categoryActive1 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.title4 {
+  align-self: stretch;
+  position: relative;
+  text-decoration: line-through;
+}
+.menu,
+.themeInactive {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--text-disabled-dark);
+}
+.menu {
+  width: 25.75rem;
+  background-color: var(--background-dark);
+  border-left: 1px solid var(--accent-dark);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: var(--padding-xl) var(--padding-lgi);
+  gap: var(--gap-xl);
+  max-width: 100%;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--text-dark);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 450px) {
+  .title {
+    font-size: var(--font-size-base);
+  }
+  .entryRow {
+    flex-wrap: wrap;
+  }
+  .title1 {
+    font-size: var(--font-size-base);
+  }
+  .entryRow1 {
+    flex-wrap: wrap;
+  }
+  .title4 {
+    font-size: var(--font-size-base);
+  }
+}

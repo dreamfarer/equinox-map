@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  margin: 0;
+  line-height: normal;
+  height: 100%;
+}
+:root {
+  /* Fonts */
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-mini: 0.938rem;
+  --font-size-base: 1rem;
+  --font-size-xl: 1.25rem;
+
+  /* Gaps */
+  --gap-8xs: 0.312rem;
+  --gap-3xs: 0.625rem;
+  --gap-xl: 1.25rem;
+
+  /* Paddings */
+  --padding-3xs: 0.625rem;
+  --padding-mini: 0.937rem;
+  --padding-lgi: 1.187rem;
+  --padding-xl: 1.25rem;
+  --padding-31xl: 3.125rem;
+  --padding-274xl: 18.312rem;
+
+  /* Border radiuses */
+  --br-3xs: 10px;
+
+  /* Figma Variables */
+
+  /* Color Variables */
+  --accent-dark: #282828;
+  --accent-light: #d6d6d6;
+  --background-dark: #0a0a0a;
+  --text-dark: #d5d5d5;
+  --text-disabled-dark: #505050;
+}
