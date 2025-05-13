@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
     "maplibre-gl": "^5.5.0",
     "next": "15.3.2",
     "postcss": "^8.5.3",
