@@ -77,6 +77,8 @@ export default function Map() {
       transformRequest: (url) => ({ url }),
     });
 
+    map.touchZoomRotate.disableRotation();
+
     map.setMaxBounds([
       [-180, -71],
       [39.7, 85],
