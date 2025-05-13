@@ -16,10 +16,13 @@
   justify-content: flex-start;
 }
 
+/* Mobile Layout*/
 @media (max-width: 768px) {
   .menu {
     width: 100%;
     height: 40vh;
     align-self: stretch;
+    border-left: none;
+    border-bottom: 1px solid var(--accent-dark);
   }
 }
