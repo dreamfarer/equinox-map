@@ -8,6 +8,7 @@ import styles from './map.module.css';
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   const exportMarkerDebug = (map: maplibregl.Map, lng: number, lat: number) => {
     const marker: Marker = {
@@ -93,5 +94,23 @@ export default function Map() {
     return () => map.remove();
   }, [tileBaseUrl]);
 
-  return <div ref={mapContainer} className={styles.map} />;
+  return (
+    <div className={styles.mapWrapper}>
+      {!disclaimerAccepted && (
+        <div className={styles.overlay}>
+          <div className={styles.overlayContent}>
+            <p>
+              This interactive map is under active development. Most features
+              are not implemented yet.
+            </p>
+            <p>Bookmark it and check back later! &lt;3</p>
+            <button onClick={() => setDisclaimerAccepted(true)}>
+              I understand
+            </button>
+          </div>
+        </div>
+      )}
+      <div ref={mapContainer} className={styles.map} />
+    </div>
+  );
 }
