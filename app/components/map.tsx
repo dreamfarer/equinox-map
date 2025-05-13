@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Marker } from '../types/marker';
@@ -7,6 +7,7 @@ import styles from './map.module.css';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
+  const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
 
   const exportMarkerDebug = (map: maplibregl.Map, lng: number, lat: number) => {
     const marker: Marker = {
@@ -25,7 +26,22 @@ export default function Map() {
   };
 
   useEffect(() => {
-    if (!mapContainer.current) return;
+    const testTileUrl = '/tiles/greenisland/0/0/0.png';
+    fetch(testTileUrl, { method: 'HEAD' })
+      .then((res) => {
+        if (res.ok) {
+          setTileBaseUrl('/tiles/greenisland');
+        } else {
+          throw new Error('Tile not found locally');
+        }
+      })
+      .catch(() => {
+        setTileBaseUrl('https://cdn.equinoxmap.app/greenisland');
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!mapContainer.current || tileBaseUrl === null) return;
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
@@ -34,7 +50,7 @@ export default function Map() {
         sources: {
           gameMap: {
             type: 'raster',
-            tiles: ['https://cdn.equinoxmap.app/greenisland/{z}/{y}/{x}.png'],
+            tiles: [`${tileBaseUrl}/{z}/{y}/{x}.png`],
             tileSize: 256,
             scheme: 'xyz',
             maxzoom: 5,
@@ -73,7 +89,7 @@ export default function Map() {
     });
 
     return () => map.remove();
-  }, []);
+  }, [tileBaseUrl]);
 
   return <div ref={mapContainer} className={styles.map} />;
 }
