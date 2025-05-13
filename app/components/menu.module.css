@@ -1,6 +1,7 @@
 .menu {
   width: 40vw;
   height: 100%;
+  max-width: 420px;
   background-color: var(--background-dark);
   border-left: 1px solid var(--accent-dark);
   box-sizing: border-box;
