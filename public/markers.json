@@ -278,10 +278,19 @@
   "lat": -8.565265881231511
 },
 {
-  "title": "Kathy",
+  "title": "Jett",
+  "subtitle": "",
+  "type": "character",
+  "character": "jett",
+  "map": "greenisland",
+  "lng": -132.3638670846086,
+  "lat": 44.70236383607545
+},
+{
+  "title": "Wendy",
   "subtitle": "Here you will need the Reputation with the Alderwood Downtown",
   "type": "vendor",
-  "character": "kathy",
+  "character": "wendy",
   "map": "greenisland",
   "lng": -126.04272025515687,
   "lat": 10.258957832776034
