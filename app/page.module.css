@@ -1,13 +1,35 @@
-.mainHorizontal {
-  background-color: var(--text-dark);
+.home {
   overflow: hidden;
   display: flex;
-  justify-content: flex-start;
   width: 100%;
   height: 100%;
-  position: relative;
-  flex-direction: row;
   align-items: center;
-  line-height: normal;
-  letter-spacing: normal;
+  flex-direction: row;
+}
+
+.home > :nth-child(1) {
+  order: 1;
+}
+.home > :nth-child(2) {
+  order: 2;
+}
+.home > :nth-child(3) {
+  order: 3;
+}
+
+/* Mobile Layout*/
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .home > :nth-child(1) {
+    order: 3;
+  }
+  .home > :nth-child(2) {
+    order: 2;
+  }
+  .home > :nth-child(3) {
+    order: 1;
+  }
 }

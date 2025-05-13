@@ -8,87 +8,45 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-}
-
-.cluster {
-  flex-direction: column;
   padding: var(--padding-3xs);
-  gap: var(--gap-3xs);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.wrapperLogoFrame {
-  width: 2.313rem;
-  height: 5rem;
-  border-radius: var(--br-3xs);
-  flex-shrink: 0;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logoFrameIcon {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  flex-shrink: 0;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: scale(1);
-}
-
-.wrapperButtonActive {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  border-radius: var(--br-3xs);
-  max-height: 100%;
-  height: 2.5rem;
-  position: relative;
-}
-
-.buttonActiveIcon {
-  width: 100%;
-  overflow: hidden;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  transform: scale(1);
-}
-
-.wrapperButtonInactive {
+.button {
+  background: none;
+  border: none;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--br-3xs);
-  flex-shrink: 0;
   position: relative;
-  justify-content: center;
-  overflow: hidden;
+  padding: 0.5rem 0.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: var(--text-dark);
+  border-radius: 0.5rem;
 }
 
-.buttonInactive {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--br-3xs);
-  flex-shrink: 0;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0.437rem 0.312rem;
-  box-sizing: border-box;
+.button.active {
+  background-color: transparent;
+}
+
+.button.inactive {
+  background-color: var(--accent-dark);
+}
+
+.button.logo {
+  height: 3rem;
+}
+
+/* Mobile Layout*/
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+    flex-direction: row;
+    padding: var(--padding-3xs) var(--padding-xl);
+  }
 }

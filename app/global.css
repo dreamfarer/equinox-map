@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-html,
-body {
-  margin: 0;
-  line-height: normal;
-  height: 100%;
-}
 :root {
   /* Fonts */
   --font-inter: Inter;
@@ -13,7 +7,7 @@ body {
   /* font sizes */
   --font-size-mini: 0.938rem;
   --font-size-base: 1rem;
-  --font-size-xl: 1.25rem;
+  --font-size-title: 1.25rem;
 
   /* Gaps */
   --gap-8xs: 0.312rem;
@@ -39,4 +33,13 @@ body {
   --background-dark: #0a0a0a;
   --text-dark: #d5d5d5;
   --text-disabled-dark: #505050;
+  --theme: #a218be;
+}
+
+html,
+body {
+  margin: 0;
+  line-height: normal;
+  height: 100%;
+  font-family: var(--font-inter);
 }

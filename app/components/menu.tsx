@@ -1,43 +1,47 @@
+'use client';
 import type { NextPage } from 'next';
 import styles from './menu.module.css';
+import Category from './menu/category';
+import SearchBar from './menu/searchbar';
+import { useState } from 'react';
 
-export type MenuType = {
-  className?: string;
-};
+const Menu: NextPage = () => {
+  const [questsEnabled, setQuestsEnabled] = useState(true);
+  const [mainQuestVisible, setMainQuestVisible] = useState(true);
+  const [sideQuestVisible, setSideQuestVisible] = useState(true);
 
-const Menu: NextPage<MenuType> = ({ className = '' }) => {
+  const toggleQuests = () => {
+    const newState = !questsEnabled;
+    setQuestsEnabled(newState);
+    setMainQuestVisible(newState);
+    setSideQuestVisible(newState);
+  };
+
   return (
-    <div className={[styles.menu, className].join(' ')}>
-      <div className={styles.searchBar}>
-        <div className={styles.placeholderText}>Filter ...</div>
-      </div>
-      <div className={styles.category}>
-        <b className={styles.title}>Quests</b>
-        <div className={styles.entryRow}>
-          <div className={styles.entryLeftActive}>Main Quest</div>
-          <div className={styles.entryRightInactive}>Side Quest</div>
-        </div>
-      </div>
-      <div className={styles.categoryActive}>
-        <b className={styles.title1}>Collectables</b>
-        <div className={styles.entryRow1}>
-          <div className={styles.entryLeftActive}>Old Horseshoe</div>
-          <div className={styles.entryLeftActive}>Sunflower</div>
-        </div>
-        <div className={styles.entryRow1}>
-          <div className={styles.entryLeftActive}>Eagle Feather</div>
-          <div className={styles.entryLeftActive}>Poppy</div>
-        </div>
-      </div>
-      <div className={styles.categoryActive1}>
-        <b className={styles.title}>Characters</b>
-      </div>
-      <div className={styles.categoryActive1}>
-        <b className={styles.title}>Races</b>
-      </div>
-      <div className={styles.themeInactive}>
-        <b className={styles.title4}>Fast Travel</b>
-      </div>
+    <div className={styles.menu}>
+      <SearchBar
+        onSearch={() => {
+          // console.log('Searching for:', query);
+          // TO-DO: Implement proper filtering
+        }}
+      />
+      <Category
+        title="Locations"
+        isActive={questsEnabled}
+        onToggle={toggleQuests}
+        entries={[
+          {
+            label: 'Main Quest',
+            isActive: mainQuestVisible,
+            onToggle: () => setMainQuestVisible(!mainQuestVisible),
+          },
+          {
+            label: 'Side Quest',
+            isActive: sideQuestVisible,
+            onToggle: () => setSideQuestVisible(!sideQuestVisible),
+          },
+        ]}
+      />
     </div>
   );
 };

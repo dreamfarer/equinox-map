@@ -3,9 +3,9 @@ import styles from './page.module.css';
 import MapWrapper from './components/map-wrapper';
 import Navbar from './components/navbar';
 
-export default function Dev() {
+export default function Home() {
   return (
-    <div className={styles.mainHorizontal}>
+    <div className={styles.home}>
       <Navbar />
       <Menu />
       <MapWrapper />
