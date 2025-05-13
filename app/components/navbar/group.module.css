@@ -1,7 +1,6 @@
 .group {
   display: flex;
   flex-direction: column;
-  padding: var(--padding-3xs);
   gap: var(--gap-3xs);
   align-items: center;
   justify-content: center;

@@ -5,7 +5,6 @@
   justify-content: space-between;
   gap: 0;
   z-index: 2;
-  overflow: hidden;
   display: flex;
   align-items: center;
   padding: var(--padding-3xs);
@@ -17,7 +16,6 @@
   width: 2.5rem;
   height: 2.5rem;
   position: relative;
-  padding: 0.5rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,5 +46,9 @@
     align-self: stretch;
     flex-direction: row;
     padding: var(--padding-3xs) var(--padding-xl);
+  }
+
+  .button.logo {
+    height: 2.5rem;
   }
 }
