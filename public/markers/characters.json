@@ -5,6 +5,7 @@
     "type": "character",
     "character": "agnes",
     "map": "greenisland",
+    "icon": "",
     "lng": -133.04875576490414,
     "lat": 5.731223075120667
   },
@@ -14,6 +15,7 @@
     "type": "character",
     "character": "celina",
     "map": "greenisland",
+    "icon": "",
     "lng": -130.0823253177558,
     "lat": 11.722680331200024
   },
@@ -23,6 +25,7 @@
     "type": "character",
     "character": "kurt-burlow",
     "map": "greenisland",
+    "icon": "",
     "lng": -135.8966735228977,
     "lat": 21.071369737335587
   },
@@ -32,6 +35,7 @@
     "type": "character",
     "character": "danny",
     "map": "greenisland",
+    "icon": "",
     "lng": -141.19027174837998,
     "lat": 23.299872242648348
   },
@@ -41,6 +45,7 @@
     "type": "character",
     "character": "maia",
     "map": "greenisland",
+    "icon": "",
     "lng": -141.7575218739054,
     "lat": 23.80061453314815
   },
@@ -50,6 +55,7 @@
     "type": "character",
     "character": "kathy",
     "map": "greenisland",
+    "icon": "",
     "lng": -128.82531338907893,
     "lat": 21.83425082281468
   },
@@ -59,6 +65,7 @@
     "type": "character",
     "character": "paige",
     "map": "greenisland",
+    "icon": "",
     "lng": -129.62366541759638,
     "lat": 21.189243585921417
   },
@@ -68,6 +75,7 @@
     "type": "character",
     "character": "wendy",
     "map": "greenisland",
+    "icon": "",
     "lng": -126.04312372472143,
     "lat": 10.114457878497262
   },
@@ -77,6 +85,7 @@
     "type": "character",
     "character": "lucas",
     "map": "greenisland",
+    "icon": "",
     "lng": -124.32998690125626,
     "lat": 5.855575634689444
   },
@@ -86,6 +95,7 @@
     "type": "character",
     "character": "heather",
     "map": "greenisland",
+    "icon": "",
     "lng": -118.7100113151109,
     "lat": 21.647676964289886
   },
@@ -95,6 +105,7 @@
     "type": "character",
     "character": "thomas-pratt",
     "map": "greenisland",
+    "icon": "",
     "lng": -117.96437305768836,
     "lat": 14.256520036255537
   },
@@ -104,6 +115,7 @@
     "type": "character",
     "character": "malcom",
     "map": "greenisland",
+    "icon": "",
     "lng": -138.73254092701615,
     "lat": 8.371351988887142
   },
@@ -113,6 +125,7 @@
     "type": "character",
     "character": "valeria",
     "map": "greenisland",
+    "icon": "",
     "lng": -123.43130044998102,
     "lat": 16.70213880879045
   },
@@ -122,6 +135,7 @@
     "type": "character",
     "character": "carmen",
     "map": "greenisland",
+    "icon": "",
     "lng": -122.54363585781121,
     "lat": 17.38108541816318
   },
@@ -131,6 +145,7 @@
     "type": "character",
     "character": "bill",
     "map": "greenisland",
+    "icon": "",
     "lng": -132.495096412526,
     "lat": -7.454049326786929
   },
@@ -140,6 +155,7 @@
     "type": "character",
     "character": "lucy-chen",
     "map": "greenisland",
+    "icon": "",
     "lng": -126.10126365809994,
     "lat": 37.185815465405014
   },
@@ -149,6 +165,7 @@
     "type": "character",
     "character": "kai-chen",
     "map": "greenisland",
+    "icon": "",
     "lng": -127.41668763374568,
     "lat": 37.31669823560536
   },
@@ -158,6 +175,7 @@
     "type": "character",
     "character": "emily",
     "map": "greenisland",
+    "icon": "",
     "lng": -120.59292576008659,
     "lat": 45.84455343150455
   },
@@ -167,6 +185,7 @@
     "type": "character",
     "character": "lewis",
     "map": "greenisland",
+    "icon": "",
     "lng": -119.85299977378574,
     "lat": 47.591646959983706
   },
@@ -176,6 +195,7 @@
     "type": "charackter",
     "character": "mrs-wilson",
     "map": "greenisland",
+    "icon": "",
     "lng": -122.4838477250776,
     "lat": 55.397741514917044
   },
@@ -185,6 +205,7 @@
     "type": "Character",
     "character": "samuel",
     "map": "greenisland",
+    "icon": "",
     "lng": -131.9384575500286,
     "lat": 58.91693547480995
   },
@@ -194,6 +215,7 @@
     "type": "character",
     "character": "harry-bell",
     "map": "greenisland",
+    "icon": "",
     "lng": -157.54121878507758,
     "lat": 69.84942657313269
   },
@@ -203,6 +225,7 @@
     "type": "character",
     "character": "misty",
     "map": "greenisland",
+    "icon": "",
     "lng": -151.21074090228242,
     "lat": 70.6548953996259
   },
@@ -212,6 +235,7 @@
     "type": "character",
     "character": "robert",
     "map": "greenisland",
+    "icon": "",
     "lng": -156.96572079573247,
     "lat": 72.32425012020533
   },
@@ -221,6 +245,7 @@
     "type": "character",
     "character": "mike-gibson",
     "map": "greenisland",
+    "icon": "",
     "lng": -106.4627114850088,
     "lat": 77.71002967223464
   },
@@ -230,6 +255,7 @@
     "type": "character",
     "character": "derek-whitlock",
     "map": "greenisland",
+    "icon": "",
     "lng": -23.77828943701428,
     "lat": 78.34641190578688
   },
@@ -239,6 +265,7 @@
     "type": "character",
     "character": "old-williams",
     "map": "greenisland",
+    "icon": "",
     "lng": -0.018443876893286415,
     "lat": 71.30966329525648
   },
@@ -248,6 +275,7 @@
     "type": "charcakter",
     "character": "meredith",
     "map": "greenisland",
+    "icon": "",
     "lng": 1.7902640896351727,
     "lat": 53.304413897678785
   },
@@ -257,6 +285,7 @@
     "type": "character",
     "character": "philip-wiseman",
     "map": "greenisland",
+    "icon": "",
     "lng": -43.32460452595964,
     "lat": -64.071629486253
   },
@@ -266,6 +295,7 @@
     "type": "character",
     "character": "anika",
     "map": "greenisland",
+    "icon": "",
     "lng": -165.05561490997303,
     "lat": 1.960802209150188
   },
@@ -275,6 +305,7 @@
     "type": "character",
     "character": "bobby-zanker",
     "map": "greenisland",
+    "icon": "",
     "lng": -149.8920830572194,
     "lat": -8.565265881231511
   },
@@ -284,6 +315,7 @@
     "type": "character",
     "character": "jett",
     "map": "greenisland",
+    "icon": "",
     "lng": -132.3638670846086,
     "lat": 44.70236383607545
   }
