@@ -20,6 +20,7 @@
 @media (max-width: 768px) {
   .menu {
     width: 100%;
+    max-width: unset;
     height: 40vh;
     align-self: stretch;
     border-left: none;
