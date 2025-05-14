@@ -1,0 +1,18 @@
+{
+  "title": "Player Barn",
+  "subtitle": "Teleports you to your Home Stabel",
+  "type": "fast-travel",
+  "character": "",
+  "map": "greenisland",
+  "lng": -113.70812583982297,
+  "lat": -30.85951172755518
+},
+{
+  "title": "Restart Ride Home",
+  "subtitle": "Teleports you to the Rehab facility",
+  "type": "fast-travel",
+  "character": "",
+  "map": "greenisland",
+  "lng": -38.656889209928465,
+  "lat": -61.26494368947681
+},
