@@ -7,3 +7,12 @@
   "lng": -105.82035020454212,
   "lat": 77.81068325933191
 },
+{
+  "title": "Low Coast Trail",
+  "subtitle": "Here you can start the scenic ride",
+  "type": "scenic-ride",
+  "character": "",
+  "map": "greenisland",
+  "lng": -147.06831752083977,
+  "lat": 12.499188640635154
+},
