@@ -1,0 +1,33 @@
+name: Reset data branch after merging it into main
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  reset-data:
+    if: |
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.ref == 'data'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Reset data branch to main
+        run: |
+          git checkout main
+          git pull origin main
+          git checkout -B data
+          git push origin data --force
