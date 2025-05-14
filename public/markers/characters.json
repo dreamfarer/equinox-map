@@ -1,0 +1,290 @@
+[
+  {
+    "title": "Agnes",
+    "subtitle": "",
+    "type": "character",
+    "character": "agnes",
+    "map": "greenisland",
+    "lng": -133.04875576490414,
+    "lat": 5.731223075120667
+  },
+  {
+    "title": "Celina",
+    "subtitle": "",
+    "type": "character",
+    "character": "celina",
+    "map": "greenisland",
+    "lng": -130.0823253177558,
+    "lat": 11.722680331200024
+  },
+  {
+    "title": "Kurt Burlow",
+    "subtitle": "",
+    "type": "character",
+    "character": "kurt-burlow",
+    "map": "greenisland",
+    "lng": -135.8966735228977,
+    "lat": 21.071369737335587
+  },
+  {
+    "title": "Danny",
+    "subtitle": "",
+    "type": "character",
+    "character": "danny",
+    "map": "greenisland",
+    "lng": -141.19027174837998,
+    "lat": 23.299872242648348
+  },
+  {
+    "title": "Maia",
+    "subtitle": "",
+    "type": "character",
+    "character": "maia",
+    "map": "greenisland",
+    "lng": -141.7575218739054,
+    "lat": 23.80061453314815
+  },
+  {
+    "title": "Kathy",
+    "subtitle": "",
+    "type": "character",
+    "character": "kathy",
+    "map": "greenisland",
+    "lng": -128.82531338907893,
+    "lat": 21.83425082281468
+  },
+  {
+    "title": "Paige",
+    "subtitle": "",
+    "type": "character",
+    "character": "paige",
+    "map": "greenisland",
+    "lng": -129.62366541759638,
+    "lat": 21.189243585921417
+  },
+  {
+    "title": "Wendy",
+    "subtitle": "",
+    "type": "character",
+    "character": "wendy",
+    "map": "greenisland",
+    "lng": -126.04312372472143,
+    "lat": 10.114457878497262
+  },
+  {
+    "title": "Lucas",
+    "subtitle": "",
+    "type": "character",
+    "character": "lucas",
+    "map": "greenisland",
+    "lng": -124.32998690125626,
+    "lat": 5.855575634689444
+  },
+  {
+    "title": "Heather",
+    "subtitle": "",
+    "type": "character",
+    "character": "heather",
+    "map": "greenisland",
+    "lng": -118.7100113151109,
+    "lat": 21.647676964289886
+  },
+  {
+    "title": "Thomas Pratt",
+    "subtitle": "",
+    "type": "character",
+    "character": "thomas-pratt",
+    "map": "greenisland",
+    "lng": -117.96437305768836,
+    "lat": 14.256520036255537
+  },
+  {
+    "title": "Malcom",
+    "subtitle": "",
+    "type": "character",
+    "character": "malcom",
+    "map": "greenisland",
+    "lng": -138.73254092701615,
+    "lat": 8.371351988887142
+  },
+  {
+    "title": "Valeria",
+    "subtitle": "takes dandelions",
+    "type": "character",
+    "character": "valeria",
+    "map": "greenisland",
+    "lng": -123.43130044998102,
+    "lat": 16.70213880879045
+  },
+  {
+    "title": "Carmen",
+    "subtitle": "",
+    "type": "character",
+    "character": "carmen",
+    "map": "greenisland",
+    "lng": -122.54363585781121,
+    "lat": 17.38108541816318
+  },
+  {
+    "title": "Bill",
+    "subtitle": "",
+    "type": "character",
+    "character": "bill",
+    "map": "greenisland",
+    "lng": -132.495096412526,
+    "lat": -7.454049326786929
+  },
+  {
+    "title": "Lucy Chen",
+    "subtitle": "",
+    "type": "character",
+    "character": "lucy-chen",
+    "map": "greenisland",
+    "lng": -126.10126365809994,
+    "lat": 37.185815465405014
+  },
+  {
+    "title": "Kai Chen",
+    "subtitle": "",
+    "type": "character",
+    "character": "kai-chen",
+    "map": "greenisland",
+    "lng": -127.41668763374568,
+    "lat": 37.31669823560536
+  },
+  {
+    "title": "Emily",
+    "subtitle": "",
+    "type": "character",
+    "character": "emily",
+    "map": "greenisland",
+    "lng": -120.59292576008659,
+    "lat": 45.84455343150455
+  },
+  {
+    "title": "Lewis",
+    "subtitle": "",
+    "type": "character",
+    "character": "lewis",
+    "map": "greenisland",
+    "lng": -119.85299977378574,
+    "lat": 47.591646959983706
+  },
+  {
+    "title": "Mrs. Wilson",
+    "subtitle": "",
+    "type": "charackter",
+    "character": "mrs-wilson",
+    "map": "greenisland",
+    "lng": -122.4838477250776,
+    "lat": 55.397741514917044
+  },
+  {
+    "title": "Samuel",
+    "subtitle": "",
+    "type": "Character",
+    "character": "samuel",
+    "map": "greenisland",
+    "lng": -131.9384575500286,
+    "lat": 58.91693547480995
+  },
+  {
+    "title": "Harry Bell",
+    "subtitle": "",
+    "type": "character",
+    "character": "harry-bell",
+    "map": "greenisland",
+    "lng": -157.54121878507758,
+    "lat": 69.84942657313269
+  },
+  {
+    "title": "Misty",
+    "subtitle": "Gives you a secret side Quest",
+    "type": "character",
+    "character": "misty",
+    "map": "greenisland",
+    "lng": -151.21074090228242,
+    "lat": 70.6548953996259
+  },
+  {
+    "title": "Robert",
+    "subtitle": "",
+    "type": "character",
+    "character": "robert",
+    "map": "greenisland",
+    "lng": -156.96572079573247,
+    "lat": 72.32425012020533
+  },
+  {
+    "title": "Mike Gibson",
+    "subtitle": "",
+    "type": "character",
+    "character": "mike-gibson",
+    "map": "greenisland",
+    "lng": -106.4627114850088,
+    "lat": 77.71002967223464
+  },
+  {
+    "title": "Derek Whitlock",
+    "subtitle": "",
+    "type": "character",
+    "character": "derek-whitlock",
+    "map": "greenisland",
+    "lng": -23.77828943701428,
+    "lat": 78.34641190578688
+  },
+  {
+    "title": "Old Williams",
+    "subtitle": "",
+    "type": "character",
+    "character": "old-williams",
+    "map": "greenisland",
+    "lng": -0.018443876893286415,
+    "lat": 71.30966329525648
+  },
+  {
+    "title": "Meredith",
+    "subtitle": "",
+    "type": "charcakter",
+    "character": "meredith",
+    "map": "greenisland",
+    "lng": 1.7902640896351727,
+    "lat": 53.304413897678785
+  },
+  {
+    "title": "Philip Wiseman",
+    "subtitle": "",
+    "type": "character",
+    "character": "philip-wiseman",
+    "map": "greenisland",
+    "lng": -43.32460452595964,
+    "lat": -64.071629486253
+  },
+  {
+    "title": "Anika",
+    "subtitle": "",
+    "type": "character",
+    "character": "anika",
+    "map": "greenisland",
+    "lng": -165.05561490997303,
+    "lat": 1.960802209150188
+  },
+  {
+    "title": "Bobby Zanker",
+    "subtitle": "",
+    "type": "character",
+    "character": "bobby-zanker",
+    "map": "greenisland",
+    "lng": -149.8920830572194,
+    "lat": -8.565265881231511
+  },
+  {
+    "title": "Jett",
+    "subtitle": "",
+    "type": "character",
+    "character": "jett",
+    "map": "greenisland",
+    "lng": -132.3638670846086,
+    "lat": 44.70236383607545
+  }
+]
