@@ -175,7 +175,7 @@
     "type": "character",
     "character": "emily",
     "map": "greenisland",
-    "icon": "",
+    "icon": "emily",
     "lng": -120.59292576008659,
     "lat": 45.84455343150455
   },
@@ -225,7 +225,7 @@
     "type": "character",
     "character": "misty",
     "map": "greenisland",
-    "icon": "",
+    "icon": "misty",
     "lng": -151.21074090228242,
     "lat": 70.6548953996259
   },
