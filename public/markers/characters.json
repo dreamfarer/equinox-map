@@ -320,13 +320,13 @@
     "lat": 44.70236383607545
   },
   {
-  "title": "Kyle",
-  "subtitle": "",
-  "type": "character",
-  "character": "kyle",
-  "map": "greenisland",
+    "title": "Kyle",
+    "subtitle": "",
+    "type": "character",
+    "character": "kyle",
+    "map": "greenisland",
     "icon": "kyle",
-  "lng": -50.999734818775266,
-  "lat": 70.85152063679686
-},
+    "lng": -50.999734818775266,
+    "lat": 70.85152063679686
+  }
 ]
