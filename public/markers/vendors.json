@@ -1,38 +1,18 @@
 [
   {
-    "title": "Wendy",
     "subtitle": "Here you will need the Reputation with the Alderwood Downtown",
-    "type": "vendor",
-    "character": "wendy",
-    "map": "greenisland",
-    "lng": -126.04272025515687,
-    "lat": 10.258957832776034
+    "character": "wendy"
   },
   {
-    "title": "Kathy",
     "subtitle": "Here you need the Reputation with the Alderwood Farms",
-    "type": "vendor",
-    "character": "kathy",
-    "map": "greenisland",
-    "lng": -129.01546929963894,
-    "lat": 21.721469660289614
+    "character": "kathy"
   },
   {
-    "title": "Samuel",
     "subtitle": "Here you need the Reputation with the Alderwood Wilds",
-    "type": "vendor",
-    "character": "samuel",
-    "map": "greenisland",
-    "lng": -132.23704519658335,
-    "lat": 58.828355179246785
+    "character": "samuel"
   },
   {
-    "title": "Robert",
     "subtitle": "Here you need the Reputation with the Alderwood Fishing Village",
-    "type": "vendor",
-    "character": "robert",
-    "map": "greenisland",
-    "lng": -157.22278582548222,
-    "lat": 72.41583884580183
+    "character": "robert"
   }
 ]
