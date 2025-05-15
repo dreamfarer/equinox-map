@@ -55,3 +55,16 @@
   gap: 1rem;
   justify-content: center;
 }
+
+.customMarker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.markerImage {
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+  display: block;
+}

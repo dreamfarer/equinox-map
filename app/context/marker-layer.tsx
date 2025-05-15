@@ -13,6 +13,7 @@ import {
   loadMarkersByCategory,
   mergeMarkersByCharacter,
 } from '@/lib/marker-layer-utility';
+import styles from '../components/map.module.css';
 
 type MarkerLayerContextType = {
   enabled: Record<MarkerCategory, boolean>;
@@ -46,7 +47,21 @@ function renderMarkers(
     );
     if (!shouldShow) return;
 
-    const el = new maplibregl.Marker({ color: '#007cbf' })
+    const iconName = marker.icon?.trim() ? marker.icon : 'default-marker';
+    const iconPath = `/icon/64/${iconName}.webp`;
+
+    const el = document.createElement('div');
+    el.className = styles.customMarker;
+    el.setAttribute('data-character', marker.character);
+
+    const img = document.createElement('img');
+    img.src = iconPath;
+    img.alt = marker.title;
+    img.className = styles.markerImage;
+
+    el.appendChild(img);
+
+    new maplibregl.Marker({ element: el })
       .setLngLat([marker.lng, marker.lat])
       .setPopup(
         new maplibregl.Popup({ offset: 25 }).setHTML(
@@ -54,8 +69,6 @@ function renderMarkers(
         ),
       )
       .addTo(map);
-
-    el.getElement().setAttribute('data-character', marker.character);
   });
 }
 
