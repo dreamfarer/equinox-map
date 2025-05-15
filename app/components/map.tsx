@@ -128,14 +128,23 @@ export default function Map() {
               </>
             ) : (
               <>
-                <p>
-                  This interactive map is under active development. Most
-                  features are not implemented yet.
-                </p>
+                <p>This interactive map is under active development.</p>
                 <p>Bookmark it and check back later! &lt;3</p>
-                <button onClick={() => setDisclaimerAccepted(true)}>
-                  I understand
-                </button>
+                <div className={styles.buttonGroup}>
+                  <button onClick={() => setDisclaimerAccepted(true)}>
+                    Continue
+                  </button>
+                  <button
+                    onClick={() =>
+                      window.open(
+                        'https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform',
+                        '_blank',
+                      )
+                    }
+                  >
+                    Give Feedback
+                  </button>
+                </div>
               </>
             )}
           </div>
