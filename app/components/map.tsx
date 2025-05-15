@@ -2,11 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { Marker } from '../types/marker';
+import { Marker } from '../../types/marker';
 import styles from './map.module.css';
+import { useMarkerLayerContext } from '../context/marker-layer';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
+  const { setMapInstance } = useMarkerLayerContext();
   const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
@@ -14,9 +16,10 @@ export default function Map() {
     const marker: Marker = {
       title: '',
       subtitle: '',
-      type: '',
+      category: '',
       character: '',
       map: 'greenisland',
+      icon: '',
       lng,
       lat,
     };
@@ -91,8 +94,9 @@ export default function Map() {
       exportMarkerDebug(map, lng, lat);
     });
 
+    setMapInstance(map);
     return () => map.remove();
-  }, [tileBaseUrl]);
+  }, [tileBaseUrl, setMapInstance]);
 
   return (
     <div className={styles.mapWrapper}>

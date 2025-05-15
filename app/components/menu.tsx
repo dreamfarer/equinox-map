@@ -3,19 +3,10 @@ import type { NextPage } from 'next';
 import styles from './menu.module.css';
 import Category from './menu/category';
 import SearchBar from './menu/searchbar';
-import { useState } from 'react';
+import { useMarkerLayerContext } from '../context/marker-layer';
 
 const Menu: NextPage = () => {
-  const [questsEnabled, setQuestsEnabled] = useState(true);
-  const [mainQuestVisible, setMainQuestVisible] = useState(true);
-  const [sideQuestVisible, setSideQuestVisible] = useState(true);
-
-  const toggleQuests = () => {
-    const newState = !questsEnabled;
-    setQuestsEnabled(newState);
-    setMainQuestVisible(newState);
-    setSideQuestVisible(newState);
-  };
+  const { enabled, toggleCategory } = useMarkerLayerContext();
 
   return (
     <div className={styles.menu}>
@@ -27,18 +18,21 @@ const Menu: NextPage = () => {
       />
       <Category
         title="Locations"
-        isActive={questsEnabled}
-        onToggle={toggleQuests}
+        isActive={enabled.characters || enabled.vendors}
+        onToggle={() => {
+          toggleCategory('characters');
+          toggleCategory('vendors');
+        }}
         entries={[
           {
-            label: 'Main Quest',
-            isActive: mainQuestVisible,
-            onToggle: () => setMainQuestVisible(!mainQuestVisible),
+            label: 'Characters',
+            isActive: enabled.characters,
+            onToggle: () => toggleCategory('characters'),
           },
           {
-            label: 'Side Quest',
-            isActive: sideQuestVisible,
-            onToggle: () => setSideQuestVisible(!sideQuestVisible),
+            label: 'Vendors',
+            isActive: enabled.vendors,
+            onToggle: () => toggleCategory('vendors'),
           },
         ]}
       />
