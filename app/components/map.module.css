@@ -60,6 +60,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.customMarker.withIcon {
+  z-index: 10;
 }
 
 .markerImage {

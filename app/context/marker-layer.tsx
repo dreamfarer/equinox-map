@@ -47,11 +47,13 @@ function renderMarkers(
     );
     if (!shouldShow) return;
 
-    const iconName = marker.icon?.trim() ? marker.icon : 'default-marker';
+    const hasCustomIcon = marker.icon?.trim();
+    const iconName = hasCustomIcon ? marker.icon : 'default-marker';
     const iconPath = `/icon/64/${iconName}.webp`;
 
     const el = document.createElement('div');
-    el.className = styles.customMarker;
+    el.className = `${styles.customMarker} ${hasCustomIcon ? styles.withIcon : ''}`;
+
     el.setAttribute('data-character', marker.character);
 
     const img = document.createElement('img');
