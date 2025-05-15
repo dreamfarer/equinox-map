@@ -5,9 +5,11 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { Marker } from '../../types/marker';
 import styles from './map.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
+import { useDevMode } from '../context/dev-mode';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
+  const isDevMode = useDevMode();
   const { setMapInstance } = useMarkerLayerContext();
   const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
@@ -89,28 +91,53 @@ export default function Map() {
     ]);
     map.scrollZoom.enable();
 
-    map.on('click', (e) => {
-      const { lng, lat } = e.lngLat;
-      exportMarkerDebug(map, lng, lat);
-    });
+    if (isDevMode) {
+      map.on('click', (e) => {
+        const { lng, lat } = e.lngLat;
+        exportMarkerDebug(map, lng, lat);
+      });
+    }
 
     setMapInstance(map);
     return () => map.remove();
-  }, [tileBaseUrl, setMapInstance]);
+  }, [tileBaseUrl, setMapInstance, isDevMode]);
 
   return (
     <div className={styles.mapWrapper}>
       {!disclaimerAccepted && (
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
-            <p>
-              This interactive map is under active development. Most features
-              are not implemented yet.
-            </p>
-            <p>Bookmark it and check back later! &lt;3</p>
-            <button onClick={() => setDisclaimerAccepted(true)}>
-              I understand
-            </button>
+            {isDevMode ? (
+              <>
+                <p>
+                  You are viewing the development page (<code>/dev</code>).
+                </p>
+                <p>
+                  When clicking on the map, it adds a temporary marker and
+                  copies a template into the clipboard for easier data
+                  gathering.
+                </p>
+                <div className={styles.buttonGroup}>
+                  <button onClick={() => setDisclaimerAccepted(true)}>
+                    I understand
+                  </button>
+                  <button onClick={() => (window.location.href = '/')}>
+                    Take me to safety
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <p>
+                  This interactive map is under active development. Most
+                  features are not implemented yet.
+                </p>
+                <p>Bookmark it and check back later! &lt;3</p>
+                <button onClick={() => setDisclaimerAccepted(true)}>
+                  I understand
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

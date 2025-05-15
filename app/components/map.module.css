@@ -48,3 +48,10 @@
 .overlayContent button:hover {
   filter: brightness(85%);
 }
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
