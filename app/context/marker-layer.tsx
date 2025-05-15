@@ -36,6 +36,7 @@ export const useMarkerLayerContext = () => {
 
 function clearExistingMarkers() {
   document.querySelectorAll('[data-character]').forEach((el) => el.remove());
+  document.querySelectorAll('.maplibregl-popup').forEach((el) => el.remove());
 }
 
 function renderMarkers(
