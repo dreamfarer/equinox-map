@@ -5,7 +5,7 @@
   --font-inter: Inter;
 
   /* font sizes */
-  --font-size-mini: 0.938rem;
+  --font-size-mini: 0.75rem;
   --font-size-base: 1rem;
   --font-size-title: 1.25rem;
 
@@ -42,4 +42,37 @@ body {
   line-height: normal;
   height: 100%;
   font-family: var(--font-inter);
+}
+
+/* Overwrite MapLibre GL Popup */
+.equinox-popup.maplibregl-popup {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.equinox-popup .maplibregl-popup-content {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: var(--background-dark) !important;
+}
+
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: var(--background-dark) !important;
+}
+
+.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--background-dark) !important;
+}
+
+.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--background-dark) !important;
 }

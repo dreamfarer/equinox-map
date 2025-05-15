@@ -1,0 +1,48 @@
+.popup {
+  display: flex;
+  width: 15rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup .frame {
+  display: flex;
+  padding: var(--padding-xl);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-8xs);
+  align-self: stretch;
+  background: var(--background-dark);
+  position: relative;
+}
+
+.popup .frame .title {
+  font-size: var(--font-size-title);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.popup .frame .subtitle {
+  font-size: var(--font-size-mini);
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.popup .frame .quit {
+  display: flex;
+  width: 1.1875rem;
+  height: 1.1875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0.625rem;
+  top: 0.625rem;
+  background: var(--text-dark);
+  color: var(--background-dark);
+  border-color: transparent;
+}
+
+.popup .frame .quit:hover {
+  filter: brightness(95%);
+}
