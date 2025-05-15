@@ -10,7 +10,8 @@
   padding: var(--padding-3xs);
 }
 
-.button {
+.button,
+.caret {
   background: none;
   border: none;
   width: 2.5rem;
@@ -37,6 +38,10 @@
   height: 3rem;
 }
 
+.caret.inactive {
+  transform: rotate(180deg);
+}
+
 /* Mobile Layout*/
 @media (max-width: 768px) {
   .navbar {
@@ -50,5 +55,13 @@
 
   .button.logo {
     height: 2.5rem;
+  }
+
+  .caret.active {
+    transform: rotate(270deg);
+  }
+
+  .caret.inactive {
+    transform: rotate(90deg);
   }
 }

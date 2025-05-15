@@ -1,11 +1,11 @@
 'use client';
 import type { NextPage } from 'next';
-import styles from './menu.module.css';
-import Category from './menu/category';
-import SearchBar from './menu/searchbar';
+import styles from './filter.module.css';
+import Category from './filter/category';
+import SearchBar from './filter/searchbar';
 import { useMarkerLayerContext } from '../context/marker-layer';
 
-const Menu: NextPage = () => {
+const Filter: NextPage = () => {
   const { enabled, toggleCategory } = useMarkerLayerContext();
 
   return (
@@ -40,4 +40,4 @@ const Menu: NextPage = () => {
   );
 };
 
-export default Menu;
+export default Filter;

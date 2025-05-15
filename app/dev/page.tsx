@@ -1,20 +1,11 @@
-import Menu from '../components/menu';
-import styles from '../page.module.css';
-import MapWrapper from '../components/map-wrapper';
-import Navbar from '../components/navbar';
-import { MarkerLayerProvider } from '../context/marker-layer';
+'use client';
 import { DevModeProvider } from '../context/dev-mode';
+import Home from '../page';
 
 export default function DevPage() {
   return (
-    <MarkerLayerProvider>
-      <DevModeProvider>
-        <div className={styles.home}>
-          <Navbar />
-          <Menu />
-          <MapWrapper />
-        </div>
-      </DevModeProvider>
-    </MarkerLayerProvider>
+    <DevModeProvider>
+      <Home />
+    </DevModeProvider>
   );
 }
