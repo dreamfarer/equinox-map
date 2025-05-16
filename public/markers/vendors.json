@@ -1,18 +1,18 @@
 [
   {
     "subtitle": "Here you will need the Reputation with the Alderwood Downtown",
-    "character": "wendy"
+    "foreignId": "wendy"
   },
   {
     "subtitle": "Here you need the Reputation with the Alderwood Farms",
-    "character": "kathy"
+    "foreignId": "kathy"
   },
   {
     "subtitle": "Here you need the Reputation with the Alderwood Wilds",
-    "character": "samuel"
+    "foreignId": "samuel"
   },
   {
     "subtitle": "Here you need the Reputation with the Alderwood Fishing Village",
-    "character": "robert"
+    "foreignId": "robert"
   }
 ]
