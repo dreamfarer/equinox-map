@@ -7,7 +7,7 @@ export function Popup({
   onClose,
 }: {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   onClose: () => void;
 }) {
   return (

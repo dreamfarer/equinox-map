@@ -1,10 +1,11 @@
-import { MarkerCategory } from './marker-category';
+export const markerCategories = ['characters', 'vendors'] as const;
+export type MarkerCategory = (typeof markerCategories)[number];
 
 export type Marker = {
   title: string;
   subtitle?: string;
-  category: string;
-  character?: string;
+  id?: string;
+  foreignId?: string;
   map: string;
   icon?: string;
   lng: number;
@@ -12,12 +13,34 @@ export type Marker = {
 };
 
 export type MergedMarker = {
-  character: string;
+  title: string;
+  subtitle?: string;
+  id: string;
+  foreignId?: string;
   map: string;
+  icon?: string;
   lng: number;
   lat: number;
-  title: string;
-  subtitle: string;
-  icon: string;
   categories: MarkerCategory[];
+};
+
+export type MarkerFeature = {
+  type: 'Feature';
+  geometry: {
+    type: 'Point';
+    coordinates: [number, number];
+  };
+  properties: {
+    id: string;
+    map: string;
+    title: string;
+    subtitle: string;
+    icon: string;
+    categories: string[];
+  };
+};
+
+export type MarkerFeatureCollection = {
+  type: 'FeatureCollection';
+  features: MarkerFeature[];
 };

@@ -18,8 +18,8 @@ export default function Map() {
     const marker: Marker = {
       title: '',
       subtitle: '',
-      category: '',
-      character: '',
+      id: '',
+      foreignId: '',
       map: 'greenisland',
       icon: '',
       lng,

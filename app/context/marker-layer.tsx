@@ -7,12 +7,12 @@ import {
   useCallback,
 } from 'react';
 import maplibregl, { Offset } from 'maplibre-gl';
-import { markerCategories, MarkerCategory } from '../../types/marker-category';
-import { MergedMarker } from '../../types/marker';
 import {
-  loadMarkersByCategory,
-  mergeMarkersByCharacter,
-} from '@/lib/marker-layer-utility';
+  markerCategories,
+  MarkerCategory,
+  MergedMarker,
+} from '../../types/marker';
+import { loadMergedMarkers } from '@/lib/marker-layer-utility';
 import styles from '../components/map.module.css';
 import { createRoot } from 'react-dom/client';
 import { Popup } from '../components/map/popup';
@@ -35,7 +35,7 @@ export const useMarkerLayerContext = () => {
 };
 
 function clearExistingMarkers() {
-  document.querySelectorAll('[data-character]').forEach((el) => el.remove());
+  document.querySelectorAll('[data-id]').forEach((el) => el.remove());
   document.querySelectorAll('.maplibregl-popup').forEach((el) => el.remove());
 }
 
@@ -67,7 +67,7 @@ function renderMarkers(
 
     const el = document.createElement('div');
     el.className = `${styles.customMarker}`;
-    el.setAttribute('data-character', marker.character);
+    el.setAttribute('data-id', marker.id);
 
     const img = document.createElement('img');
     img.src = iconPath;
@@ -148,10 +148,9 @@ export function MarkerLayerProvider({
     if (!map) return;
 
     (async () => {
-      const loaded = await loadMarkersByCategory();
-      const merged = mergeMarkersByCharacter(loaded);
+      const loaded = await loadMergedMarkers();
       clearExistingMarkers();
-      renderMarkers(merged, enabled, map);
+      renderMarkers(loaded, enabled, map);
     })();
   }, [map, enabled]);
 

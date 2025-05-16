@@ -42,3 +42,4 @@ next-env.d.ts
 
 # user-defined
 tiles/
+public/markers/markers.geojson
