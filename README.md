@@ -1,14 +1,58 @@
 # Equinox: Homecoming Interactive Map
 
-Welcome to the interactive map for Blue Scarab Entertainment’s [**Equinox: Homecoming**](https://store.steampowered.com/app/3258290/Equinox_Homecoming/).
-This project is currently in development. At this stage, it provides a basic interactive map with no markers, filters, or gameplay layers yet. More features will be added as development progresses, so stay tuned for updates!
+This interactive map for [Equinox: Homecoming](https://store.steampowered.com/app/3258290/Equinox_Homecoming/) is a community-driven project — created and maintained by players, for players. Try it out [here](https://equinoxmap.app/)!
 
-## Map Tiling Instructions
+## Implemented Features
 
-To prepare a large map image for use with MapLibre GL, you can tile it using the following command with [**vips**](https://libvips.github.io/libvips/):
+The following features are fully implemented and available in the live version:
+
+- Toggle marker categories on/off
+- Search for markers using the search bar
+- Click a search result to fly to that marker on the map
+- Click a marker to open a popup with additional information
+- Bookmark markers directly from the search results
+- View only your bookmarked markers via the **Bookmarks** tab
+
+## Roadmap
+
+We are committed to maintaining this project long-term. Our immediate goals include:
+
+- Adding remaining markers (e.g., resources, races, scenic rides, etc.)
+- Enabling bookmarking directly from marker popups
+- Refactoring and abstracting code for future expansion
+
+## Feedback, Issues, Suggestions
+
+Have feedback, found a bug, or have a feature request? Fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform?usp=header) or open an [issue](https://github.com/dreamfarer/equinox-map/issues/new) on GitHub.
+
+## Technical Overview
+
+### Deployment
+
+The project is currently running on **free** plans. The serverless Next.js frontend is hosted on [Vercel](https://vercel.com/), and the map tiles are stored in a [Cloudflare R2](https://www.cloudflare.com/en-gb/developer-platform/products/r2/) bucket.
+
+### Data Sourcing & Processing
+
+This is a collaborative community effort, with data sourced by players exploring the game.
+We've implemented a **development mode**, accessible at [equinoxmap.app/dev](https://equinoxmap.app/dev). Clicking on the map in this mode spawns a marker and copies a template to the clipboard.
+
+All markers are first added to `/public/markers` in the `data` branch. They are then processed if necessary and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. During build time, a script merges, autocompletes, and converts the markers to GeoJSON format for use with MapLibre GL.
+
+### Map Tiling
+
+To prepare a large map image for use with MapLibre GL, you can generate tiles using [**vips**](https://libvips.github.io/libvips/):
 
 ```bash
 vips dzsave original-map.png tiles --layout google --suffix .png --tile-size 256 --overlap 0
 ```
 
-This will generate image tiles in the correct format and structure for rendering in the map viewer.
+This generates image tiles in the correct format and structure for rendering within the map viewer.
+
+## Acknowledgements
+
+This project wouldn’t be possible without the tireless efforts of the following individuals — and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind _Equinox: Homecoming_:
+
+- **Overall Idea & Planning**: [dreamfarer](https://github.com/dreamfarer) and [Sugertoxity](https://discordapp.com/users/608320065439268864)
+- **Software Engineering & DevOps**: [dreamfarer](https://github.com/dreamfarer)
+- **Data Sourcing & Processing**: [Sugertoxity](https://discordapp.com/users/608320065439268864)
+- **Resource Map (Drawing)**: [Laika](https://discordapp.com/users/465185463226073109)
