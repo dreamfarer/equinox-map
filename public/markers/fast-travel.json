@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Player Barn",
+    "subtitle": "Teleports you to your home stable.",
+    "map": "greenisland",
+    "lng": -113.70812583982297,
+    "lat": -30.85951172755518
+  },
+  {
+    "title": "Restart Ride Home",
+    "subtitle": "Teleports you to the rehab facility.",
+    "map": "greenisland",
+    "lng": -38.656889209928465,
+    "lat": -61.26494368947681
+  }
+]

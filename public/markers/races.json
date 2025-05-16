@@ -1,0 +1,93 @@
+[
+  {
+    "title": "River Loop",
+    "subtitle": "Takes about 1:30 min.",
+    "map": "greenisland",
+    "lng": -121.75007661667658,
+    "lat": 23.514294839594584
+  },
+  {
+    "title": "Beer Run",
+    "subtitle": "Takes about 2:30 min.",
+    "map": "greenisland",
+    "lng": -136.3720022923521,
+    "lat": 23.92201610521269
+  },
+  {
+    "title": "Station to Station",
+    "subtitle": "Takes about 4 min.",
+    "map": "greenisland",
+    "lng": -121.9727455355956,
+    "lat": 20.208400818022582
+  },
+  {
+    "title": "River Trail",
+    "subtitle": "Takes about 1:20 min.",
+    "map": "greenisland",
+    "lng": -115.58956985993248,
+    "lat": -20.890436514781527
+  },
+  {
+    "title": "Swamp Cricut",
+    "subtitle": "Takes about 1:10 min.",
+    "map": "greenisland",
+    "lng": -62.44592121123185,
+    "lat": -1.9225157585477461
+  },
+  {
+    "title": "Radio Tower",
+    "subtitle": "Takes about 2:40 min.",
+    "map": "greenisland",
+    "lng": -38.728524786700206,
+    "lat": 52.01075600099358
+  },
+  {
+    "title": "Farmland Loop",
+    "subtitle": "Takes about 1:30 min.",
+    "map": "greenisland",
+    "lng": -6.678608386788682,
+    "lat": 70.48117733153174
+  },
+  {
+    "title": "Farmland Jumps",
+    "subtitle": "Takes about 1 min.",
+    "map": "greenisland",
+    "lng": -25.425609757509562,
+    "lat": 78.08132821603871
+  },
+  {
+    "title": "Mine Descent",
+    "subtitle": "Takes about 1:10 min.",
+    "map": "greenisland",
+    "lng": -63.74538301617481,
+    "lat": 68.45013824878393
+  },
+  {
+    "title": "Coastal Run",
+    "subtitle": "Takes about 1:10 min.",
+    "map": "greenisland",
+    "lng": -134.36486323273564,
+    "lat": 51.25737862838335
+  },
+  {
+    "title": "Blacksmith",
+    "subtitle": "Takes about 1 min.",
+    "map": "greenisland",
+    "lng": -135.43030001882641,
+    "lat": 57.03232922789266
+  },
+  {
+    "title": "Downhill Run",
+    "subtitle": "Takes about 0:40 min.",
+    "map": "greenisland",
+    "lng": -135.5271579084711,
+    "lat": 68.90404259945345
+  },
+  {
+    "title": "Lighthouse Climb",
+    "subtitle": "Takes about 1:10 min.",
+    "map": "greenisland",
+    "lng": -103.01147140484784,
+    "lat": 79.76445731137551
+  }
+]
