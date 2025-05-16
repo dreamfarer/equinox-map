@@ -19,7 +19,6 @@ import { createRoot } from 'react-dom/client';
 import { Popup } from '../components/map/popup';
 
 type MarkerLayerContextType = {
-  /** category toggles (characters/vendors etc.) */
   enabled: Record<MarkerCategory, boolean>;
   toggleCategory: (category: MarkerCategory) => void;
   setMapInstance: (map: maplibregl.Map) => void;
@@ -56,7 +55,6 @@ function renderMarkers(
   const customMarkers: MergedMarker[] = [];
 
   for (const marker of markers) {
-    // decide if marker is generally allowed
     const categoryAllowed = marker.categories.some(
       (t) => enabled[t as MarkerCategory],
     );
@@ -140,14 +138,12 @@ export function MarkerLayerProvider({
 }: {
   children: React.ReactNode;
 }) {
-  // category toggles
   const [enabled, setEnabled] = useState<Record<MarkerCategory, boolean>>(
     Object.fromEntries(
       markerCategories.map((category) => [category, true]),
     ) as Record<MarkerCategory, boolean>,
   );
 
-  // bookmarks (persisted in localStorage)
   const [bookmarks, setBookmarks] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
     try {
@@ -169,13 +165,8 @@ export function MarkerLayerProvider({
     });
   }, []);
 
-  // all merged markers
   const [markers, setMarkers] = useState<MergedMarker[]>([]);
-
-  // current map instance (from MapWrapper)
   const [map, setMap] = useState<maplibregl.Map | null>(null);
-
-  // optional visibility filter (null = default category filtering)
   const [visibleIds, setVisibleIds] = useState<string[] | null>(null);
 
   const toggleCategory = (category: MarkerCategory) =>
@@ -185,7 +176,6 @@ export function MarkerLayerProvider({
     setMap(m);
   }, []);
 
-  // center map helper
   const flyToMarker = useCallback(
     (id: string) => {
       if (!map) return;
@@ -196,17 +186,14 @@ export function MarkerLayerProvider({
     [map, markers],
   );
 
-  // show‑only helper
   const showOnlyMarkers = useCallback((ids: string[] | null) => {
     setVisibleIds(ids);
   }, []);
 
-  // initial data load + every time visibility toggles change
   useEffect(() => {
     if (!map) return;
 
     (async () => {
-      // initial fetch only once
       if (markers.length === 0) {
         const loaded = await loadMergedMarkers();
         setMarkers(loaded);
@@ -219,12 +206,11 @@ export function MarkerLayerProvider({
     })();
   }, [map, enabled, visibleIds, markers]);
 
-  // keep map in sync when we finish first load
   useEffect(() => {
     if (!map || markers.length === 0) return;
     clearExistingMarkers();
     renderMarkers(markers, enabled, visibleIds, map);
-  }, [map, markers]);
+  }, [map, markers, enabled, visibleIds]);
 
   const ctxValue = useMemo<MarkerLayerContextType>(
     () => ({
@@ -237,7 +223,15 @@ export function MarkerLayerProvider({
       bookmarks,
       toggleBookmark,
     }),
-    [enabled, markers, bookmarks, flyToMarker, showOnlyMarkers, toggleBookmark],
+    [
+      enabled,
+      markers,
+      bookmarks,
+      flyToMarker,
+      showOnlyMarkers,
+      toggleBookmark,
+      setMapInstance,
+    ],
   );
 
   return (

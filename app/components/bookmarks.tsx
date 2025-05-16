@@ -2,17 +2,11 @@
 import type { NextPage } from 'next';
 import styles from './filter.module.css';
 import Result from './filter/result';
-import { useEffect } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
 
 const Bookmarks: NextPage = () => {
-  const { bookmarks, markers, showOnlyMarkers, flyToMarker, toggleBookmark } =
+  const { bookmarks, markers, flyToMarker, toggleBookmark } =
     useMarkerLayerContext();
-
-  useEffect(() => {
-    showOnlyMarkers(bookmarks);
-    return () => showOnlyMarkers(null);
-  }, [bookmarks, showOnlyMarkers]);
 
   const bookmarkedMarkers = markers.filter((m) => bookmarks.includes(m.id));
 

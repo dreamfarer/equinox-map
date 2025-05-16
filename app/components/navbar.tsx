@@ -1,10 +1,11 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import styles from './navbar.module.css';
 import Group from './navbar/group';
 import { ListDashes, BookmarkSimple, CaretLeft } from '@phosphor-icons/react';
 import { MenuType } from '@/types/menu';
+import { useMarkerLayerContext } from '../context/marker-layer';
 
 interface Props {
   selectedMenu: MenuType;
@@ -18,46 +19,58 @@ const Navbar: React.FC<Props> = ({
   isMenuOpen,
   onSelectMenu,
   onToggleMenu,
-}) => (
-  <div className={styles.navbar}>
-    <Group>
-      <button className={`${styles.button} ${styles.logo}`} aria-label="Home">
-        <Image loading="lazy" fill alt="Logo" src="/logo.svg" />
-      </button>
+}) => {
+  const { bookmarks, showOnlyMarkers } = useMarkerLayerContext();
 
-      <button
-        onClick={() => onSelectMenu('filter')}
-        className={`${styles.button} ${
-          selectedMenu === 'filter' ? styles.inactive : styles.active
-        }`}
-        aria-label="Show filter"
-      >
-        <ListDashes size="2em" />
-      </button>
+  useEffect(() => {
+    if (selectedMenu == 'bookmarks') {
+      showOnlyMarkers(bookmarks);
+    } else {
+      showOnlyMarkers(null);
+    }
+  }, [selectedMenu, bookmarks, showOnlyMarkers]);
 
-      <button
-        onClick={() => onSelectMenu('bookmarks')}
-        className={`${styles.button} ${
-          selectedMenu === 'bookmarks' ? styles.inactive : styles.active
-        }`}
-        aria-label="Show bookmarks"
-      >
-        <BookmarkSimple size="2em" />
-      </button>
-    </Group>
+  return (
+    <div className={styles.navbar}>
+      <Group>
+        <button className={`${styles.button} ${styles.logo}`} aria-label="Home">
+          <Image loading="lazy" fill alt="Logo" src="/logo.svg" />
+        </button>
 
-    <Group>
-      <button
-        onClick={onToggleMenu}
-        className={`${styles.caret} ${
-          !isMenuOpen ? styles.inactive : styles.active
-        }`}
-        aria-label={isMenuOpen ? 'Hide menu' : 'Show menu'}
-      >
-        <CaretLeft size="2em" className="" />
-      </button>
-    </Group>
-  </div>
-);
+        <button
+          onClick={() => onSelectMenu('filter')}
+          className={`${styles.button} ${
+            selectedMenu === 'filter' ? styles.inactive : styles.active
+          }`}
+          aria-label="Show filter"
+        >
+          <ListDashes size="2em" />
+        </button>
+
+        <button
+          onClick={() => onSelectMenu('bookmarks')}
+          className={`${styles.button} ${
+            selectedMenu === 'bookmarks' ? styles.inactive : styles.active
+          }`}
+          aria-label="Show bookmarks"
+        >
+          <BookmarkSimple size="2em" />
+        </button>
+      </Group>
+
+      <Group>
+        <button
+          onClick={onToggleMenu}
+          className={`${styles.caret} ${
+            !isMenuOpen ? styles.inactive : styles.active
+          }`}
+          aria-label={isMenuOpen ? 'Hide menu' : 'Show menu'}
+        >
+          <CaretLeft size="2em" className="" />
+        </button>
+      </Group>
+    </div>
+  );
+};
 
 export default Navbar;
