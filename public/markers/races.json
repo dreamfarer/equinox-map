@@ -1,7 +1,7 @@
 [
   {
     "title": "River Loop",
-    "subtitle": "Race takes about 1:30 min.",
+    "subtitle": "Takes about 1:30 min.",
     "map": "greenisland",
     "lng": -121.75007661667658,
     "lat": 23.514294839594584
@@ -36,7 +36,7 @@
   },
   {
     "title": "Radio Tower",
-    "subtitle": "Takes about 2:40 mins.",
+    "subtitle": "Takes about 2:40 min.",
     "map": "greenisland",
     "lng": -38.728524786700206,
     "lat": 52.01075600099358
@@ -64,14 +64,14 @@
   },
   {
     "title": "Coastal Run",
-    "subtitle": "Takes about 1:10 min. ",
+    "subtitle": "Takes about 1:10 min.",
     "map": "greenisland",
     "lng": -134.36486323273564,
     "lat": 51.25737862838335
   },
   {
     "title": "Blacksmith",
-    "subtitle": "Takes about 1 min",
+    "subtitle": "Takes about 1 min.",
     "map": "greenisland",
     "lng": -135.43030001882641,
     "lat": 57.03232922789266
