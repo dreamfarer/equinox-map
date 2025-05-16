@@ -6,7 +6,7 @@ type Entry = {
   onToggle: () => void;
 };
 
-type CategoryProps = {
+type Props = {
   title: string;
   isActive: boolean;
   onToggle: () => void;
@@ -18,7 +18,7 @@ export default function Category({
   isActive,
   onToggle,
   entries,
-}: CategoryProps) {
+}: Props) {
   return (
     <div className={styles.category}>
       <button

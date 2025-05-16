@@ -16,6 +16,20 @@
   justify-content: flex-start;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--padding-6xs);
+  width: 100%;
+}
+
+.noResult,
+.noBookmark {
+  color: var(--text-dark);
+  font-size: var(--font-size-title);
+}
+
 /* Mobile Layout*/
 @media (max-width: 768px) {
   .menu {

@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo,
 } from 'react';
 import maplibregl, { Offset } from 'maplibre-gl';
 import {
@@ -18,9 +19,15 @@ import { createRoot } from 'react-dom/client';
 import { Popup } from '../components/map/popup';
 
 type MarkerLayerContextType = {
+  /** category toggles (characters/vendors etc.) */
   enabled: Record<MarkerCategory, boolean>;
   toggleCategory: (category: MarkerCategory) => void;
   setMapInstance: (map: maplibregl.Map) => void;
+  markers: MergedMarker[];
+  flyToMarker: (id: string) => void;
+  showOnlyMarkers: (ids: string[] | null) => void;
+  bookmarks: string[];
+  toggleBookmark: (id: string) => void;
 };
 
 const MarkerLayerContext = createContext<MarkerLayerContextType | null>(null);
@@ -42,15 +49,19 @@ function clearExistingMarkers() {
 function renderMarkers(
   markers: MergedMarker[],
   enabled: Record<MarkerCategory, boolean>,
+  visibleIds: string[] | null,
   map: maplibregl.Map,
 ) {
   const defaultMarkers: MergedMarker[] = [];
   const customMarkers: MergedMarker[] = [];
 
   for (const marker of markers) {
-    const shouldShow = marker.categories.some(
+    // decide if marker is generally allowed
+    const categoryAllowed = marker.categories.some(
       (t) => enabled[t as MarkerCategory],
     );
+    const specificallyVisible = !visibleIds || visibleIds.includes(marker.id);
+    const shouldShow = categoryAllowed && specificallyVisible;
     if (!shouldShow) continue;
 
     if (marker.icon?.trim()) {
@@ -71,7 +82,7 @@ function renderMarkers(
 
     const img = document.createElement('img');
     img.src = iconPath;
-    img.alt = marker.title;
+    img.alt = marker.title ? marker.title : marker.categories[0];
     img.className = styles.markerImage;
     el.appendChild(img);
 
@@ -107,7 +118,7 @@ function renderMarkers(
     const popupContainer = document.createElement('div');
     createRoot(popupContainer).render(
       <Popup
-        title={marker.title}
+        title={marker.title ? marker.title : marker.categories[0]}
         subtitle={marker.subtitle}
         onClose={() => popup.remove()}
       />,
@@ -129,13 +140,43 @@ export function MarkerLayerProvider({
 }: {
   children: React.ReactNode;
 }) {
+  // category toggles
   const [enabled, setEnabled] = useState<Record<MarkerCategory, boolean>>(
     Object.fromEntries(
       markerCategories.map((category) => [category, true]),
     ) as Record<MarkerCategory, boolean>,
   );
 
+  // bookmarks (persisted in localStorage)
+  const [bookmarks, setBookmarks] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      return JSON.parse(localStorage.getItem('bookmarks') || '[]');
+    } catch {
+      return [];
+    }
+  });
+
+  const toggleBookmark = useCallback((id: string) => {
+    setBookmarks((prev) => {
+      const next = prev.includes(id)
+        ? prev.filter((b) => b !== id)
+        : [...prev, id];
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bookmarks', JSON.stringify(next));
+      }
+      return next;
+    });
+  }, []);
+
+  // all merged markers
+  const [markers, setMarkers] = useState<MergedMarker[]>([]);
+
+  // current map instance (from MapWrapper)
   const [map, setMap] = useState<maplibregl.Map | null>(null);
+
+  // optional visibility filter (null = default category filtering)
+  const [visibleIds, setVisibleIds] = useState<string[] | null>(null);
 
   const toggleCategory = (category: MarkerCategory) =>
     setEnabled((prev) => ({ ...prev, [category]: !prev[category] }));
@@ -144,20 +185,63 @@ export function MarkerLayerProvider({
     setMap(m);
   }, []);
 
+  // center map helper
+  const flyToMarker = useCallback(
+    (id: string) => {
+      if (!map) return;
+      const m = markers.find((mk) => mk.id === id);
+      if (!m) return;
+      map.flyTo({ center: [m.lng, m.lat], zoom: 6 });
+    },
+    [map, markers],
+  );
+
+  // show‑only helper
+  const showOnlyMarkers = useCallback((ids: string[] | null) => {
+    setVisibleIds(ids);
+  }, []);
+
+  // initial data load + every time visibility toggles change
   useEffect(() => {
     if (!map) return;
 
     (async () => {
-      const loaded = await loadMergedMarkers();
-      clearExistingMarkers();
-      renderMarkers(loaded, enabled, map);
+      // initial fetch only once
+      if (markers.length === 0) {
+        const loaded = await loadMergedMarkers();
+        setMarkers(loaded);
+        clearExistingMarkers();
+        renderMarkers(loaded, enabled, visibleIds, map);
+      } else {
+        clearExistingMarkers();
+        renderMarkers(markers, enabled, visibleIds, map);
+      }
     })();
-  }, [map, enabled]);
+  }, [map, enabled, visibleIds, markers]);
+
+  // keep map in sync when we finish first load
+  useEffect(() => {
+    if (!map || markers.length === 0) return;
+    clearExistingMarkers();
+    renderMarkers(markers, enabled, visibleIds, map);
+  }, [map, markers]);
+
+  const ctxValue = useMemo<MarkerLayerContextType>(
+    () => ({
+      enabled,
+      toggleCategory,
+      setMapInstance,
+      markers,
+      flyToMarker,
+      showOnlyMarkers,
+      bookmarks,
+      toggleBookmark,
+    }),
+    [enabled, markers, bookmarks, flyToMarker, showOnlyMarkers, toggleBookmark],
+  );
 
   return (
-    <MarkerLayerContext.Provider
-      value={{ enabled, toggleCategory, setMapInstance }}
-    >
+    <MarkerLayerContext.Provider value={ctxValue}>
       {children}
     </MarkerLayerContext.Provider>
   );
