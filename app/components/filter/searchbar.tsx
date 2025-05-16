@@ -6,7 +6,7 @@ type Props = {
   onSearch: (query: string) => void;
 };
 
-export default function SearchBar({ onSearch }: Props) {
+export default function Searchbar({ onSearch }: Props) {
   const [query, setQuery] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +22,6 @@ export default function SearchBar({ onSearch }: Props) {
         placeholder="Search …"
         value={query}
         onChange={handleChange}
-        autoFocus
       />
     </div>
   );

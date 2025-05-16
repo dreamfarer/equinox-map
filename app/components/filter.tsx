@@ -2,7 +2,7 @@
 import type { NextPage } from 'next';
 import styles from './filter.module.css';
 import Category from './filter/category';
-import SearchBar from './filter/searchbar';
+import Searchbar from './filter/searchbar';
 import Result from './filter/result';
 import { useState, useMemo } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
@@ -28,7 +28,7 @@ const Filter: NextPage = () => {
 
   return (
     <div className={styles.menu}>
-      <SearchBar onSearch={setQuery} />
+      <Searchbar onSearch={setQuery} />
       {!query.trim() && (
         <Category
           title="Locations"
