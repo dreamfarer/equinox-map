@@ -1,0 +1,4 @@
+{
+  "buildCommand": "npm run build",
+  "ignoreCommand": "if [ \"$VERCEL_GIT_BRANCH\" != \"main\" ]; then exit 1; fi"
+}
