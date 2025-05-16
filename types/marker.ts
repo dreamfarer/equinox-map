@@ -2,7 +2,7 @@ export const markerCategories = ['characters', 'vendors'] as const;
 export type MarkerCategory = (typeof markerCategories)[number];
 
 export type Marker = {
-  title: string;
+  title?: string;
   subtitle?: string;
   id?: string;
   foreignId?: string;
@@ -13,7 +13,7 @@ export type Marker = {
 };
 
 export type MergedMarker = {
-  title: string;
+  title?: string;
   subtitle?: string;
   id: string;
   foreignId?: string;

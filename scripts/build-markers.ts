@@ -3,7 +3,7 @@ import path from 'path';
 import { randomUUID } from 'crypto';
 
 type Marker = {
-  title: string;
+  title?: string;
   subtitle?: string;
   id?: string;
   foreignId?: string;
@@ -55,16 +55,24 @@ async function build() {
         continue;
       }
 
-      if (m.lng == null || m.lat == null) {
-        console.warn(`Skipping marker without coordinates in "${file}":`, m);
+      // Require coordinates and map; everything else is optional
+      if (m.lng == null || m.lat == null || !m.map) {
+        console.warn(
+          `Skipping marker without coordinates and/or map in "${file}":`,
+          m,
+        );
         continue;
       }
 
-      const id = (
-        m.id?.trim() ||
-        slugify(m.title) ||
-        randomUUID()
-      ).toLowerCase();
+      let id: string;
+      if (m.id?.trim()) {
+        id = m.id.trim();
+      } else if (m.title?.trim()) {
+        id = slugify(m.title);
+      } else {
+        id = randomUUID();
+      }
+      id = id.toLowerCase();
 
       base[id] = {
         id,
@@ -96,7 +104,7 @@ async function build() {
     if (!target.categories.includes(category)) target.categories.push(category);
   }
 
-  // Convert to GeoJSON FeatureCollection
+  // 3. Convert to GeoJSON FeatureCollection
   const features = Object.values(base).map((m) => ({
     type: 'Feature',
     geometry: {
@@ -120,7 +128,10 @@ async function build() {
     JSON.stringify(geojson),
   );
   console.log(
-    `Generated markers.geojson with ${features.length} features → ${path.relative(process.cwd(), markerDir)}/markers.geojson`,
+    `Generated markers.geojson with ${features.length} features → ${path.relative(
+      process.cwd(),
+      markerDir,
+    )}/markers.geojson`,
   );
 }
 

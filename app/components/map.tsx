@@ -16,12 +16,7 @@ export default function Map() {
 
   const exportMarkerDebug = (map: maplibregl.Map, lng: number, lat: number) => {
     const marker: Marker = {
-      title: '',
-      subtitle: '',
-      id: '',
-      foreignId: '',
       map: 'greenisland',
-      icon: '',
       lng,
       lat,
     };
