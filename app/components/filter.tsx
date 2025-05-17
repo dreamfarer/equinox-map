@@ -47,22 +47,22 @@ const Filter: NextPage = () => {
             }}
             entries={[
               {
-                label: 'character',
+                label: 'Characters',
                 isActive: enabled.character,
                 onToggle: () => toggleCategory('character'),
               },
               {
-                label: 'Shop',
+                label: 'Shops',
                 isActive: enabled.shop,
                 onToggle: () => toggleCategory('shop'),
               },
               {
-                label: 'Race',
+                label: 'Races',
                 isActive: enabled.race,
                 onToggle: () => toggleCategory('race'),
               },
               {
-                label: 'Fast Travel',
+                label: 'Fast Travel Points',
                 isActive: enabled['fast-travel'],
                 onToggle: () => toggleCategory('fast-travel'),
               },
