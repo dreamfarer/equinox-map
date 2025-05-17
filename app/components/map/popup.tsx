@@ -32,7 +32,6 @@ export default function Popup({
   const handleBookmark = (e: React.MouseEvent) => {
     e.stopPropagation();
     onToggleBookmark(id);
-    setBookmarked((prev) => !prev);
   };
 
   return (
