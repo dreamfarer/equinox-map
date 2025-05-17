@@ -4,6 +4,7 @@ export const markerCategories = [
   'dandelion',
   'race',
   'fast-travel',
+  'scenic-ride',
 ] as const;
 export type MarkerCategory = (typeof markerCategories)[number];
 

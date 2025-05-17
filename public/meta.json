@@ -25,7 +25,8 @@
   {
     "category": "scenic-ride",
     "path": "markers/scenic-rides.json",
-    "anchor": "bottom"
+    "anchor": "bottom",
+    "icon": "scenic-ride"
   },
   {
     "category": "shop",
