@@ -9,6 +9,7 @@
   {
     "title": "Restart Ride Home",
     "subtitle": "Teleports you to the rehab facility.",
+    "id": "rehabilitation-center",
     "map": "greenisland",
     "lng": -38.656889209928465,
     "lat": -61.26494368947681
