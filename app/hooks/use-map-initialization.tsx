@@ -1,8 +1,8 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import maplibregl, { Map, Offset } from 'maplibre-gl';
 import { MarkerFeature, MergedMarker } from '../../types/marker';
-import { Popup } from '../components/map/popup';
+import Popup from '../components/map/popup';
 import { createRoot, Root } from 'react-dom/client';
 import { loadIcon, loadMarkers } from '@/lib/marker-layer-utility';
 
@@ -11,7 +11,20 @@ const popupHandlerAttached = new WeakSet<Map>();
 export function useMapInitialization(
   map: Map | null,
   setMarkers: (m: MergedMarker[]) => void,
+  bookmarks: string[],
+  toggleBookmark: (id: string) => void,
 ) {
+  const bookmarksRef = useRef(bookmarks);
+  const toggleRef = useRef(toggleBookmark);
+
+  useEffect(() => {
+    bookmarksRef.current = bookmarks;
+  }, [bookmarks]);
+
+  useEffect(() => {
+    toggleRef.current = toggleBookmark;
+  }, [toggleBookmark]);
+
   useEffect(() => {
     if (!map) return;
 
@@ -55,11 +68,29 @@ export function useMapInitialization(
       if (!popupHandlerAttached.has(map)) {
         popupHandlerAttached.add(map);
 
+        let currentPopup: maplibregl.Popup | null = null;
+        let currentRoot: Root | null = null;
+        let currentMarkerId: string | null = null;
+
         map.on('click', 'markers-layer', (e) => {
           if (!e.features?.length) return;
           const f = e.features[0] as unknown as MarkerFeature;
-          const { title, subtitle, anchor } = f.properties;
+          const { id, title, subtitle, anchor } = f.properties;
           const coordinates = f.geometry.coordinates;
+
+          if (currentPopup && currentMarkerId === id) {
+            currentPopup.remove();
+            currentRoot?.unmount();
+            currentPopup = null;
+            currentRoot = null;
+            currentMarkerId = null;
+            return;
+          }
+
+          if (currentPopup) {
+            currentPopup.remove();
+            currentRoot?.unmount();
+          }
 
           const popup = new maplibregl.Popup({
             closeButton: false,
@@ -94,16 +125,28 @@ export function useMapInitialization(
           const root: Root = createRoot(container);
           root.render(
             <Popup
+              id={id}
               title={title}
               subtitle={subtitle}
-              onClose={() => {
-                popup.remove();
-                root.unmount();
-              }}
+              isBookmarked={bookmarksRef.current.includes(id)}
+              onToggleBookmark={toggleRef.current}
             />,
           );
 
-          popup.setDOMContent(container).setLngLat(coordinates).addTo(map);
+          popup
+            .setDOMContent(container)
+            .setLngLat(coordinates)
+            .addTo(map)
+            .on('close', () => {
+              root.unmount();
+              currentPopup = null;
+              currentRoot = null;
+              currentMarkerId = null;
+            });
+
+          currentPopup = popup;
+          currentRoot = root;
+          currentMarkerId = id;
         });
       }
     };

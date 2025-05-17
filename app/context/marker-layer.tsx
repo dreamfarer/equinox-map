@@ -32,7 +32,7 @@ export function MarkerLayerProvider({
   const [visibleIds, showOnlyMarkers] = useVisibleIds();
   const [markers, setMarkers] = useState<MergedMarker[]>([]);
 
-  useMapInitialization(map, setMarkers);
+  useMapInitialization(map, setMarkers, bookmarks, toggleBookmark);
   useFilterUpdates(map, enabled, visibleIds);
 
   const flyToMarker = useFlyToMarker(map, markers);
