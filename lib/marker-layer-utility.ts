@@ -53,26 +53,27 @@ export function applyFilter(
 ) {
   const layerId = 'markers-layer';
   if (!map.getLayer(layerId)) return;
-  const activeCategories = markerCategories.filter(
-    (categories) => enabled[categories],
-  );
+  // Filter categories based on id (used for bookmarking)
+  if (visibleIds && visibleIds.length > 0) {
+    const idExpression: ExpressionSpecification = [
+      'in',
+      ['get', 'id'],
+      ['literal', visibleIds],
+    ];
+    map.setFilter(layerId, idExpression);
+    return;
+  }
   // Filter categories
-  let categoryExpression: ExpressionSpecification | null = null;
+  const activeCategories = markerCategories.filter(
+    (category) => enabled[category],
+  );
   if (activeCategories.length < markerCategories.length) {
-    categoryExpression = ['any'];
+    const categoryExpression: ExpressionSpecification = ['any'];
     for (const category of activeCategories) {
       categoryExpression.push(['in', category, ['get', 'categories']]);
     }
+    map.setFilter(layerId, categoryExpression);
+  } else {
+    map.setFilter(layerId, null);
   }
-  // Filter categories based on id (used for bookmarking)
-  let idExpression: ExpressionSpecification | null = null;
-  if (visibleIds && visibleIds.length > 0) {
-    idExpression = ['in', ['get', 'id'], ['literal', visibleIds]];
-  }
-  let finalExpression: ExpressionSpecification | null = null;
-  if (categoryExpression && idExpression)
-    finalExpression = ['all', categoryExpression, idExpression];
-  else if (categoryExpression) finalExpression = categoryExpression;
-  else if (idExpression) finalExpression = idExpression;
-  map.setFilter(layerId, finalExpression);
 }
