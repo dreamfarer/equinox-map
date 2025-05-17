@@ -6,7 +6,7 @@ This interactive map for [Equinox: Homecoming](https://store.steampowered.com/ap
 
 The following features are fully implemented and available in the live version:
 
-- Toggle marker categories on/off
+- Toggle marker categories on/off via click in the menu
 - Search for markers using the search bar
 - Click a search result to fly to that marker on the map
 - Click a marker to open a popup with additional information
@@ -19,7 +19,9 @@ We are committed to maintaining this project long-term. Our immediate goals incl
 
 - Adding remaining markers (e.g., resources, races, scenic rides, etc.)
 - Enabling bookmarking directly from marker popups
+- Plot the course of the race when opening the popup
 - Refactoring and abstracting code for future expansion
+- Implement caching & efficient bandwidth usage
 
 ## Feedback, Issues, Suggestions
 
