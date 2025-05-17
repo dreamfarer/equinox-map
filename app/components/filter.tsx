@@ -37,13 +37,15 @@ const Filter: NextPage = () => {
               enabled.character ||
               enabled.shop ||
               enabled.race ||
-              enabled['fast-travel']
+              enabled['fast-travel'] ||
+              enabled['scenic-ride']
             }
             onToggle={() => {
               toggleCategory('character');
               toggleCategory('shop');
               toggleCategory('race');
               toggleCategory('fast-travel');
+              toggleCategory('scenic-ride');
             }}
             entries={[
               {
@@ -65,6 +67,11 @@ const Filter: NextPage = () => {
                 label: 'Fast Travel Points',
                 isActive: enabled['fast-travel'],
                 onToggle: () => toggleCategory('fast-travel'),
+              },
+              {
+                label: 'Scenic Rides',
+                isActive: enabled['scenic-ride'],
+                onToggle: () => toggleCategory('scenic-ride'),
               },
             ]}
           />
@@ -95,7 +102,7 @@ const Filter: NextPage = () => {
           />
         ))}
         {query && results.length === 0 && (
-          <div className={styles.noResult}>No matches</div>
+          <div className={styles.noResult}>No matches. (´•︵•`)</div>
         )}
       </div>
     </div>

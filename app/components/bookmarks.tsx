@@ -14,7 +14,12 @@ const Bookmarks: NextPage = () => {
     <div className={styles.menu}>
       <div className={styles.results}>
         {bookmarkedMarkers.length === 0 && (
-          <div className="noBookmark">No bookmarks yet.</div>
+          <>
+            <div className="noBookmark">No bookmarks yet. (´•︵•`)</div>
+            <div className="noBookmark">
+              Save markers through the search bar or popups first.
+            </div>
+          </>
         )}
         {bookmarkedMarkers.map((m) => (
           <Result
