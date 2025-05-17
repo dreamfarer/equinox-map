@@ -7,6 +7,8 @@ type MetaEntry = {
   path: string;
   anchor?: 'bottom' | 'center';
   icon?: string;
+  title?: string;
+  subtitle?: string;
 };
 
 type Marker = {
@@ -55,6 +57,8 @@ async function build() {
       path: relPath,
       anchor: metaAnchor = 'bottom',
       icon: metaIcon,
+      title: metaTitle,
+      subtitle: metaSubtitle,
     } = entry;
 
     const absPath = path.join(publicDir, relPath);
@@ -81,6 +85,9 @@ async function build() {
       id = id.toLowerCase();
 
       const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
+      const resolvedTitle = m.title?.trim() || metaTitle || '';
+      const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
+
       const anchor: 'bottom' | 'center' =
         resolvedIcon === 'default-marker'
           ? 'bottom'
@@ -93,8 +100,8 @@ async function build() {
         map: m.map,
         lng: m.lng,
         lat: m.lat,
-        title: m.title ?? '',
-        subtitle: m.subtitle ?? '',
+        title: resolvedTitle,
+        subtitle: resolvedSubtitle,
         icon: resolvedIcon,
         anchor,
         categories: [category],

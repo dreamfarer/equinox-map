@@ -47,6 +47,7 @@ export function useMapInitialization(
             'icon-image': ['get', 'icon'],
             'icon-anchor': ['coalesce', ['get', 'anchor'], 'bottom'],
             'icon-allow-overlap': true,
+            'icon-size': 0.5,
           },
         });
       }
@@ -57,7 +58,7 @@ export function useMapInitialization(
         map.on('click', 'markers-layer', (e) => {
           if (!e.features?.length) return;
           const f = e.features[0] as unknown as MarkerFeature;
-          const { id, title, subtitle, anchor } = f.properties;
+          const { title, subtitle, anchor } = f.properties;
           const coordinates = f.geometry.coordinates;
 
           const popup = new maplibregl.Popup({
@@ -93,7 +94,7 @@ export function useMapInitialization(
           const root: Root = createRoot(container);
           root.render(
             <Popup
-              title={title || id}
+              title={title}
               subtitle={subtitle}
               onClose={() => {
                 popup.remove();
