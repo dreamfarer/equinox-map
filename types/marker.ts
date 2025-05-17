@@ -1,4 +1,10 @@
-export const markerCategories = ['characters', 'vendors'] as const;
+export const markerCategories = [
+  'character',
+  'shop',
+  'dandelion',
+  'race',
+  'fast-travel',
+] as const;
 export type MarkerCategory = (typeof markerCategories)[number];
 
 export type Marker = {
@@ -18,9 +24,10 @@ export type MergedMarker = {
   id: string;
   foreignId?: string;
   map: string;
-  icon?: string;
+  icon: string;
   lng: number;
   lat: number;
+  anchor: 'bottom' | 'center';
   categories: MarkerCategory[];
 };
 
@@ -36,6 +43,7 @@ export type MarkerFeature = {
     title: string;
     subtitle: string;
     icon: string;
+    anchor: 'bottom' | 'center';
     categories: string[];
   };
 };

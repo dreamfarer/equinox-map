@@ -51,42 +51,24 @@ function renderMarkers(
   visibleIds: string[] | null,
   map: maplibregl.Map,
 ) {
-  const defaultMarkers: MergedMarker[] = [];
-  const customMarkers: MergedMarker[] = [];
-
-  for (const marker of markers) {
-    const categoryAllowed = marker.categories.some(
+  const visibleMarkers = markers.filter((m) => {
+    const categoryAllowed = m.categories.some(
       (t) => enabled[t as MarkerCategory],
     );
-    const specificallyVisible = !visibleIds || visibleIds.includes(marker.id);
-    const shouldShow = categoryAllowed && specificallyVisible;
-    if (!shouldShow) continue;
+    const specificallyVisible = !visibleIds || visibleIds.includes(m.id);
+    return categoryAllowed && specificallyVisible;
+  });
 
-    if (marker.icon?.trim()) {
-      customMarkers.push(marker);
-    } else {
-      defaultMarkers.push(marker);
-    }
-  }
+  const customMarkers = visibleMarkers.filter(
+    (m) => m.icon?.trim() !== 'default-marker',
+  );
+  const defaultMarkers = visibleMarkers.filter(
+    (m) => m.icon?.trim() === 'default-marker',
+  );
 
-  const drawMarker = (marker: MergedMarker) => {
-    const hasCustomIcon = Boolean(marker.icon?.trim());
-    const iconName = hasCustomIcon ? marker.icon!.trim() : 'default-marker';
-    const iconPath = `/icon/64/${iconName}.webp`;
-
-    const el = document.createElement('div');
-    el.className = `${styles.customMarker}`;
-    el.setAttribute('data-id', marker.id);
-
-    const img = document.createElement('img');
-    img.src = iconPath;
-    img.alt = marker.title ? marker.title : marker.categories[0];
-    img.className = styles.markerImage;
-    el.appendChild(img);
-
-    const markerAnchor = hasCustomIcon ? 'center' : 'bottom';
-    const popupOffset = hasCustomIcon
-      ? {
+  const popupOffsetFor = (anchor: 'bottom' | 'center'): Offset =>
+    anchor === 'center'
+      ? ({
           top: [0, 20],
           bottom: [0, -20],
           left: [20, 0],
@@ -95,8 +77,8 @@ function renderMarkers(
           'top-right': [-17, 17],
           'bottom-left': [17, -17],
           'bottom-right': [-17, -17],
-        }
-      : {
+        } as Offset)
+      : ({
           top: [0, 5],
           bottom: [0, -40],
           left: [18, -18],
@@ -105,32 +87,48 @@ function renderMarkers(
           'top-right': [-12, 0],
           'bottom-left': [14, -32],
           'bottom-right': [-14, -32],
-        };
+        } as Offset);
+
+  const drawMarker = (marker: MergedMarker) => {
+    const iconName = marker.icon?.trim() || 'default-marker';
+    const iconPath = `/icon/64/${iconName}.webp`;
+
+    const el = document.createElement('div');
+    el.className = styles.customMarker;
+    el.setAttribute('data-id', marker.id);
+
+    const img = document.createElement('img');
+    img.src = iconPath;
+    img.alt = marker.title || marker.categories[0];
+    img.className = styles.markerImage;
+    el.appendChild(img);
+
+    const anchor = marker.anchor ?? 'bottom';
 
     const popup = new maplibregl.Popup({
       closeButton: false,
       className: 'equinox-popup',
-      offset: popupOffset as Offset,
+      offset: popupOffsetFor(anchor),
     });
 
     const popupContainer = document.createElement('div');
     createRoot(popupContainer).render(
       <Popup
-        title={marker.title ? marker.title : marker.categories[0]}
+        title={marker.title || marker.categories[0]}
         subtitle={marker.subtitle}
         onClose={() => popup.remove()}
       />,
     );
     popup.setDOMContent(popupContainer);
 
-    new maplibregl.Marker({ element: el, anchor: markerAnchor })
+    new maplibregl.Marker({ element: el, anchor })
       .setLngLat([marker.lng, marker.lat])
       .setPopup(popup)
       .addTo(map);
   };
 
-  defaultMarkers.forEach(drawMarker);
   customMarkers.forEach(drawMarker);
+  defaultMarkers.forEach(drawMarker);
 }
 
 export function MarkerLayerProvider({

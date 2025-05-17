@@ -30,26 +30,59 @@ const Filter: NextPage = () => {
     <div className={styles.menu}>
       <Searchbar onSearch={setQuery} />
       {!query.trim() && (
-        <Category
-          title="Locations"
-          isActive={enabled.characters || enabled.vendors}
-          onToggle={() => {
-            toggleCategory('characters');
-            toggleCategory('vendors');
-          }}
-          entries={[
-            {
-              label: 'Characters',
-              isActive: enabled.characters,
-              onToggle: () => toggleCategory('characters'),
-            },
-            {
-              label: 'Vendors',
-              isActive: enabled.vendors,
-              onToggle: () => toggleCategory('vendors'),
-            },
-          ]}
-        />
+        <>
+          <Category
+            title="Locations"
+            isActive={
+              enabled.character ||
+              enabled.shop ||
+              enabled.race ||
+              enabled['fast-travel']
+            }
+            onToggle={() => {
+              toggleCategory('character');
+              toggleCategory('shop');
+              toggleCategory('race');
+              toggleCategory('fast-travel');
+            }}
+            entries={[
+              {
+                label: 'character',
+                isActive: enabled.character,
+                onToggle: () => toggleCategory('character'),
+              },
+              {
+                label: 'Shop',
+                isActive: enabled.shop,
+                onToggle: () => toggleCategory('shop'),
+              },
+              {
+                label: 'Race',
+                isActive: enabled.race,
+                onToggle: () => toggleCategory('race'),
+              },
+              {
+                label: 'Fast Travel',
+                isActive: enabled['fast-travel'],
+                onToggle: () => toggleCategory('fast-travel'),
+              },
+            ]}
+          />
+          <Category
+            title="Resources"
+            isActive={enabled.dandelion}
+            onToggle={() => {
+              toggleCategory('dandelion');
+            }}
+            entries={[
+              {
+                label: 'Dandelions',
+                isActive: enabled.dandelion,
+                onToggle: () => toggleCategory('dandelion'),
+              },
+            ]}
+          />
+        </>
       )}
       <div className={styles.results}>
         {results.map((m) => (
