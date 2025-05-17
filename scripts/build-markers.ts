@@ -80,7 +80,7 @@ async function build() {
 
       let id: string;
       if (m.id?.trim()) id = m.id.trim();
-      else if (m.title?.trim()) id = slugify(m.title);
+      else if (m.title?.trim()) id = slugify(`${m.title}-${m.lng}-${m.lat}`);
       else id = randomUUID();
       id = id.toLowerCase();
 
