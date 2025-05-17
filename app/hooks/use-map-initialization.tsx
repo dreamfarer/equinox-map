@@ -5,6 +5,7 @@ import { MarkerFeature, MergedMarker } from '../../types/marker';
 import Popup from '../components/map/popup';
 import { createRoot, Root } from 'react-dom/client';
 import { loadIcon, loadMarkers } from '@/lib/marker-layer-utility';
+import { ExtendedMap } from '@/types/extended-map';
 
 const popupHandlerAttached = new WeakSet<Map>();
 
@@ -147,6 +148,9 @@ export function useMapInitialization(
           currentPopup = popup;
           currentRoot = root;
           currentMarkerId = id;
+          (map as ExtendedMap).__activePopupRoot = root;
+          (map as ExtendedMap).__activePopupInstance = popup;
+          (map as ExtendedMap).__activePopupMarkerId = id;
         });
       }
     };

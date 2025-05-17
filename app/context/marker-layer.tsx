@@ -33,7 +33,7 @@ export function MarkerLayerProvider({
   const [markers, setMarkers] = useState<MergedMarker[]>([]);
 
   useMapInitialization(map, setMarkers, bookmarks, toggleBookmark);
-  useFilterUpdates(map, enabled, visibleIds);
+  useFilterUpdates(map, enabled, visibleIds, markers);
 
   const flyToMarker = useFlyToMarker(map, markers);
   const contextValue = useMemo<MarkerLayerContextType>(

@@ -1,5 +1,5 @@
 import { applyFilter } from '@/lib/marker-layer-utility';
-import { MarkerCategory } from '@/types/marker';
+import { MarkerCategory, MergedMarker } from '@/types/marker';
 import { Map } from 'maplibre-gl';
 import { useEffect } from 'react';
 
@@ -7,9 +7,12 @@ export function useFilterUpdates(
   map: Map | null,
   enabled: Record<MarkerCategory, boolean>,
   visibleIds: string[] | null,
+  markers: MergedMarker[],
 ) {
   useEffect(() => {
     if (!map) return;
-    applyFilter(map, enabled, visibleIds);
-  }, [map, enabled, visibleIds]);
+    requestAnimationFrame(() => {
+      applyFilter(map, enabled, visibleIds, markers);
+    });
+  }, [map, enabled, visibleIds, markers]);
 }

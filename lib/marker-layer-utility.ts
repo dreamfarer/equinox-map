@@ -5,6 +5,7 @@ import {
   MarkerFeatureCollection,
   MergedMarker,
 } from '@/types/marker';
+import { ExtendedMap } from '@/types/extended-map';
 
 /**
  * Load the raw markers as GeoJSON for MapLibre and as MergedMarker array for the UI.
@@ -13,10 +14,10 @@ export async function loadMarkers(): Promise<{
   geojson: GeoJSON.FeatureCollection;
   flat: MergedMarker[];
 }> {
-  // TO-DO: implement proper caching: const res = await fetch('/markers/markers.geojson', { cache: 'force-cache' });
   const res = await fetch('/markers/markers.geojson', { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to fetch markers.geojson');
   const geojson = (await res.json()) as MarkerFeatureCollection;
+
   const flat: MergedMarker[] = geojson.features.map((f) => ({
     id: f.properties.id,
     map: f.properties.map,
@@ -28,6 +29,7 @@ export async function loadMarkers(): Promise<{
     anchor: f.properties.anchor,
     categories: f.properties.categories as MarkerCategory[],
   }));
+
   return { geojson, flat };
 }
 
@@ -43,37 +45,92 @@ export async function loadIcon(
 }
 
 /**
+ * Filter markers and return both the filtered array and corresponding MapLibre filter expression.
+ */
+export function computeFilteredMarkersAndExpression(
+  enabled: Record<MarkerCategory, boolean>,
+  visibleIds: string[] | null,
+  markers: MergedMarker[],
+): {
+  filtered: MergedMarker[];
+  expression: ExpressionSpecification | null;
+} {
+  if (visibleIds && visibleIds.length > 0) {
+    const visibleIdSet = new Set(visibleIds);
+    const filtered = markers.filter((m) => visibleIdSet.has(m.id));
+    const expression: ExpressionSpecification = [
+      'in',
+      ['get', 'id'],
+      ['literal', visibleIds],
+    ];
+    return { filtered, expression };
+  }
+
+  const activeCategories = markerCategories.filter((cat) => enabled[cat]);
+
+  if (activeCategories.length === markerCategories.length) {
+    return { filtered: markers, expression: null };
+  }
+
+  const activeSet = new Set(activeCategories);
+  const filtered = markers.filter((marker) =>
+    marker.categories.some((cat) => activeSet.has(cat as MarkerCategory)),
+  );
+
+  const categoryExpression: ExpressionSpecification = [
+    'any',
+    ...activeCategories.map(
+      (cat) => ['in', cat, ['get', 'categories']] as ExpressionSpecification,
+    ),
+  ];
+
+  return { filtered, expression: categoryExpression };
+}
+
+/**
+ * Remove popup and unmount React root safely.
+ */
+function safelyRemovePopup(map: Map) {
+  const popup = (map as ExtendedMap).__activePopupInstance;
+  const root = (map as ExtendedMap).__activePopupRoot;
+
+  if (popup && root) {
+    popup.remove();
+    requestIdleCallback(() => {
+      try {
+        root.unmount();
+      } catch (e) {
+        console.warn('Popup unmount failed:', e);
+      }
+    });
+
+    (map as ExtendedMap).__activePopupInstance = null;
+    (map as ExtendedMap).__activePopupRoot = null;
+    (map as ExtendedMap).__activePopupMarkerId = null;
+  }
+}
+
+/**
  * Dynamically update the filter on 'markers-layer'.
- * Build expressions that are evaluated by the map engine internally.
  */
 export function applyFilter(
   map: Map,
   enabled: Record<MarkerCategory, boolean>,
   visibleIds: string[] | null,
+  markers: MergedMarker[],
 ) {
+  const { filtered, expression } = computeFilteredMarkersAndExpression(
+    enabled,
+    visibleIds,
+    markers,
+  );
+
   const layerId = 'markers-layer';
   if (!map.getLayer(layerId)) return;
-  // Filter categories based on id (used for bookmarking)
-  if (visibleIds && visibleIds.length > 0) {
-    const idExpression: ExpressionSpecification = [
-      'in',
-      ['get', 'id'],
-      ['literal', visibleIds],
-    ];
-    map.setFilter(layerId, idExpression);
-    return;
-  }
-  // Filter categories
-  const activeCategories = markerCategories.filter(
-    (category) => enabled[category],
-  );
-  if (activeCategories.length < markerCategories.length) {
-    const categoryExpression: ExpressionSpecification = ['any'];
-    for (const category of activeCategories) {
-      categoryExpression.push(['in', category, ['get', 'categories']]);
-    }
-    map.setFilter(layerId, categoryExpression);
-  } else {
-    map.setFilter(layerId, null);
-  }
+
+  const activeId = (map as ExtendedMap).__activePopupMarkerId;
+  const isPopupStillValid = filtered.some((m) => m.id === activeId);
+  if (!isPopupStillValid) safelyRemovePopup(map);
+
+  map.setFilter(layerId, expression);
 }
