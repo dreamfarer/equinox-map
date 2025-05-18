@@ -10,6 +10,6 @@ export function useFlyToMarker(map: Map | null, markers: MergedMarker[]) {
       if (!marker) return;
       map.flyTo({ center: [marker.lng, marker.lat], zoom: 6 });
     },
-    [map, markers],
+    [map, markers]
   );
 }

@@ -13,7 +13,7 @@ export function useMapInitialization(
   map: Map | null,
   setMarkers: (m: MergedMarker[]) => void,
   bookmarks: string[],
-  toggleBookmark: (id: string) => void,
+  toggleBookmark: (id: string) => void
 ) {
   const bookmarksRef = useRef(bookmarks);
   const toggleRef = useRef(toggleBookmark);
@@ -34,14 +34,14 @@ export function useMapInitialization(
       setMarkers(flat);
 
       const uniqueIcons = Array.from(
-        new Set(flat.map((m) => m.icon?.trim() || 'default-marker')),
+        new Set(flat.map((m) => m.icon?.trim() || 'default-marker'))
       );
       await Promise.all(
         uniqueIcons.map(async (icon) => {
           if (map.hasImage(icon)) return;
           const img = await loadIcon(map, `/icon/64/${icon}.webp`);
           map.addImage(icon, img);
-        }),
+        })
       );
 
       if (!map.getSource('markers')) {
@@ -131,7 +131,7 @@ export function useMapInitialization(
               subtitle={subtitle}
               isBookmarked={bookmarksRef.current.includes(id)}
               onToggleBookmark={toggleRef.current}
-            />,
+            />
           );
 
           popup

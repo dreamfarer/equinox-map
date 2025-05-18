@@ -73,7 +73,7 @@ async function build() {
       if (m.lng == null || m.lat == null || !m.map) {
         console.warn(
           `Skipping marker without coordinates and/or map in "${relPath}":`,
-          m,
+          m
         );
         continue;
       }
@@ -115,7 +115,7 @@ async function build() {
 
     if (!target) {
       console.warn(
-        `foreignId "${targetId}" not found (category "${category}") – skipping`,
+        `foreignId "${targetId}" not found (category "${category}") – skipping`
       );
       continue;
     }
@@ -143,10 +143,10 @@ async function build() {
 
   await fs.writeFile(
     path.join(publicDir, 'markers/markers.geojson'),
-    JSON.stringify(geojson),
+    JSON.stringify(geojson)
   );
   console.log(
-    `Generated markers.geojson with ${features.length} features → public/markers/markers.geojson`,
+    `Generated markers.geojson with ${features.length} features → public/markers/markers.geojson`
   );
 }
 

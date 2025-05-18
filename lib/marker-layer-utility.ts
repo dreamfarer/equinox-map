@@ -38,7 +38,7 @@ export async function loadMarkers(): Promise<{
  */
 export async function loadIcon(
   map: Map,
-  url: string,
+  url: string
 ): Promise<HTMLImageElement | ImageBitmap> {
   const result = await map.loadImage(url);
   return result.data;
@@ -50,7 +50,7 @@ export async function loadIcon(
 export function computeFilteredMarkersAndExpression(
   enabled: Record<MarkerCategory, boolean>,
   visibleIds: string[] | null,
-  markers: MergedMarker[],
+  markers: MergedMarker[]
 ): {
   filtered: MergedMarker[];
   expression: ExpressionSpecification | null;
@@ -74,13 +74,13 @@ export function computeFilteredMarkersAndExpression(
 
   const activeSet = new Set(activeCategories);
   const filtered = markers.filter((marker) =>
-    marker.categories.some((cat) => activeSet.has(cat as MarkerCategory)),
+    marker.categories.some((cat) => activeSet.has(cat as MarkerCategory))
   );
 
   const categoryExpression: ExpressionSpecification = [
     'any',
     ...activeCategories.map(
-      (cat) => ['in', cat, ['get', 'categories']] as ExpressionSpecification,
+      (cat) => ['in', cat, ['get', 'categories']] as ExpressionSpecification
     ),
   ];
 
@@ -117,12 +117,12 @@ export function applyFilter(
   map: Map,
   enabled: Record<MarkerCategory, boolean>,
   visibleIds: string[] | null,
-  markers: MergedMarker[],
+  markers: MergedMarker[]
 ) {
   const { filtered, expression } = computeFilteredMarkersAndExpression(
     enabled,
     visibleIds,
-    markers,
+    markers
   );
 
   const layerId = 'markers-layer';

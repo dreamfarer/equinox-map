@@ -133,7 +133,7 @@ export default function Map() {
                     onClick={() =>
                       window.open(
                         'https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform',
-                        '_blank',
+                        '_blank'
                       )
                     }
                   >

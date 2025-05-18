@@ -22,7 +22,7 @@ const Filter: NextPage = () => {
     if (!query.trim()) return [] as typeof markers;
     const q = query.toLowerCase();
     return markers.filter((m) =>
-      `${m.title} ${m.subtitle}`.toLowerCase().includes(q),
+      `${m.title} ${m.subtitle}`.toLowerCase().includes(q)
     );
   }, [query, markers]);
 

@@ -28,7 +28,7 @@ export function useBookmarks(): [string[], (id: string) => void] {
             isBookmarked: next.includes(id),
             bookmarks: next,
           },
-        }),
+        })
       );
 
       return next;

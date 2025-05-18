@@ -7,7 +7,7 @@ export function useFilterUpdates(
   map: Map | null,
   enabled: Record<MarkerCategory, boolean>,
   visibleIds: string[] | null,
-  markers: MergedMarker[],
+  markers: MergedMarker[]
 ) {
   useEffect(() => {
     if (!map) return;

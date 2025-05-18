@@ -16,7 +16,7 @@ export const useMarkerLayerContext = () => {
   const context = useContext(MarkerLayerContext);
   if (!context)
     throw new Error(
-      'useMarkerLayerContext must be used inside MarkerLayerProvider',
+      'useMarkerLayerContext must be used inside MarkerLayerProvider'
     );
   return context;
 };
@@ -56,7 +56,7 @@ export function MarkerLayerProvider({
       toggleBookmark,
       toggleCategory,
       setMapInstance,
-    ],
+    ]
   );
 
   return (

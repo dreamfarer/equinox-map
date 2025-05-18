@@ -7,7 +7,7 @@ export function useVisibleIds(): [
   const [visibleIds, setVisibleIds] = useState<string[] | null>(null);
   const showOnlyMarkers = useCallback(
     (ids: string[] | null) => setVisibleIds(ids),
-    [],
+    []
   );
   return [visibleIds, showOnlyMarkers];
 }

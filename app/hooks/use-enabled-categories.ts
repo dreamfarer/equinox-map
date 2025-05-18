@@ -9,12 +9,12 @@ export function useEnabledCategories(): [
     Object.fromEntries(markerCategories.map((c) => [c, true])) as Record<
       MarkerCategory,
       boolean
-    >,
+    >
   );
   const toggleCategory = useCallback(
     (cat: MarkerCategory) =>
       setEnabled((prev) => ({ ...prev, [cat]: !prev[cat] })),
-    [],
+    []
   );
   return [enabled, toggleCategory];
 }
