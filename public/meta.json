@@ -84,7 +84,7 @@
   {
     "title": "Eagle Feathers",
     "category": "eagle-feather",
-    "path": "markers/resources/eagle-feather.json",
+    "path": "markers/resources/eagle-feathers.json",
     "anchor": "center",
     "icon": "eagle-feather"
   },
