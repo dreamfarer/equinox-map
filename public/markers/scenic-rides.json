@@ -12,5 +12,12 @@
     "map": "greenisland",
     "lng": -147.06831752083977,
     "lat": 12.499188640635154
+  },
+  {
+    "title": "Low Coast Trail",
+    "subtitle": "Start the scenic ride here.",
+    "map": "greenisland",
+    "lng": 16.26834784966934,
+    "lat": 48.69108658739063
   }
 ]
