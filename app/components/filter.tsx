@@ -30,26 +30,66 @@ const Filter: NextPage = () => {
     <div className={styles.menu}>
       <Searchbar onSearch={setQuery} />
       {!query.trim() && (
-        <Category
-          title="Locations"
-          isActive={enabled.characters || enabled.vendors}
-          onToggle={() => {
-            toggleCategory('characters');
-            toggleCategory('vendors');
-          }}
-          entries={[
-            {
-              label: 'Characters',
-              isActive: enabled.characters,
-              onToggle: () => toggleCategory('characters'),
-            },
-            {
-              label: 'Vendors',
-              isActive: enabled.vendors,
-              onToggle: () => toggleCategory('vendors'),
-            },
-          ]}
-        />
+        <>
+          <Category
+            title="Locations"
+            isActive={
+              enabled.character ||
+              enabled.shop ||
+              enabled.race ||
+              enabled['fast-travel'] ||
+              enabled['scenic-ride']
+            }
+            onToggle={() => {
+              toggleCategory('character');
+              toggleCategory('shop');
+              toggleCategory('race');
+              toggleCategory('fast-travel');
+              toggleCategory('scenic-ride');
+            }}
+            entries={[
+              {
+                label: 'Characters',
+                isActive: enabled.character,
+                onToggle: () => toggleCategory('character'),
+              },
+              {
+                label: 'Shops',
+                isActive: enabled.shop,
+                onToggle: () => toggleCategory('shop'),
+              },
+              {
+                label: 'Races',
+                isActive: enabled.race,
+                onToggle: () => toggleCategory('race'),
+              },
+              {
+                label: 'Fast Travel Points',
+                isActive: enabled['fast-travel'],
+                onToggle: () => toggleCategory('fast-travel'),
+              },
+              {
+                label: 'Scenic Rides',
+                isActive: enabled['scenic-ride'],
+                onToggle: () => toggleCategory('scenic-ride'),
+              },
+            ]}
+          />
+          <Category
+            title="Resources"
+            isActive={enabled.dandelion}
+            onToggle={() => {
+              toggleCategory('dandelion');
+            }}
+            entries={[
+              {
+                label: 'Dandelions',
+                isActive: enabled.dandelion,
+                onToggle: () => toggleCategory('dandelion'),
+              },
+            ]}
+          />
+        </>
       )}
       <div className={styles.results}>
         {results.map((m) => (
@@ -62,7 +102,7 @@ const Filter: NextPage = () => {
           />
         ))}
         {query && results.length === 0 && (
-          <div className={styles.noResult}>No matches</div>
+          <div className={styles.noResult}>No matches. (´•︵•`)</div>
         )}
       </div>
     </div>

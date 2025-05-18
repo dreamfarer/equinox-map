@@ -1,0 +1,35 @@
+[
+  {
+    "category": "character",
+    "path": "markers/characters.json",
+    "anchor": "center"
+  },
+  {
+    "title": "Dandelion",
+    "category": "dandelion",
+    "path": "markers/resources/dandelion.json",
+    "anchor": "center",
+    "icon": "dandelion"
+  },
+  {
+    "category": "fast-travel",
+    "path": "markers/fast-travel.json",
+    "anchor": "bottom"
+  },
+  {
+    "category": "race",
+    "path": "markers/races.json",
+    "anchor": "bottom",
+    "icon": "race"
+  },
+  {
+    "category": "scenic-ride",
+    "path": "markers/scenic-rides.json",
+    "anchor": "bottom",
+    "icon": "scenic-ride"
+  },
+  {
+    "category": "shop",
+    "path": "markers/vendors.json"
+  }
+]

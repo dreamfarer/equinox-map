@@ -1,28 +1,58 @@
-import { X } from '@phosphor-icons/react';
+import { BookmarkSimple } from '@phosphor-icons/react';
+import { useEffect, useState } from 'react';
 import styles from './popup.module.css';
 
-export function Popup({
-  title,
-  subtitle,
-  onClose,
-}: {
+type Props = {
+  id: string;
   title: string;
   subtitle?: string;
-  onClose: () => void;
-}) {
+  isBookmarked: boolean;
+  onToggleBookmark: (id: string) => void;
+};
+
+export default function Popup({
+  id,
+  title,
+  subtitle,
+  isBookmarked,
+  onToggleBookmark,
+}: Props) {
+  const [bookmarked, setBookmarked] = useState(isBookmarked);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { bookmarks } =
+        (e as CustomEvent<{ bookmarks: string[] }>).detail ?? {};
+      if (Array.isArray(bookmarks)) setBookmarked(bookmarks.includes(id));
+    };
+    window.addEventListener('bookmark-changed', handler);
+    return () => window.removeEventListener('bookmark-changed', handler);
+  }, [id]);
+
+  const handleBookmark = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onToggleBookmark(id);
+  };
+
   return (
     <div className={styles.popup}>
-      <div className={styles.frame}>
+      <div className={styles.header}>
         <div className={styles.title}>{title}</div>
-        {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
         <button
-          className={styles.quit}
-          onClick={onClose}
-          aria-label="Close popup"
+          className={styles.bookmark}
+          onClick={handleBookmark}
+          aria-label={
+            bookmarked ? 'Remove bookmark from marker' : 'Bookmark marker'
+          }
         >
-          <X size="1.5em" />
+          {bookmarked ? (
+            <BookmarkSimple size="1.5rem" weight="fill" />
+          ) : (
+            <BookmarkSimple size="1.5rem" />
+          )}
         </button>
       </div>
+      {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
     </div>
   );
 }

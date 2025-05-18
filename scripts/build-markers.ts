@@ -2,6 +2,15 @@ import fs from 'fs/promises';
 import path from 'path';
 import { randomUUID } from 'crypto';
 
+type MetaEntry = {
+  category: string;
+  path: string;
+  anchor?: 'bottom' | 'center';
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+};
+
 type Marker = {
   title?: string;
   subtitle?: string;
@@ -21,6 +30,7 @@ type MergedMarker = {
   title: string;
   subtitle: string;
   icon: string;
+  anchor: 'bottom' | 'center';
   categories: string[];
 };
 
@@ -33,21 +43,26 @@ function slugify(value: string): string {
 }
 
 async function build() {
-  const markerDir = path.resolve(__dirname, '../public/markers');
-  const files = (await fs.readdir(markerDir)).filter((f) =>
-    f.endsWith('.json'),
-  );
-  const categories = files.map((f) => path.basename(f, '.json'));
+  const publicDir = path.resolve(__dirname, '../public');
+  const metaPath = path.join(publicDir, 'meta.json');
+
+  const meta = JSON.parse(await fs.readFile(metaPath, 'utf8')) as MetaEntry[];
 
   const base: Record<string, MergedMarker> = {};
   const deferred: { m: Marker; category: string }[] = [];
 
-  // 1. Ingest all base markers (without foreignId)
-  for (const file of files) {
-    const category = path.basename(file, '.json');
-    const raw = JSON.parse(
-      await fs.readFile(path.join(markerDir, file), 'utf8'),
-    ) as Marker[];
+  for (const entry of meta) {
+    const {
+      category,
+      path: relPath,
+      anchor: metaAnchor = 'bottom',
+      icon: metaIcon,
+      title: metaTitle,
+      subtitle: metaSubtitle,
+    } = entry;
+
+    const absPath = path.join(publicDir, relPath);
+    const raw = JSON.parse(await fs.readFile(absPath, 'utf8')) as Marker[];
 
     for (const m of raw) {
       if (m.foreignId) {
@@ -55,46 +70,52 @@ async function build() {
         continue;
       }
 
-      // Require coordinates and map; everything else is optional
       if (m.lng == null || m.lat == null || !m.map) {
         console.warn(
-          `Skipping marker without coordinates and/or map in "${file}":`,
+          `Skipping marker without coordinates and/or map in "${relPath}":`,
           m,
         );
         continue;
       }
 
       let id: string;
-      if (m.id?.trim()) {
-        id = m.id.trim();
-      } else if (m.title?.trim()) {
-        id = slugify(m.title);
-      } else {
-        id = randomUUID();
-      }
+      if (m.id?.trim()) id = m.id.trim();
+      else if (m.title?.trim()) id = slugify(`${m.title}-${m.lng}-${m.lat}`);
+      else id = randomUUID();
       id = id.toLowerCase();
+
+      const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
+      const resolvedTitle = m.title?.trim() || metaTitle || '';
+      const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
+
+      const anchor: 'bottom' | 'center' =
+        resolvedIcon === 'default-marker'
+          ? 'bottom'
+          : metaAnchor === 'center'
+            ? 'center'
+            : 'bottom';
 
       base[id] = {
         id,
         map: m.map,
         lng: m.lng,
         lat: m.lat,
-        title: m.title ?? id,
-        subtitle: m.subtitle ?? '',
-        icon: m.icon ?? '',
+        title: resolvedTitle,
+        subtitle: resolvedSubtitle,
+        icon: resolvedIcon,
+        anchor,
         categories: [category],
       };
     }
   }
 
-  // 2. Merge deferred markers that reference a foreignId
   for (const { m, category } of deferred) {
     const targetId = m.foreignId!.toLowerCase();
     const target = base[targetId];
 
     if (!target) {
       console.warn(
-        `foreignId "${targetId}" not found (category "${category}") - skipping`,
+        `foreignId "${targetId}" not found (category "${category}") – skipping`,
       );
       continue;
     }
@@ -104,18 +125,15 @@ async function build() {
     if (!target.categories.includes(category)) target.categories.push(category);
   }
 
-  // 3. Convert to GeoJSON FeatureCollection
   const features = Object.values(base).map((m) => ({
     type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [m.lng, m.lat],
-    },
+    geometry: { type: 'Point', coordinates: [m.lng, m.lat] },
     properties: {
       id: m.id,
       title: m.title,
       subtitle: m.subtitle,
       icon: m.icon,
+      anchor: m.anchor,
       map: m.map,
       categories: m.categories,
     },
@@ -124,14 +142,11 @@ async function build() {
   const geojson = { type: 'FeatureCollection', features } as const;
 
   await fs.writeFile(
-    path.join(markerDir, 'markers.geojson'),
+    path.join(publicDir, 'markers/markers.geojson'),
     JSON.stringify(geojson),
   );
   console.log(
-    `Generated markers.geojson with ${features.length} features → ${path.relative(
-      process.cwd(),
-      markerDir,
-    )}/markers.geojson`,
+    `Generated markers.geojson with ${features.length} features → public/markers/markers.geojson`,
   );
 }
 

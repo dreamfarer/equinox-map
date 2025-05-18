@@ -124,7 +124,7 @@ export default function Map() {
             ) : (
               <>
                 <p>This interactive map is under active development.</p>
-                <p>Bookmark it and check back later! &lt;3</p>
+                <p>Some features and items might be missing.</p>
                 <div className={styles.buttonGroup}>
                   <button onClick={() => setDisclaimerAccepted(true)}>
                     Continue

@@ -3,6 +3,7 @@
     "title": "Player Barn",
     "subtitle": "Teleports you to your home stable.",
     "map": "greenisland",
+    "icon": "player-barn",
     "lng": -113.70812583982297,
     "lat": -30.85951172755518
   },
