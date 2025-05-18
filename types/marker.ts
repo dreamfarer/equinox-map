@@ -5,7 +5,29 @@ export const markerCategories = [
   'race',
   'fast-travel',
   'scenic-ride',
+  'antler',
+  'apple',
+  'blackberry',
+  'carrot',
+  'cave',
+  'delphinium',
+  'dryad-saddle-mushroom',
+  'eagle-feather',
+  'fossil',
+  'horseshoe',
+  'king-boletus-mushroom',
+  'moss',
+  'poppy',
+  'raspberry',
+  'raven-feather',
+  'seagull-feather',
+  'sulfur-shelf-mushroom',
+  'sunflower',
+  'violet',
+  'water-lily',
+  'weekly-quests',
 ] as const;
+
 export type MarkerCategory = (typeof markerCategories)[number];
 
 export type Marker = {

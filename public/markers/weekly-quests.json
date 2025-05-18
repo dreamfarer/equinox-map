@@ -2,78 +2,93 @@
   {
     "title": "Blocked Road",
     "subtitle": "Meet Kai Chen about the request.",
-    "foreignId": "kai chen"
+    "foreignId": "kai-chen",
+    "map": "greenisland"
   },
   {
     "title": "Pesky Crow",
     "subtitle": "Talk to Dwight.",
-    "foreignId": "dwight"
+    "foreignId": "dwight",
+    "map": "greenisland"
   },
   {
     "title": "Thinning The Shots",
     "subtitle": "Ride to Landor's farm. Talk to Danny (Optional).",
-    "foreignId": "danny"
+    "foreignId": "danny",
+    "map": "greenisland"
   },
   {
     "title": "Flower Basket",
     "subtitle": "Speak with Emily. Collect a bouquet's worth of Poppies.",
-    "foreignId": "emily"
+    "foreignId": "emily",
+    "map": "greenisland"
   },
   {
     "title": "Goods On Demand",
     "subtitle": "Get products from Lewis.",
-    "foreignId": "lewis"
+    "foreignId": "lewis",
+    "map": "greenisland"
   },
   {
     "title": "Not-Easter Eggs",
     "subtitle": "Talk to Mrs. Wilson. Collect 10 eggs. Deliver eggs to Kathy at the market.",
-    "foreignId": "lewis"
+    "foreignId": "lewis",
+    "map": "greenisland"
   },
   {
     "title": "King of All Mushrooms",
     "subtitle": "Collet 15 King Boletus mushrooms.",
-    "foreignId": "maia"
+    "foreignId": "maia",
+    "map": "greenisland"
   },
   {
     "title": "Horse Brushing",
     "subtitle": "Go to the Equestrian Center. Take the brush. Brush 3 horses.",
-    "foreignId": "thomas-pratt"
+    "foreignId": "thomas-pratt",
+    "map": "greenisland"
   },
   {
     "title": "Tasty Saddle",
     "subtitle": "Collect 15 Dryad Saddle mushrooms.",
-    "foreignId": "thomas-pratt"
+    "foreignId": "thomas-pratt",
+    "map": "greenisland"
   },
   {
     "title": "Sulfur Treat",
     "subtitle": "Collect 15 Sulfur Shelf mushrooms.",
-    "foreignId": "thomas-pratt"
+    "foreignId": "thomas-pratt",
+    "map": "greenisland"
   },
   {
     "title": "Deer Footprints",
     "subtitle": "Go to the Ridge Row area.",
+    "map": "greenisland",
     "lng": -76.22380804656964,
     "lat": 72.50718110012042
   },
   {
     "title": "Deer Traces",
     "subtitle": "Go to the Lookout area.",
+    "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394
   },
   {
     "title": "Horse Ointment",
     "subtitle": "Go to the Rehabilitation Center. Talk to Philip Wiseman. Apply ointment on 3 horses. Tell Philip you are done.",
-    "foreignId": "philip-wiseman"
+    "foreignId": "philip-wiseman",
+    "map": "greenisland"
   },
   {
     "title": "Sheept Catcher",
     "subtitle": "Talk to Old Williams.",
-    "foreignId": "old-williams"
+    "foreignId": "old-williams",
+    "map": "greenisland"
   },
   {
     "title": "Deer Path",
     "subtitle": "Ride to the Crystal Springs area.",
+    "map": "greenisland",
     "lng": -37.34568769426164,
     "lat": 68.18581204782183
   }
