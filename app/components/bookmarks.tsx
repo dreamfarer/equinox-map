@@ -12,24 +12,26 @@ const Bookmarks: NextPage = () => {
 
   return (
     <div className={styles.menu}>
-      <div className={styles.results}>
-        {bookmarkedMarkers.length === 0 && (
-          <>
-            <div className="noBookmark">No bookmarks yet. (´•︵•`)</div>
-            <div className="noBookmark">
-              Save markers through the search bar or popups first.
-            </div>
-          </>
-        )}
-        {bookmarkedMarkers.map((m) => (
-          <Result
-            key={m.id}
-            marker={m}
-            isBookmarked={true}
-            onSelect={flyToMarker}
-            onToggleBookmark={toggleBookmark}
-          />
-        ))}
+      <div className={styles.scrollArea}>
+        <div className={styles.results}>
+          {bookmarkedMarkers.length === 0 && (
+            <>
+              <div className="noBookmark">No bookmarks yet. (´•︵•`)</div>
+              <div className="noBookmark">
+                Save markers through the search bar or popups first.
+              </div>
+            </>
+          )}
+          {bookmarkedMarkers.map((m) => (
+            <Result
+              key={m.id}
+              marker={m}
+              isBookmarked={true}
+              onSelect={flyToMarker}
+              onToggleBookmark={toggleBookmark}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

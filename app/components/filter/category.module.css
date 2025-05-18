@@ -6,6 +6,7 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: var(--gap-8xs);
+  flex-shrink: 0;
 }
 
 .button {
@@ -23,7 +24,8 @@
 
 .row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  align-content: flex-start;
   align-self: stretch;
 }
 
