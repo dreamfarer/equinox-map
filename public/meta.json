@@ -57,8 +57,7 @@
     "title": "Caves",
     "category": "cave",
     "path": "markers/resources/caves.json",
-    "anchor": "center",
-    "icon": "cave"
+    "anchor": "center"
   },
   {
     "title": "Dandelions",
@@ -75,11 +74,11 @@
     "icon": "delphinium"
   },
   {
-    "title": "Dryad Shelf Mushrooms",
-    "category": "dryad-shelf-mushroom",
-    "path": "markers/resources/dryad-shelf-mushrooms.json",
+    "title": "Dryad Saddle Mushrooms",
+    "category": "dryad-saddle-mushroom",
+    "path": "markers/resources/dryad-saddle-mushrooms.json",
     "anchor": "center",
-    "icon": "dryad-shelf-mushroom"
+    "icon": "dryad-saddle-mushroom"
   },
   {
     "title": "Eagle Feathers",
