@@ -61,14 +61,14 @@
   },
   {
     "title": "Deer Footprints",
-    "subtitle": "Go to the Ridge Row area.",
+    "subtitle": "Go to the Ridge Row area. Mark the deer route at Ridge Road (20). Report to Kyle",
     "map": "greenisland",
     "lng": -76.22380804656964,
     "lat": 72.50718110012042
   },
   {
     "title": "Deer Traces",
-    "subtitle": "Go to the Lookout area.",
+    "subtitle": "Ride to the Lookout area. (...)",
     "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394
@@ -80,16 +80,34 @@
     "map": "greenisland"
   },
   {
-    "title": "Sheept Catcher",
-    "subtitle": "Talk to Old Williams.",
+    "title": "Sheep Catcher",
+    "subtitle": "Talk to Old Williams. Go find the sheep. Touch the tracker to activate (7). Return to Old Williams.",
     "foreignId": "old-williams",
     "map": "greenisland"
   },
   {
     "title": "Deer Path",
-    "subtitle": "Ride to the Crystal Springs area.",
+    "subtitle": "Ride to the Crystal Springs area. Mark the deer route at Crystal Springs (22). Report to Kyle.",
     "map": "greenisland",
     "lng": -37.34568769426164,
     "lat": 68.18581204782183
+  },
+  {
+    "title": "Future Bread",
+    "subtitle": "Talk to Kurt at the general store. Deliver fertilizer to Dwight Collins.",
+    "foreignId": "kurt-burlow",
+    "map": "greenisland"
+  },
+  {
+    "title": "Smells Like a Bun",
+    "subtitle": "Pick up sacks with wheat from Wheat farm (2).",
+    "foreignId": "dwight",
+    "map": "greenisland"
+  },
+  {
+    "title": "Clean and Fresh",
+    "subtitle": "Ride to the Wiseman's horse rehab. Clean the stalls (5).",
+    "foreignId": "philip-wiseman",
+    "map": "greenisland"
   }
 ]
