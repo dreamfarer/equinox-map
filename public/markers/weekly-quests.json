@@ -1,37 +1,37 @@
 [
   {
     "title": "Blocked Road",
-    "subtitle": "Meet Kai Chen about the request.",
+    "subtitle": "Meet Kai Chen and remove the fallen tree.",
     "foreignId": "kai-chen",
     "map": "greenisland"
   },
   {
     "title": "Pesky Crow",
-    "subtitle": "Talk to Dwight.",
+    "subtitle": "Talk to Dwight and find 3 items to dress the scarecrow.",
     "foreignId": "dwight",
     "map": "greenisland"
   },
   {
     "title": "Thinning the Shots",
-    "subtitle": "Ride to Landor's farm. Talk to Danny (optional).",
+    "subtitle": "Ride to Landor's farm, remove 8 excess grape clusters, and return to Danny at the bar.",
     "foreignId": "danny",
     "map": "greenisland"
   },
   {
     "title": "Flower Basket",
-    "subtitle": "Speak with Emily. Collect enough poppies for a bouquet.",
+    "subtitle": "Speak with Emily and collect enough poppies for a bouquet.",
     "foreignId": "emily",
     "map": "greenisland"
   },
   {
     "title": "Goods on Demand",
-    "subtitle": "Get products from Lewis.",
+    "subtitle": "Get products from Lewis and deliver them to Kathy.",
     "foreignId": "lewis",
     "map": "greenisland"
   },
   {
     "title": "Not-Easter Eggs",
-    "subtitle": "Talk to Mrs. Wilson. Collect 10 eggs and deliver them to Kathy at the market.",
+    "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kathy at the market.",
     "foreignId": "lewis",
     "map": "greenisland"
   },
@@ -68,7 +68,7 @@
   },
   {
     "title": "Deer Traces",
-    "subtitle": "(...)",
+    "subtitle": "Ride to the lookout area. (...)",
     "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394
@@ -81,7 +81,7 @@
   },
   {
     "title": "Sheep Catcher",
-    "subtitle": "Talk to Old Williams, touch the 7 sheep tracker, then return to him.",
+    "subtitle": "Talk to Old Williams, activate the 7 sheep tracker, then report back.",
     "foreignId": "old-williams",
     "map": "greenisland"
   },
@@ -94,20 +94,32 @@
   },
   {
     "title": "Future Bread",
-    "subtitle": "Talk to Kurt at the general store and deliver fertilizer to Dwight Collins.",
+    "subtitle": "Pick up fertilizer from Kurt Burlow at the general store, deliver it to Dwight Collins and place it near the wheelbarrow.",
     "foreignId": "kurt-burlow",
     "map": "greenisland"
   },
   {
     "title": "Smells Like a Bun",
-    "subtitle": "Pick up 2 wheat sacks from the wheat farm.",
+    "subtitle": "Pick up 2 wheat sacks from the wheat farm and deliver them to the bakery.",
     "foreignId": "dwight",
     "map": "greenisland"
   },
   {
     "title": "Clean and Fresh",
-    "subtitle": "Ride to Wiseman's horse rehab and clean 5 stalls (manure).",
+    "subtitle": "Ride to Wiseman's horse rehab and clean 5 manure piles.",
     "foreignId": "philip-wiseman",
+    "map": "greenisland"
+  },
+  {
+    "title": "Milky Hands",
+    "subtitle": "Talk to the farmer, milk 5 cows, and deliver the milk to the general store.",
+    "foreignId": "derek-whitlock",
+    "map": "greenisland"
+  },
+  {
+    "title": "Horse Massaging",
+    "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
+    "foreignId": "thomas-pratt",
     "map": "greenisland"
   }
 ]
