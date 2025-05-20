@@ -5,13 +5,6 @@
     "anchor": "center"
   },
   {
-    "title": "Dandelion",
-    "category": "dandelion",
-    "path": "markers/resources/dandelion.json",
-    "anchor": "center",
-    "icon": "dandelion"
-  },
-  {
     "category": "fast-travel",
     "path": "markers/fast-travel.json",
     "anchor": "bottom"
@@ -30,6 +23,152 @@
   },
   {
     "category": "shop",
-    "path": "markers/vendors.json"
+    "path": "markers/shops.json"
+  },
+  {
+    "title": "Antlers",
+    "category": "antler",
+    "path": "markers/resources/antlers.json",
+    "anchor": "center",
+    "icon": "antler"
+  },
+  {
+    "title": "Apples",
+    "category": "apple",
+    "path": "markers/resources/apples.json",
+    "anchor": "center",
+    "icon": "apple"
+  },
+  {
+    "title": "Blackberries",
+    "category": "blackberry",
+    "path": "markers/resources/blackberries.json",
+    "anchor": "center",
+    "icon": "blackberry"
+  },
+  {
+    "title": "Carrots",
+    "category": "carrot",
+    "path": "markers/resources/carrots.json",
+    "anchor": "center",
+    "icon": "carrot"
+  },
+  {
+    "title": "Caves",
+    "category": "cave",
+    "path": "markers/resources/caves.json",
+    "anchor": "center"
+  },
+  {
+    "title": "Dandelions",
+    "category": "dandelion",
+    "path": "markers/resources/dandelions.json",
+    "anchor": "center",
+    "icon": "dandelion"
+  },
+  {
+    "title": "Delphiniums",
+    "category": "delphinium",
+    "path": "markers/resources/delphiniums.json",
+    "anchor": "center",
+    "icon": "delphinium"
+  },
+  {
+    "title": "Dryad Saddle Mushrooms",
+    "category": "dryad-saddle-mushroom",
+    "path": "markers/resources/dryad-saddle-mushrooms.json",
+    "anchor": "center",
+    "icon": "dryad-saddle-mushroom"
+  },
+  {
+    "title": "Eagle Feathers",
+    "category": "eagle-feather",
+    "path": "markers/resources/eagle-feathers.json",
+    "anchor": "center",
+    "icon": "eagle-feather"
+  },
+  {
+    "title": "Fossils",
+    "category": "fossil",
+    "path": "markers/resources/fossils.json",
+    "anchor": "center",
+    "icon": "fossil"
+  },
+  {
+    "title": "Horseshoes",
+    "category": "horseshoe",
+    "path": "markers/resources/horseshoes.json",
+    "anchor": "center",
+    "icon": "horseshoe"
+  },
+  {
+    "title": "King Boletus Mushrooms",
+    "category": "king-boletus-mushroom",
+    "path": "markers/resources/king-boletus-mushrooms.json",
+    "anchor": "center",
+    "icon": "king-boletus-mushroom"
+  },
+  {
+    "title": "Moss",
+    "category": "moss",
+    "path": "markers/resources/moss.json",
+    "anchor": "center",
+    "icon": "moss"
+  },
+  {
+    "title": "Poppies",
+    "category": "poppy",
+    "path": "markers/resources/poppies.json",
+    "anchor": "center",
+    "icon": "poppy"
+  },
+  {
+    "title": "Raspberries",
+    "category": "raspberry",
+    "path": "markers/resources/raspberries.json",
+    "anchor": "center",
+    "icon": "raspberry"
+  },
+  {
+    "title": "Raven Feathers",
+    "category": "raven-feather",
+    "path": "markers/resources/raven-feathers.json",
+    "anchor": "center",
+    "icon": "raven-feather"
+  },
+  {
+    "title": "Seagull Feathers",
+    "category": "seagull-feather",
+    "path": "markers/resources/seagull-feathers.json",
+    "anchor": "center",
+    "icon": "seagull-feather"
+  },
+  {
+    "title": "Sulfur Shelf Mushrooms",
+    "category": "sulfur-shelf-mushroom",
+    "path": "markers/resources/sulfur-shelf-mushrooms.json",
+    "anchor": "center",
+    "icon": "sulfur-shelf-mushroom"
+  },
+  {
+    "title": "Sunflowers",
+    "category": "sunflower",
+    "path": "markers/resources/sunflowers.json",
+    "anchor": "center",
+    "icon": "sunflower"
+  },
+  {
+    "title": "Violets",
+    "category": "violet",
+    "path": "markers/resources/violets.json",
+    "anchor": "center",
+    "icon": "violet"
+  },
+  {
+    "title": "Water Lilies",
+    "category": "water-lily",
+    "path": "markers/resources/water-lilies.json",
+    "anchor": "center",
+    "icon": "water-lily"
   }
 ]

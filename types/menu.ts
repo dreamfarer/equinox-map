@@ -1,1 +1,1 @@
-export type MenuType = 'filter' | 'bookmarks';
+export type TMenu = 'filter' | 'bookmarks';

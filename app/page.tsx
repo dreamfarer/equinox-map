@@ -6,13 +6,13 @@ import styles from './page.module.css';
 import { MarkerLayerProvider } from './context/marker-layer';
 import Navbar from './components/navbar';
 import Bookmarks from './components/bookmarks';
-import { MenuType } from '@/types/menu';
+import { TMenu } from '@/types/menu';
 
 export default function Home() {
-  const [selectedMenu, setSelectedMenu] = useState<MenuType>('filter');
+  const [selectedMenu, setSelectedMenu] = useState<TMenu>('filter');
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  const openMenu = (menu: MenuType) => {
+  const openMenu = (menu: TMenu) => {
     setSelectedMenu(menu);
   };
 

@@ -1,18 +1,43 @@
-import { applyFilter } from '@/lib/marker-layer-utility';
-import { MarkerCategory, MergedMarker } from '@/types/marker';
-import { Map } from 'maplibre-gl';
+import {
+  computeFilteredMarkersAndExpression,
+  safelyRemovePopup,
+} from '@/lib/marker-layer-utility';
+import { TCategory } from '@/types/category';
+import { ExtendedMap } from '@/types/extended-map';
+import { TPopup } from '@/types/popup';
+import { ExpressionSpecification, Map } from 'maplibre-gl';
 import { useEffect } from 'react';
 
 export function useFilterUpdates(
   map: Map | null,
-  enabled: Record<MarkerCategory, boolean>,
-  visibleIds: string[] | null,
-  markers: MergedMarker[],
+  enabled: Record<TCategory, boolean>,
+  bookmarkedIds: string[] | null,
+  popups: TPopup[],
+  onUpdate?: (result: {
+    filtered: TPopup[];
+    expression: ExpressionSpecification | null;
+    activeCategories: TCategory[];
+  }) => void
 ) {
   useEffect(() => {
     if (!map) return;
+
+    const result = computeFilteredMarkersAndExpression(
+      enabled,
+      bookmarkedIds,
+      popups
+    );
+
+    onUpdate?.(result);
     requestAnimationFrame(() => {
-      applyFilter(map, enabled, visibleIds, markers);
+      if (map.getLayer('markers-layer')) {
+        const activeId = (map as ExtendedMap).__activePopupMarkerId;
+        const isPopupStillValid = result.filtered.some(
+          (m) => m.id === activeId
+        );
+        if (!isPopupStillValid) safelyRemovePopup(map);
+        map.setFilter('markers-layer', result.expression);
+      }
     });
-  }, [map, enabled, visibleIds, markers]);
+  }, [map, enabled, bookmarkedIds, popups, onUpdate]);
 }

@@ -1,20 +1,20 @@
-import { markerCategories, MarkerCategory } from '@/types/marker';
+import { categories, TCategory } from '@/types/category';
 import { useCallback, useState } from 'react';
 
 export function useEnabledCategories(): [
-  Record<MarkerCategory, boolean>,
-  (cat: MarkerCategory) => void,
+  Record<TCategory, boolean>,
+  (category: TCategory) => void,
 ] {
-  const [enabled, setEnabled] = useState<Record<MarkerCategory, boolean>>(
-    Object.fromEntries(markerCategories.map((c) => [c, true])) as Record<
-      MarkerCategory,
+  const [enabled, setEnabled] = useState<Record<TCategory, boolean>>(
+    Object.fromEntries(categories.map((c) => [c, true])) as Record<
+      TCategory,
       boolean
-    >,
+    >
   );
   const toggleCategory = useCallback(
-    (cat: MarkerCategory) =>
-      setEnabled((prev) => ({ ...prev, [cat]: !prev[cat] })),
-    [],
+    (category: TCategory) =>
+      setEnabled((prev) => ({ ...prev, [category]: !prev[category] })),
+    []
   );
   return [enabled, toggleCategory];
 }

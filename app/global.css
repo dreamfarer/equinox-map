@@ -33,8 +33,16 @@
   --accent-light: #d6d6d6;
   --background-dark: #0a0a0a;
   --text-dark: #d5d5d5;
-  --text-disabled-dark: #505050;
+  --text-disabled-dark: #777777;
   --theme: #fe28f7;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,

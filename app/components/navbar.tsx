@@ -4,13 +4,13 @@ import Image from 'next/image';
 import styles from './navbar.module.css';
 import Group from './navbar/group';
 import { ListDashes, BookmarkSimple, CaretLeft } from '@phosphor-icons/react';
-import { MenuType } from '@/types/menu';
 import { useMarkerLayerContext } from '../context/marker-layer';
+import { TMenu } from '@/types/menu';
 
 interface Props {
-  selectedMenu: MenuType;
+  selectedMenu: TMenu;
   isMenuOpen: boolean;
-  onSelectMenu: (menu: MenuType) => void;
+  onSelectMenu: (menu: TMenu) => void;
   onToggleMenu: () => void;
 }
 
@@ -20,15 +20,15 @@ const Navbar: React.FC<Props> = ({
   onSelectMenu,
   onToggleMenu,
 }) => {
-  const { bookmarks, showOnlyMarkers } = useMarkerLayerContext();
+  const { showOnlyBookmarks } = useMarkerLayerContext();
 
   useEffect(() => {
     if (selectedMenu == 'bookmarks') {
-      showOnlyMarkers(bookmarks);
+      showOnlyBookmarks(true);
     } else {
-      showOnlyMarkers(null);
+      showOnlyBookmarks(false);
     }
-  }, [selectedMenu, bookmarks, showOnlyMarkers]);
+  }, [selectedMenu, showOnlyBookmarks]);
 
   return (
     <div className={styles.navbar}>

@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { randomUUID } from 'crypto';
+import { TPopupPayload } from '@/types/popup-payload';
 
 type MetaEntry = {
   category: string;
@@ -24,11 +25,14 @@ type Marker = {
 
 type MergedMarker = {
   id: string;
+  categories: Record<string, TPopupPayload>;
+};
+
+type MarkerGeoProperties = {
+  id: string;
   map: string;
   lng: number;
   lat: number;
-  title: string;
-  subtitle: string;
   icon: string;
   anchor: 'bottom' | 'center';
   categories: string[];
@@ -45,11 +49,13 @@ function slugify(value: string): string {
 async function build() {
   const publicDir = path.resolve(__dirname, '../public');
   const metaPath = path.join(publicDir, 'meta.json');
-
   const meta = JSON.parse(await fs.readFile(metaPath, 'utf8')) as MetaEntry[];
 
-  const base: Record<string, MergedMarker> = {};
-  const deferred: { m: Marker; category: string }[] = [];
+  const flat: Record<string, MergedMarker> = {};
+  const geo: Record<string, MarkerGeoProperties> = {};
+  const originalTitles: Record<string, { title: string; subtitle: string }> =
+    {};
+  const deferred: { m: Marker; category: string; meta: MetaEntry }[] = [];
 
   for (const entry of meta) {
     const {
@@ -66,14 +72,14 @@ async function build() {
 
     for (const m of raw) {
       if (m.foreignId) {
-        deferred.push({ m, category });
+        deferred.push({ m, category, meta: entry });
         continue;
       }
 
       if (m.lng == null || m.lat == null || !m.map) {
         console.warn(
           `Skipping marker without coordinates and/or map in "${relPath}":`,
-          m,
+          m
         );
         continue;
       }
@@ -87,7 +93,6 @@ async function build() {
       const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
       const resolvedTitle = m.title?.trim() || metaTitle || '';
       const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
-
       const anchor: 'bottom' | 'center' =
         resolvedIcon === 'default-marker'
           ? 'bottom'
@@ -95,58 +100,82 @@ async function build() {
             ? 'center'
             : 'bottom';
 
-      base[id] = {
+      geo[id] = {
         id,
         map: m.map,
         lng: m.lng,
         lat: m.lat,
-        title: resolvedTitle,
-        subtitle: resolvedSubtitle,
         icon: resolvedIcon,
         anchor,
         categories: [category],
       };
+
+      flat[id] = {
+        id,
+        categories: {
+          [category]: {
+            items: [
+              {
+                title: resolvedTitle,
+                subtitle: resolvedSubtitle,
+              },
+            ],
+          },
+        },
+      };
+
+      originalTitles[id] = { title: resolvedTitle, subtitle: resolvedSubtitle };
     }
   }
 
-  for (const { m, category } of deferred) {
+  for (const { m, category, meta } of deferred) {
     const targetId = m.foreignId!.toLowerCase();
-    const target = base[targetId];
+    const baseMarker = flat[targetId];
+    const geoMarker = geo[targetId];
 
-    if (!target) {
+    if (!baseMarker || !geoMarker) {
       console.warn(
-        `foreignId "${targetId}" not found (category "${category}") – skipping`,
+        `foreignId "${targetId}" not found (category "${category}") – skipping`
       );
       continue;
     }
 
-    if (m.subtitle && !target.subtitle) target.subtitle = m.subtitle;
-    if (m.icon && !target.icon) target.icon = m.icon;
-    if (!target.categories.includes(category)) target.categories.push(category);
+    const original = originalTitles[targetId] || { title: '', subtitle: '' };
+    const fallbackTitle = m.title || meta.title || original.title;
+    const fallbackSubtitle = m.subtitle || meta.subtitle || original.subtitle;
+
+    if (!baseMarker.categories[category]) {
+      baseMarker.categories[category] = { items: [] };
+      geoMarker.categories.push(category);
+    }
+
+    baseMarker.categories[category].items.push({
+      title: m.title || fallbackTitle,
+      subtitle: m.subtitle || fallbackSubtitle,
+    });
   }
 
-  const features = Object.values(base).map((m) => ({
-    type: 'Feature',
-    geometry: { type: 'Point', coordinates: [m.lng, m.lat] },
-    properties: {
-      id: m.id,
-      title: m.title,
-      subtitle: m.subtitle,
-      icon: m.icon,
-      anchor: m.anchor,
-      map: m.map,
-      categories: m.categories,
-    },
-  }));
-
-  const geojson = { type: 'FeatureCollection', features } as const;
+  const geojson = {
+    type: 'FeatureCollection',
+    features: Object.values(geo).map((p) => ({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+      properties: p,
+    })),
+  };
 
   await fs.writeFile(
     path.join(publicDir, 'markers/markers.geojson'),
-    JSON.stringify(geojson),
+    JSON.stringify(geojson)
   );
+
+  await fs.writeFile(
+    path.join(publicDir, 'markers/popups.json'),
+    JSON.stringify(Object.values(flat))
+  );
+
   console.log(
-    `Generated markers.geojson with ${features.length} features → public/markers/markers.geojson`,
+    `markers.geojson (${geojson.features.length}) and popups.json (${Object.keys(flat).length}) written.`
   );
 }
 

@@ -1,36 +1,67 @@
 .popup {
   display: flex;
-  width: 12rem;
+  width: 15rem;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.tab {
+  display: flex;
+  padding: 0.3125rem;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: var(--text-dark);
+  border-radius: 0;
+  background: var(--accent-dark);
+}
+
+.tab.active {
+  background: var(--background-dark);
+}
+
+.content {
+  display: flex;
   padding: var(--padding-xl);
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--gap-8xs);
+  gap: 0.3125rem;
   align-self: stretch;
   background: var(--background-dark);
 }
 
-.popup .header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
 }
 
-.popup .title {
+.title {
   font-size: var(--font-size-title);
   font-weight: 600;
   color: var(--text-dark);
 }
 
-.popup .subtitle {
+.subtitle {
   font-size: var(--font-size-mini);
   font-weight: 400;
   color: var(--text-dark);
   line-height: 1rem;
+  align-self: stretch;
 }
 
-.popup .bookmark {
+.bookmark {
   all: unset;
   display: flex;
   flex-direction: column;
@@ -41,6 +72,6 @@
   border-color: transparent;
 }
 
-.popup .bookmark:hover {
+.bookmark:hover {
   filter: brightness(90%);
 }

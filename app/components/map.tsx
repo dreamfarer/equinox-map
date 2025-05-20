@@ -2,10 +2,10 @@
 import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { Marker } from '../../types/marker';
 import styles from './map.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import { useDevMode } from '../context/dev-mode';
+import { TMarkerDev } from '@/types/marker-dev';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -15,7 +15,7 @@ export default function Map() {
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   const exportMarkerDebug = (map: maplibregl.Map, lng: number, lat: number) => {
-    const marker: Marker = {
+    const marker: TMarkerDev = {
       map: 'greenisland',
       lng,
       lat,
@@ -133,7 +133,7 @@ export default function Map() {
                     onClick={() =>
                       window.open(
                         'https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform',
-                        '_blank',
+                        '_blank'
                       )
                     }
                   >
