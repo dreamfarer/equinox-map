@@ -1,13 +1,20 @@
 import { useCallback, useState } from 'react';
+import { TBookmark } from '@/types/bookmark';
 
 export function useVisibleIds(): [
   string[] | null,
-  (ids: string[] | null) => void,
+  (bookmarks: TBookmark[] | null) => void,
 ] {
   const [visibleIds, setVisibleIds] = useState<string[] | null>(null);
-  const showOnlyMarkers = useCallback(
-    (ids: string[] | null) => setVisibleIds(ids),
-    []
-  );
-  return [visibleIds, showOnlyMarkers];
+
+  const showOnlyBookmarks = useCallback((bookmarks: TBookmark[] | null) => {
+    if (!bookmarks) {
+      setVisibleIds(null);
+    } else {
+      const ids = bookmarks.map((b) => b.id);
+      setVisibleIds(ids);
+    }
+  }, []);
+
+  return [visibleIds, showOnlyBookmarks];
 }

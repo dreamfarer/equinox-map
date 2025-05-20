@@ -1,32 +1,32 @@
 import { BookmarkSimple } from '@phosphor-icons/react';
 import styles from './result.module.css';
-import { MergedMarker } from '@/types/marker';
 
 type Props = {
-  marker: MergedMarker;
+  title: string;
+  subtitle?: string;
+  category: string;
   isBookmarked: boolean;
-  onSelect: (id: string) => void;
-  onToggleBookmark: (id: string) => void;
+  onSelect: () => void;
+  onToggleBookmark: () => void;
 };
 
 export default function Result({
-  marker,
+  title,
+  category,
   isBookmarked,
   onSelect,
   onToggleBookmark,
 }: Props) {
   const handleBookmark = (e: React.MouseEvent) => {
     e.stopPropagation();
-    onToggleBookmark(marker.id);
+    onToggleBookmark();
   };
 
   return (
-    <div className={styles.result} onClick={() => onSelect(marker.id)}>
+    <div className={styles.result} onClick={onSelect}>
       <div className={styles.information}>
-        <div className={styles.title}>{marker.title}</div>
-        {marker.categories && (
-          <div className={styles.subtitle}>{marker.categories.join(', ')}</div>
-        )}
+        <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{category}</div>
       </div>
       <button
         className={styles.button}

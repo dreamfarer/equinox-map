@@ -6,25 +6,53 @@ import Searchbar from './filter/searchbar';
 import Result from './filter/result';
 import { useState, useMemo } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
+import { TPopup } from '@/types/popup';
 
 const Filter: NextPage = () => {
   const {
     enabled,
     toggleCategory,
-    markers,
+    popups,
     flyToMarker,
     bookmarks,
     toggleBookmark,
   } = useMarkerLayerContext();
   const [query, setQuery] = useState('');
 
-  const results = useMemo(() => {
-    if (!query.trim()) return [] as typeof markers;
+  type MarkerSearchResult = {
+    id: string;
+    category: string;
+    title: string;
+    subtitle?: string;
+    popup: TPopup;
+  };
+
+  const results = useMemo((): MarkerSearchResult[] => {
+    if (!query.trim()) return [];
+
     const q = query.toLowerCase();
-    return markers.filter((m) =>
-      `${m.title} ${m.subtitle}`.toLowerCase().includes(q)
-    );
-  }, [query, markers]);
+    const matches: MarkerSearchResult[] = [];
+
+    for (const popup of popups) {
+      for (const [category, payload] of Object.entries(popup.categories)) {
+        for (const item of payload.items) {
+          const text =
+            `${item.title ?? ''} ${item.subtitle ?? ''}`.toLowerCase();
+          if (text.includes(q)) {
+            matches.push({
+              id: popup.id,
+              category,
+              title: item.title ?? '',
+              subtitle: item.subtitle,
+              popup,
+            });
+          }
+        }
+      }
+    }
+
+    return matches;
+  }, [query, popups]);
 
   return (
     <div className={styles.menu}>
@@ -253,13 +281,18 @@ const Filter: NextPage = () => {
           </>
         )}
         <div className={styles.results}>
-          {results.map((m) => (
+          {results.map((r, i) => (
             <Result
-              key={m.id}
-              marker={m}
-              isBookmarked={bookmarks.includes(m.id)}
-              onSelect={flyToMarker}
-              onToggleBookmark={toggleBookmark}
+              key={`${r.id}-${r.category}-${i}`}
+              title={r.title}
+              category={r.category}
+              isBookmarked={bookmarks.some(
+                (b) => b.id === r.id && b.category === r.category
+              )}
+              onSelect={() => {
+                flyToMarker(r.id, r.category);
+              }}
+              onToggleBookmark={() => toggleBookmark(r.id, r.category)}
             />
           ))}
           {query && results.length === 0 && (

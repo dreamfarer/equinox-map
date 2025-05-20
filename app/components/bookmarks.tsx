@@ -5,10 +5,23 @@ import Result from './filter/result';
 import { useMarkerLayerContext } from '../context/marker-layer';
 
 const Bookmarks: NextPage = () => {
-  const { bookmarks, markers, flyToMarker, toggleBookmark } =
+  const { bookmarks, popups, flyToMarker, toggleBookmark } =
     useMarkerLayerContext();
 
-  const bookmarkedMarkers = markers.filter((m) => bookmarks.includes(m.id));
+  const bookmarkedMarkers = bookmarks.flatMap((bookmark) => {
+    const popup = popups.find((p) => p.id === bookmark.id);
+    if (!popup) return [];
+
+    const categoryPayload = popup.categories[bookmark.category];
+    if (!categoryPayload) return [];
+
+    return categoryPayload.items.map((item) => ({
+      id: bookmark.id,
+      category: bookmark.category,
+      title: item.title ?? '',
+      subtitle: item.subtitle,
+    }));
+  });
 
   return (
     <div className={styles.menu}>
@@ -22,13 +35,14 @@ const Bookmarks: NextPage = () => {
               </div>
             </>
           )}
-          {bookmarkedMarkers.map((m) => (
+          {bookmarkedMarkers.map((m, i) => (
             <Result
-              key={m.id}
-              marker={m}
+              key={`${m.id}-${m.category}-${i}`}
+              title={m.title}
+              category={m.category}
               isBookmarked={true}
-              onSelect={flyToMarker}
-              onToggleBookmark={toggleBookmark}
+              onSelect={() => flyToMarker(m.id, m.category)}
+              onToggleBookmark={() => toggleBookmark(m.id, m.category)}
             />
           ))}
         </div>

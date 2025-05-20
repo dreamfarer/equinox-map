@@ -1,13 +1,15 @@
-import { MarkerCategory, MergedMarker } from './marker';
 import { Map } from 'maplibre-gl';
+import { TCategory } from './category';
+import { TPopup } from './popup';
+import { TBookmark } from './bookmark';
 
-export type MarkerLayerContextType = {
-  enabled: Record<MarkerCategory, boolean>;
-  toggleCategory: (category: MarkerCategory) => void;
+export type TMarkerLayerContext = {
+  enabled: Record<TCategory, boolean>;
+  toggleCategory: (category: TCategory) => void;
   setMapInstance: (map: Map) => void;
-  markers: MergedMarker[];
-  flyToMarker: (id: string) => void;
-  showOnlyMarkers: (ids: string[] | null) => void;
-  bookmarks: string[];
-  toggleBookmark: (id: string) => void;
+  popups: TPopup[];
+  flyToMarker: (id: string, category?: string) => void;
+  showOnlyBookmarks: (bookmarks: TBookmark[] | null) => void;
+  bookmarks: TBookmark[];
+  toggleBookmark: (id: string, category: string) => void;
 };

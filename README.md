@@ -10,17 +10,17 @@ The following features are fully implemented and available in the live version:
 - Search for markers using the search bar
 - Click a search result to fly to that marker on the map
 - Click a marker to open a popup with additional information
-- Bookmark markers directly from the search results
+- Bookmark markers directly from the search results or within popups
 - View only your bookmarked markers via the **Bookmarks** tab
 
 ## Roadmap
 
 We are committed to maintaining this project long-term. Our immediate goals include:
 
-- Adding remaining markers (e.g., resources, races, scenic rides, etc.)
-- Enabling bookmarking directly from marker popups
+- Add remaining markers (e.g., weekly, side and main quests)
 - Plot the course of the race when opening the popup
-- Refactoring and abstracting code for future expansion
+- Display a short visual tutorial when first visiting the app
+- Refactor and abstracting code for future expansion
 - Implement caching & efficient bandwidth usage
 
 ## Feedback, Issues, Suggestions
