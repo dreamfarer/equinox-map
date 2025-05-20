@@ -32,7 +32,7 @@
   {
     "title": "Not-Easter Eggs",
     "subtitle": "Talk to Mrs. Wilson. Collect 10 eggs and deliver them to Kathy at the market.",
-    "foreignId": "lewis", 
+    "foreignId": "lewis",
     "map": "greenisland"
   },
   {
@@ -68,7 +68,7 @@
   },
   {
     "title": "Deer Traces",
-    "subtitle": "(...)", 
+    "subtitle": "(...)",
     "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394

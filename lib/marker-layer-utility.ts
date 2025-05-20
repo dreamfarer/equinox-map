@@ -29,6 +29,10 @@ export async function loadIcon(
   return result.data;
 }
 
+function emptyFilter(): ExpressionSpecification {
+  return ['in', ['get', 'id'], ['literal', []]];
+}
+
 /**
  * Filter markers and return both the filtered array and corresponding MapLibre filter expression.
  */
@@ -51,7 +55,15 @@ export function computeFilteredMarkersAndExpression(
     };
   }
 
+  if (bookmarkedIds && bookmarkedIds.length === 0) {
+    return { filtered: [], expression: emptyFilter(), activeCategories: [] };
+  }
+
   const activeCategories = categories.filter((cat) => enabled[cat]);
+
+  if (activeCategories.length === 0) {
+    return { filtered: [], expression: emptyFilter(), activeCategories: [] };
+  }
 
   if (activeCategories.length === categories.length) {
     return { filtered: popups, expression: null, activeCategories };
