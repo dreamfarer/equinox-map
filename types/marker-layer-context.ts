@@ -9,7 +9,7 @@ export type TMarkerLayerContext = {
   setMapInstance: (map: Map) => void;
   popups: TPopup[];
   flyToMarker: (id: string, category?: string) => void;
-  showOnlyBookmarks: (bookmarks: TBookmark[] | null) => void;
+  showOnlyBookmarks: (enabled: boolean) => void;
   bookmarks: TBookmark[];
   toggleBookmark: (id: string, category: string) => void;
 };

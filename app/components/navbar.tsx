@@ -20,15 +20,15 @@ const Navbar: React.FC<Props> = ({
   onSelectMenu,
   onToggleMenu,
 }) => {
-  const { bookmarks, showOnlyBookmarks } = useMarkerLayerContext();
+  const { showOnlyBookmarks } = useMarkerLayerContext();
 
   useEffect(() => {
     if (selectedMenu == 'bookmarks') {
-      showOnlyBookmarks(bookmarks);
+      showOnlyBookmarks(true);
     } else {
-      showOnlyBookmarks(null);
+      showOnlyBookmarks(false);
     }
-  }, [selectedMenu, bookmarks, showOnlyBookmarks]);
+  }, [selectedMenu, showOnlyBookmarks]);
 
   return (
     <div className={styles.navbar}>

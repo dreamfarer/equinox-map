@@ -1,38 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { TBookmark } from '@/types/bookmark';
 
-export function useBookmarks(): [
-  TBookmark[],
-  (id: string, category: string) => void,
-] {
+export function useBookmarkManager(): {
+  bookmarks: TBookmark[];
+  toggleBookmark: (id: string, category: string) => void;
+  bookmarkedIds: string[] | null;
+  showOnlyBookmarks: (enabled: boolean) => void;
+} {
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[] | null>(null);
   const [bookmarks, setBookmarks] = useState<TBookmark[]>(() => {
     if (typeof window === 'undefined') return [];
-
     try {
       const raw = JSON.parse(localStorage.getItem('bookmarks') ?? '[]');
-
       if (!Array.isArray(raw)) return [];
-
-      const isNewFormat = raw.every(
+      const isValid = raw.every(
         (b) =>
           b &&
           typeof b === 'object' &&
           typeof b.id === 'string' &&
           typeof b.category === 'string'
       );
-
-      if (isNewFormat) return raw as TBookmark[];
-      localStorage.removeItem('bookmarks');
-      return [];
+      return isValid ? (raw as TBookmark[]) : [];
     } catch {
       return [];
     }
   });
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    }
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }, [bookmarks]);
 
   const toggleBookmark = (id: string, category: string) => {
@@ -41,6 +36,7 @@ export function useBookmarks(): [
       const next = exists
         ? prev.filter((b) => !(b.id === id && b.category === category))
         : [...prev, { id, category }];
+
       window.dispatchEvent(
         new CustomEvent('bookmark-changed', {
           detail: {
@@ -51,9 +47,27 @@ export function useBookmarks(): [
           },
         })
       );
+
       return next;
     });
   };
 
-  return [bookmarks, toggleBookmark];
+  const showOnlyBookmarks = useCallback(
+    (enabled: boolean) => {
+      if (!enabled) {
+        setBookmarkedIds(null);
+      } else {
+        const ids = bookmarks.map((b) => b.id);
+        setBookmarkedIds(ids);
+      }
+    },
+    [bookmarks]
+  );
+
+  return {
+    bookmarks,
+    toggleBookmark,
+    bookmarkedIds,
+    showOnlyBookmarks,
+  };
 }

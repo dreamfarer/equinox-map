@@ -23,13 +23,13 @@ export function useMapPopupHandler(
   bookmarks: TBookmark[],
   toggleBookmark: (id: string, category: string) => void,
   activeCategories: TCategory[],
-  visibleIds: string[] | null
+  bookmarkedIds: string[] | null
 ) {
   const popupsRef = useRef(popups);
   const bookmarksRef = useRef(bookmarks);
   const toggleRef = useRef(toggleBookmark);
   const activeCategoriesRef = useRef(activeCategories);
-  const visibleIdsRef = useRef(visibleIds);
+  const bookmarkedIdsRef = useRef(bookmarkedIds);
 
   useEffect(() => {
     popupsRef.current = popups;
@@ -44,8 +44,8 @@ export function useMapPopupHandler(
     activeCategoriesRef.current = activeCategories;
   }, [activeCategories]);
   useEffect(() => {
-    visibleIdsRef.current = visibleIds;
-  }, [visibleIds]);
+    bookmarkedIdsRef.current = bookmarkedIds;
+  }, [bookmarkedIds]);
 
   useEffect(() => {
     if (!map || popupHandlerAttached.has(map)) return;
@@ -66,7 +66,7 @@ export function useMapPopupHandler(
       const popupData = popupsRef.current.find((m) => m.id === id);
       if (!popupData) return;
 
-      const isBookmarkMode = visibleIdsRef.current !== null;
+      const isBookmarkMode = bookmarkedIdsRef.current !== null;
 
       const filteredCategories = getFilteredPopupCategories(
         popupData,
@@ -159,7 +159,7 @@ export function useMapPopupHandler(
     const popupData = popups.find((p) => p.id === markerId);
     if (!popupData) return;
 
-    const isBookmarkMode = visibleIds !== null;
+    const isBookmarkMode = bookmarkedIds !== null;
 
     const filteredCategories = getFilteredPopupCategories(
       popupData,
@@ -186,5 +186,5 @@ export function useMapPopupHandler(
         initialCategory={defaultCategory}
       />
     );
-  }, [activeCategories, visibleIds, bookmarks, popups, map]);
+  }, [activeCategories, bookmarkedIds, bookmarks, popups, map]);
 }

@@ -7,9 +7,8 @@ import {
   useCallback,
 } from 'react';
 import { useEnabledCategories } from '../hooks/use-enabled-categories';
-import { useBookmarks } from '../hooks/use-bookmarks';
+import { useBookmarkManager } from '../hooks/use-bookmark-manager';
 import { useMapInstance } from '../hooks/use-map-instance';
-import { useVisibleIds } from '../hooks/use-visible-ids';
 import { useMapInitialization } from '../hooks/use-map-initialization';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { useFlyToMarker } from '../hooks/use-fly-to-marker';
@@ -36,13 +35,13 @@ export function MarkerLayerProvider({
   children: React.ReactNode;
 }) {
   const [enabled, toggleCategory] = useEnabledCategories();
-  const [bookmarks, toggleBookmark] = useBookmarks();
   const [map, setMapInstance] = useMapInstance();
-  const [visibleIds, showOnlyBookmarks] = useVisibleIds();
   const [popups, setPopups] = useState<TPopup[]>([]);
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopup[]>([]);
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
+  const { bookmarks, toggleBookmark, bookmarkedIds, showOnlyBookmarks } =
+    useBookmarkManager();
 
   const handleFilterResult = useCallback(
     (result: { filtered: TPopup[]; activeCategories: TCategory[] }) => {
@@ -53,14 +52,14 @@ export function MarkerLayerProvider({
   );
 
   useMapInitialization(map, setPopups, setMarkers);
-  useFilterUpdates(map, enabled, visibleIds, popups, handleFilterResult);
+  useFilterUpdates(map, enabled, bookmarkedIds, popups, handleFilterResult);
   useMapPopupHandler(
     map,
     filteredPopups,
     bookmarks,
     toggleBookmark,
     activeCategories,
-    visibleIds
+    bookmarkedIds
   );
 
   const flyToMarker = useFlyToMarker(map, popups, markers);

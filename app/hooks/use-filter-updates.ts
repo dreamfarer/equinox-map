@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 export function useFilterUpdates(
   map: Map | null,
   enabled: Record<TCategory, boolean>,
-  visibleIds: string[] | null,
+  bookmarkedIds: string[] | null,
   popups: TPopup[],
   onUpdate?: (result: {
     filtered: TPopup[];
@@ -24,7 +24,7 @@ export function useFilterUpdates(
 
     const result = computeFilteredMarkersAndExpression(
       enabled,
-      visibleIds,
+      bookmarkedIds,
       popups
     );
 
@@ -39,5 +39,5 @@ export function useFilterUpdates(
         map.setFilter('markers-layer', result.expression);
       }
     });
-  }, [map, enabled, visibleIds, popups, onUpdate]);
+  }, [map, enabled, bookmarkedIds, popups, onUpdate]);
 }

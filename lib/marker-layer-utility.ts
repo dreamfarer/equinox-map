@@ -34,19 +34,19 @@ export async function loadIcon(
  */
 export function computeFilteredMarkersAndExpression(
   enabled: Record<TCategory, boolean>,
-  visibleIds: string[] | null,
+  bookmarkedIds: string[] | null,
   popups: TPopup[]
 ): {
   filtered: TPopup[];
   expression: ExpressionSpecification | null;
   activeCategories: TCategory[];
 } {
-  if (visibleIds && visibleIds.length > 0) {
-    const visibleIdSet = new Set(visibleIds);
+  if (bookmarkedIds && bookmarkedIds.length > 0) {
+    const visibleIdSet = new Set(bookmarkedIds);
     const filtered = popups.filter((m) => visibleIdSet.has(m.id));
     return {
       filtered,
-      expression: ['in', ['get', 'id'], ['literal', visibleIds]],
+      expression: ['in', ['get', 'id'], ['literal', bookmarkedIds]],
       activeCategories: [],
     };
   }
