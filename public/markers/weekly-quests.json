@@ -12,38 +12,38 @@
     "map": "greenisland"
   },
   {
-    "title": "Thinning The Shots",
-    "subtitle": "Ride to Landor's farm. Talk to Danny (Optional).",
+    "title": "Thinning the Shots",
+    "subtitle": "Ride to Landor's farm. Talk to Danny (optional).",
     "foreignId": "danny",
     "map": "greenisland"
   },
   {
     "title": "Flower Basket",
-    "subtitle": "Speak with Emily. Collect a bouquet's worth of Poppies.",
+    "subtitle": "Speak with Emily. Collect enough poppies for a bouquet.",
     "foreignId": "emily",
     "map": "greenisland"
   },
   {
-    "title": "Goods On Demand",
+    "title": "Goods on Demand",
     "subtitle": "Get products from Lewis.",
     "foreignId": "lewis",
     "map": "greenisland"
   },
   {
     "title": "Not-Easter Eggs",
-    "subtitle": "Talk to Mrs. Wilson. Collect 10 eggs. Deliver eggs to Kathy at the market.",
-    "foreignId": "lewis",
+    "subtitle": "Talk to Mrs. Wilson. Collect 10 eggs and deliver them to Kathy at the market.",
+    "foreignId": "lewis", 
     "map": "greenisland"
   },
   {
     "title": "King of All Mushrooms",
-    "subtitle": "Collet 15 King Boletus mushrooms.",
+    "subtitle": "Collect 15 King Boletus mushrooms.",
     "foreignId": "maia",
     "map": "greenisland"
   },
   {
     "title": "Horse Brushing",
-    "subtitle": "Go to the Equestrian Center. Take the brush. Brush 3 horses.",
+    "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
     "foreignId": "thomas-pratt",
     "map": "greenisland"
   },
@@ -61,35 +61,53 @@
   },
   {
     "title": "Deer Footprints",
-    "subtitle": "Go to the Ridge Row area.",
+    "subtitle": "Mark the deer route (20 markers) and report to Kyle.",
     "map": "greenisland",
     "lng": -76.22380804656964,
     "lat": 72.50718110012042
   },
   {
     "title": "Deer Traces",
-    "subtitle": "Go to the Lookout area.",
+    "subtitle": "(...)", 
     "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394
   },
   {
     "title": "Horse Ointment",
-    "subtitle": "Go to the Rehabilitation Center. Talk to Philip Wiseman. Apply ointment on 3 horses. Tell Philip you are done.",
+    "subtitle": "Talk to Philip Wiseman, apply ointment to 3 horses, then report back.",
     "foreignId": "philip-wiseman",
     "map": "greenisland"
   },
   {
-    "title": "Sheept Catcher",
-    "subtitle": "Talk to Old Williams.",
+    "title": "Sheep Catcher",
+    "subtitle": "Talk to Old Williams, touch the 7 sheep tracker, then return to him.",
     "foreignId": "old-williams",
     "map": "greenisland"
   },
   {
     "title": "Deer Path",
-    "subtitle": "Ride to the Crystal Springs area.",
+    "subtitle": "Mark the deer route (22 markers) and report to Kyle.",
     "map": "greenisland",
     "lng": -37.34568769426164,
     "lat": 68.18581204782183
+  },
+  {
+    "title": "Future Bread",
+    "subtitle": "Talk to Kurt at the general store and deliver fertilizer to Dwight Collins.",
+    "foreignId": "kurt-burlow",
+    "map": "greenisland"
+  },
+  {
+    "title": "Smells Like a Bun",
+    "subtitle": "Pick up 2 wheat sacks from the wheat farm.",
+    "foreignId": "dwight",
+    "map": "greenisland"
+  },
+  {
+    "title": "Clean and Fresh",
+    "subtitle": "Ride to Wiseman's horse rehab and clean 5 stalls (manure).",
+    "foreignId": "philip-wiseman",
+    "map": "greenisland"
   }
 ]
