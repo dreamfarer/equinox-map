@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import { Map } from 'maplibre-gl';
 import { loadData, loadIcon } from '@/lib/marker-layer-utility';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { TPopup } from '@/types/popup';
+import { TPopups } from '@/types/popup';
 import { TMarkerFeature } from '@/types/marker-feature';
 
 export function useMapInitialization(
   map: Map | null,
-  setPopups: (p: TPopup[]) => void,
+  setPopups: (p: TPopups) => void,
   setGeojson: (g: TMarkerFeatureCollection) => void
 ) {
   useEffect(() => {

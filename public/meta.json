@@ -170,5 +170,9 @@
     "path": "markers/resources/water-lilies.json",
     "anchor": "center",
     "icon": "water-lily"
+  },
+  {
+    "category": "weekly-quest",
+    "path": "markers/weekly-quests.json"
   }
 ]

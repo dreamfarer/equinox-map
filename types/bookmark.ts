@@ -1,1 +1,1 @@
-export type TBookmark = { id: string; category: string };
+export type TBookmarkId = string; // e.g. "dwight::weekly-quest::smells-like-a-bun"

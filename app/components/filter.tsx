@@ -6,7 +6,6 @@ import Searchbar from './filter/searchbar';
 import Result from './filter/result';
 import { useState, useMemo } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
-import { TPopup } from '@/types/popup';
 
 const Filter: NextPage = () => {
   const {
@@ -14,17 +13,17 @@ const Filter: NextPage = () => {
     toggleCategory,
     popups,
     flyToMarker,
-    bookmarks,
+    bookmarkIds,
     toggleBookmark,
   } = useMarkerLayerContext();
   const [query, setQuery] = useState('');
 
   type MarkerSearchResult = {
-    id: string;
-    category: string;
+    markerId: string;
+    categoryId: string;
+    itemId: string;
     title: string;
     subtitle?: string;
-    popup: TPopup;
   };
 
   const results = useMemo((): MarkerSearchResult[] => {
@@ -33,18 +32,18 @@ const Filter: NextPage = () => {
     const q = query.toLowerCase();
     const matches: MarkerSearchResult[] = [];
 
-    for (const popup of popups) {
-      for (const [category, payload] of Object.entries(popup.categories)) {
-        for (const item of payload.items) {
+    for (const [markerId, categories] of Object.entries(popups)) {
+      for (const [categoryId, items] of Object.entries(categories)) {
+        for (const [itemId, item] of Object.entries(items)) {
           const text =
             `${item.title ?? ''} ${item.subtitle ?? ''}`.toLowerCase();
           if (text.includes(q)) {
             matches.push({
-              id: popup.id,
-              category,
-              title: item.title ?? '',
+              markerId,
+              categoryId,
+              itemId,
+              title: item.title,
               subtitle: item.subtitle,
-              popup,
             });
           }
         }
@@ -69,7 +68,8 @@ const Filter: NextPage = () => {
                 enabled.shop ||
                 enabled.race ||
                 enabled['fast-travel'] ||
-                enabled['scenic-ride']
+                enabled['scenic-ride'] ||
+                enabled.cave
               }
               onToggle={() => {
                 toggleCategory('character');
@@ -77,6 +77,7 @@ const Filter: NextPage = () => {
                 toggleCategory('race');
                 toggleCategory('fast-travel');
                 toggleCategory('scenic-ride');
+                toggleCategory('cave');
               }}
               entries={[
                 {
@@ -104,24 +105,27 @@ const Filter: NextPage = () => {
                   isActive: enabled['scenic-ride'],
                   onToggle: () => toggleCategory('scenic-ride'),
                 },
+                {
+                  label: 'Caves',
+                  isActive: enabled.cave,
+                  onToggle: () => toggleCategory('cave'),
+                },
               ]}
             />
-            {/* 
-          <Category
-            title="Quests"
-            isActive={enabled['weekly-quests']}
-            onToggle={() => {
-              toggleCategory('weekly-quests');
-            }}
-            entries={[
-              {
-                label: 'Weekly Quests',
-                isActive: enabled['weekly-quests'],
-                onToggle: () => toggleCategory('weekly-quests'),
-              },
-            ]}
-          />
-          */}
+            <Category
+              title="Quests"
+              isActive={enabled['weekly-quest']}
+              onToggle={() => {
+                toggleCategory('weekly-quest');
+              }}
+              entries={[
+                {
+                  label: 'Weekly Quests',
+                  isActive: enabled['weekly-quest'],
+                  onToggle: () => toggleCategory('weekly-quest'),
+                },
+              ]}
+            />
             <Category
               title="Resources"
               isActive={
@@ -129,7 +133,6 @@ const Filter: NextPage = () => {
                 enabled.apple ||
                 enabled.blackberry ||
                 enabled.carrot ||
-                enabled.cave ||
                 enabled.dandelion ||
                 enabled.delphinium ||
                 enabled['dryad-saddle-mushroom'] ||
@@ -152,7 +155,6 @@ const Filter: NextPage = () => {
                 toggleCategory('apple');
                 toggleCategory('blackberry');
                 toggleCategory('carrot');
-                toggleCategory('cave');
                 toggleCategory('dandelion');
                 toggleCategory('delphinium');
                 toggleCategory('dryad-saddle-mushroom');
@@ -190,11 +192,6 @@ const Filter: NextPage = () => {
                   label: 'Carrots',
                   isActive: enabled.carrot,
                   onToggle: () => toggleCategory('carrot'),
-                },
-                {
-                  label: 'Caves',
-                  isActive: enabled.cave,
-                  onToggle: () => toggleCategory('cave'),
                 },
                 {
                   label: 'Dandelions',
@@ -281,20 +278,21 @@ const Filter: NextPage = () => {
           </>
         )}
         <div className={styles.results}>
-          {results.map((r, i) => (
-            <Result
-              key={`${r.id}-${r.category}-${i}`}
-              title={r.title}
-              category={r.category}
-              isBookmarked={bookmarks.some(
-                (b) => b.id === r.id && b.category === r.category
-              )}
-              onSelect={() => {
-                flyToMarker(r.id, r.category);
-              }}
-              onToggleBookmark={() => toggleBookmark(r.id, r.category)}
-            />
-          ))}
+          {results.map((r) => {
+            const bookmarkId = `${r.markerId}::${r.categoryId}::${r.itemId}`;
+            const isBookmarked = bookmarkIds.includes(bookmarkId);
+            return (
+              <Result
+                key={bookmarkId}
+                title={r.title}
+                subtitle={r.subtitle}
+                category={r.categoryId}
+                isBookmarked={isBookmarked}
+                onSelect={() => flyToMarker(r.markerId, r.categoryId)}
+                onToggleBookmark={() => toggleBookmark(bookmarkId)}
+              />
+            );
+          })}
           {query && results.length === 0 && (
             <div className={styles.noResult}>No matches. (´•︵•`)</div>
           )}

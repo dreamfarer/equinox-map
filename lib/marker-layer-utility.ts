@@ -1,7 +1,7 @@
 import { ExpressionSpecification, Map } from 'maplibre-gl';
 import { ExtendedMap } from '@/types/extended-map';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { TPopup } from '@/types/popup';
+import { TPopups } from '@/types/popup';
 import { categories, TCategory } from '@/types/category';
 
 /**
@@ -9,7 +9,7 @@ import { categories, TCategory } from '@/types/category';
  */
 export async function loadData(): Promise<{
   markers: TMarkerFeatureCollection;
-  popups: TPopup[];
+  popups: TPopups;
 }> {
   const [markers, popups] = await Promise.all([
     fetch('/markers/markers.geojson').then((r) => r.json()),
@@ -39,49 +39,84 @@ function emptyFilter(): ExpressionSpecification {
 export function computeFilteredMarkersAndExpression(
   enabled: Record<TCategory, boolean>,
   bookmarkedIds: string[] | null,
-  popups: TPopup[]
+  popups: TPopups,
+  bookmarksOnly: boolean = false
 ): {
-  filtered: TPopup[];
+  filtered: TPopups;
   expression: ExpressionSpecification | null;
   activeCategories: TCategory[];
 } {
-  if (bookmarkedIds && bookmarkedIds.length > 0) {
-    const visibleIdSet = new Set(bookmarkedIds);
-    const filtered = popups.filter((m) => visibleIdSet.has(m.id));
+  const activeCategories = categories.filter((cat) => enabled[cat]);
+  const activeSet = new Set(activeCategories);
+
+  const bookmarkedIdSet =
+    bookmarkedIds && bookmarkedIds.length > 0
+      ? new Set(bookmarkedIds.map((b) => b.split('::')[0]))
+      : null;
+
+  if (bookmarksOnly && !bookmarkedIdSet) {
+    return { filtered: {}, expression: emptyFilter(), activeCategories: [] };
+  }
+
+  if (bookmarksOnly && bookmarkedIdSet) {
+    const filtered: TPopups = Object.fromEntries(
+      Object.entries(popups).filter(([markerId]) =>
+        bookmarkedIdSet.has(markerId)
+      )
+    );
+
     return {
       filtered,
-      expression: ['in', ['get', 'id'], ['literal', bookmarkedIds]],
+      expression: [
+        'in',
+        ['get', 'id'],
+        ['literal', Array.from(bookmarkedIdSet)],
+      ],
       activeCategories: [],
     };
   }
 
-  if (bookmarkedIds && bookmarkedIds.length === 0) {
-    return { filtered: [], expression: emptyFilter(), activeCategories: [] };
+  if (
+    (bookmarkedIds && bookmarkedIds.length === 0) ||
+    activeCategories.length === 0
+  ) {
+    return { filtered: {}, expression: emptyFilter(), activeCategories: [] };
   }
 
-  const activeCategories = categories.filter((cat) => enabled[cat]);
-
-  if (activeCategories.length === 0) {
-    return { filtered: [], expression: emptyFilter(), activeCategories: [] };
-  }
-
-  if (activeCategories.length === categories.length) {
-    return { filtered: popups, expression: null, activeCategories };
-  }
-
-  const activeSet = new Set(activeCategories);
-  const filtered = popups.filter((popup) =>
-    Object.keys(popup.categories).some((cat) => activeSet.has(cat as TCategory))
+  const filtered: TPopups = Object.fromEntries(
+    Object.entries(popups).filter(([markerId, categoryPayloads]) => {
+      const hasActiveCategory = Object.keys(categoryPayloads).some((cat) =>
+        activeSet.has(cat as TCategory)
+      );
+      const isBookmarked = !bookmarkedIdSet || bookmarkedIdSet.has(markerId);
+      return hasActiveCategory && isBookmarked;
+    })
   );
 
-  const categoryExpression: ExpressionSpecification = [
-    'any',
-    ...activeCategories.map(
-      (cat) => ['in', cat, ['get', 'categories']] as ExpressionSpecification
-    ),
-  ];
+  const categoryExpression: ExpressionSpecification | null =
+    activeCategories.length === categories.length
+      ? null
+      : [
+          'any',
+          ...activeCategories.map(
+            (cat) =>
+              ['in', cat, ['get', 'categories']] as ExpressionSpecification
+          ),
+        ];
 
-  return { filtered, expression: categoryExpression, activeCategories };
+  const idExpression: ExpressionSpecification | null =
+    bookmarkedIdSet !== null
+      ? ['in', ['get', 'id'], ['literal', Array.from(bookmarkedIdSet)]]
+      : null;
+
+  let expression: ExpressionSpecification | null = null;
+  if (categoryExpression && idExpression) {
+    expression = ['all', categoryExpression, idExpression];
+  } else {
+    expression = categoryExpression ?? idExpression;
+  }
+
+  return { filtered, expression, activeCategories };
 }
 
 /**

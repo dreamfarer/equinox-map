@@ -1,15 +1,16 @@
 import { Map } from 'maplibre-gl';
 import { TCategory } from './category';
-import { TPopup } from './popup';
-import { TBookmark } from './bookmark';
+import { TPopups } from './popup';
+import { TBookmarkId } from './bookmark';
 
 export type TMarkerLayerContext = {
   enabled: Record<TCategory, boolean>;
   toggleCategory: (category: TCategory) => void;
   setMapInstance: (map: Map) => void;
-  popups: TPopup[];
+  popups: TPopups;
   flyToMarker: (id: string, category?: string) => void;
-  showOnlyBookmarks: (enabled: boolean) => void;
-  bookmarks: TBookmark[];
-  toggleBookmark: (id: string, category: string) => void;
+  showOnlyBookmarks: boolean;
+  setShowOnlyBookmarks: (enabled: boolean) => void;
+  bookmarkIds: TBookmarkId[];
+  toggleBookmark: (id: TBookmarkId) => void;
 };

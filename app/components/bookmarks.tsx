@@ -5,29 +5,37 @@ import Result from './filter/result';
 import { useMarkerLayerContext } from '../context/marker-layer';
 
 const Bookmarks: NextPage = () => {
-  const { bookmarks, popups, flyToMarker, toggleBookmark } =
+  const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
     useMarkerLayerContext();
 
-  const bookmarkedMarkers = bookmarks.flatMap((bookmark) => {
-    const popup = popups.find((p) => p.id === bookmark.id);
+  const bookmarkedItems = bookmarkIds.flatMap((id) => {
+    const [markerId, categoryId, itemId] = id.split('::');
+    const popup = popups[markerId];
     if (!popup) return [];
 
-    const categoryPayload = popup.categories[bookmark.category];
-    if (!categoryPayload) return [];
+    const category = popup[categoryId];
+    if (!category) return [];
 
-    return categoryPayload.items.map((item) => ({
-      id: bookmark.id,
-      category: bookmark.category,
-      title: item.title ?? '',
-      subtitle: item.subtitle,
-    }));
+    const item = category[itemId];
+    if (!item) return [];
+
+    return [
+      {
+        bookmarkId: id,
+        markerId,
+        categoryId,
+        itemId,
+        title: item.title,
+        subtitle: item.subtitle,
+      },
+    ];
   });
 
   return (
     <div className={styles.menu}>
       <div className={styles.scrollArea}>
         <div className={styles.results}>
-          {bookmarkedMarkers.length === 0 && (
+          {bookmarkedItems.length === 0 && (
             <>
               <div className="noBookmark">No bookmarks yet. (´•︵•`)</div>
               <div className="noBookmark">
@@ -35,14 +43,15 @@ const Bookmarks: NextPage = () => {
               </div>
             </>
           )}
-          {bookmarkedMarkers.map((m, i) => (
+          {bookmarkedItems.map((m) => (
             <Result
-              key={`${m.id}-${m.category}-${i}`}
+              key={m.bookmarkId}
               title={m.title}
-              category={m.category}
+              subtitle={m.subtitle}
+              category={m.categoryId}
               isBookmarked={true}
-              onSelect={() => flyToMarker(m.id, m.category)}
-              onToggleBookmark={() => toggleBookmark(m.id, m.category)}
+              onSelect={() => flyToMarker(m.markerId, m.categoryId)}
+              onToggleBookmark={() => toggleBookmark(m.bookmarkId)}
             />
           ))}
         </div>

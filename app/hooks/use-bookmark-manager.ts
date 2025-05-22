@@ -1,73 +1,68 @@
-import { useEffect, useState, useCallback } from 'react';
-import { TBookmark } from '@/types/bookmark';
+import { useEffect, useState, useMemo } from 'react';
+import { TBookmarkId } from '@/types/bookmark';
+
+const BOOKMARKS_STORAGE_KEY = 'bookmarks-v2';
 
 export function useBookmarkManager(): {
-  bookmarks: TBookmark[];
-  toggleBookmark: (id: string, category: string) => void;
-  bookmarkedIds: string[] | null;
-  showOnlyBookmarks: (enabled: boolean) => void;
+  bookmarkIds: TBookmarkId[];
+  toggleBookmark: (id: TBookmarkId) => void;
+  bookmarkedMarkerIds: string[] | null;
+  showOnlyBookmarks: boolean;
+  setShowOnlyBookmarks: (enabled: boolean) => void;
 } {
-  const [bookmarkedIds, setBookmarkedIds] = useState<string[] | null>(null);
-  const [bookmarks, setBookmarks] = useState<TBookmark[]>(() => {
+  const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+
+  const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(() => {
     if (typeof window === 'undefined') return [];
     try {
-      const raw = JSON.parse(localStorage.getItem('bookmarks') ?? '[]');
-      if (!Array.isArray(raw)) return [];
-      const isValid = raw.every(
-        (b) =>
-          b &&
-          typeof b === 'object' &&
-          typeof b.id === 'string' &&
-          typeof b.category === 'string'
+      const raw = JSON.parse(
+        localStorage.getItem(BOOKMARKS_STORAGE_KEY) ?? '[]'
       );
-      return isValid ? (raw as TBookmark[]) : [];
+      return Array.isArray(raw) && raw.every((s) => typeof s === 'string')
+        ? raw
+        : [];
     } catch {
       return [];
     }
   });
 
   useEffect(() => {
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  }, [bookmarks]);
+    localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarkIds));
+  }, [bookmarkIds]);
 
-  const toggleBookmark = (id: string, category: string) => {
-    setBookmarks((prev) => {
-      const exists = prev.some((b) => b.id === id && b.category === category);
-      const next = exists
-        ? prev.filter((b) => !(b.id === id && b.category === category))
-        : [...prev, { id, category }];
+  useEffect(() => {
+    localStorage.removeItem('bookmarks');
+  }, []);
+
+  const toggleBookmark = (id: TBookmarkId) => {
+    setBookmarkIds((prev) => {
+      const exists = prev.includes(id);
+      const updated = exists ? prev.filter((b) => b !== id) : [...prev, id];
 
       window.dispatchEvent(
         new CustomEvent('bookmark-changed', {
           detail: {
             id,
-            category,
             isBookmarked: !exists,
-            bookmarks: next,
+            bookmarks: updated,
           },
         })
       );
 
-      return next;
+      return updated;
     });
   };
 
-  const showOnlyBookmarks = useCallback(
-    (enabled: boolean) => {
-      if (!enabled) {
-        setBookmarkedIds(null);
-      } else {
-        const ids = bookmarks.map((b) => b.id);
-        setBookmarkedIds(ids);
-      }
-    },
-    [bookmarks]
-  );
+  const bookmarkedMarkerIds = useMemo(() => {
+    if (!showOnlyBookmarks) return null;
+    return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
+  }, [showOnlyBookmarks, bookmarkIds]);
 
   return {
-    bookmarks,
+    bookmarkIds,
     toggleBookmark,
-    bookmarkedIds,
+    bookmarkedMarkerIds,
     showOnlyBookmarks,
+    setShowOnlyBookmarks,
   };
 }

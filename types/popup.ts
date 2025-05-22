@@ -1,7 +1,3 @@
-import { TPopupPayload } from './popup-payload';
-
-export type TPopup = {
-  id: string;
-  anchor: 'bottom' | 'center';
-  categories: Record<string, TPopupPayload>;
-};
+export type TPopups = Record<string, TCategoryPayloads>;
+export type TCategoryPayloads = Record<string, Record<string, TItemPayload>>;
+export type TItemPayload = { title: string; subtitle?: string };

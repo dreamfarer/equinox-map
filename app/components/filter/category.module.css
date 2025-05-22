@@ -5,8 +5,8 @@
 }
 
 .entries {
-  margin-top: var(--gap-8xs);
-  gap: var(--gap-8xs);
+  margin-top: var(--gap-6xs);
+  gap: var(--gap-6xs);
   overflow: hidden;
   transition:
     max-height 0.4s ease,
@@ -93,4 +93,5 @@
 .button.entry {
   font-size: var(--font-size-base);
   font-weight: 400;
+  padding-right: var(--padding-3xs);
 }

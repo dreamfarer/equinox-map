@@ -35,9 +35,44 @@
   padding: var(--padding-xl);
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.3125rem;
   align-self: stretch;
   background: var(--background-dark);
+  overflow: hidden;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-3xs);
+  align-items: flex-start;
+  align-self: stretch;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-dark) transparent;
+  max-height: 6rem;
+  scrollbar-gutter: stable;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--accent-dark);
+  border-radius: 0.25rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: var(--gap-6xs);
 }
 
 .header {

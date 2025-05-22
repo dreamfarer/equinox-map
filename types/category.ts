@@ -25,7 +25,7 @@ export const categories = [
   'sunflower',
   'violet',
   'water-lily',
-  'weekly-quests',
+  'weekly-quest',
 ] as const;
 
 export type TCategory = (typeof categories)[number];

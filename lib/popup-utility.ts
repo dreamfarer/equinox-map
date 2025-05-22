@@ -1,8 +1,8 @@
-import { TBookmark } from '@/types/bookmark';
+import { TBookmarkId } from '@/types/bookmark';
 import { TCategory } from '@/types/category';
-import { TPopup } from '@/types/popup';
-import { TPopupPayload } from '@/types/popup-payload';
+import { TCategoryPayloads, TPopups } from '@/types/popup';
 
+/* Calculate the popup offset dependent on the anchor. */
 export function calculatePopupOffset(
   anchor: 'center' | 'bottom'
 ): Record<string, [number, number]> {
@@ -29,30 +29,62 @@ export function calculatePopupOffset(
       };
 }
 
+/* Return a flat array of category IDs that need to be shown inside a popup. */
 export function getFilteredPopupCategories(
-  popup: TPopup,
+  markerId: string,
+  popups: TPopups,
   isBookmarkMode: boolean,
-  activeCategories: TCategory[],
-  bookmarks: TBookmark[]
-): Record<string, TPopupPayload> {
-  const entries = Object.entries(popup.categories);
-  const relevant = isBookmarkMode
-    ? entries.filter(([cat]) =>
-        bookmarks.some((b) => b.id === popup.id && b.category === cat)
-      )
-    : entries.filter(([cat]) => activeCategories.includes(cat as TCategory));
-  return Object.fromEntries(relevant);
+  bookmarks: TBookmarkId[],
+  activeCategories: TCategory[] = []
+): TCategoryPayloads {
+  const fullPopup = popups[markerId];
+  if (!fullPopup) return {};
+
+  const result: TCategoryPayloads = {};
+
+  if (isBookmarkMode) {
+    const itemIdsForMarker = bookmarks
+      .filter((b) => b.startsWith(`${markerId}::`))
+      .map((b) => {
+        const [, categoryId, itemId] = b.split('::');
+        return { categoryId, itemId };
+      });
+
+    for (const { categoryId, itemId } of itemIdsForMarker) {
+      const categoryItems = fullPopup[categoryId];
+      if (!categoryItems) continue;
+
+      const item = categoryItems[itemId];
+      if (!item) continue;
+
+      if (!result[categoryId]) result[categoryId] = {};
+      result[categoryId][itemId] = item;
+    }
+
+    return result;
+  }
+
+  for (const [categoryId, items] of Object.entries(fullPopup)) {
+    if (activeCategories.includes(categoryId as TCategory)) {
+      result[categoryId as TCategory] = items;
+    }
+  }
+
+  return result;
 }
 
-export function getBookmarkedCategories(
-  id: string,
-  bookmarks: TBookmark[]
-): string[] {
-  return bookmarks.filter((b) => b.id === id).map((b) => b.category);
-}
+export function createCategoriesKey(categories: TCategoryPayloads): string {
+  const parts: string[] = [];
 
-export function createCategoriesKey(
-  categories: Record<string, TPopupPayload>
-): string {
-  return Object.keys(categories).sort().join('|');
+  const sortedCategories = Object.keys(categories).sort();
+  for (const category of sortedCategories) {
+    const items = categories[category];
+    const sortedItemIds = Object.keys(items).sort();
+
+    for (const itemId of sortedItemIds) {
+      parts.push(`${category}::${itemId}`);
+    }
+  }
+
+  return parts.join('|');
 }

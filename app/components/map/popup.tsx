@@ -1,55 +1,47 @@
 import { BookmarkSimple } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 import styles from './popup.module.css';
-import { TPopupPayload } from '@/types/popup-payload';
+import { TCategoryPayloads } from '@/types/popup';
+import { TBookmarkId } from '@/types/bookmark';
 
 type Props = {
   id: string;
-  categories: Record<string, TPopupPayload>;
-  bookmarkedCategories: string[];
-  onToggleBookmark: (id: string, category: string) => void;
+  categories: TCategoryPayloads;
+  bookmarkedItems: string[];
+  toggleBookmark: (id: TBookmarkId) => void;
   initialCategory?: string;
 };
 
 export default function Popup({
   id,
   categories,
-  bookmarkedCategories,
-  onToggleBookmark,
+  bookmarkedItems,
+  toggleBookmark,
   initialCategory,
 }: Props) {
-  const tabs = Object.keys(categories);
-
+  const categoryKeys = Object.keys(categories);
   const [activeCategory, setActiveCategory] = useState(
-    initialCategory && tabs.includes(initialCategory)
+    initialCategory && categoryKeys.includes(initialCategory)
       ? initialCategory
-      : tabs[0]
+      : categoryKeys[0]
   );
 
   useEffect(() => {
-    if (!tabs.includes(activeCategory)) setActiveCategory(tabs[0]);
-  }, [tabs, activeCategory]);
+    if (!categoryKeys.includes(activeCategory))
+      setActiveCategory(categoryKeys[0]);
+  }, [categoryKeys, activeCategory]);
 
-  const isBookmarked = bookmarkedCategories.includes(activeCategory);
-  const handleBookmark = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onToggleBookmark(id, activeCategory);
-  };
-
-  const activeItems = categories[activeCategory]?.items || [];
-  const [firstItem, ...restItems] = activeItems;
+  const activeItems = categories[activeCategory] || {};
 
   return (
     <div className={styles.popup}>
-      {tabs.length > 1 && (
+      {categoryKeys.length > 1 && (
         <div className={styles.tabs}>
-          {tabs.map((cat) => (
+          {categoryKeys.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`${styles.tab} ${
-                cat === activeCategory ? styles.active : ''
-              }`}
+              className={`${styles.tab} ${cat === activeCategory ? styles.active : ''}`}
             >
               {cat}
             </button>
@@ -58,39 +50,44 @@ export default function Popup({
       )}
 
       <div className={styles.content}>
-        <div className={styles.header}>
-          {firstItem?.title && (
-            <div className={styles.title}>{firstItem.title}</div>
-          )}
-          <button
-            className={styles.bookmark}
-            onClick={handleBookmark}
-            aria-label={
-              isBookmarked
-                ? 'Remove bookmark from this category'
-                : 'Bookmark this category'
-            }
-          >
-            {isBookmarked ? (
-              <BookmarkSimple size="1.5rem" weight="fill" />
-            ) : (
-              <BookmarkSimple size="1.5rem" />
-            )}
-          </button>
+        <div className={styles.scroll}>
+          {Object.entries(activeItems).map(([itemId, item]) => {
+            const bookmarkSuffix = `${activeCategory}::${itemId}`;
+            const bookmarkId: TBookmarkId = `${id}::${bookmarkSuffix}`;
+            const isBookmarked = bookmarkedItems.includes(bookmarkSuffix);
+
+            return (
+              <div key={itemId} className={styles.item}>
+                <div className={styles.header}>
+                  {item.title && (
+                    <div className={styles.title}>{item.title}</div>
+                  )}
+                  <button
+                    className={styles.bookmark}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleBookmark(bookmarkId);
+                    }}
+                    aria-label={
+                      isBookmarked
+                        ? 'Remove bookmark from this item'
+                        : 'Bookmark this item'
+                    }
+                  >
+                    {isBookmarked ? (
+                      <BookmarkSimple size="1.5rem" weight="fill" />
+                    ) : (
+                      <BookmarkSimple size="1.5rem" />
+                    )}
+                  </button>
+                </div>
+                {item.subtitle && (
+                  <div className={styles.subtitle}>{item.subtitle}</div>
+                )}
+              </div>
+            );
+          })}
         </div>
-
-        {firstItem?.subtitle && (
-          <div className={styles.subtitle}>{firstItem.subtitle}</div>
-        )}
-
-        {restItems.map((item, i) => (
-          <div key={i}>
-            {item.title && <div className={styles.title}>{item.title}</div>}
-            {item.subtitle && (
-              <div className={styles.subtitle}>{item.subtitle}</div>
-            )}
-          </div>
-        ))}
       </div>
     </div>
   );

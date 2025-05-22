@@ -1,7 +1,8 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { randomUUID } from 'crypto';
-import { TPopupPayload } from '@/types/popup-payload';
+import { randomUUID, createHash } from 'crypto';
+import { TPopups } from '@/types/popup';
+import { TMarkerFeatureProperties } from '@/types/marker-feature';
 
 type MetaEntry = {
   category: string;
@@ -12,7 +13,7 @@ type MetaEntry = {
   subtitle?: string;
 };
 
-type Marker = {
+type MarkerSource = {
   title?: string;
   subtitle?: string;
   id?: string;
@@ -23,117 +24,114 @@ type Marker = {
   lat: number;
 };
 
-type MergedMarker = {
-  id: string;
-  categories: Record<string, TPopupPayload>;
-};
-
-type MarkerGeoProperties = {
-  id: string;
-  map: string;
-  lng: number;
-  lat: number;
-  icon: string;
-  anchor: 'bottom' | 'center';
-  categories: string[];
-};
-
+/** Converts an arbitrary string to a URL‑friendly slug */
 function slugify(value: string): string {
   return value
     .toLowerCase()
+    .normalize('NFKD')
     .trim()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
 
-async function build() {
-  const publicDir = path.resolve(__dirname, '../public');
-  const metaPath = path.join(publicDir, 'meta.json');
-  const meta = JSON.parse(await fs.readFile(metaPath, 'utf8')) as MetaEntry[];
-
-  const flat: Record<string, MergedMarker> = {};
-  const geo: Record<string, MarkerGeoProperties> = {};
-  const originalTitles: Record<string, { title: string; subtitle: string }> =
-    {};
-  const deferred: { m: Marker; category: string; meta: MetaEntry }[] = [];
-
-  for (const entry of meta) {
-    const {
-      category,
-      path: relPath,
-      anchor: metaAnchor = 'bottom',
-      icon: metaIcon,
-      title: metaTitle,
-      subtitle: metaSubtitle,
-    } = entry;
-
-    const absPath = path.join(publicDir, relPath);
-    const raw = JSON.parse(await fs.readFile(absPath, 'utf8')) as Marker[];
-
-    for (const m of raw) {
-      if (m.foreignId) {
-        deferred.push({ m, category, meta: entry });
-        continue;
-      }
-
-      if (m.lng == null || m.lat == null || !m.map) {
-        console.warn(
-          `Skipping marker without coordinates and/or map in "${relPath}":`,
-          m
-        );
-        continue;
-      }
-
-      let id: string;
-      if (m.id?.trim()) id = m.id.trim();
-      else if (m.title?.trim()) id = slugify(`${m.title}-${m.lng}-${m.lat}`);
-      else id = randomUUID();
-      id = id.toLowerCase();
-
-      const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
-      const resolvedTitle = m.title?.trim() || metaTitle || '';
-      const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
-      const anchor: 'bottom' | 'center' =
-        resolvedIcon === 'default-marker'
-          ? 'bottom'
-          : metaAnchor === 'center'
-            ? 'center'
-            : 'bottom';
-
-      geo[id] = {
-        id,
-        map: m.map,
-        lng: m.lng,
-        lat: m.lat,
-        icon: resolvedIcon,
-        anchor,
-        categories: [category],
-      };
-
-      flat[id] = {
-        id,
-        categories: {
-          [category]: {
-            items: [
-              {
-                title: resolvedTitle,
-                subtitle: resolvedSubtitle,
-              },
-            ],
-          },
-        },
-      };
-
-      originalTitles[id] = { title: resolvedTitle, subtitle: resolvedSubtitle };
-    }
+/** Generates a unique item key (no colons anymore – path segments are object keys) */
+function makeItemKey(title: string, existing: Set<string>): string {
+  const base = slugify(title);
+  if (!existing.has(base)) {
+    existing.add(base);
+    return base;
   }
+  const hash = createHash('md5').update(title).digest('hex').slice(0, 6);
+  const finalKey = `${base}-${hash}`;
+  existing.add(finalKey);
+  return finalKey;
+}
 
+async function loadMeta(metaPath: string): Promise<MetaEntry[]> {
+  const data = await fs.readFile(metaPath, 'utf8');
+  return JSON.parse(data) as MetaEntry[];
+}
+
+async function loadMarkers(
+  entry: MetaEntry,
+  publicDir: string
+): Promise<MarkerSource[]> {
+  const absPath = path.join(publicDir, entry.path);
+  const data = await fs.readFile(absPath, 'utf8');
+  return JSON.parse(data) as MarkerSource[];
+}
+
+function processDirectMarkers(
+  raw: MarkerSource[],
+  entry: MetaEntry,
+  geo: Record<string, TMarkerFeatureProperties>,
+  popups: TPopups,
+  originalTitles: Record<string, { title: string; subtitle: string }>,
+  slugRegistry: Record<string, Set<string>>
+) {
+  const {
+    category,
+    anchor: metaAnchor = 'bottom',
+    icon: metaIcon,
+    title: metaTitle,
+    subtitle: metaSubtitle,
+  } = entry;
+
+  for (const m of raw) {
+    if (m.foreignId || m.lng == null || m.lat == null || !m.map) continue;
+
+    let id =
+      m.id?.trim() ||
+      (m.title ? slugify(`${m.title}-${m.lng}-${m.lat}`) : randomUUID());
+    id = id.toLowerCase();
+
+    const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
+    const resolvedTitle = m.title?.trim() || metaTitle || '';
+    const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
+    const anchor: 'bottom' | 'center' =
+      resolvedIcon === 'default-marker'
+        ? 'bottom'
+        : metaAnchor === 'center'
+          ? 'center'
+          : 'bottom';
+
+    geo[id] = {
+      id,
+      map: m.map,
+      lng: m.lng,
+      lat: m.lat,
+      icon: resolvedIcon,
+      anchor,
+      categories: [category],
+    };
+
+    const slugSet = (slugRegistry[`${id}::${category}`] ??= new Set<string>());
+    const itemKey = makeItemKey(resolvedTitle, slugSet);
+
+    if (!popups[id]) popups[id] = {};
+    if (!popups[id][category]) popups[id][category] = {};
+
+    popups[id][category][itemKey] = {
+      title: resolvedTitle,
+      subtitle: resolvedSubtitle,
+    };
+
+    originalTitles[id] = { title: resolvedTitle, subtitle: resolvedSubtitle };
+  }
+}
+
+function processDeferredMarkers(
+  deferred: { m: MarkerSource; category: string; meta: MetaEntry }[],
+  popups: TPopups,
+  originalTitles: Record<string, { title: string; subtitle: string }>,
+  slugRegistry: Record<string, Set<string>>,
+  geo: Record<string, TMarkerFeatureProperties>
+) {
   for (const { m, category, meta } of deferred) {
     const targetId = m.foreignId!.toLowerCase();
-    const baseMarker = flat[targetId];
-    const geoMarker = geo[targetId];
+    const base = popups[targetId];
 
-    if (!baseMarker || !geoMarker) {
+    if (!base) {
       console.warn(
         `foreignId "${targetId}" not found (category "${category}") – skipping`
       );
@@ -141,21 +139,24 @@ async function build() {
     }
 
     const original = originalTitles[targetId] || { title: '', subtitle: '' };
-    const fallbackTitle = m.title || meta.title || original.title;
-    const fallbackSubtitle = m.subtitle || meta.subtitle || original.subtitle;
+    const title = m.title || meta.title || original.title;
+    const subtitle = m.subtitle || meta.subtitle || original.subtitle;
 
-    if (!baseMarker.categories[category]) {
-      baseMarker.categories[category] = { items: [] };
-      geoMarker.categories.push(category);
-    }
+    if (!base[category]) base[category] = {};
 
-    baseMarker.categories[category].items.push({
-      title: m.title || fallbackTitle,
-      subtitle: m.subtitle || fallbackSubtitle,
-    });
+    const geoCats = geo[targetId].categories;
+    if (!geoCats.includes(category)) geoCats.push(category);
+
+    const slugSet = (slugRegistry[`${targetId}::${category}`] ??=
+      new Set<string>());
+    const itemKey = makeItemKey(title, slugSet);
+
+    base[category][itemKey] = { title, subtitle };
   }
+}
 
-  const geojson = {
+function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
+  return {
     type: 'FeatureCollection',
     features: Object.values(geo).map((p) => ({
       type: 'Feature',
@@ -163,20 +164,49 @@ async function build() {
       properties: p,
     })),
   };
+}
 
+async function writeOutput(publicDir: string, geojson: any, popups: TPopups) {
   await fs.writeFile(
     path.join(publicDir, 'markers/markers.geojson'),
     JSON.stringify(geojson)
   );
-
   await fs.writeFile(
     path.join(publicDir, 'markers/popups.json'),
-    JSON.stringify(Object.values(flat))
+    JSON.stringify(popups)
   );
 
   console.log(
-    `markers.geojson (${geojson.features.length}) and popups.json (${Object.keys(flat).length}) written.`
+    `markers.geojson (${geojson.features.length}) and popups.json (${Object.keys(popups).length}) written.`
   );
+}
+
+async function build() {
+  const publicDir = path.resolve(__dirname, '../public');
+  const meta = await loadMeta(path.join(publicDir, 'meta.json'));
+
+  const popups: TPopups = {};
+  const geo: Record<string, TMarkerFeatureProperties> = {};
+  const originalTitles: Record<string, { title: string; subtitle: string }> =
+    {};
+  const deferred: { m: MarkerSource; category: string; meta: MetaEntry }[] = [];
+  const slugRegistry: Record<string, Set<string>> = {};
+
+  for (const entry of meta) {
+    const raw = await loadMarkers(entry, publicDir);
+
+    // collect deferred first so we preserve order of direct markers in popups
+    for (const m of raw)
+      if (m.foreignId)
+        deferred.push({ m, category: entry.category, meta: entry });
+
+    processDirectMarkers(raw, entry, geo, popups, originalTitles, slugRegistry);
+  }
+
+  processDeferredMarkers(deferred, popups, originalTitles, slugRegistry, geo);
+
+  const geojson = buildGeoJSON(geo);
+  await writeOutput(publicDir, geojson, popups);
 }
 
 build().catch((err) => {

@@ -1,4 +1,5 @@
 'use client';
+
 import {
   createContext,
   useContext,
@@ -13,7 +14,7 @@ import { useMapInitialization } from '../hooks/use-map-initialization';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { useFlyToMarker } from '../hooks/use-fly-to-marker';
 import { TMarkerLayerContext } from '@/types/marker-layer-context';
-import { TPopup } from '@/types/popup';
+import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapPopupHandler } from '../hooks/use-popup-handler';
 import { TCategory } from '@/types/category';
@@ -36,15 +37,21 @@ export function MarkerLayerProvider({
 }) {
   const [enabled, toggleCategory] = useEnabledCategories();
   const [map, setMapInstance] = useMapInstance();
-  const [popups, setPopups] = useState<TPopup[]>([]);
+  const [popups, setPopups] = useState<TPopups>({});
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
-  const [filteredPopups, setFilteredPopups] = useState<TPopup[]>([]);
+  const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
-  const { bookmarks, toggleBookmark, bookmarkedIds, showOnlyBookmarks } =
-    useBookmarkManager();
+
+  const {
+    bookmarkIds,
+    toggleBookmark,
+    bookmarkedMarkerIds,
+    showOnlyBookmarks,
+    setShowOnlyBookmarks,
+  } = useBookmarkManager();
 
   const handleFilterResult = useCallback(
-    (result: { filtered: TPopup[]; activeCategories: TCategory[] }) => {
+    (result: { filtered: TPopups; activeCategories: TCategory[] }) => {
       setFilteredPopups(result.filtered);
       setActiveCategories(result.activeCategories);
     },
@@ -52,14 +59,23 @@ export function MarkerLayerProvider({
   );
 
   useMapInitialization(map, setPopups, setMarkers);
-  useFilterUpdates(map, enabled, bookmarkedIds, popups, handleFilterResult);
+
+  useFilterUpdates(
+    map,
+    enabled,
+    bookmarkedMarkerIds,
+    popups,
+    showOnlyBookmarks,
+    handleFilterResult
+  );
+
   useMapPopupHandler(
     map,
     filteredPopups,
-    bookmarks,
+    bookmarkIds,
     toggleBookmark,
     activeCategories,
-    bookmarkedIds
+    bookmarkedMarkerIds
   );
 
   const flyToMarker = useFlyToMarker(map, popups, markers);
@@ -73,7 +89,8 @@ export function MarkerLayerProvider({
       markers,
       flyToMarker,
       showOnlyBookmarks,
-      bookmarks,
+      setShowOnlyBookmarks,
+      bookmarkIds,
       toggleBookmark,
     }),
     [
@@ -82,7 +99,8 @@ export function MarkerLayerProvider({
       markers,
       flyToMarker,
       showOnlyBookmarks,
-      bookmarks,
+      setShowOnlyBookmarks,
+      bookmarkIds,
       toggleBookmark,
       toggleCategory,
       setMapInstance,

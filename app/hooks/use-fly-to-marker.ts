@@ -1,24 +1,34 @@
 import { useCallback } from 'react';
 import { Map } from 'maplibre-gl';
 import { ExtendedMap } from '@/types/extended-map';
-import { TPopup } from '@/types/popup';
+import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 
 export function useFlyToMarker(
   map: Map | null,
-  popups: TPopup[],
+  popups: TPopups,
   markers: TMarkerFeatureCollection | null
 ) {
   return useCallback(
-    (id: string, category?: string) => {
+    (markerId: string, categoryId?: string) => {
       if (!map || !markers) return;
-      const marker = popups.find((m) => m.id === id);
-      const feature = markers.features.find((f) => f.properties.id === id);
-      if (!marker || !feature) return;
+
+      const markerData = popups[markerId];
+      const feature = markers.features.find(
+        (f) => f.properties.id === markerId
+      );
+
+      if (!markerData || !feature) return;
+
       const [lng, lat] = feature.geometry.coordinates;
+
       const extendedMap = map as ExtendedMap;
+      const categoryKeys = Object.keys(markerData);
       extendedMap.__requestedCategoryForPopup =
-        category ?? Object.keys(marker.categories)[0];
+        categoryId && categoryKeys.includes(categoryId)
+          ? categoryId
+          : categoryKeys[0];
+
       extendedMap.flyTo({
         center: [lng, lat],
         zoom: 6,
