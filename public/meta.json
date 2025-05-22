@@ -56,7 +56,7 @@
   {
     "title": "Caves",
     "category": "cave",
-    "path": "markers/resources/caves.json",
+    "path": "markers/caves.json",
     "anchor": "center"
   },
   {
