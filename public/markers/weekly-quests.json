@@ -68,7 +68,7 @@
   },
   {
     "title": "Deer Traces",
-    "subtitle": "Ride to the lookout area. (...)",
+    "subtitle": "Mark the deer route (18 markers) and report to Kyle.",
     "map": "greenisland",
     "lng": -35.45120372516476,
     "lat": 59.814218771253394
@@ -81,7 +81,7 @@
   },
   {
     "title": "Sheep Catcher",
-    "subtitle": "Talk to Old Williams, activate the 7 sheep tracker, then report back.",
+    "subtitle": "Talk to Old Williams, activate the 7 location tracker, then report back.",
     "foreignId": "old-williams",
     "map": "greenisland"
   },
@@ -121,5 +121,12 @@
     "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
     "foreignId": "thomas-pratt",
     "map": "greenisland"
+  },
+  {
+    "title": "Fresh Fish Delivery",
+    "subtitle": "Go to the fishing village, collect 3 fish and deliver them to Kurt Burlow at the general store.",
+    "map": "greenisland",
+    "lng": -155.46730631777402,
+    "lat": 71.98543282100158
   }
 ]
