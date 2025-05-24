@@ -1,0 +1,58 @@
+[
+  {
+    "title": "A Careful Meeting",
+    "subtitle": "Return to Heather.",
+    "map": "greenisland",
+    "lng": -41.94332696610448,
+    "lat": -65.36162570929271
+  },
+  {
+    "title": "Ride To Your Home",
+    "subtitle": "Go to the start of the red trail, follow the red markers to reach the barn",
+    "foreignId": "restart-ride-home",
+    "map": "greenisland"
+  },
+  {
+    "title": "Home Sweet Home",
+    "subtitle": "Brush the horse, feed the horse, give the horse water, pick the horse's hooves, explore the ground floor (4 spots), look around the upper floor (3 spots), check the windows, check Kandra's work space, look behind the shelf, check what Kendra was up to, check Kendra's portrait.",
+    "foreignId": "player-barn",
+    "map": "greenisland"
+  },
+  {
+    "title": "Getting Equipped",
+    "subtitle": "Go downstarts to meet Sarah, enter March's Tack Shop and speak to Wendy, go to the post office and fetch tail protectors from Lucas, bring the package back to Wendy at the Tack Shop, deliver a package to the Doctor's Office, Sheriff's Office, Antique Shop and Lakeside Tavern, return to the Tack Shop and get your equipment from Wendy, open your inventory and quip the saddle on your horse, talk to Wendy.",
+    "foreignId": "player-barn",
+    "map": "greenisland"
+  },
+  {
+    "title": "Treats and Races",
+    "subtitle": "Ride to the River Trail, give him a proper ride, go to the local market, talk to kathy, feed your horse with a treat, return to kathy.",
+    "foreignId": "river-trail",
+    "map": "greenisland"
+  },
+  {
+    "title": "Heart Of Alderwood",
+    "subtitle": "Pick up the goods, find Carmen in the Equestrian Center, go look at what horses at the Equestrian Center has for sale, check out the different breeds (3), return to carmen.",
+    "foreignId": "kathy",
+    "map": "greenisland"
+  },
+  {
+    "title": "Hit The Ground",
+    "subtitle": "Find the Farrier's hut, talk to Samuel, find the grain to feed the crow, fill the crow's feeding bowl with grain, return to Samuel, collect Samuel's tools (8), place the tools on the tool rack, collect 5 logs, place the logs in the stash, tell Samuel you're done, finish the race, get back to Samuel.",
+    "foreignId": "samuel",
+    "map": "greenisland"
+  },
+  {
+    "title": "Forest Caretaker",
+    "subtitle": "Ride to the ranger's hut, check Kendra's journal, place the vaccinated bait in Timberwolf pass, in Cedar Creek Bend, in Fox Grove, in Maple Trails and in Owl Ridge Lookout, investigate to track the diseased animal, report back to Kyle.",
+    "foreignId": "kyle",
+    "map": "greenisland"
+  },
+  {
+    "title": "Follow the Light",
+    "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, go to the hallway of the lighthouse, go to the first floor of the lighthouse, go to the observation deck of the lighthouse, check the message from Sarah.",
+    "map": "greenisland",
+    "lng": -69.39260989480958,
+    "lat": 82.40926478049099
+  }
+]
