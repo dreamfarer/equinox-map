@@ -1,20 +1,20 @@
 [
   {
     "title": "Love Letter",
-    "subtitle": "Get to the secret spot, find a letter and deliver it to Misty.",
+    "subtitle": "Reach the secret spot, find the letter, and deliver it to Misty.",
     "foreignId": "misty",
     "map": "greenisland"
   },
   {
     "title": "Missing Goods",
-    "subtitle": "Talk to Lewis, pick up the goods, return to kathy, deliver the chicks to Mrs. Wilson.",
+    "subtitle": "Talk to Lewis, pick up the goods, bring them to Kathy, and then deliver the chicks to Mrs. Wilson.",
     "foreignId": "kathy",
     "map": "greenisland"
   },
   {
     "title": "Swing By the Horse Farm",
-    "subtitle": "Deliver horse figurine to Mike Gibson's at the horse farm, go to Mike's stable, muck out the stables (12 manure), calm the 4 horses, pick up carrot, treat the horse that likes carrots, pick up an apple, ..., pick up a celery, ..., pick up a sugar cube, ..., tell mike you're done, tell mike you're done.",
+    "subtitle": "Deliver the horse figurine to Mike Gibson, visit his stable, muck it out (12 manure), calm 4 horses, treat 4 horses, and then inform Mike that you're done.",
     "foreignId": "mike",
     "map": "greenisland"
-  },
+  }
 ]
