@@ -174,5 +174,13 @@
   {
     "category": "weekly-quest",
     "path": "markers/weekly-quests.json"
+  },
+  {
+    "category": "side-quest",
+    "path": "markers/side-quests.json"
+  },
+  {
+    "category": "main-quest",
+    "path": "markers/main-quests.json"
   }
 ]

@@ -24,6 +24,8 @@
   color: var(--text-dark);
   border-radius: 0;
   background: var(--accent-dark);
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 .tab.active {

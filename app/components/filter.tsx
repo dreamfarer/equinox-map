@@ -114,15 +114,31 @@ const Filter: NextPage = () => {
             />
             <Category
               title="Quests"
-              isActive={enabled['weekly-quest']}
+              isActive={
+                enabled['weekly-quest'] ||
+                enabled['side-quest'] ||
+                enabled['main-quest']
+              }
               onToggle={() => {
                 toggleCategory('weekly-quest');
+                toggleCategory('side-quest');
+                toggleCategory('main-quest');
               }}
               entries={[
                 {
                   label: 'Weekly Quests',
                   isActive: enabled['weekly-quest'],
                   onToggle: () => toggleCategory('weekly-quest'),
+                },
+                {
+                  label: 'Main Quests',
+                  isActive: enabled['main-quest'],
+                  onToggle: () => toggleCategory('main-quest'),
+                },
+                {
+                  label: 'Side Quests',
+                  isActive: enabled['side-quest'],
+                  onToggle: () => toggleCategory('side-quest'),
                 },
               ]}
             />
