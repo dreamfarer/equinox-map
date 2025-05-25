@@ -1,10 +1,46 @@
 import './global.css';
 import { ReactNode } from 'react';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
-  title: 'Equinox: Homecoming Interactive Map',
+  metadataBase: new URL('https://equinoxmap.app'),
+  title: {
+    default: 'Interactive Map – Equinox: Homecoming',
+    template: '%s | Interactive Map – Equinox: Homecoming',
+  },
   description:
-    'Explore quests, resources, races and more with this interactive map for Equinox: Homecoming.',
+    'An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
+  robots: {
+    index: true,
+    follow: true,
+    maxSnippet: -1,
+    maxImagePreview: 'large',
+    maxVideoPreview: -1,
+  },
+  alternates: {
+    canonical: 'https://equinoxmap.app/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://equinoxmap.app/',
+    siteName: 'Interactive Map – Equinox: Homecoming',
+    title: 'Interactive Map – Equinox: Homecoming',
+    description:
+      'An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
+    images: [
+      {
+        url: 'https://equinoxmap.app/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Interactive Map – Equinox: Homecoming preview',
+      },
+    ],
+  },
   manifest: '/site.webmanifest',
   icons: {
     icon: [

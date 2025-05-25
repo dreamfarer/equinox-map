@@ -1,7 +1,7 @@
 {
-  "name": "Equinox: Homecoming Interactive Map",
-  "short_name": "Equinox Map",
-  "description": "Explore quests, resources, races and more with this interactive map for Equinox: Homecoming.",
+  "name": "Interactive Map – Equinox: Homecoming",
+  "short_name": "Equinox Interactive Map",
+  "description": "An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
