@@ -27,18 +27,13 @@ export default function Map() {
   };
 
   useEffect(() => {
-    const testTileUrl = '/tiles/greenisland/0/0/0.png';
-    fetch(testTileUrl, { method: 'HEAD' })
-      .then((res) => {
-        if (res.ok) {
-          setTileBaseUrl('/tiles/greenisland');
-        } else {
-          throw new Error('Tile not found locally');
-        }
-      })
-      .catch(() => {
-        setTileBaseUrl('https://cdn.equinoxmap.app/greenisland');
-      });
+    const isDev = process.env.NODE_ENV === 'development';
+
+    if (isDev) {
+      setTileBaseUrl('/tiles/greenisland');
+    } else {
+      setTileBaseUrl('https://cdn.equinoxmap.app/greenisland');
+    }
   }, []);
 
   useEffect(() => {
