@@ -3,8 +3,8 @@
     "title": "A Careful Meeting",
     "subtitle": "Return to Heather.",
     "map": "greenisland",
-    "lng": -41.94332696610448,
-    "lat": -65.36162570929271
+    "x": 1138.3600205367657,
+    "y": 2196.542172466838
   },
   {
     "title": "Ride To Your Home",
@@ -52,7 +52,7 @@
     "title": "Follow the Light",
     "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, go to the hallway, the first floor, and the observation deck of the lighthouse, then check Sarah's message.",
     "map": "greenisland",
-    "lng": -69.39260989480958,
-    "lat": 82.40926478049099
+    "x": 894.388044971619,
+    "y": 199.63963272229586
   }
 ]
