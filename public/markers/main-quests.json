@@ -10,7 +10,9 @@
     "title": "Ride To Your Home",
     "subtitle": "Go to the start of the red trail and follow the red markers to reach the barn.",
     "foreignId": "restart-ride-home",
-    "map": "greenisland"
+    "map": "greenisland",
+    "x": 1164.2628243867548,
+    "y": 2126.6908491402883
   },
   {
     "title": "Home Sweet Home",
