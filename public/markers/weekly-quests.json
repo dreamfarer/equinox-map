@@ -63,15 +63,15 @@
     "title": "Deer Footprints",
     "subtitle": "Mark the deer route (20 markers) and report to Kyle.",
     "map": "greenisland",
-    "lng": -76.22380804656964,
-    "lat": 72.50718110012042
+    "x": 854.8848969082143,
+    "y": 597.3494508940379
   },
   {
     "title": "Deer Traces",
     "subtitle": "Mark the deer route (18 markers) and report to Kyle.",
     "map": "greenisland",
-    "lng": -35.45120372516476,
-    "lat": 59.814218771253394
+    "x": 1190.9989465895412,
+    "y": 863.5190711836677
   },
   {
     "title": "Horse Ointment",
@@ -89,8 +89,8 @@
     "title": "Deer Path",
     "subtitle": "Mark the deer route (22 markers) and report to Kyle.",
     "map": "greenisland",
-    "lng": -37.34568769426164,
-    "lat": 68.18581204782183
+    "x": 1175.54833821817,
+    "y": 704.9362489428955
   },
   {
     "title": "Future Bread",
@@ -126,7 +126,7 @@
     "title": "Fresh Fish Delivery",
     "subtitle": "Go to the fishing village, collect 3 fish and deliver them to Kurt Burlow at the general store.",
     "map": "greenisland",
-    "lng": -155.46730631777402,
-    "lat": 71.98543282100158
+    "x": 201.9509611065267,
+    "y": 612.953126196574
   }
 ]

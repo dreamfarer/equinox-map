@@ -5,15 +5,15 @@
     "id": "player-barn",
     "map": "greenisland",
     "icon": "player-barn",
-    "lng": -113.70812583982297,
-    "lat": -30.85951172755518
+    "x": 546.7127185413353,
+    "y": 1751.82357547228
   },
   {
     "title": "Restart Ride Home",
     "subtitle": "Teleports you to the rehab facility.",
     "id": "restart-ride-home",
     "map": "greenisland",
-    "lng": -38.656889209928465,
-    "lat": -61.26494368947681
+    "x": 1164.2628243867548,
+    "y": 2126.6908491402883
   }
 ]

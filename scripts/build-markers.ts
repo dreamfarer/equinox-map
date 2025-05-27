@@ -3,6 +3,7 @@ import path from 'path';
 import { randomUUID, createHash } from 'crypto';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
+import { convertToLngLat } from '../lib/convert';
 
 type MetaEntry = {
   category: string;
@@ -13,16 +14,45 @@ type MetaEntry = {
   subtitle?: string;
 };
 
-type MarkerSource = {
+export type MarkerSource = {
   title?: string;
   subtitle?: string;
   id?: string;
   foreignId?: string;
   map: string;
   icon?: string;
-  lng: number;
-  lat: number;
+  x: number;
+  y: number;
 };
+
+type MapMeta = {
+  size: [number, number];
+  boundsData: [number, number, number, number];
+  boundsImage: [number, number, number, number];
+};
+
+let cachedMapJson: Record<string, MapMeta> | null = null;
+
+async function loadMapJson(): Promise<Record<string, MapMeta> | null> {
+  if (!cachedMapJson) {
+    const publicDir = path.resolve(__dirname, '../public');
+    const json = await fs.readFile(path.join(publicDir, 'maps.json'), 'utf8');
+    cachedMapJson = JSON.parse(json);
+  }
+  return cachedMapJson;
+}
+
+async function getMapMeta(map: string): Promise<MapMeta> {
+  const mapJson = await loadMapJson();
+  if (!mapJson) {
+    throw new Error(`Missing map.json in /public`);
+  }
+  const meta = mapJson[map];
+  if (!meta) {
+    throw new Error(`Missing map metadata for: ${map}`);
+  }
+  return meta;
+}
 
 /** Converts an arbitrary string to a URL‑friendly slug */
 function slugify(value: string): string {
@@ -61,7 +91,7 @@ async function loadMarkers(
   return JSON.parse(data) as MarkerSource[];
 }
 
-function processDirectMarkers(
+export async function processDirectMarkers(
   raw: MarkerSource[],
   entry: MetaEntry,
   geo: Record<string, TMarkerFeatureProperties>,
@@ -78,11 +108,14 @@ function processDirectMarkers(
   } = entry;
 
   for (const m of raw) {
-    if (m.foreignId || m.lng == null || m.lat == null || !m.map) continue;
+    if (m.foreignId || m.x == null || m.y == null || !m.map) continue;
+
+    const map = await getMapMeta(m.map);
+    const [lng, lat] = await convertToLngLat(map, m.x, m.y);
 
     let id =
       m.id?.trim() ||
-      (m.title ? slugify(`${m.title}-${m.lng}-${m.lat}`) : randomUUID());
+      (m.title ? slugify(`${m.title}-${lng}-${lat}`) : randomUUID());
     id = id.toLowerCase();
 
     const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
@@ -98,8 +131,8 @@ function processDirectMarkers(
     geo[id] = {
       id,
       map: m.map,
-      lng: m.lng,
-      lat: m.lat,
+      lng,
+      lat,
       icon: resolvedIcon,
       anchor,
       categories: [category],
@@ -200,7 +233,14 @@ async function build() {
       if (m.foreignId)
         deferred.push({ m, category: entry.category, meta: entry });
 
-    processDirectMarkers(raw, entry, geo, popups, originalTitles, slugRegistry);
+    await processDirectMarkers(
+      raw,
+      entry,
+      geo,
+      popups,
+      originalTitles,
+      slugRegistry
+    );
   }
 
   processDeferredMarkers(deferred, popups, originalTitles, slugRegistry, geo);

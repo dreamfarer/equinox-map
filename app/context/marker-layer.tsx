@@ -6,6 +6,7 @@ import {
   useState,
   useMemo,
   useCallback,
+  useEffect,
 } from 'react';
 import { useEnabledCategories } from '../hooks/use-enabled-categories';
 import { useBookmarkManager } from '../hooks/use-bookmark-manager';
@@ -18,6 +19,8 @@ import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapPopupHandler } from '../hooks/use-popup-handler';
 import { TCategory } from '@/types/category';
+import { Maps } from '@/types/map';
+import { loadData } from '@/lib/marker-layer-utility';
 
 const MarkerLayerContext = createContext<TMarkerLayerContext | null>(null);
 
@@ -39,8 +42,19 @@ export function MarkerLayerProvider({
   const [map, setMapInstance] = useMapInstance();
   const [popups, setPopups] = useState<TPopups>({});
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
+  const [maps, setMaps] = useState<Maps | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const { markers, popups, maps } = await loadData();
+      setMarkers(markers);
+      setPopups(popups);
+      setMaps(maps);
+    };
+    load();
+  }, []);
 
   const {
     bookmarkIds,
@@ -58,7 +72,7 @@ export function MarkerLayerProvider({
     []
   );
 
-  useMapInitialization(map, setPopups, setMarkers);
+  useMapInitialization(map, markers);
 
   useFilterUpdates(
     map,
@@ -87,6 +101,7 @@ export function MarkerLayerProvider({
       setMapInstance,
       popups,
       markers,
+      maps,
       flyToMarker,
       showOnlyBookmarks,
       setShowOnlyBookmarks,
@@ -97,6 +112,7 @@ export function MarkerLayerProvider({
       enabled,
       popups,
       markers,
+      maps,
       flyToMarker,
       showOnlyBookmarks,
       setShowOnlyBookmarks,

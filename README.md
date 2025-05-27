@@ -38,7 +38,11 @@ The project is currently running on **free** plans. The serverless Next.js front
 This is a collaborative community effort, with data sourced by players exploring the game.
 We've implemented a **development mode**, accessible at [equinoxmap.app/dev](https://equinoxmap.app/dev). Clicking on the map in this mode spawns a marker and copies a template to the clipboard.
 
-All markers are first added to `/public/markers` in the `data` branch. They are then processed if necessary and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. During build time, a script merges, autocompletes, and converts the markers to GeoJSON format for use with MapLibre GL.
+All markers are first added to `/public/markers` in the `data` branch. They are then processed if necessary and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. At build time, a script merges, validates, and converts marker data to GeoJSON for use with MapLibre GL.
+
+Marker positions are stored in **Cartesian coordinates** (in meters), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in `map.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future.
+
+While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection.
 
 ### Map Tiling
 
