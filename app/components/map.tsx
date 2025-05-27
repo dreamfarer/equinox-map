@@ -6,19 +6,26 @@ import styles from './map.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import { useDevMode } from '../context/dev-mode';
 import { TMarkerDev } from '@/types/marker-dev';
+import { convertToUnit, getMapBoundsLatLng } from '@/lib/convert';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const isDevMode = useDevMode();
-  const { setMapInstance } = useMarkerLayerContext();
+  const { setMapInstance, maps } = useMarkerLayerContext();
   const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
-  const exportMarkerDebug = (map: maplibregl.Map, lng: number, lat: number) => {
+  const exportMarkerDebug = (
+    map: maplibregl.Map,
+    lng: number,
+    lat: number,
+    x: number,
+    y: number
+  ) => {
     const marker: TMarkerDev = {
       map: 'greenisland',
-      lng,
-      lat,
+      x,
+      y,
     };
     const markerJson = JSON.stringify(marker, null, 2) + ',';
     console.log(markerJson);
@@ -37,7 +44,9 @@ export default function Map() {
   }, []);
 
   useEffect(() => {
-    if (!mapContainer.current || tileBaseUrl === null) return;
+    if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
+      return;
+    const bounds = getMapBoundsLatLng(maps.greenisland);
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
@@ -50,7 +59,7 @@ export default function Map() {
             tileSize: 256,
             scheme: 'xyz',
             maxzoom: 5,
-            bounds: [-180, -71, 39.7, 85],
+            bounds,
             attribution: 'Blue Scarab Entertainment',
           },
         },
@@ -74,69 +83,57 @@ export default function Map() {
     });
 
     map.touchZoomRotate.disableRotation();
-
     map.setMaxBounds([
-      [-180, -71],
-      [39.7, 85],
+      [bounds[0], bounds[1]],
+      [bounds[2], bounds[3]],
     ]);
+    map.fitBounds(
+      [
+        [bounds[0], bounds[1]],
+        [bounds[2], bounds[3]],
+      ],
+      {
+        padding: 20,
+        linear: true,
+        maxZoom: 5,
+      }
+    );
     map.scrollZoom.enable();
 
     if (isDevMode) {
       map.on('click', (e) => {
         const { lng, lat } = e.lngLat;
-        exportMarkerDebug(map, lng, lat);
+        const positions = convertToUnit(maps.greenisland, lng, lat);
+        exportMarkerDebug(map, lng, lat, positions[0], positions[1]);
       });
     }
 
     setMapInstance(map);
     return () => map.remove();
-  }, [tileBaseUrl, setMapInstance, isDevMode]);
+  }, [tileBaseUrl, setMapInstance, isDevMode, maps]);
 
   return (
     <div className={styles.mapWrapper}>
-      {!disclaimerAccepted && (
+      {!disclaimerAccepted && isDevMode && (
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
-            {isDevMode ? (
-              <>
-                <p>
-                  You are viewing the development page (<code>/dev</code>).
-                </p>
-                <p>
-                  When clicking on the map, it adds a temporary marker and
-                  copies a template into the clipboard for easier data
-                  gathering.
-                </p>
-                <div className={styles.buttonGroup}>
-                  <button onClick={() => setDisclaimerAccepted(true)}>
-                    I understand
-                  </button>
-                  <button onClick={() => (window.location.href = '/')}>
-                    Take me to safety
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <p>This interactive map is under active development.</p>
-                <p>Some features and items might be missing.</p>
-                <div className={styles.buttonGroup}>
-                  <button onClick={() => setDisclaimerAccepted(true)}>
-                    Continue
-                  </button>
-                  <button
-                    onClick={() =>
-                      window.open(
-                        'https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform',
-                        '_blank'
-                      )
-                    }
-                  >
-                    Give Feedback
-                  </button>
-                </div>
-              </>
-            )}
+            <>
+              <p>
+                You are viewing the development page (<code>/dev</code>).
+              </p>
+              <p>
+                When clicking on the map, it adds a temporary marker and copies
+                a template into the clipboard for easier data gathering.
+              </p>
+              <div className={styles.buttonGroup}>
+                <button onClick={() => setDisclaimerAccepted(true)}>
+                  I understand
+                </button>
+                <button onClick={() => (window.location.href = '/')}>
+                  Take me to safety
+                </button>
+              </div>
+            </>
           </div>
         </div>
       )}
