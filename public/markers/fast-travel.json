@@ -7,13 +7,5 @@
     "icon": "player-barn",
     "x": 546.7127185413353,
     "y": 1751.82357547228
-  },
-  {
-    "title": "Restart Ride Home",
-    "subtitle": "Teleports you to the rehab facility.",
-    "id": "restart-ride-home",
-    "map": "greenisland",
-    "x": 1164.2628243867548,
-    "y": 2126.6908491402883
   }
 ]
