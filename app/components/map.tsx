@@ -47,7 +47,6 @@ export default function Map() {
     if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
       return;
     const bounds = getMapBoundsLatLng(maps.greenisland);
-    const [minLon, minLat, maxLon, maxLat] = bounds;
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
