@@ -22,3 +22,11 @@
   overflow: hidden;
   width: fit-content;
 }
+
+/* Mobile Layout*/
+@media (max-width: 768px) {
+  .overlay {
+    right: var(--padding-3xs);
+    top: var(--padding-3xs);
+  }
+}
