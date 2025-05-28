@@ -98,46 +98,6 @@ export default function Map() {
     );
     map.scrollZoom.enable();
 
-    map.on('load', () => {
-      map.addSource('mask', {
-        type: 'geojson',
-        data: {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [
-                [-180, -90],
-                [-180, 90],
-                [180, 90],
-                [180, -90],
-                [-180, -90],
-              ],
-              [
-                [minLon, minLat],
-                [minLon, maxLat],
-                [maxLon, maxLat],
-                [maxLon, minLat],
-                [minLon, minLat],
-              ],
-            ],
-          },
-        },
-      });
-
-      map.addLayer({
-        id: 'mask-fill',
-        type: 'fill',
-        source: 'mask',
-        paint: {
-          'fill-color': '#0f242e',
-          'fill-opacity': 1.0,
-          'fill-antialias': false,
-        },
-      });
-    });
-
     if (isDevMode) {
       map.on('click', (e) => {
         const { lng, lat } = e.lngLat;
