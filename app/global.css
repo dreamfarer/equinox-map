@@ -46,6 +46,15 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  transition: color 0.3s ease;
+}
+@media (hover: hover) {
+  button:hover {
+    color: var(--theme) !important;
+  }
+}
+
 html,
 body {
   margin: 0;

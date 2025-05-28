@@ -6,10 +6,12 @@
   gap: 0.625rem;
   width: 100%;
   flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 .result:hover {
   cursor: pointer;
+  color: var(--theme);
 }
 
 .information {
@@ -19,10 +21,11 @@
   align-items: flex-start;
   flex: 1 1 auto;
   min-width: 0;
+  color: inherit;
 }
 
 .title {
-  color: var(--text-dark);
+  color: inherit;
   font-size: var(--font-size-title);
 }
 

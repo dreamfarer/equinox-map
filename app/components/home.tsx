@@ -7,6 +7,7 @@ import Navbar from './navbar';
 import Filter from './filter';
 import Bookmarks from './bookmarks';
 import MapWrapper from './map-wrapper';
+import Overlay from './overlay';
 
 export default function Home() {
   const [selectedMenu, setSelectedMenu] = useState<TMenu>('filter');
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <MarkerLayerProvider>
       <div className={styles.home}>
+        <Overlay />
         <Navbar
           selectedMenu={selectedMenu}
           isMenuOpen={isMenuOpen}
