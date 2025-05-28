@@ -1,10 +1,10 @@
 {
   "greenisland": {
     "tileSize": 256,
-    "size": [8192, 8192],
+    "size": [16384, 16384],
     "devUrl": "/tiles/greenisland/{z}/{y}/{x}.png",
     "prodUrl": "/tiles/greenisland/{z}/{y}/{x}.png",
-    "boundsImage": [0, 0, 5000, 6458],
+    "boundsImage": [5692, 4963, 10692, 11421],
     "boundsData": [0, 0, 1810, 2338]
   }
 }

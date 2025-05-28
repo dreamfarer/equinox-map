@@ -46,13 +46,15 @@ While a purely Cartesian system would be ideal for a flat game map, MapLibre GL 
 
 ### Map Tiling
 
-To prepare a large map image for use with MapLibre GL, you can generate tiles using [**vips**](https://libvips.github.io/libvips/):
+To prepare a large map image for use with MapLibre GL, run the script `scripts/tile.sh`:
 
 ```bash
-vips dzsave original-map.png tiles --layout google --suffix .png --tile-size 256 --overlap 0
+sh tile.sh <source-img>
 ```
 
-This generates image tiles in the correct format and structure for rendering within the map viewer.
+This script adds transparent padding, centers the image, and generates tiles. It also prints a partial `map.json` configuration to the console.
+
+Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
 
 ## Acknowledgements
 
