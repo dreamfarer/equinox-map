@@ -37,9 +37,9 @@ export default function Map() {
     const isDev = process.env.NODE_ENV === 'development';
 
     if (isDev) {
-      setTileBaseUrl('/tiles/greenisland');
+      setTileBaseUrl('/tiles/greenisland/v2');
     } else {
-      setTileBaseUrl('https://cdn.equinoxmap.app/greenisland');
+      setTileBaseUrl('https://cdn.equinoxmap.app/greenisland/v2');
     }
   }, []);
 
@@ -47,6 +47,7 @@ export default function Map() {
     if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
       return;
     const bounds = getMapBoundsLatLng(maps.greenisland);
+    const [minLon, minLat, maxLon, maxLat] = bounds;
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
@@ -73,20 +74,17 @@ export default function Map() {
       },
       center: [0, 0],
       zoom: 2,
-      minZoom: 0,
-      maxZoom: 6,
+      minZoom: 1,
+      maxZoom: 7,
       interactive: true,
       bearingSnap: 0,
       pitchWithRotate: false,
       dragRotate: false,
+      renderWorldCopies: false,
       transformRequest: (url) => ({ url }),
     });
 
     map.touchZoomRotate.disableRotation();
-    map.setMaxBounds([
-      [bounds[0], bounds[1]],
-      [bounds[2], bounds[3]],
-    ]);
     map.fitBounds(
       [
         [bounds[0], bounds[1]],
@@ -99,6 +97,46 @@ export default function Map() {
       }
     );
     map.scrollZoom.enable();
+
+    map.on('load', () => {
+      map.addSource('mask', {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'Polygon',
+            coordinates: [
+              [
+                [-180, -90],
+                [-180, 90],
+                [180, 90],
+                [180, -90],
+                [-180, -90],
+              ],
+              [
+                [minLon, minLat],
+                [minLon, maxLat],
+                [maxLon, maxLat],
+                [maxLon, minLat],
+                [minLon, minLat],
+              ],
+            ],
+          },
+        },
+      });
+
+      map.addLayer({
+        id: 'mask-fill',
+        type: 'fill',
+        source: 'mask',
+        paint: {
+          'fill-color': '#0f242e',
+          'fill-opacity': 1.0,
+          'fill-antialias': false,
+        },
+      });
+    });
 
     if (isDevMode) {
       map.on('click', (e) => {
