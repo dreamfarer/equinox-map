@@ -1,4 +1,6 @@
 #!/bin/sh
+# Usage: sh tile.sh <source-image>
+
 set -eu
 
 if [ $# -ne 1 ]; then
