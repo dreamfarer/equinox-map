@@ -3,10 +3,10 @@ import type { NextPage } from 'next';
 import styles from './filter.module.css';
 import Category from './filter/category';
 import Searchbar from './filter/searchbar';
-import Result from './filter/result';
 import { useState, useMemo } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import { categoryGroups } from './filter/config';
+import Results from './filter/results';
 
 const Filter: NextPage = () => {
   const {
@@ -105,21 +105,13 @@ const Filter: NextPage = () => {
           })}
 
         <div className={styles.results}>
-          {results.map((r) => {
-            const bookmarkId = `${r.markerId}::${r.categoryId}::${r.itemId}`;
-            const isBookmarked = bookmarkIds.includes(bookmarkId);
-            return (
-              <Result
-                key={bookmarkId}
-                title={r.title}
-                subtitle={r.subtitle}
-                category={r.categoryId}
-                isBookmarked={isBookmarked}
-                onSelect={() => flyToMarker(r.markerId, r.categoryId)}
-                onToggleBookmark={() => toggleBookmark(bookmarkId)}
-              />
-            );
-          })}
+          <Results
+            results={results}
+            bookmarkIds={bookmarkIds}
+            onSelect={flyToMarker}
+            toggleBookmark={toggleBookmark}
+            toggleBookmarks={(ids) => ids.forEach(toggleBookmark)}
+          />
           {query && results.length === 0 && (
             <div className={styles.noResult}>No matches. (´•︵•`)</div>
           )}

@@ -1,8 +1,8 @@
 'use client';
 import type { NextPage } from 'next';
 import styles from './filter.module.css';
-import Result from './filter/result';
 import { useMarkerLayerContext } from '../context/marker-layer';
+import Results from './filter/results';
 
 const Bookmarks: NextPage = () => {
   const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
@@ -43,17 +43,13 @@ const Bookmarks: NextPage = () => {
               </div>
             </>
           )}
-          {bookmarkedItems.map((m) => (
-            <Result
-              key={m.bookmarkId}
-              title={m.title}
-              subtitle={m.subtitle}
-              category={m.categoryId}
-              isBookmarked={true}
-              onSelect={() => flyToMarker(m.markerId, m.categoryId)}
-              onToggleBookmark={() => toggleBookmark(m.bookmarkId)}
-            />
-          ))}
+          <Results
+            results={bookmarkedItems}
+            bookmarkIds={bookmarkIds}
+            onSelect={flyToMarker}
+            toggleBookmark={toggleBookmark}
+            toggleBookmarks={(ids) => ids.forEach(toggleBookmark)}
+          />
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ type Props = {
   title: string;
   subtitle?: string;
   category: string;
+  count?: number;
   isBookmarked: boolean;
   onSelect: () => void;
   onToggleBookmark: () => void;
@@ -13,6 +14,7 @@ type Props = {
 export default function Result({
   title,
   category,
+  count,
   isBookmarked,
   onSelect,
   onToggleBookmark,
@@ -25,7 +27,9 @@ export default function Result({
   return (
     <div className={styles.result} onClick={onSelect}>
       <div className={styles.information}>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.title}>
+          {title} {count && count > 1 && <span>({count})</span>}
+        </div>
         <div className={styles.subtitle}>{category}</div>
       </div>
       <button
