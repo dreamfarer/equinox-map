@@ -16,7 +16,10 @@ const Filter: NextPage = () => {
     flyToMarker,
     bookmarkIds,
     toggleBookmark,
+    toggleBookmarks,
+    categoryBookmarkMap,
   } = useMarkerLayerContext();
+
   const [query, setQuery] = useState('');
 
   type MarkerSearchResult = {
@@ -65,11 +68,30 @@ const Filter: NextPage = () => {
             const isActive = group.entries.some(({ id }) => enabled[id]);
             const toggleAll = () =>
               group.entries.forEach(({ id }) => toggleCategory(id));
-            const entries = group.entries.map(({ label, id }) => ({
-              label,
-              isActive: enabled[id],
-              onToggle: () => toggleCategory(id),
-            }));
+
+            const entries = group.entries.map(({ label, id }) => {
+              const entryBookmarkIds = categoryBookmarkMap[id] || [];
+
+              let bookmarkState: 'none' | 'partial' | 'full' = 'none';
+              if (entryBookmarkIds.length > 0) {
+                const count = entryBookmarkIds.filter((bid) =>
+                  bookmarkIds.includes(bid)
+                ).length;
+                if (count === entryBookmarkIds.length) {
+                  bookmarkState = 'full';
+                } else if (count > 0) {
+                  bookmarkState = 'partial';
+                }
+              }
+
+              return {
+                label,
+                isActive: enabled[id],
+                onToggle: () => toggleCategory(id),
+                onToggleBookmark: () => toggleBookmarks(id),
+                bookmarkState,
+              };
+            });
 
             return (
               <Category
@@ -81,6 +103,7 @@ const Filter: NextPage = () => {
               />
             );
           })}
+
         <div className={styles.results}>
           {results.map((r) => {
             const bookmarkId = `${r.markerId}::${r.categoryId}::${r.itemId}`;

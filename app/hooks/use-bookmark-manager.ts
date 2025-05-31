@@ -1,37 +1,40 @@
 import { useEffect, useState, useMemo } from 'react';
 import { TBookmarkId } from '@/types/bookmark';
+import {
+  getCategoryBookmarkMap,
+  loadBookmarks,
+  removeBookmarks,
+  saveBookmarks,
+} from '@/lib/bookmark-utility';
+import { TPopups } from '@/types/popup';
 
-const BOOKMARKS_STORAGE_KEY = 'bookmarks-v2';
-
-export function useBookmarkManager(): {
+export function useBookmarkManager(popups: TPopups): {
   bookmarkIds: TBookmarkId[];
-  toggleBookmark: (id: TBookmarkId) => void;
+  categoryBookmarkMap: Record<string, string[]>;
   bookmarkedMarkerIds: string[] | null;
   showOnlyBookmarks: boolean;
+  toggleBookmark: (id: TBookmarkId) => void;
+  toggleBookmarks: (categoryId: string) => void;
   setShowOnlyBookmarks: (enabled: boolean) => void;
 } {
   const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+  const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(loadBookmarks);
 
-  const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(() => {
-    if (typeof window === 'undefined') return [];
-    try {
-      const raw = JSON.parse(
-        localStorage.getItem(BOOKMARKS_STORAGE_KEY) ?? '[]'
-      );
-      return Array.isArray(raw) && raw.every((s) => typeof s === 'string')
-        ? raw
-        : [];
-    } catch {
-      return [];
-    }
-  });
+  const categoryBookmarkMap = useMemo(
+    () => getCategoryBookmarkMap(popups),
+    [popups]
+  );
+  const bookmarkedMarkerIds = useMemo(() => {
+    if (!showOnlyBookmarks) return null;
+    return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
+  }, [showOnlyBookmarks, bookmarkIds]);
 
   useEffect(() => {
-    localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarkIds));
+    saveBookmarks(bookmarkIds);
   }, [bookmarkIds]);
 
   useEffect(() => {
-    localStorage.removeItem('bookmarks');
+    removeBookmarks();
   }, []);
 
   const toggleBookmark = (id: TBookmarkId) => {
@@ -53,16 +56,44 @@ export function useBookmarkManager(): {
     });
   };
 
-  const bookmarkedMarkerIds = useMemo(() => {
-    if (!showOnlyBookmarks) return null;
-    return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
-  }, [showOnlyBookmarks, bookmarkIds]);
+  const toggleBookmarks = (categoryId: string) => {
+    const ids = categoryBookmarkMap[categoryId] || [];
+
+    setBookmarkIds((prev) => {
+      const newIds = new Set(prev);
+      const allSelected = ids.every((id) => newIds.has(id));
+
+      ids.forEach((id) => {
+        if (allSelected) {
+          newIds.delete(id);
+        } else {
+          newIds.add(id);
+        }
+      });
+
+      const updated = Array.from(newIds);
+
+      window.dispatchEvent(
+        new CustomEvent('bookmark-changed', {
+          detail: {
+            id: categoryId,
+            isBookmarked: !allSelected,
+            bookmarks: updated,
+          },
+        })
+      );
+
+      return updated;
+    });
+  };
 
   return {
     bookmarkIds,
-    toggleBookmark,
     bookmarkedMarkerIds,
+    categoryBookmarkMap,
     showOnlyBookmarks,
+    toggleBookmark,
+    toggleBookmarks,
     setShowOnlyBookmarks,
   };
 }
