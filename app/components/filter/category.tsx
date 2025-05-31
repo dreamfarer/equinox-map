@@ -1,18 +1,21 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './category.module.css';
-import { CaretUp } from '@phosphor-icons/react';
+import { BookmarkSimple, CaretUp } from '@phosphor-icons/react';
+import Entry from './category/entry';
 
-type Entry = {
+type EntryType = {
   label: string;
   isActive: boolean;
   onToggle: () => void;
+  onToggleBookmark: () => void;
+  bookmarkState: 'none' | 'partial' | 'full';
 };
 
 type Props = {
   title: string;
   isActive: boolean;
   onToggle: () => void;
-  entries: Entry[];
+  entries: EntryType[];
 };
 
 export default function Category({
@@ -21,12 +24,8 @@ export default function Category({
   onToggle,
   entries,
 }: Props) {
-  const chunkedEntries: Entry[][] = [];
   const [collapsed, setCollapsed] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
-  for (let i = 0; i < entries.length; i += 2) {
-    chunkedEntries.push(entries.slice(i, i + 2));
-  }
 
   useLayoutEffect(() => {
     const el = contentRef.current;
@@ -50,38 +49,57 @@ export default function Category({
       <div className={styles.header}>
         <button
           onClick={onToggle}
-          className={`${styles.button} ${styles.title} ${isActive ? styles.active : styles.inactive}`}
+          className={`${styles.button} ${isActive ? styles.active : styles.inactive}`}
         >
           {title}
         </button>
         <button
+          onClick={() => {
+            entries.forEach((entry) => entry.onToggleBookmark());
+          }}
+          className={`${styles.button} ${isActive ? styles.active : styles.inactive}`}
+          data-bookmark-state={
+            entries.every((e) => e.bookmarkState === 'full')
+              ? 'full'
+              : entries.some((e) => e.bookmarkState !== 'none')
+                ? 'partial'
+                : 'none'
+          }
+          aria-label="Toggle all bookmarks in category"
+        >
+          <BookmarkSimple
+            size="1em"
+            weight={
+              entries.every((e) => e.bookmarkState === 'full')
+                ? 'fill'
+                : entries.some((e) => e.bookmarkState !== 'none')
+                  ? 'duotone'
+                  : 'regular'
+            }
+          />
+        </button>
+        <button
           onClick={() => setCollapsed((prev) => !prev)}
-          className={`${styles.caret} ${collapsed ? styles.collapsed : ''} ${
-            isActive ? styles.active : styles.inactive
-          }`}
+          className={`${styles.caret} ${collapsed ? styles.collapsed : ''} ${isActive ? styles.active : styles.inactive}`}
           aria-label="Collapse Category"
         >
-          <CaretUp size="1.4rem" />
+          <CaretUp size="1em" />
         </button>
       </div>
       <div
         ref={contentRef}
         className={`${styles.entries} ${collapsed ? styles.collapsing : ''}`}
       >
-        {chunkedEntries.map((group, rowIndex) => (
-          <div key={rowIndex} className={styles.row}>
-            {group.map((entry, columnIndex) => (
-              <div key={columnIndex} className={styles.column}>
-                <button
-                  onClick={entry.onToggle}
-                  className={`${styles.button} ${styles.entry} ${entry.isActive ? styles.active : styles.inactive}`}
-                  aria-label="Toggle Category"
-                >
-                  {entry.label}
-                </button>
-              </div>
-            ))}
-          </div>
+        {entries.map((entry, i) => (
+          <Entry
+            key={i}
+            label={entry.label}
+            isActive={entry.isActive}
+            columnIndex={i % 2}
+            onToggle={entry.onToggle}
+            onToggleBookmark={entry.onToggleBookmark}
+            bookmarkState={entry.bookmarkState}
+          />
         ))}
       </div>
     </div>
