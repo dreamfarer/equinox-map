@@ -37,9 +37,16 @@ const Bookmarks: NextPage = () => {
         <div className={styles.results}>
           {bookmarkedItems.length === 0 && (
             <>
-              <div className="noBookmark">No bookmarks yet. (´•︵•`)</div>
-              <div className="noBookmark">
-                Save markers through the search bar or popups first.
+              <div className={styles.noBookmark}>
+                No bookmarks yet. (´•︵•`)
+              </div>
+              <div className={`${styles.noBookmark} ${styles.subtitle}`}>
+                Add bookmarks first via the filter menu, the search bar or
+                inside popups.
+              </div>
+              <div className={`${styles.noBookmark} ${styles.subtitle}`}>
+                For single-category markers, use right-click or long-press on
+                mobile to quickly toggle the bookmark.
               </div>
             </>
           )}

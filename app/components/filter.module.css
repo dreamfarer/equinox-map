@@ -57,6 +57,12 @@
 .noBookmark {
   color: var(--text-dark);
   font-size: var(--font-size-title);
+  font-weight: 600;
+}
+
+.noBookmark.subtitle {
+  font-weight: 400;
+  font-size: var(--font-size-base);
 }
 
 /* Mobile Layout*/
