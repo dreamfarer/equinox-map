@@ -66,8 +66,14 @@ const Filter: NextPage = () => {
         {!query.trim() &&
           categoryGroups.map((group) => {
             const isActive = group.entries.some(({ id }) => enabled[id]);
-            const toggleAll = () =>
-              group.entries.forEach(({ id }) => toggleCategory(id));
+            const toggleAll = () => {
+              const anyActive = group.entries.some(({ id }) => enabled[id]);
+              group.entries.forEach(({ id }) => {
+                if (enabled[id] === anyActive) {
+                  toggleCategory(id);
+                }
+              });
+            };
 
             const entries = group.entries.map(({ label, id }) => {
               const entryBookmarkIds = categoryBookmarkMap[id] || [];

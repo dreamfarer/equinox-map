@@ -60,24 +60,18 @@ export function useBookmarkManager(popups: TPopups): {
     const ids = categoryBookmarkMap[categoryId] || [];
 
     setBookmarkIds((prev) => {
-      const newIds = new Set(prev);
-      const allSelected = ids.every((id) => newIds.has(id));
+      const current = new Set(prev);
+      const anyBookmarked = ids.some((id) => current.has(id));
 
-      ids.forEach((id) => {
-        if (allSelected) {
-          newIds.delete(id);
-        } else {
-          newIds.add(id);
-        }
-      });
-
-      const updated = Array.from(newIds);
+      const updated = anyBookmarked
+        ? prev.filter((id) => !ids.includes(id))
+        : [...new Set([...prev, ...ids])];
 
       window.dispatchEvent(
         new CustomEvent('bookmark-changed', {
           detail: {
             id: categoryId,
-            isBookmarked: !allSelected,
+            isBookmarked: !anyBookmarked,
             bookmarks: updated,
           },
         })

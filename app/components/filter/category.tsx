@@ -55,7 +55,18 @@ export default function Category({
         </button>
         <button
           onClick={() => {
-            entries.forEach((entry) => entry.onToggleBookmark());
+            const anyBookmarked = entries.some(
+              (e) => e.bookmarkState !== 'none'
+            );
+            entries.forEach((entry) => {
+              const shouldChange = anyBookmarked
+                ? entry.bookmarkState !== 'none'
+                : entry.bookmarkState === 'none';
+
+              if (shouldChange) {
+                entry.onToggleBookmark();
+              }
+            });
           }}
           className={`${styles.button} ${isActive ? styles.active : styles.inactive}`}
           data-bookmark-state={
