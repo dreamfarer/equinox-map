@@ -1,37 +1,41 @@
 import { useEffect, useState, useMemo } from 'react';
 import { TBookmarkId } from '@/types/bookmark';
+import {
+  getCategoryBookmarkMap,
+  loadBookmarks,
+  removeBookmarks,
+  saveBookmarks,
+} from '@/lib/bookmark-utility';
+import { TPopups } from '@/types/popup';
 
-const BOOKMARKS_STORAGE_KEY = 'bookmarks-v2';
-
-export function useBookmarkManager(): {
+export function useBookmarkManager(popups: TPopups): {
   bookmarkIds: TBookmarkId[];
-  toggleBookmark: (id: TBookmarkId) => void;
+  categoryBookmarkMap: Record<string, string[]>;
   bookmarkedMarkerIds: string[] | null;
   showOnlyBookmarks: boolean;
+  toggleBookmark: (id: TBookmarkId) => void;
+  toggleBookmarks: (categoryId: string) => void;
+  clearBookmarks: () => void;
   setShowOnlyBookmarks: (enabled: boolean) => void;
 } {
   const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+  const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(loadBookmarks);
 
-  const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(() => {
-    if (typeof window === 'undefined') return [];
-    try {
-      const raw = JSON.parse(
-        localStorage.getItem(BOOKMARKS_STORAGE_KEY) ?? '[]'
-      );
-      return Array.isArray(raw) && raw.every((s) => typeof s === 'string')
-        ? raw
-        : [];
-    } catch {
-      return [];
-    }
-  });
+  const categoryBookmarkMap = useMemo(
+    () => getCategoryBookmarkMap(popups),
+    [popups]
+  );
+  const bookmarkedMarkerIds = useMemo(() => {
+    if (!showOnlyBookmarks) return null;
+    return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
+  }, [showOnlyBookmarks, bookmarkIds]);
 
   useEffect(() => {
-    localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarkIds));
+    saveBookmarks(bookmarkIds);
   }, [bookmarkIds]);
 
   useEffect(() => {
-    localStorage.removeItem('bookmarks');
+    removeBookmarks();
   }, []);
 
   const toggleBookmark = (id: TBookmarkId) => {
@@ -53,16 +57,51 @@ export function useBookmarkManager(): {
     });
   };
 
-  const bookmarkedMarkerIds = useMemo(() => {
-    if (!showOnlyBookmarks) return null;
-    return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
-  }, [showOnlyBookmarks, bookmarkIds]);
+  const toggleBookmarks = (categoryId: string) => {
+    const ids = categoryBookmarkMap[categoryId] || [];
+
+    setBookmarkIds((prev) => {
+      const current = new Set(prev);
+      const anyBookmarked = ids.some((id) => current.has(id));
+
+      const updated = anyBookmarked
+        ? prev.filter((id) => !ids.includes(id))
+        : [...new Set([...prev, ...ids])];
+
+      window.dispatchEvent(
+        new CustomEvent('bookmark-changed', {
+          detail: {
+            id: categoryId,
+            isBookmarked: !anyBookmarked,
+            bookmarks: updated,
+          },
+        })
+      );
+
+      return updated;
+    });
+  };
+
+  const clearBookmarks = () => {
+    setBookmarkIds((prev) => {
+      if (prev.length === 0) return prev;
+      window.dispatchEvent(
+        new CustomEvent('bookmark-changed', {
+          detail: { id: 'all', isBookmarked: false, bookmarks: [] },
+        })
+      );
+      return [];
+    });
+  };
 
   return {
     bookmarkIds,
-    toggleBookmark,
     bookmarkedMarkerIds,
+    categoryBookmarkMap,
     showOnlyBookmarks,
+    toggleBookmark,
+    toggleBookmarks,
+    clearBookmarks,
     setShowOnlyBookmarks,
   };
 }

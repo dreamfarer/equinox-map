@@ -2,7 +2,6 @@
   {
     "title": "River Loop",
     "subtitle": "Takes about 1:30 min.",
-    "id": "river-trail",
     "map": "greenisland",
     "x": 479.64149025010704,
     "y": 1282.766606886433
@@ -24,6 +23,7 @@
   {
     "title": "River Trail",
     "subtitle": "Takes about 1:20 min.",
+    "id": "river-trail",
     "map": "greenisland",
     "x": 531.1338777327179,
     "y": 1658.1119084414718

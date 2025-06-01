@@ -5,9 +5,12 @@
 }
 
 .entries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-3xs) var(--gap-xl);
   margin-top: var(--gap-6xs);
-  gap: var(--gap-6xs);
   overflow: hidden;
+  align-self: stretch;
   transition:
     max-height 0.4s ease,
     margin-top 0.4s ease;
@@ -22,31 +25,31 @@
   align-items: center;
   align-self: stretch;
   gap: var(--gap-6xs);
+  font-size: var(--font-size-title);
+  font-weight: 600;
 }
 
-.button {
-  background: none;
-  border: none;
+.button,
+.caret {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
+  margin: 0;
   font: inherit;
   color: inherit;
   cursor: pointer;
   text-align: left;
   outline: none;
-  width: fit-content;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1em;
 }
 
 .caret {
-  background: none;
-  border: none;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   transition: color 0.2s ease;
   color: var(--text-dark);
-  border-radius: 0.5rem;
   transition: transform 0.4s ease;
 }
 
@@ -61,19 +64,6 @@
   transform: scale(1, -1);
 }
 
-.row {
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  align-self: stretch;
-}
-
-.column {
-  display: flex;
-  align-items: center;
-  flex: 1 0 0;
-}
-
 .button.active {
   color: inherit;
   text-decoration: none;
@@ -84,13 +74,7 @@
   text-decoration: line-through;
 }
 
-.button.title {
-  font-size: var(--font-size-title);
-  font-weight: 600;
-}
-
-.button.entry {
-  font-size: var(--font-size-base);
-  font-weight: 400;
-  padding-right: var(--padding-3xs);
+.button[data-bookmark-state='partial'] svg path:first-of-type {
+  fill: currentColor;
+  opacity: 0.3;
 }

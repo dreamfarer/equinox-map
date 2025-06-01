@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <MarkerLayerProvider>
       <div className={styles.home}>
-        <Overlay />
+        <Overlay selectedMenu={selectedMenu} />
         <Navbar
           selectedMenu={selectedMenu}
           isMenuOpen={isMenuOpen}

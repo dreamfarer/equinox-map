@@ -58,11 +58,14 @@ export function MarkerLayerProvider({
 
   const {
     bookmarkIds,
-    toggleBookmark,
+    categoryBookmarkMap,
     bookmarkedMarkerIds,
     showOnlyBookmarks,
+    toggleBookmark,
+    toggleBookmarks,
+    clearBookmarks,
     setShowOnlyBookmarks,
-  } = useBookmarkManager();
+  } = useBookmarkManager(popups);
 
   const handleFilterResult = useCallback(
     (result: { filtered: TPopups; activeCategories: TCategory[] }) => {
@@ -97,27 +100,33 @@ export function MarkerLayerProvider({
   const contextValue = useMemo<TMarkerLayerContext>(
     () => ({
       enabled,
-      toggleCategory,
-      setMapInstance,
       popups,
       markers,
       maps,
-      flyToMarker,
-      showOnlyBookmarks,
-      setShowOnlyBookmarks,
       bookmarkIds,
+      showOnlyBookmarks,
+      categoryBookmarkMap,
+      flyToMarker,
+      setShowOnlyBookmarks,
       toggleBookmark,
+      toggleBookmarks,
+      clearBookmarks,
+      toggleCategory,
+      setMapInstance,
     }),
     [
       enabled,
       popups,
       markers,
       maps,
-      flyToMarker,
-      showOnlyBookmarks,
-      setShowOnlyBookmarks,
       bookmarkIds,
+      showOnlyBookmarks,
+      categoryBookmarkMap,
+      flyToMarker,
+      setShowOnlyBookmarks,
       toggleBookmark,
+      toggleBookmarks,
+      clearBookmarks,
       toggleCategory,
       setMapInstance,
     ]

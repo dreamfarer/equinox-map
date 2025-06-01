@@ -6,15 +6,18 @@ import { Maps } from './map';
 import { TMarkerFeatureCollection } from './marker-feature-collection';
 
 export type TMarkerLayerContext = {
+  enabled: Record<TCategory, boolean>;
   popups: TPopups;
   markers: TMarkerFeatureCollection | null;
   maps: Maps | null;
-  showOnlyBookmarks: boolean;
-  enabled: Record<TCategory, boolean>;
   bookmarkIds: TBookmarkId[];
-  toggleCategory: (category: TCategory) => void;
+  showOnlyBookmarks: boolean;
+  categoryBookmarkMap: Record<string, string[]>;
   flyToMarker: (id: string, category?: string) => void;
-  setMapInstance: (map: Map) => void;
   setShowOnlyBookmarks: (enabled: boolean) => void;
   toggleBookmark: (id: TBookmarkId) => void;
+  toggleBookmarks: (categoryId: string) => void;
+  clearBookmarks: () => void;
+  toggleCategory: (category: TCategory) => void;
+  setMapInstance: (map: Map) => void;
 };
