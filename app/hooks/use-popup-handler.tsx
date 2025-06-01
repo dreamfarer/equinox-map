@@ -8,6 +8,9 @@ import { TPopups } from '@/types/popup';
 import { ActivePopup } from './active-popup';
 import { getFilteredPopupCategories } from '../../lib/popup-utility';
 
+const MARKERS_LAYER = 'markers-layer';
+const LONG_PRESS_MS = 400;
+
 const popupHandlerAttached = new WeakSet<Map>();
 const activePopup = new ActivePopup();
 
@@ -45,9 +48,7 @@ export function useMapPopupHandler(
     if (!map || popupHandlerAttached.has(map)) return;
     popupHandlerAttached.add(map);
 
-    map.on('click', 'markers-layer', (event) => {
-      if (!event.features?.length) return;
-      const feature = event.features[0] as unknown as TMarkerFeature;
+    const openPopup = (feature: TMarkerFeature) => {
       const id = feature.properties.id;
       const isSame = activePopup.isSame(id);
       activePopup.remove();
@@ -61,59 +62,81 @@ export function useMapPopupHandler(
         toggleBookmark: toggleRef.current,
         map,
       });
-    });
+    };
 
-    map.on('contextmenu', 'markers-layer', (event) => {
-      event.originalEvent?.preventDefault();
-      if (!event.features?.length) return;
-
-      const feature = event.features[0] as unknown as TMarkerFeature;
-      const id = feature.properties.id;
-
+    const getItemCountAndFirstBookmark = (
+      markerId: string
+    ): { count: number; first: TBookmarkId | null } => {
       const categories = getFilteredPopupCategories(
-        id,
+        markerId,
         popupsRef.current,
         bookmarkedIdsRef.current !== null,
         bookmarksRef.current,
         activeCategoriesRef.current
       );
+      if (!categories) return { count: 0, first: null };
 
-      if (!categories || Object.keys(categories).length === 0) return;
-
-      let totalItems = 0;
-      let firstCat = '';
-      let firstItemId = '';
-
-      for (const [cat, items] of Object.entries(categories)) {
-        const itemKeys = Object.keys(items);
-        if (itemKeys.length) {
-          if (totalItems === 0) {
-            firstCat = cat;
-            firstItemId = itemKeys[0];
-          }
-          totalItems += itemKeys.length;
+      let first: TBookmarkId | null = null;
+      let count = 0;
+      for (const [catKey, items] of Object.entries(categories)) {
+        for (const itemKey of Object.keys(items)) {
+          const bookmarkId =
+            `${markerId}::${catKey}::${itemKey}` as TBookmarkId;
+          if (!first) first = bookmarkId;
+          count += 1;
         }
       }
+      return { count, first };
+    };
 
-      if (totalItems === 1 && firstCat && firstItemId) {
-        const bookmarkId: TBookmarkId = `${id}::${firstCat}::${firstItemId}`;
-        toggleRef.current(bookmarkId);
-        return;
+    const handleContextAction = (feature: TMarkerFeature) => {
+      const markerId = feature.properties.id as string;
+      const { count, first } = getItemCountAndFirstBookmark(markerId);
+
+      if (count === 1 && first) {
+        toggleRef.current(first);
+      } else if (count > 1) {
+        openPopup(feature);
       }
+    };
 
-      const isSame = activePopup.isSame(id);
-      activePopup.remove();
-      if (isSame) return;
-      activePopup.render({
-        feature,
-        popups: popupsRef.current,
-        isBookmarkMode: bookmarkedIdsRef.current !== null,
-        activeCategories: activeCategoriesRef.current,
-        bookmarks: bookmarksRef.current,
-        toggleBookmark: toggleRef.current,
-        map,
-      });
+    map.on('click', MARKERS_LAYER, (e) => {
+      if (!e.features?.length) return;
+      const feature = e.features[0] as unknown as TMarkerFeature;
+      openPopup(feature);
     });
+
+    map.on('contextmenu', MARKERS_LAYER, (e) => {
+      e.preventDefault();
+      if (!e.features?.length) return;
+      const feature = e.features[0] as unknown as TMarkerFeature;
+      handleContextAction(feature);
+    });
+
+    let longPressTimer: number | null = null;
+
+    const clearLongPress = () => {
+      if (longPressTimer !== null) {
+        window.clearTimeout(longPressTimer);
+        longPressTimer = null;
+      }
+    };
+
+    map.on('touchstart', MARKERS_LAYER, (e) => {
+      if (!e.features?.length) return;
+      const feature = e.features[0] as unknown as TMarkerFeature;
+      const touches = (e.originalEvent as TouchEvent).touches;
+      if (touches.length !== 1) return;
+
+      longPressTimer = window.setTimeout(() => {
+        handleContextAction(feature);
+        longPressTimer = null;
+      }, LONG_PRESS_MS);
+    });
+
+    map.on('touchmove', clearLongPress);
+    map.on('touchend', MARKERS_LAYER, clearLongPress);
+    map.on('touchcancel', MARKERS_LAYER, clearLongPress);
   }, [map]);
 
   useEffect(() => {
