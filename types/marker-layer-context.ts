@@ -17,6 +17,7 @@ export type TMarkerLayerContext = {
   setShowOnlyBookmarks: (enabled: boolean) => void;
   toggleBookmark: (id: TBookmarkId) => void;
   toggleBookmarks: (categoryId: string) => void;
+  clearBookmarks: () => void;
   toggleCategory: (category: TCategory) => void;
   setMapInstance: (map: Map) => void;
 };

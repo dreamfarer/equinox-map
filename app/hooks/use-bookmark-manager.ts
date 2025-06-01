@@ -15,6 +15,7 @@ export function useBookmarkManager(popups: TPopups): {
   showOnlyBookmarks: boolean;
   toggleBookmark: (id: TBookmarkId) => void;
   toggleBookmarks: (categoryId: string) => void;
+  clearBookmarks: () => void;
   setShowOnlyBookmarks: (enabled: boolean) => void;
 } {
   const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
@@ -81,6 +82,18 @@ export function useBookmarkManager(popups: TPopups): {
     });
   };
 
+  const clearBookmarks = () => {
+    setBookmarkIds((prev) => {
+      if (prev.length === 0) return prev;
+      window.dispatchEvent(
+        new CustomEvent('bookmark-changed', {
+          detail: { id: 'all', isBookmarked: false, bookmarks: [] },
+        })
+      );
+      return [];
+    });
+  };
+
   return {
     bookmarkIds,
     bookmarkedMarkerIds,
@@ -88,6 +101,7 @@ export function useBookmarkManager(popups: TPopups): {
     showOnlyBookmarks,
     toggleBookmark,
     toggleBookmarks,
+    clearBookmarks,
     setShowOnlyBookmarks,
   };
 }

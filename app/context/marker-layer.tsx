@@ -63,6 +63,7 @@ export function MarkerLayerProvider({
     showOnlyBookmarks,
     toggleBookmark,
     toggleBookmarks,
+    clearBookmarks,
     setShowOnlyBookmarks,
   } = useBookmarkManager(popups);
 
@@ -109,6 +110,7 @@ export function MarkerLayerProvider({
       setShowOnlyBookmarks,
       toggleBookmark,
       toggleBookmarks,
+      clearBookmarks,
       toggleCategory,
       setMapInstance,
     }),
@@ -124,6 +126,7 @@ export function MarkerLayerProvider({
       setShowOnlyBookmarks,
       toggleBookmark,
       toggleBookmarks,
+      clearBookmarks,
       toggleCategory,
       setMapInstance,
     ]
