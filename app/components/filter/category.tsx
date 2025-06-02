@@ -26,11 +26,19 @@ export default function Category({
 }: Props) {
   const [collapsed, setCollapsed] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const hasMounted = useRef(false);
 
   useLayoutEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     const full = el.scrollHeight;
+
+    if (!hasMounted.current) {
+      el.style.maxHeight = collapsed ? '0px' : `${full}px`;
+      hasMounted.current = true;
+      return;
+    }
+
     if (collapsed) {
       el.style.maxHeight = `${full}px`;
       requestAnimationFrame(() => {
