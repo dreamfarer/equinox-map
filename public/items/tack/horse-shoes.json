@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Horseshoes (Aluminium)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": 17,
+      "agility": 9,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Horseshoes (Blued Steel)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": 17,
+      "strength": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Horseshoes (Brass)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": 9,
+      "agility": null,
+      "endurance": null,
+      "strength": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Horseshoes (Wrought Iron)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  }
+]

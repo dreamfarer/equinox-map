@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Legwraps Polo",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Polo (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Polo (Green)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Polo (Navy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Tendon",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Tendon (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Legwraps Tendon (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  }
+]

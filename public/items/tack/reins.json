@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Basic Bridle",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": 17,
+      "agility": 9,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Basic Bridle (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Basic Bridle (Light Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Basic Bridle (Pink)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Basic Bridle (Red)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Basic Bridle (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  }
+]
