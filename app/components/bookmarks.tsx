@@ -48,6 +48,9 @@ const Bookmarks: NextPage = () => {
                 For single-category markers, use right-click or long-press on
                 mobile to quickly toggle the bookmark.
               </div>
+              <div className={`${styles.noBookmark} ${styles.subtitle}`}>
+                Track your progress by toggling bookmarks off as you collect.
+              </div>
             </>
           )}
           <Results

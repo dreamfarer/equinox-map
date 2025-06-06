@@ -10,7 +10,7 @@ import { convertToUnit, getMapBoundsLatLng } from '@/lib/convert';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const isDevMode = useDevMode();
+  const { isDevMode } = useDevMode();
   const { setMapInstance, maps } = useMarkerLayerContext();
   const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
