@@ -24,15 +24,6 @@ import { loadData } from '@/lib/marker-layer-utility';
 
 const MarkerLayerContext = createContext<TMarkerLayerContext | null>(null);
 
-export const useMarkerLayerContext = () => {
-  const context = useContext(MarkerLayerContext);
-  if (!context)
-    throw new Error(
-      'useMarkerLayerContext must be used inside MarkerLayerProvider'
-    );
-  return context;
-};
-
 export function MarkerLayerProvider({
   children,
 }: {
@@ -60,11 +51,9 @@ export function MarkerLayerProvider({
     bookmarkIds,
     categoryBookmarkMap,
     bookmarkedMarkerIds,
-    showOnlyBookmarks,
     toggleBookmark,
     toggleBookmarks,
     clearBookmarks,
-    setShowOnlyBookmarks,
   } = useBookmarkManager(popups);
 
   const handleFilterResult = useCallback(
@@ -82,7 +71,6 @@ export function MarkerLayerProvider({
     enabled,
     bookmarkedMarkerIds,
     popups,
-    showOnlyBookmarks,
     handleFilterResult
   );
 
@@ -104,10 +92,8 @@ export function MarkerLayerProvider({
       markers,
       maps,
       bookmarkIds,
-      showOnlyBookmarks,
       categoryBookmarkMap,
       flyToMarker,
-      setShowOnlyBookmarks,
       toggleBookmark,
       toggleBookmarks,
       clearBookmarks,
@@ -120,10 +106,8 @@ export function MarkerLayerProvider({
       markers,
       maps,
       bookmarkIds,
-      showOnlyBookmarks,
       categoryBookmarkMap,
       flyToMarker,
-      setShowOnlyBookmarks,
       toggleBookmark,
       toggleBookmarks,
       clearBookmarks,
@@ -137,4 +121,12 @@ export function MarkerLayerProvider({
       {children}
     </MarkerLayerContext.Provider>
   );
+}
+export function useMarkerLayerContext() {
+  const context = useContext(MarkerLayerContext);
+  if (!context)
+    throw new Error(
+      'useMarkerLayerContext must be used inside MarkerLayerProvider'
+    );
+  return context;
 }

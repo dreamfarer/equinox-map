@@ -7,28 +7,27 @@ import {
   saveBookmarks,
 } from '@/lib/bookmark-utility';
 import { TPopups } from '@/types/popup';
+import { useMenuState } from '../context/menu-state';
 
 export function useBookmarkManager(popups: TPopups): {
   bookmarkIds: TBookmarkId[];
   categoryBookmarkMap: Record<string, string[]>;
   bookmarkedMarkerIds: string[] | null;
-  showOnlyBookmarks: boolean;
   toggleBookmark: (id: TBookmarkId) => void;
   toggleBookmarks: (categoryId: string) => void;
   clearBookmarks: () => void;
-  setShowOnlyBookmarks: (enabled: boolean) => void;
 } {
-  const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
   const [bookmarkIds, setBookmarkIds] = useState<TBookmarkId[]>(loadBookmarks);
+  const { activeMenuName } = useMenuState();
 
   const categoryBookmarkMap = useMemo(
     () => getCategoryBookmarkMap(popups),
     [popups]
   );
   const bookmarkedMarkerIds = useMemo(() => {
-    if (!showOnlyBookmarks) return null;
+    if (activeMenuName !== 'bookmarks') return null;
     return Array.from(new Set(bookmarkIds.map((id) => id.split('::')[0])));
-  }, [showOnlyBookmarks, bookmarkIds]);
+  }, [activeMenuName, bookmarkIds]);
 
   useEffect(() => {
     saveBookmarks(bookmarkIds);
@@ -98,10 +97,8 @@ export function useBookmarkManager(popups: TPopups): {
     bookmarkIds,
     bookmarkedMarkerIds,
     categoryBookmarkMap,
-    showOnlyBookmarks,
     toggleBookmark,
     toggleBookmarks,
     clearBookmarks,
-    setShowOnlyBookmarks,
   };
 }

@@ -6,10 +6,16 @@ import { ListDashes, BookmarkSimple, CaretLeft } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { useMenuState } from '../context/menu-state';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Navbar() {
-  const { isMenuOpen, toggleMenu } = useMenuState();
+  const { isMenuOpen, toggleMenu, setActiveMenuName } = useMenuState();
   const segment = usePathname().split('/').filter(Boolean).pop() ?? 'filter';
+
+  useEffect(() => {
+    setActiveMenuName(segment);
+  }, [segment, setActiveMenuName]);
+
   return (
     <div className={styles.navbar}>
       <Group>

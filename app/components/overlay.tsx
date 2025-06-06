@@ -3,12 +3,11 @@ import { useCallback } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import type { TCategory } from '@/types/category';
 import styles from './overlay.module.css';
-import { useSelectedLayoutSegment } from 'next/navigation';
+import { useMenuState } from '../context/menu-state';
 
 export default function Overlay() {
   const { enabled, toggleCategory, clearBookmarks } = useMarkerLayerContext();
-  const segment =
-    (useSelectedLayoutSegment() as 'filter' | 'bookmarks' | null) ?? 'filter';
+  const { activeMenuName } = useMenuState();
 
   const enableAll = useCallback(() => {
     (Object.entries(enabled) as [TCategory, boolean][]).forEach(
@@ -28,7 +27,7 @@ export default function Overlay() {
 
   return (
     <div className={styles.overlay}>
-      {segment === 'bookmarks' ? (
+      {activeMenuName === 'bookmarks' ? (
         <button onClick={clearBookmarks} className={styles.button}>
           Unbookmark All
         </button>
