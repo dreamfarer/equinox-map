@@ -1,21 +1,3 @@
-.menu {
-  width: 40vw;
-  height: 100%;
-  max-width: 420px;
-  background-color: var(--background-dark);
-  border-left: 1px solid var(--accent-dark);
-  box-sizing: border-box;
-  flex-shrink: 0;
-  padding: var(--padding-xl) var(--padding-xl);
-  gap: var(--gap-xl);
-  font-size: var(--font-size-title);
-  color: var(--text-dark);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
 .header {
   flex-shrink: 0;
   width: 100%;
@@ -63,16 +45,4 @@
 .noBookmark.subtitle {
   font-weight: 400;
   font-size: var(--font-size-base);
-}
-
-/* Mobile Layout*/
-@media (max-width: 768px) {
-  .menu {
-    width: 100%;
-    max-width: unset;
-    height: 40vh;
-    align-self: stretch;
-    border-left: none;
-    border-bottom: 1px solid var(--accent-dark);
-  }
 }

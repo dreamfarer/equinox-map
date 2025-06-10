@@ -7,6 +7,7 @@ import { useState, useMemo } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import { categoryGroups } from './filter/config';
 import Results from './filter/results';
+import Menu from './menu';
 
 const Filter: NextPage = () => {
   const {
@@ -58,7 +59,7 @@ const Filter: NextPage = () => {
   }, [query, popups]);
 
   return (
-    <div className={styles.menu}>
+    <Menu>
       <div className={styles.header}>
         <Searchbar onSearch={setQuery} />
       </div>
@@ -123,7 +124,7 @@ const Filter: NextPage = () => {
           )}
         </div>
       </div>
-    </div>
+    </Menu>
   );
 };
 

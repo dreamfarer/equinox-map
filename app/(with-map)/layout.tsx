@@ -12,8 +12,8 @@ export default function WithMapLayout({
     <MarkerLayerProvider>
       <DevModeProvider>
         <Overlay />
-        {children}
         <MapWrapper />
+        {children}
       </DevModeProvider>
     </MarkerLayerProvider>
   );

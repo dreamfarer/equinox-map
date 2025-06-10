@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import styles from './filter.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import Results from './filter/results';
+import Menu from './menu';
 
 const Bookmarks: NextPage = () => {
   const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
@@ -32,7 +33,7 @@ const Bookmarks: NextPage = () => {
   });
 
   return (
-    <div className={styles.menu}>
+    <Menu>
       <div className={styles.scrollArea}>
         <div className={styles.results}>
           {bookmarkedItems.length === 0 && (
@@ -62,7 +63,7 @@ const Bookmarks: NextPage = () => {
           />
         </div>
       </div>
-    </div>
+    </Menu>
   );
 };
 

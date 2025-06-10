@@ -81,6 +81,7 @@ export default function Map() {
       dragRotate: false,
       renderWorldCopies: false,
       doubleClickZoom: false,
+      attributionControl: false,
       transformRequest: (url) => ({ url }),
     });
 
