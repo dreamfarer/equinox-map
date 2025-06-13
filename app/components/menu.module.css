@@ -1,7 +1,6 @@
 .menu {
-  width: 40vw;
+  width: 26.25rem;
   height: 100%;
-  max-width: 420px;
   background-color: var(--background-dark);
   border-left: 1px solid var(--accent-dark);
   box-sizing: border-box;
@@ -16,8 +15,8 @@
   justify-content: flex-start;
   position: absolute;
   left: 3.75rem;
-  transition: transform 0.2s ease-out;
   transform: translateX(0);
+  transition: transform 0.2s ease-out;
   overflow: hidden;
 }
 

@@ -6,7 +6,12 @@ import styles from './map.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import { useDevMode } from '../context/dev-mode';
 import { TMarkerDev } from '@/types/marker-dev';
-import { convertToUnit, getMapBoundsLatLng } from '@/lib/convert';
+import {
+  convertToUnit,
+  getMapBoundsLatLng,
+  vhToPx,
+  remToPx,
+} from '@/lib/convert';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -46,7 +51,9 @@ export default function Map() {
   useEffect(() => {
     if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
       return;
+
     const bounds = getMapBoundsLatLng(maps.greenisland);
+    let wasMobile = mapContainer.current.offsetWidth < 768;
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
@@ -71,7 +78,6 @@ export default function Map() {
           },
         ],
       },
-      center: [0, 0],
       zoom: 2,
       minZoom: 1,
       maxZoom: 7,
@@ -85,19 +91,27 @@ export default function Map() {
       transformRequest: (url) => ({ url }),
     });
 
-    map.touchZoomRotate.disableRotation();
-    map.fitBounds(
-      [
-        [bounds[0], bounds[1]],
-        [bounds[2], bounds[3]],
-      ],
-      {
-        padding: 20,
-        linear: true,
-        maxZoom: 5,
+    const centreForLayout = (mobile: boolean) => {
+      requestAnimationFrame(() => {
+        map.resize();
+        map.fitBounds(bounds, {
+          maxZoom: 5,
+          linear: true,
+          padding: mobile
+            ? { top: 0, right: 0, bottom: vhToPx(40), left: 0 }
+            : { top: 0, right: 0, bottom: 0, left: remToPx(26.25) },
+        });
+      });
+    };
+
+    const ro = new ResizeObserver((entries) => {
+      const { width } = entries[0].contentRect;
+      const isMobile = width < 768;
+      if (isMobile !== wasMobile) {
+        wasMobile = isMobile;
+        centreForLayout(isMobile);
       }
-    );
-    map.scrollZoom.enable();
+    });
 
     if (isDevMode) {
       map.on('click', (e) => {
@@ -107,8 +121,16 @@ export default function Map() {
       });
     }
 
+    map.touchZoomRotate.disableRotation();
+    map.scrollZoom.enable();
+    centreForLayout(wasMobile);
+    ro.observe(mapContainer.current);
     setMapInstance(map);
-    return () => map.remove();
+
+    return () => {
+      map.remove();
+      ro.disconnect();
+    };
   }, [tileBaseUrl, setMapInstance, isDevMode, maps]);
 
   return (
