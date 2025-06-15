@@ -1,66 +1,59 @@
 'use client';
-import React, { useEffect } from 'react';
 import Image from 'next/image';
 import styles from './navbar.module.css';
 import Group from './navbar/group';
 import { ListDashes, BookmarkSimple, CaretLeft } from '@phosphor-icons/react';
-import { useMarkerLayerContext } from '../context/marker-layer';
-import { TMenu } from '@/types/menu';
+import Link from 'next/link';
+import { useMenuState } from '../context/menu-state';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
-interface Props {
-  selectedMenu: TMenu;
-  isMenuOpen: boolean;
-  onSelectMenu: (menu: TMenu) => void;
-  onToggleMenu: () => void;
-}
-
-const Navbar: React.FC<Props> = ({
-  selectedMenu,
-  isMenuOpen,
-  onSelectMenu,
-  onToggleMenu,
-}) => {
-  const { setShowOnlyBookmarks } = useMarkerLayerContext();
+export default function Navbar() {
+  const { isMenuOpen, toggleMenu, setActiveMenuName } = useMenuState();
+  const segment = usePathname().split('/').filter(Boolean).pop() ?? 'filter';
 
   useEffect(() => {
-    if (selectedMenu == 'bookmarks') {
-      setShowOnlyBookmarks(true);
-    } else {
-      setShowOnlyBookmarks(false);
-    }
-  }, [selectedMenu, setShowOnlyBookmarks]);
+    setActiveMenuName(segment);
+  }, [segment, setActiveMenuName]);
 
   return (
     <div className={styles.navbar}>
       <Group>
-        <button className={`${styles.button} ${styles.logo}`} aria-label="Home">
+        <Link
+          href="/filter"
+          scroll={false}
+          className={`${styles.button} ${styles.logo}`}
+          aria-label="Home"
+        >
           <Image loading="lazy" fill alt="Logo" src="/logo.svg" />
-        </button>
+        </Link>
 
-        <button
-          onClick={() => onSelectMenu('filter')}
+        <Link
+          href="/filter"
+          scroll={false}
           className={`${styles.button} ${
-            selectedMenu === 'filter' ? styles.inactive : styles.active
+            segment === 'filter' ? styles.inactive : styles.active
           }`}
           aria-label="Show filter"
         >
           <ListDashes size="2em" />
-        </button>
+        </Link>
 
-        <button
-          onClick={() => onSelectMenu('bookmarks')}
+        <Link
+          href="/bookmarks"
+          scroll={false}
           className={`${styles.button} ${
-            selectedMenu === 'bookmarks' ? styles.inactive : styles.active
+            segment === 'bookmarks' ? styles.inactive : styles.active
           }`}
           aria-label="Show bookmarks"
         >
           <BookmarkSimple size="2em" />
-        </button>
+        </Link>
       </Group>
 
       <Group>
         <button
-          onClick={onToggleMenu}
+          onClick={toggleMenu}
           className={`${styles.caret} ${
             !isMenuOpen ? styles.inactive : styles.active
           }`}
@@ -71,6 +64,4 @@ const Navbar: React.FC<Props> = ({
       </Group>
     </div>
   );
-};
-
-export default Navbar;
+}

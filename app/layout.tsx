@@ -1,12 +1,14 @@
 import './global.css';
-import { ReactNode } from 'react';
+import Navbar from './components/navbar';
+import { MenuStateProvider } from './context/menu-state';
+import { Metadata } from 'next';
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
 };
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL('https://equinoxmap.app'),
   title: {
     default: 'Interactive Map – Equinox: Homecoming',
@@ -14,13 +16,6 @@ export const metadata = {
   },
   description:
     'An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
-  robots: {
-    index: true,
-    follow: true,
-    maxSnippet: -1,
-    maxImagePreview: 'large',
-    maxVideoPreview: -1,
-  },
   alternates: {
     canonical: 'https://equinoxmap.app/',
   },
@@ -62,10 +57,19 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MenuStateProvider>
+          <Navbar />
+          {children}
+        </MenuStateProvider>
+      </body>
     </html>
   );
 }

@@ -1,17 +1,13 @@
 'use client';
-
 import { useCallback } from 'react';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import type { TCategory } from '@/types/category';
-import type { TMenu } from '@/types/menu';
 import styles from './overlay.module.css';
+import { useMenuState } from '../context/menu-state';
 
-interface Props {
-  selectedMenu: TMenu;
-}
-
-const Overlay: React.FC<Props> = ({ selectedMenu }) => {
+export default function Overlay() {
   const { enabled, toggleCategory, clearBookmarks } = useMarkerLayerContext();
+  const { activeMenuName } = useMenuState();
 
   const enableAll = useCallback(() => {
     (Object.entries(enabled) as [TCategory, boolean][]).forEach(
@@ -31,7 +27,7 @@ const Overlay: React.FC<Props> = ({ selectedMenu }) => {
 
   return (
     <div className={styles.overlay}>
-      {selectedMenu === 'bookmarks' ? (
+      {activeMenuName === 'bookmarks' ? (
         <button onClick={clearBookmarks} className={styles.button}>
           Unbookmark All
         </button>
@@ -47,6 +43,4 @@ const Overlay: React.FC<Props> = ({ selectedMenu }) => {
       )}
     </div>
   );
-};
-
-export default Overlay;
+}

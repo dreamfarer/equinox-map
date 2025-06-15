@@ -1,14 +1,34 @@
 'use client';
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 
-const DevModeContext = createContext(false);
+type DevMode = {
+  isDevMode: boolean;
+  setDevMode: (activate: boolean) => void;
+};
 
-export function useDevMode() {
-  return useContext(DevModeContext);
+const DevModeContext = createContext<DevMode | null>(null);
+
+export function DevModeProvider({ children }: { children: React.ReactNode }) {
+  const [isDevMode, setIsDevMode] = useState(false);
+
+  const contextValue = useMemo<DevMode>(
+    () => ({
+      isDevMode,
+      setDevMode: (v: boolean) => setIsDevMode(v),
+    }),
+    [isDevMode]
+  );
+
+  return (
+    <DevModeContext.Provider value={contextValue}>
+      {children}
+    </DevModeContext.Provider>
+  );
 }
 
-export function DevModeProvider({ children }: { children: ReactNode }) {
-  return (
-    <DevModeContext.Provider value={true}>{children}</DevModeContext.Provider>
-  );
+export function useDevMode() {
+  const context = useContext(DevModeContext);
+  if (!context)
+    throw new Error('useDevMode must be used within <DevModeProvider>');
+  return context;
 }

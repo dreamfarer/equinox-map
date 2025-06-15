@@ -24,6 +24,7 @@
   transition: color 0.2s ease;
   color: var(--text-dark);
   border-radius: 0.5rem;
+  transition: transform 0.2s ease-out;
 }
 
 .button.active {
@@ -39,7 +40,7 @@
 }
 
 .caret.inactive {
-  transform: rotate(180deg);
+  transform: scale(-1, 1);
 }
 
 /* Mobile Layout*/
@@ -58,10 +59,10 @@
   }
 
   .caret.active {
-    transform: rotate(270deg);
+    transform: rotate(-90deg);
   }
 
   .caret.inactive {
-    transform: rotate(90deg);
+    transform: rotate(-90deg) scale(-1, 1);
   }
 }

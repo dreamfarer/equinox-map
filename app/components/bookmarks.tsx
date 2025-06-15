@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import styles from './filter.module.css';
 import { useMarkerLayerContext } from '../context/marker-layer';
 import Results from './filter/results';
+import Menu from './menu';
 
 const Bookmarks: NextPage = () => {
   const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
@@ -32,7 +33,7 @@ const Bookmarks: NextPage = () => {
   });
 
   return (
-    <div className={styles.menu}>
+    <Menu>
       <div className={styles.scrollArea}>
         <div className={styles.results}>
           {bookmarkedItems.length === 0 && (
@@ -48,6 +49,9 @@ const Bookmarks: NextPage = () => {
                 For single-category markers, use right-click or long-press on
                 mobile to quickly toggle the bookmark.
               </div>
+              <div className={`${styles.noBookmark} ${styles.subtitle}`}>
+                Track your progress by toggling bookmarks off as you collect.
+              </div>
             </>
           )}
           <Results
@@ -59,7 +63,7 @@ const Bookmarks: NextPage = () => {
           />
         </div>
       </div>
-    </div>
+    </Menu>
   );
 };
 

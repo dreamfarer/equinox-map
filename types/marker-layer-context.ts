@@ -11,10 +11,8 @@ export type TMarkerLayerContext = {
   markers: TMarkerFeatureCollection | null;
   maps: Maps | null;
   bookmarkIds: TBookmarkId[];
-  showOnlyBookmarks: boolean;
   categoryBookmarkMap: Record<string, string[]>;
   flyToMarker: (id: string, category?: string) => void;
-  setShowOnlyBookmarks: (enabled: boolean) => void;
   toggleBookmark: (id: TBookmarkId) => void;
   toggleBookmarks: (categoryId: string) => void;
   clearBookmarks: () => void;
