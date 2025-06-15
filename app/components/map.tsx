@@ -94,12 +94,13 @@ export default function Map() {
     const centreForLayout = (mobile: boolean) => {
       requestAnimationFrame(() => {
         map.resize();
+        const padding = mobile
+          ? { top: 0, right: 0, bottom: vhToPx(40), left: 0 }
+          : { top: 0, right: 0, bottom: 0, left: remToPx(26.25) };
+        map.setPadding(padding);
         map.fitBounds(bounds, {
           maxZoom: 5,
           linear: true,
-          padding: mobile
-            ? { top: 0, right: 0, bottom: vhToPx(40), left: 0 }
-            : { top: 0, right: 0, bottom: 0, left: remToPx(26.25) },
         });
       });
     };
