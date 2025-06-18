@@ -28,9 +28,9 @@
     "price": { "amount": null, "currency": null },
     "reputation": { "level": null, "type": null },
     "stats": {
-      "speed": null,
+      "speed": 9,
       "agility": null,
-      "endurance": null,
+      "endurance": 17,
       "strength": null
     },
     "icon": null

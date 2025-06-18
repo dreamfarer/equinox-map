@@ -30,8 +30,8 @@
     "stats": {
       "riding": null,
       "jumping": null,
-      "control": null,
-      "fitness": null
+      "control": 9,
+      "fitness": 17
     },
     "icon": null
   },
@@ -66,8 +66,8 @@
     "stats": {
       "riding": null,
       "jumping": null,
-      "control": null,
-      "fitness": null
+      "control": 17,
+      "fitness": 9
     },
     "icon": null
   },
@@ -136,8 +136,8 @@
     "price": { "amount": 300, "currency": "coin" },
     "reputation": { "level": null, "type": "Alderwood Farms" },
     "stats": {
-      "riding": null,
-      "jumping": null,
+      "riding": 17,
+      "jumping": 9,
       "control": null,
       "fitness": null
     },
@@ -280,10 +280,10 @@
     "price": { "amount": null, "currency": null },
     "reputation": { "level": 10, "type": "Alderwood Farms" },
     "stats": {
-      "riding": null,
-      "jumping": null,
+      "riding": 9,
+      "jumping": 9,
       "control": null,
-      "fitness": null
+      "fitness": 9
     },
     "icon": null
   },
@@ -292,9 +292,9 @@
     "price": { "amount": null, "currency": null },
     "reputation": { "level": 9, "type": "Alderwood Farms" },
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
+      "riding": 9,
+      "jumping": 9,
+      "control": 9,
       "fitness": null
     },
     "icon": null

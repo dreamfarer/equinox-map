@@ -40,10 +40,10 @@
     "price": { "amount": null, "currency": null },
     "reputation": { "level": 8, "type": "Alderwood Downtown" },
     "stats": {
-      "speed": null,
+      "speed": 9,
       "agility": null,
       "endurance": null,
-      "strength": null
+      "strength": 17
     },
     "icon": null
   },
