@@ -1,59 +1,71 @@
 [
   {
     "title": "A Careful Meeting",
-    "subtitle": "Return to Heather.",
+    "subtitle": "Ride through the gates and return to Heather.",
     "map": "greenisland",
     "x": 1138.3600205367657,
-    "y": 2196.542172466838
+    "y": 2196.542172466838,
+    "reputation": [{ "amount": 0 }]
   },
   {
     "title": "Ride To Your Home",
     "subtitle": "Go to the start of the red trail and follow the red markers to reach the barn.",
     "map": "greenisland",
     "x": 1164.2628243867548,
-    "y": 2126.6908491402883
+    "y": 2126.6908491402883,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Home Sweet Home",
     "subtitle": "Brush the horse, feed it, give it water, pick its hooves, explore the ground floor (4 spots), check the upper floor (3 spots), examine the windows, inspect Kendra's workspace, look behind the shelf, see what Kendra was up to, and check Kendra's portrait.",
     "foreignId": "player-barn",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "amount": 0 }]
   },
   {
     "title": "Getting Equipped",
     "subtitle": "Go downstairs to meet Sarah, enter March's Tack Shop and speak to Wendy, visit the post office to fetch tail protectors from Lucas, return the package to Wendy, deliver packages to the Doctor's Office, Sheriff's Office, Antique Shop, and Lakeside Tavern, return to the Tack Shop to get your equipment, open your inventory and equip the saddle on your horse, then talk to Wendy.",
     "foreignId": "player-barn",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Treats and Races",
-    "subtitle": "Ride to the River Trail, give your horse a proper ride, visit the local market, talk to Kathy, feed your horse a treat, then return to Kathy.",
+    "subtitle": "Ride to the River Trail, complete the race, visit the local market, talk to Kathy, feed your horse a treat, then return to Kathy.",
     "foreignId": "river-trail",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [
+      { "type": "Alderwood Downtown", "amount": 10 },
+      { "type": "Alderwood Farms", "amount": 10 }
+    ]
   },
   {
     "title": "Heart Of Alderwood",
-    "subtitle": "Pick up the goods, find Carmen at the Equestrian Center, check what horses are for sale, look at the different breeds (3), then return to Carmen.",
+    "subtitle": "Pick up the goods, find Carmen at the Equestrian Center, check what horses are for sale, look at the three different breeds, then return to Carmen.",
     "foreignId": "kathy",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Hit The Ground",
     "subtitle": "Find the Farrier's hut, talk to Samuel, locate grain to feed the crow, fill the crow's bowl, return to Samuel, collect Samuel's tools (8) and place them on the rack, gather 5 logs and store them, inform Samuel you're done, finish the race, then to Samuel.",
     "foreignId": "samuel",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Forest Caretaker",
     "subtitle": "Ride to the Kyle's hut, read Kendra's journal, place vaccinated bait in Timberwolf Pass, Cedar Creek Bend, Fox Grove, Maple Trails, and Owl Ridge Lookout, investigate to track the diseased animal, then report back to Kyle.",
     "foreignId": "kyle",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Follow the Light",
-    "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, go to the hallway, the first floor, and the observation deck of the lighthouse, then check Sarah's message.",
+    "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, search on to the hallway, on the floors and on the observation deck of the lighthouse, then check Sarah's message.",
     "map": "greenisland",
     "x": 894.388044971619,
-    "y": 199.63963272229586
+    "y": 199.63963272229586,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   }
 ]
