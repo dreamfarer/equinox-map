@@ -15,7 +15,7 @@
   },
   {
     "title": "Station to Station",
-    "subtitle": "Takes about 4 min.",
+    "subtitle": "Takes about 4:00 min.",
     "map": "greenisland",
     "x": 478.2618059710751,
     "y": 1312.0637796430783
@@ -51,7 +51,7 @@
   },
   {
     "title": "Farmland Jumps",
-    "subtitle": "Takes about 1 min.",
+    "subtitle": "Takes about 1:00 min.",
     "map": "greenisland",
     "x": 1273.4917795765518,
     "y": 415.5338538065836
@@ -72,7 +72,7 @@
   },
   {
     "title": "Blacksmith",
-    "subtitle": "Takes about 1 min.",
+    "subtitle": "Takes about 1:00 min.",
     "map": "greenisland",
     "x": 369.2457869812108,
     "y": 906.9710573723733
@@ -97,5 +97,19 @@
     "map": "greenisland",
     "x": 1494.8630334598445,
     "y": 1275.145643075961
+  },
+  {
+    "title": "Fisherman's Folly",
+    "subtitle": "Takes about 1:00 min.",
+    "map": "greenisland",
+    "x": 194.85520440879273,
+    "y": 657.7498559334152
+  },
+  {
+    "title": "Alderwood Lap",
+    "subtitle": "Takes about 2:00 min.",
+    "map": "greenisland",
+    "x": 532.4664723650787,
+    "y": 1354.8777024512206
   }
 ]

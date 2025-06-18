@@ -165,7 +165,6 @@
   },
   {
     "title": "Misty",
-    "subtitle": "Gives you a secret side quest",
     "id": "misty",
     "map": "greenisland",
     "icon": "misty",
@@ -257,5 +256,12 @@
     "map": "greenisland",
     "x": 228.39136395826822,
     "y": 641.5181538522548
+  },
+  {
+    "title": "Charles",
+    "id": "charles",
+    "map": "greenisland",
+    "x": 446.085160725693,
+    "y": 1319.1173372607993
   }
 ]
