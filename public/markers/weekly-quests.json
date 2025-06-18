@@ -128,5 +128,12 @@
     "map": "greenisland",
     "x": 201.9509611065267,
     "y": 612.953126196574
+  },
+  {
+    "title": "Deer Trail",
+    "subtitle": "Mark the deer route (25 markers) and report to Kyle.",
+    "map": "greenisland",
+    "x": 884.6980230341994,
+    "y": 846.2201434840734
   }
 ]

@@ -1,11 +1,5 @@
 [
   {
-    "title": "Love Letter",
-    "subtitle": "Reach the secret spot, find the letter, and deliver it to Misty.",
-    "foreignId": "misty",
-    "map": "greenisland"
-  },
-  {
     "title": "Missing Goods",
     "subtitle": "Talk to Lewis, pick up the goods, bring them to Kathy, and then deliver the chicks to Mrs. Wilson.",
     "foreignId": "kathy",
