@@ -97,5 +97,19 @@
     "map": "greenisland",
     "x": 1494.8630334598445,
     "y": 1275.145643075961
+  },
+  {
+    "title": "Fisherman's Folly",
+    "subtitle": "Takes about 1:00 min.",
+    "map": "greenisland",
+    "x": 194.85520440879273,
+    "y": 657.7498559334152
+  },
+  {
+    "title": "Alderwood Lap",
+    "subtitle": "Takes about 2:00 min.",
+    "map": "greenisland",
+    "x": 532.4664723650787,
+    "y": 1354.8777024512206
   }
 ]
