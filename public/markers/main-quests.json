@@ -17,14 +17,14 @@
   },
   {
     "title": "Home Sweet Home",
-    "subtitle": "Brush the horse, feed it, give it water, pick its hooves, explore the ground floor (4 spots), check the upper floor (3 spots), examine the windows, inspect Kendra's workspace, look behind the shelf, see what Kendra was up to, and check Kendra's portrait.",
+    "subtitle": "Brush the horse, feed it, give it water, pick its hooves, explore the ground floor (4 spots), check the upper floor (3 spots), examine the windows, inspect Kendra's workspace, look behind the shelf, see what Kendra was up to, and then check Kendra's portrait.",
     "foreignId": "player-barn",
     "map": "greenisland",
     "reputation": [{ "amount": 0 }]
   },
   {
     "title": "Getting Equipped",
-    "subtitle": "Go downstairs to meet Sarah, enter March's Tack Shop and speak to Wendy, visit the post office to fetch tail protectors from Lucas, return the package to Wendy, deliver packages to the Doctor's Office, Sheriff's Office, Antique Shop, and Lakeside Tavern, return to the Tack Shop to get your equipment, open your inventory and equip the saddle on your horse, then talk to Wendy.",
+    "subtitle": "Go downstairs to meet Sarah, enter March's Tack Shop and speak to Wendy, visit the post office to fetch tail protectors from Lucas, return the package to Wendy, deliver packages to the Doctor's Office, the Sheriff's Office, the Antique Shop, and the Lakeside Tavern, return to the Tack Shop to get your equipment, open your inventory and equip the saddle on your horse, then talk to Wendy.",
     "foreignId": "player-barn",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
