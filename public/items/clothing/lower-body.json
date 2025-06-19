@@ -1,0 +1,422 @@
+[
+  {
+    "name": "Breeches (Burgundy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Breeches (Light Grey)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Breeches (Navy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Cargo Breeches",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": 9,
+      "jumping": null,
+      "control": null,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Chinos",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Chinos (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Chinos (Navy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Chinos (Tan)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "High Riding Pants",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 17,
+      "jumping": null,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Jean Shorts",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Jean Shorts (Indigo)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Jean Shorts (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Pleated Skirt",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": null,
+      "control": 17,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Pleated Skirt (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Pleated Skirt Grey",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Pleated Skirt (Navy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Pants",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": null,
+      "jumping": 9,
+      "control": null,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Pants (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Pants (Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Pants (Navy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": null,
+      "control": 9,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Pants (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 8, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": null,
+      "jumping": 9,
+      "control": 9,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Rolled Up Jeans",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Skinny Jeans",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 17,
+      "jumping": null,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Skinny Jeans (Acid Wash)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 17,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Skinny Jeans (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": null,
+      "control": null,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Skinny Jeans (Grey)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 9, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 17,
+      "jumping": null,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Tucked Cargo Pants",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 10, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 9,
+      "jumping": 17,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Work Jeans",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Blacksmith Slacks",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Bootcut Jeans",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 17,
+      "jumping": 9,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Bootcut Jeans (Indigo)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 9,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Bootcut Jeans (Tan)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 17,
+      "jumping": 9,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Bootcut Slacks",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Bootcut Slacks (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Breeches",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 17,
+      "fitness": 9
+    },
+    "icon": null
+  }
+]

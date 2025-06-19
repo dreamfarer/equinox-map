@@ -1,0 +1,326 @@
+[
+  {
+    "name": "Low Heel Sneakers",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Hiking Shoes",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 8, "type": "Alderwood Wilds" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Hikers (Green)",
+    "price": { "amount": 600, "currency": "coin" },
+    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 9,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Hikers (Blue)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": 9,
+      "control": 17,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Hikers",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "High Tops",
+    "price": { "amount": 400, "currency": "coin" },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 17,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Heavy Boots (Tan)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "stats": {
+      "riding": 9,
+      "jumping": 17,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Heavy Boots",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Docs",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Cozy Casual (Green)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Cozy Casual (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Cozy Casual",
+    "price": { "amount": 300, "currency": "coin" },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 17,
+      "jumping": 9,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons (Tan)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons (Grey Stripes)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons (Blue Stripes)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Work Boots",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Suede Boots",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 9,
+      "jumping": 17,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Sneakers (Dark Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Sneakers (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Sneakers",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": 17,
+      "jumping": null,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Slip-Ons",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "riding": null,
+      "jumping": 9,
+      "control": null,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Boots (Warm Leather)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 10, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Boots (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 9, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Riding Boots",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 9,
+      "jumping": null,
+      "control": 17,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Ranger Boots",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": null,
+      "fitness": 9
+    },
+    "icon": null
+  }
+]

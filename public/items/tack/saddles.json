@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Modern Western Saddle",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Modern Western Saddle (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Modern Western Saddle (Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": 9,
+      "agility": null,
+      "endurance": 17,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Modern Western Saddle (Burgundy)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Modern Western Saddle (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Western Saddle",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "stats": {
+      "speed": 17,
+      "agility": null,
+      "endurance": 9,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Western Saddle (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "stats": {
+      "speed": null,
+      "agility": 17,
+      "endurance": null,
+      "strength": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "Western Saddle (Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 7, "type": "Alderwood Wilds" },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Western Saddle (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 10, "type": "Alderwood Wilds" },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "English Saddle",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "English Saddle (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "speed": null,
+      "agility": 17,
+      "endurance": 9,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "English Saddle (Brown)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": 17,
+      "strength": 9
+    },
+    "icon": null
+  },
+  {
+    "name": "English Saddle (Pink)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 9, "type": "Alderwood Downtown" },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  }
+]

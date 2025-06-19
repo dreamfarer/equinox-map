@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Leather Riding Gloves",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": 9,
+      "fitness": 17
+    },
+    "icon": null
+  },
+  {
+    "name": "Leather Riding Gloves (Tan)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": 9, "type": "Alderwood Wilds" },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Work Gloves",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Work Gloves (Blacksmith)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "riding": null,
+      "jumping": null,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Horse Racing Gloves",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": 17,
+      "jumping": 9,
+      "control": null,
+      "fitness": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Horse Racing Gloves (White)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "stats": {
+      "riding": null,
+      "jumping": 17,
+      "control": 9,
+      "fitness": null
+    },
+    "icon": null
+  }
+]

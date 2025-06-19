@@ -1,0 +1,38 @@
+[
+  {
+    "name": "English Girth Belt",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "English Girth Belt (Black)",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  },
+  {
+    "name": "Western Cinch",
+    "price": { "amount": null, "currency": null },
+    "reputation": { "level": null, "type": null },
+    "stats": {
+      "speed": null,
+      "agility": null,
+      "endurance": null,
+      "strength": null
+    },
+    "icon": null
+  }
+]
