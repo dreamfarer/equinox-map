@@ -63,9 +63,8 @@
   {
     "title": "Follow the Light",
     "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, search on to the hallway, on the floors and on the observation deck of the lighthouse, then check Sarah's message.",
+    "foreignId": "alfred-bowman",
     "map": "greenisland",
-    "x": 894.388044971619,
-    "y": 199.63963272229586,
     "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   }
 ]

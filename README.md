@@ -62,7 +62,8 @@ This project wouldn’t be possible without the tireless efforts of the followin
 
 - **Overall Idea & Planning**: [dreamfarer](https://github.com/dreamfarer) and [Sugertoxity](https://discordapp.com/users/608320065439268864)
 - **Software Engineering & DevOps**: [dreamfarer](https://github.com/dreamfarer)
-- **Data Sourcing**: [Laika](https://discordapp.com/users/465185463226073109), [Sugertoxity](https://discordapp.com/users/608320065439268864), [CookieFox](https://discordapp.com/users/631401395454476298) and [Yumemi](https://discordapp.com/users/260818698091102209)
+- **Data Sourcing**: [Laika](https://discordapp.com/users/465185463226073109), [Sugertoxity](https://discordapp.com/users/608320065439268864), [CookieFox](https://discordapp.com/users/631401395454476298), [☾ \* 𝔉𝔢𝔢𝔩𝔦 ༓ ☽
+  ](https://discordapp.com/users/194775629244268545) and [Yumemi](https://discordapp.com/users/260818698091102209)
 - **Data Processing**: [dreamfarer](https://github.com/dreamfarer) and [Sugertoxity](https://discordapp.com/users/608320065439268864)
 
 Special thanks to [zaaap!](https://www.youtube.com/@zaaap) for creating a [video showcase](https://youtu.be/MgLdL8X9BY8?si=bUZRQiI6bdl6MCRE) of our interactive map.
