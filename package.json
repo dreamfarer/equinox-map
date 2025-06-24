@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build:markers": "ts-node --project tsconfig.scripts.json --transpile-only scripts/build-markers.ts",
-    "build": "npm run build:markers && next build",
+    "build:convert": "ts-node --project tsconfig.scripts.json --transpile-only scripts/convert-markers.ts",
+    "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
+    "build:move": "ts-node --project tsconfig.scripts.json --transpile-only scripts/move-markers.ts",
+    "build": "npm run build:convert && next build",
     "start": "next start",
     "lint": "next lint"
   },
