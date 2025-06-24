@@ -12,7 +12,7 @@ interface Arguments {
   yOffset: number;
 }
 
-/** Parse arguments. */
+/** Parse CLI arguments. */
 function parseArguments(): Arguments {
   const [, , jsonFilePathArg, xOffsetArg, yOffsetArg] = process.argv;
   if (!jsonFilePathArg || !xOffsetArg || !yOffsetArg) {

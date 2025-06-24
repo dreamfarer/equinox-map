@@ -44,6 +44,14 @@ Marker positions are stored in **Cartesian coordinates** (in meters), independen
 
 While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection.
 
+### Icon Processing
+
+Icons are processed using a script prior to deployment. The script optionally crops the input image, resizes it, and exports it to WebP format at a specified quality setting.
+
+```bash
+npm run build:prepare -- <img> <quality> <cropX> <cropY> <size>
+```
+
 ### Map Tiling
 
 To prepare a large map image for use with MapLibre GL, run the script `scripts/tile.sh`:
