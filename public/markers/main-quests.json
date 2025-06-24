@@ -3,15 +3,15 @@
     "title": "A Careful Meeting",
     "subtitle": "Ride through the gates and return to Heather.",
     "map": "greenisland",
-    "x": 1138.3600205367657,
-    "y": 2196.542172466838
+    "x": 323.36002053676566,
+    "y": 1013.5421724668381
   },
   {
     "title": "Ride To Your Home",
     "subtitle": "Go to the start of the red trail and follow the red markers to reach the barn.",
     "map": "greenisland",
-    "x": 1164.2628243867548,
-    "y": 2126.6908491402883
+    "x": 349.2628243867548,
+    "y": 943.6908491402883
   },
   {
     "title": "Home Sweet Home",
@@ -53,7 +53,7 @@
     "title": "Follow the Light",
     "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, search on to the hallway, on the floors and on the observation deck of the lighthouse, then check Sarah's message.",
     "map": "greenisland",
-    "x": 894.388044971619,
-    "y": 199.63963272229586
+    "x": 79.38804497161902,
+    "y": -983.3603672777042
   }
 ]
