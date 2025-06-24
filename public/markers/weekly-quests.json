@@ -2,7 +2,7 @@
   {
     "title": "Blocked Road",
     "subtitle": "Meet Kai Chen and remove the fallen tree.",
-    "foreignId": "kai-chen",
+    "foreignId": "kai",
     "map": "greenisland"
   },
   {
@@ -44,7 +44,7 @@
   {
     "title": "Horse Brushing",
     "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
-    "foreignId": "thomas-pratt",
+    "foreignId": "thomas",
     "map": "greenisland"
   },
   {
@@ -76,7 +76,7 @@
   {
     "title": "Horse Ointment",
     "subtitle": "Talk to Philip Wiseman, apply ointment to 3 horses, then report back.",
-    "foreignId": "philip-wiseman",
+    "foreignId": "philip",
     "map": "greenisland"
   },
   {
@@ -95,7 +95,7 @@
   {
     "title": "Future Bread",
     "subtitle": "Pick up fertilizer from Kurt Burlow at the general store, deliver it to Dwight Collins and place it near the wheelbarrow.",
-    "foreignId": "kurt-burlow",
+    "foreignId": "kurt",
     "map": "greenisland"
   },
   {
@@ -107,19 +107,19 @@
   {
     "title": "Clean and Fresh",
     "subtitle": "Ride to Wiseman's horse rehab and clean 5 manure piles.",
-    "foreignId": "philip-wiseman",
+    "foreignId": "philip",
     "map": "greenisland"
   },
   {
     "title": "Milky Hands",
     "subtitle": "Talk to the farmer, milk 5 cows, and deliver the milk to the general store.",
-    "foreignId": "derek-whitlock",
+    "foreignId": "derek",
     "map": "greenisland"
   },
   {
     "title": "Horse Massaging",
     "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
-    "foreignId": "thomas-pratt",
+    "foreignId": "thomas",
     "map": "greenisland"
   },
   {
