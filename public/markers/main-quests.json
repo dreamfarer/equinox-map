@@ -4,7 +4,7 @@
     "subtitle": "Ride through the gates and return to Heather.",
     "map": "greenisland",
     "x": 323.36002053676566,
-    "y": 1013.5421724668381
+    "y": 1013.5421724668381,
     "reputation": [{ "amount": 0 }]
   },
   {
@@ -12,7 +12,7 @@
     "subtitle": "Go to the start of the red trail and follow the red markers to reach the barn.",
     "map": "greenisland",
     "x": 349.2628243867548,
-    "y": 943.6908491402883
+    "y": 943.6908491402883,
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
