@@ -78,16 +78,16 @@
     "title": "Jenny's Last Moments",
     "subtitle": "Ride to the woods where Jenny's body was found, search the area for clues, talk to Sarah (4x), then read Danny's message.",
     "map": "greenisland",
-    "x": 982.8000252030942,
-    "y": 2043.8149095564286,
+    "x": 167.80002520309415,
+    "y": 860.8149095564286,
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Broken Heart",
     "subtitle": "Meet Jett at the bridge, pack Jenny's belongings, check how Jett and Sarah are doing, finish the Coastal Ride, go back to Jett, then return to the barn.",
     "map": "greenisland",
-    "x": 500.96495884374855,
-    "y": 1250.098687393502,
+    "x": -314.03504115625145,
+    "y": 67.0986873935019,
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
@@ -101,8 +101,8 @@
     "title": "Mysterious Survivor",
     "subtitle": "Go to the fishing village, talk to Robert Quint, Misty, and Harry Bell, find the man from the tape, then knock at Ben Willis' door.",
     "map": "greenisland",
-    "x": 225.75601813672372,
-    "y": 672.5128867757322,
+    "x": -589.2439818632763,
+    "y": -510.4871132242678,
     "reputation": [{ "type": "Alderwood Fishermen", "amount": 10 }]
   },
   {
@@ -147,16 +147,16 @@
     "title": "Zoe's Disappearance",
     "subtitle": "Check the gang's old hangout spot, go to the market, ask Kathy, search for Zoe near the Equestrian Center then follow the traces Zoe left.",
     "map": "greenisland",
-    "x": 359.6797786820545,
-    "y": 1354.6832203054062,
+    "x": -455.3202213179455,
+    "y": 171.68322030540617,
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Missing Wrist Watch",
     "subtitle": "Follow Zoe's traces backwards, talk to Zoe, keep following Zoe's traces backwards, talk to Zoe, follow Zoe to the cemetry, talk to Zoe, find the missing watch, talk to Zoe, take Zoe to the bookstore, then talk to Sarah.",
     "map": "greenisland",
-    "x": 1002.4800834730809,
-    "y": 1465.8831099199506,
+    "x": 187.48008347308087,
+    "y": 282.8831099199506,
     "reputation": [{ "type": "Alderwood Downtown", "amount": 20 }]
   },
   {
@@ -171,8 +171,8 @@
     "subtitle": "Collect logs in the woods.",
     "id": "big-reunion",
     "map": "greenisland",
-    "x": 1241.0466013256896,
-    "y": 689.2383751674507,
+    "x": 426.0466013256896,
+    "y": -493.7616248325493,
     "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
