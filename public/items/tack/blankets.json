@@ -1,122 +1,62 @@
 [
   {
     "name": "Blanket Babypad",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 0, "currency": "silver" },
+    "reputation": { "level": 0, "type": "Alderwood Downtown" },
+    "upgrade": "violet",
     "stats": {
       "speed": 17,
-      "agility": 9,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
+      "agility": 9
+    }
   },
   {
     "name": "Blanket Babypad (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
     "stats": {
-      "speed": null,
       "agility": 17,
-      "endurance": 9,
-      "strength": null
-    },
-    "icon": null
+      "endurance": 9
+    }
   },
   {
     "name": "Blanket Babypad (Green)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
     "stats": {
-      "speed": null,
-      "agility": null,
       "endurance": 17,
       "strength": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Blanket Babypad (Navy)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 800, "currency": "silver" },
     "reputation": { "level": 8, "type": "Alderwood Downtown" },
+    "upgrade": "delphinium",
     "stats": {
       "speed": 9,
-      "agility": null,
-      "endurance": null,
       "strength": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Blanket Babypad (White)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 1000, "currency": "silver" },
     "reputation": { "level": 10, "type": "Alderwood Downtown" },
+    "upgrade": "water-lily",
     "stats": {
-      "speed": null,
-      "agility": null,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
+      "endurance": 9,
+      "strength": 17
+    }
   },
   {
     "name": "Dressage Pad",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Farms" },
+    "upgrade": "fossil",
     "stats": {
-      "speed": null,
       "agility": 17,
-      "endurance": null,
       "strength": 9
-    },
-    "icon": null
-  },
-  {
-    "name": "Western Pad",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "speed": null,
-      "agility": null,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Western Pad (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "speed": null,
-      "agility": null,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Western Pad (Pink)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "speed": null,
-      "agility": null,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Western Pad (Teal)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "speed": null,
-      "agility": null,
-      "endurance": null,
-      "strength": null
-    },
-    "icon": null
+    }
   }
 ]
