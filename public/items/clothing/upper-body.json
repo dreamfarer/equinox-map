@@ -1,962 +1,476 @@
 [
   {
-    "name": "Turtleneck (Red)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Tan)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (White)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Yellow)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
     "name": "Varsity Jacket",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 1000, "currency": "silver" },
     "reputation": { "level": 10, "type": "Alderwood Fishermen" },
+    "upgrade": "eagle-feather",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "V-Neck Rolled",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "jumping": 9,
+      "fitness": 9
+    }
   },
   {
     "name": "Zipper Hoodie",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Wilds" },
+    "upgrade": "eagle-feather",
     "stats": {
       "riding": 9,
-      "jumping": null,
       "control": 9,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (Beige)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 2, "currency": "silver" },
+    "reputation": { "level": 200, "type": "Alderwood Wilds" },
+    "upgrade": "sunflower",
     "stats": {
       "riding": 9,
-      "jumping": null,
-      "control": 17,
-      "fitness": null
-    },
-    "icon": null
+      "control": 17
+    }
   },
   {
     "name": "Zipper Hoodie (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Wilds" },
+    "upgrade": "seagull-feather",
     "stats": {
-      "riding": null,
       "jumping": 9,
-      "control": null,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (Blue)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Wilds" },
+    "upgrade": "delphinium",
     "stats": {
       "riding": 17,
-      "jumping": null,
-      "control": null,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (Green)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Wilds" },
+    "upgrade": "moss",
     "stats": {
       "riding": 9,
-      "jumping": 17,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "jumping": 17
+    }
   },
   {
     "name": "Zipper Hoodie (Grey)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 6, "currency": "silver" },
+    "reputation": { "level": 600, "type": "Alderwood Wilds" },
+    "upgrade": "seagull-feather",
     "stats": {
-      "riding": null,
       "jumping": 9,
-      "control": 17,
-      "fitness": null
-    },
-    "icon": null
+      "control": 17
+    }
   },
   {
     "name": "Zipper Hoodie (Navy)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 700, "currency": "silver" },
     "reputation": { "level": 7, "type": "Alderwood Wilds" },
+    "upgrade": "delphinium",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 9,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (Orange)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 800, "currency": "silver" },
     "reputation": { "level": 8, "type": "Alderwood Wilds" },
+    "upgrade": "carrot",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "jumping": 9,
+      "control": 9
+    }
   },
   {
     "name": "Zipper Hoodie (Purple)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Wilds" },
+    "upgrade": "poppy",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "jumping": 9,
+      "fitness": 9
+    }
   },
   {
     "name": "Zipper Hoodie (Red)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 1000, "currency": "silver" },
     "reputation": { "level": 10, "type": "Alderwood Wilds" },
+    "upgrade": "poppy",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "control": 9,
+      "fitness": 9
+    }
   },
   {
     "name": "Zipper Hoodie (Tan)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Wilds" },
+    "upgrade": "sunflower",
     "stats": {
-      "riding": null,
       "jumping": 9,
       "control": 9,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (White)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Wilds" },
+    "upgrade": "violet",
     "stats": {
       "riding": 14,
       "jumping": 6,
-      "control": null,
       "fitness": 6
-    },
-    "icon": null
+    }
   },
   {
     "name": "Zipper Hoodie (Yellow)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 4, "currency": "silver" },
+    "reputation": { "level": 400, "type": "Alderwood Wilds" },
+    "upgrade": "dandelion",
     "stats": {
       "riding": 6,
-      "jumping": null,
       "control": 6,
       "fitness": 14
-    },
-    "icon": null
-  },
-  {
-    "name": "Shirt Items List",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Blacksmith",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Blouse Dress",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+    }
   },
   {
     "name": "Button Down Shirt",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 700, "currency": "silver" },
+    "reputation": { "level": 7, "type": "Alderwood Downtown" },
+    "upgrade": "king-boletus-mushroom",
     "stats": {
-      "riding": null,
       "jumping": 17,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Button Down Shirt (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Button Down Shirt (Navy)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Canvas Jacket",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Farms" },
+    "upgrade": "fossil",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 17,
       "fitness": 9
-    },
-    "icon": null
-  },
-  {
-    "name": "Chef",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Chef (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Chef (Brown)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Chef (Maia)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Laye(Red) Sweater",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Laye(Red) Sweater (Grey)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Laye(Red) Sweater (Navy)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Laye(Red) Sweater (Pink)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "price": { "amount": 0, "currency": "silver" },
+    "reputation": { "level": 0, "type": "Alderwood Fishermen" },
+    "upgrade": "dryad-saddle-mushroom",
     "stats": {
       "riding": 9,
-      "jumping": null,
-      "control": null,
       "fitness": 17
-    },
-    "icon": null
-  },
-  {
-    "name": "Long T-Shirt (Beige)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "upgrade": "raven-feather",
     "stats": {
-      "riding": null,
       "jumping": 17,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Long T-Shirt (Blue)",
     "price": { "amount": 500, "currency": "coin" },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "upgrade": "delphinium",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 17,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (Cow Skull)",
     "price": { "amount": 600, "currency": "coin" },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 6, "type": "Alderwood Fishermen" },
+    "upgrade": "antler",
     "stats": {
       "riding": 9,
-      "jumping": null,
-      "control": null,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (Green)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 700, "currency": "silver" },
     "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "upgrade": "moss",
     "stats": {
       "riding": 17,
-      "jumping": null,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Long T-Shirt (Grey)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 800, "currency": "silver" },
     "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "upgrade": "seagull-feather",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "jumping": 18,
+      "fitness": 9
+    }
   },
   {
     "name": "Long T-Shirt (Island Life)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "upgrade": "water-lily",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "control": 17
+    }
   },
   {
     "name": "Long T-Shirt (Navy)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 1000, "currency": "silver" },
     "reputation": { "level": 10, "type": "Alderwood Fishermen" },
+    "upgrade": "delphinium",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "jumping": 9,
+      "fitness": 17
+    }
   },
   {
     "name": "Long T-Shirt (Orange)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Fishermen" },
+    "upgrade": "carrot",
     "stats": {
       "riding": 17,
-      "jumping": null,
-      "control": null,
       "fitness": 9
-    },
-    "icon": null
-  },
-  {
-    "name": "Long T-Shirt (Purple)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (Red)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "upgrade": "poppy",
     "stats": {
-      "riding": null,
       "jumping": 9,
-      "control": 17,
-      "fitness": null
-    },
-    "icon": null
+      "control": 17
+    }
   },
   {
     "name": "Long T-Shirt (Ride)",
     "price": { "amount": 500, "currency": "coin" },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "upgrade": "sulfur-shelf-mushroom",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 9,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (South Shore)",
     "price": { "amount": 600, "currency": "coin" },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 6, "type": "Alderwood Fishermen" },
+    "upgrade": "moss",
     "stats": {
       "riding": 9,
       "jumping": 9,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Long T-Shirt (Tan)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 700, "currency": "silver" },
     "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "upgrade": "sunflower",
     "stats": {
       "riding": 9,
       "jumping": 9,
-      "control": null,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Long T-Shirt (White)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 800, "currency": "silver" },
     "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "upgrade": "violet",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "control": 9,
+      "fitness": 9
+    }
   },
   {
     "name": "Long T-Shirt (Yellow)",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "upgrade": "dandelion",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "jumping": 9,
+      "control": 9,
+      "fitness": 9
+    }
   },
   {
     "name": "Mesh Shirt",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 800, "currency": "silver" },
     "reputation": { "level": 8, "type": "Alderwood Downtown" },
+    "upgrade": "dryad-saddle-mushroom",
     "stats": {
       "riding": 17,
-      "jumping": null,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Mesh Shirt (Green)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Neoprene Shirt",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Downtown" },
+    "upgrade": "sulfur-shelf-mushroom",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "jumping": 17,
+      "fitness": 9
+    }
   },
   {
     "name": "Open Button Shirt",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "price": { "amount": 700, "currency": "silver" },
+    "reputation": { "level": 7, "type": "Alderwood Farms" },
+    "upgrade": "apple",
     "stats": {
       "riding": 9,
-      "jumping": null,
-      "control": 17,
-      "fitness": null
-    },
-    "icon": null
+      "control": 17
+    }
   },
   {
     "name": "Plaid Shirt",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Farms" },
+    "upgrade": "poppy",
     "stats": {
-      "riding": null,
       "jumping": 9,
-      "control": null,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Polo Tee",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 1000, "currency": "silver" },
     "reputation": { "level": 10, "type": "Alderwood Downtown" },
+    "upgrade": "violet",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 17,
+      "control": 9
+    }
   },
   {
     "name": "Polo Tee (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
     "stats": {
-      "riding": null,
       "jumping": 17,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Polo Tee (Navy)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Downtown" },
+    "upgrade": "raspberry",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 17,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Polo Tee (Postal)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Downtown" },
+    "upgrade": "delphinium",
     "stats": {
       "riding": 9,
-      "jumping": null,
-      "control": null,
       "fitness": 17
-    },
-    "icon": null
+    }
   },
   {
     "name": "Polo Tee (Salmon)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Downtown" },
+    "upgrade": "raspberry",
     "stats": {
       "riding": 17,
-      "jumping": null,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   },
   {
     "name": "Polo Tee (White)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Downtown" },
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Downtown" },
+    "upgrade": "violet",
     "stats": {
-      "riding": null,
       "jumping": 17,
-      "control": null,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Puffer Jacket",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Wilds" },
+    "upgrade": "antler",
     "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Puffer Jacket (Green)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "riding": 9,
+      "jumping": 17
+    }
   },
   {
     "name": "Short T-Shirt",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Wilds" },
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Wilds" },
+    "upgrade": "carrot",
     "stats": {
-      "riding": null,
       "jumping": 9,
-      "control": 17,
-      "fitness": null
-    },
-    "icon": null
+      "control": 17
+    }
   },
   {
     "name": "Show Jacket",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Farms" },
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Farms" },
+    "upgrade": "raspberry",
     "stats": {
-      "riding": null,
-      "jumping": null,
       "control": 9,
       "fitness": 17
-    },
-    "icon": null
-  },
-  {
-    "name": "Show Jacket (Grey)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Show Jacket (Navy)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Show Jacket (Tan)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Show Jacket (White)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+    }
   },
   {
     "name": "Slouchy Sweater",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": "Alderwood Fishermen" },
+    "price": { "amount": 4, "currency": "silver" },
+    "reputation": { "level": 400, "type": "Alderwood Fishermen" },
+    "upgrade": "violet",
     "stats": {
-      "riding": null,
       "jumping": 9,
       "control": 9,
       "fitness": 9
-    },
-    "icon": null
+    }
   },
   {
     "name": "Tight T-Shirt",
-    "price": { "amount": null, "currency": null },
+    "price": { "amount": 900, "currency": "silver" },
     "reputation": { "level": 9, "type": "Alderwood Farms" },
+    "upgrade": "eagle-feather",
     "stats": {
       "riding": 9,
       "jumping": 9,
-      "control": 9,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Black)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Brown)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Green)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Grey)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Navy)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Pink)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
-  },
-  {
-    "name": "Turtleneck (Purple)",
-    "price": { "amount": null, "currency": null },
-    "reputation": { "level": null, "type": null },
-    "stats": {
-      "riding": null,
-      "jumping": null,
-      "control": null,
-      "fitness": null
-    },
-    "icon": null
+      "control": 9
+    }
   }
 ]
