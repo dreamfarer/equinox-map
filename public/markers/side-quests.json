@@ -12,5 +12,12 @@
     "foreignId": "mike",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "Wayward Child",
+    "subtitle": "Visit Jenny's doctor, old friend, ex-classmates and ex-neighbours. Meet Sarah at Jett's house, then give the memory quotes to Jett. Deliver the pendent to Jenny's mother, check the door, examine the area and investiagate the gate to find Beverly, talk to her, then text Jett that you're done.",
+    "foreignId": "carmen",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   }
 ]
