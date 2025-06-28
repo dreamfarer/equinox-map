@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Horseshoes (Aluminium)",
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Wilds" },
+    "upgrade": "horseshoe",
+    "stats": {
+      "speed": 17,
+      "agility": 9
+    }
+  },
+  {
+    "name": "Horseshoes (Blued Steel)",
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Wilds" },
+    "upgrade": "horseshoe",
+    "stats": {
+      "endurance": 17,
+      "strength": 9
+    }
+  },
+  {
+    "name": "Horseshoes (Brass)",
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Wilds" },
+    "upgrade": "horseshoe",
+    "stats": {
+      "speed": 9,
+      "strength": 17
+    }
+  },
+  {
+    "name": "Horseshoes (Wrought Iron)",
+    "price": { "amount": 800, "currency": "silver" },
+    "reputation": { "level": 8, "type": "Alderwood Wilds" },
+    "upgrade": "horseshoe",
+    "stats": {
+      "agility": 17,
+      "endurance": 9
+    }
+  }
+]

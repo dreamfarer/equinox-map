@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Leather Riding Gloves",
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Wilds" },
+    "upgrade": "fossil",
+    "stats": {
+      "control": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "Leather Riding Gloves (Tan)",
+    "price": { "amount": 900, "currency": "silver" },
+    "reputation": { "level": 9, "type": "Alderwood Wilds" },
+    "upgrade": "moss",
+    "stats": {
+      "riding": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "Horse Racing Gloves",
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Farms" },
+    "upgrade": "eagle-feather",
+    "stats": {
+      "riding": 17,
+      "jumping": 9
+    }
+  },
+  {
+    "name": "Horse Racing Gloves (White)",
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Farms" },
+    "upgrade": "seagull-feather",
+    "stats": {
+      "jumping": 17,
+      "control": 9
+    }
+  }
+]

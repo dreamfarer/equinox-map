@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Blanket Babypad",
+    "price": { "amount": 0, "currency": "silver" },
+    "reputation": { "level": 0, "type": "Alderwood Downtown" },
+    "upgrade": "violet",
+    "stats": {
+      "speed": 17,
+      "agility": 9
+    }
+  },
+  {
+    "name": "Blanket Babypad (Black)",
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
+    "stats": {
+      "agility": 17,
+      "endurance": 9
+    }
+  },
+  {
+    "name": "Blanket Babypad (Green)",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
+    "stats": {
+      "endurance": 17,
+      "strength": 9
+    }
+  },
+  {
+    "name": "Blanket Babypad (Navy)",
+    "price": { "amount": 800, "currency": "silver" },
+    "reputation": { "level": 8, "type": "Alderwood Downtown" },
+    "upgrade": "delphinium",
+    "stats": {
+      "speed": 9,
+      "strength": 17
+    }
+  },
+  {
+    "name": "Blanket Babypad (White)",
+    "price": { "amount": 1000, "currency": "silver" },
+    "reputation": { "level": 10, "type": "Alderwood Downtown" },
+    "upgrade": "water-lily",
+    "stats": {
+      "endurance": 9,
+      "strength": 17
+    }
+  },
+  {
+    "name": "Dressage Pad",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Farms" },
+    "upgrade": "fossil",
+    "stats": {
+      "agility": 17,
+      "strength": 9
+    }
+  }
+]

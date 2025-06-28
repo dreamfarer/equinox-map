@@ -1,0 +1,216 @@
+[
+  {
+    "name": "Cargo Breeches",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "upgrade": "raspberry",
+    "stats": {
+      "riding": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "High Riding Pants",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Downtown" },
+    "upgrade": "sulfur-shelf-mushroom",
+    "stats": {
+      "riding": 17,
+      "control": 9
+    }
+  },
+  {
+    "name": "Jean Shorts",
+    "price": { "amount": 700, "currency": "silver" },
+    "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "upgrade": "carrot",
+    "stats": {
+      "jumping": 17,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Pleated Skirt",
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Downtown" },
+    "upgrade": "apple",
+    "stats": {
+      "riding": 9,
+      "control": 17
+    }
+  },
+  {
+    "name": "Riding Pants",
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Downtown" },
+    "upgrade": "dandelion",
+    "stats": {
+      "jumping": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "Riding Pants (Black)",
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Downtown" },
+    "upgrade": "raven-feather",
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": 9
+    }
+  },
+  {
+    "name": "Riding Pants (Brown)",
+    "price": { "amount": 400, "currency": "silver" },
+    "reputation": { "level": 4, "type": "Alderwood Downtown" },
+    "upgrade": "sunflower",
+    "stats": {
+      "riding": 9,
+      "jumping": 9,
+      "control": 9
+    }
+  },
+  {
+    "name": "Riding Pants (Navy)",
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Downtown" },
+    "upgrade": "blackberry",
+    "stats": {
+      "riding": 9,
+      "control": 9,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Riding Pants (White)",
+    "price": { "amount": 800, "currency": "silver" },
+    "reputation": { "level": 8, "type": "Alderwood Downtown" },
+    "upgrade": "violet",
+    "stats": {
+      "jumping": 9,
+      "control": 9,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Rolled Up Jeans",
+    "price": { "amount": 200, "currency": "silver" },
+    "reputation": { "level": 2, "type": "Alderwood Farms" },
+    "upgrade": "dandelion",
+    "stats": {
+      "jumping": 17,
+      "control": 9
+    }
+  },
+  {
+    "name": "Skinny Jeans",
+    "price": { "amount": 0, "currency": "silver" },
+    "reputation": { "level": 0, "type": "Alderwood Downtown" },
+    "upgrade": "king-boletus-mushroom",
+    "stats": {
+      "riding": 17,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Skinny Jeans (Acid Wash)",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Downtown" },
+    "upgrade": "fossil",
+    "stats": {
+      "control": 17,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Skinny Jeans (Black)",
+    "price": { "amount": 700, "currency": "silver" },
+    "reputation": { "level": 7, "type": "Alderwood Downtown" },
+    "upgrade": "seagull-feather",
+    "stats": {
+      "riding": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "Skinny Jeans (Grey)",
+    "price": { "amount": 900, "currency": "silver" },
+    "reputation": { "level": 9, "type": "Alderwood Downtown" },
+    "upgrade": "king-boletus-mushroom",
+    "stats": {
+      "riding": 17,
+      "fitness": 9
+    }
+  },
+  {
+    "name": "Tucked Cargo Pants",
+    "price": { "amount": 1000, "currency": "silver" },
+    "reputation": { "level": 10, "type": "Alderwood Farms" },
+    "upgrade": "dryad-saddle-mushroom",
+    "stats": {
+      "riding": 9,
+      "jumping": 17
+    }
+  },
+  {
+    "name": "Work Jeans",
+    "price": { "amount": 900, "currency": "silver" },
+    "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "upgrade": "sulfur-shelf-mushroom",
+    "stats": {
+      "jumping": 17,
+      "control": 9
+    }
+  },
+  {
+    "name": "Bootcut Jeans",
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Farms" },
+    "upgrade": "fossil",
+    "stats": {
+      "riding": 17,
+      "jumping": 9
+    }
+  },
+  {
+    "name": "Bootcut Jeans (Indigo)",
+    "price": { "amount": 600, "currency": "silver" },
+    "reputation": { "level": 6, "type": "Alderwood Farms" },
+    "upgrade": "water-lily",
+    "stats": {
+      "control": 9,
+      "fitness": 17
+    }
+  },
+  {
+    "name": "Bootcut Jeans (Tan)",
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Farms" },
+    "upgrade": "antler",
+    "stats": {
+      "riding": 17,
+      "jumping": 9
+    }
+  },
+  {
+    "name": "Bootcut Slacks",
+    "price": { "amount": 800, "currency": "silver" },
+    "reputation": { "level": 8, "type": "Alderwood Farms" },
+    "upgrade": "moss",
+    "stats": {
+      "jumping": 17,
+      "control": 9
+    }
+  },
+  {
+    "name": "Breeches",
+    "price": { "amount": 300, "currency": "silver" },
+    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "upgrade": "dryad-saddle-mushroom",
+    "stats": {
+      "control": 17,
+      "fitness": 9
+    }
+  }
+]

@@ -8,7 +8,7 @@
     "y": 252.16276649784913
   },
   {
-    "title": "Celina",
+    "title": "Celina Spike",
     "id": "celina",
     "icon": "celina",
     "map": "greenisland",
@@ -24,7 +24,7 @@
     "y": 126.77866074561325
   },
   {
-    "title": "Danny",
+    "title": "Danny Landor",
     "id": "danny",
     "icon": "danny",
     "map": "greenisland",
@@ -40,7 +40,7 @@
     "y": 95.50809453153602
   },
   {
-    "title": "Kathy",
+    "title": "Kathy Miller",
     "id": "kathy",
     "icon": "kathy",
     "map": "greenisland",
@@ -48,7 +48,7 @@
     "y": 116.6410019454695
   },
   {
-    "title": "Paige",
+    "title": "Paige Hansen",
     "id": "paige",
     "icon": "paige",
     "map": "greenisland",
@@ -64,7 +64,7 @@
     "y": 219.01073745382587
   },
   {
-    "title": "Lucas",
+    "title": "Lucas Ledger",
     "id": "lucas",
     "icon": "lucas",
     "map": "greenisland",
@@ -72,7 +72,7 @@
     "y": 251.64173802151572
   },
   {
-    "title": "Heather",
+    "title": "Heather Abbott",
     "id": "heather",
     "icon": "heather",
     "map": "greenisland",
@@ -88,7 +88,7 @@
     "y": 178.71330421107086
   },
   {
-    "title": "Malcolm",
+    "title": "Malcolm Yore",
     "id": "malcolm",
     "icon": "malcolm",
     "map": "greenisland",
@@ -96,14 +96,14 @@
     "y": 231.3158309806215
   },
   {
-    "title": "Valeria",
+    "title": "Valeria Bradford",
     "id": "valeria",
     "map": "greenisland",
     "x": -350.5347298336225,
     "y": 163.07594176697307
   },
   {
-    "title": "Carmen",
+    "title": "Carmen Pratt",
     "id": "carmen",
     "icon": "carmen",
     "map": "greenisland",
@@ -111,7 +111,7 @@
     "y": 158.55054690789234
   },
   {
-    "title": "Bill",
+    "title": "Bill Rodd",
     "id": "bill",
     "icon": "bill",
     "map": "greenisland",
@@ -143,7 +143,7 @@
     "y": -125.6702374374679
   },
   {
-    "title": "Lewis",
+    "title": "Lewis Miller",
     "id": "lewis",
     "icon": "lewis",
     "map": "greenisland",
@@ -151,15 +151,15 @@
     "y": -144.53442188647182
   },
   {
-    "title": "Mrs. Alicia Weasley",
-    "id": "mrs-weasley",
+    "title": "Alicia Wilson",
+    "id": "mrs-wilson",
     "icon": "mrs-weasley",
     "map": "greenisland",
     "x": -341.1259414817855,
     "y": -250.45996460452898
   },
   {
-    "title": "Samuel",
+    "title": "Samuel Smith",
     "id": "samuel",
     "icon": "samuel",
     "map": "greenisland",
@@ -175,7 +175,7 @@
     "y": -516.9891933970628
   },
   {
-    "title": "Misty",
+    "title": "Misty Doe",
     "id": "misty",
     "icon": "misty",
     "map": "greenisland",
@@ -183,7 +183,7 @@
     "y": -535.7122906529446
   },
   {
-    "title": "Robert",
+    "title": "Robert Quint",
     "id": "robert",
     "icon": "robert",
     "map": "greenisland",
@@ -214,7 +214,7 @@
     "y": -552.5491794304721
   },
   {
-    "title": "Meredith",
+    "title": "Meredith Diaz",
     "id": "meredith",
     "icon": "meredith",
     "map": "greenisland",
@@ -245,7 +245,7 @@
     "y": 369.94595000009053
   },
   {
-    "title": "Jett",
+    "title": "Jett Smith",
     "id": "jett",
     "icon": "jett",
     "map": "greenisland",
@@ -253,7 +253,7 @@
     "y": -113.07822500905468
   },
   {
-    "title": "Kyle",
+    "title": "Kyle Everhart",
     "id": "kyle",
     "icon": "kyle",
     "map": "greenisland",
@@ -282,5 +282,19 @@
     "map": "greenisland",
     "x": -368.914839274307,
     "y": 136.11733726079933
+  },
+  {
+    "title": "Alfred Bowman",
+    "id": "alfred",
+    "map": "greenisland",
+    "x": 83.72609985441761,
+    "y": -983.2244249289187
+  },
+  {
+    "title": "Ben Willis",
+    "id": "ben",
+    "map": "greenisland",
+    "x": -644.0147584462907,
+    "y": -622.1763722249909
   }
 ]

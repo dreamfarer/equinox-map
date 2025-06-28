@@ -3,137 +3,159 @@
     "title": "Blocked Road",
     "subtitle": "Meet Kai Chen and remove the fallen tree.",
     "foreignId": "kai",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Pesky Crow",
     "subtitle": "Talk to Dwight and find 3 items to dress the scarecrow.",
     "foreignId": "dwight",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Thinning the Shots",
     "subtitle": "Ride to Landor's farm, remove 8 excess grape clusters, and return to Danny at the bar.",
     "foreignId": "danny",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Flower Basket",
     "subtitle": "Speak with Emily, collect 12 poppies and bring them back to her.",
     "foreignId": "emily",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Goods on Demand",
     "subtitle": "Get products from Lewis and deliver them to Kathy.",
     "foreignId": "lewis",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Not-Easter Eggs",
     "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kathy at the market.",
     "foreignId": "lewis",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "King of All Mushrooms",
     "subtitle": "Collect 15 King Boletus mushrooms.",
     "foreignId": "maia",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Horse Brushing",
     "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
     "foreignId": "thomas",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Tasty Saddle",
     "subtitle": "Collect 15 Dryad Saddle mushrooms.",
     "foreignId": "maia",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Sulfur Treat",
     "subtitle": "Collect 15 Sulfur Shelf mushrooms.",
     "foreignId": "maia",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Deer Footprints",
     "subtitle": "Mark the deer route (20 markers) and report to Kyle.",
     "map": "greenisland",
     "x": 39.88489690821427,
-    "y": -585.6505491059621
+    "y": -585.6505491059621,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Deer Traces",
     "subtitle": "Mark the deer route (18 markers) and report to Kyle.",
     "map": "greenisland",
     "x": 375.9989465895412,
-    "y": -319.48092881633227
+    "y": -319.48092881633227,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Horse Ointment",
     "subtitle": "Talk to Philip Wiseman, apply ointment to 3 horses, then report back.",
     "foreignId": "philip",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Sheep Catcher",
     "subtitle": "Talk to Old Williams, activate the 7 location tracker, then report back.",
     "foreignId": "old-williams",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Deer Path",
     "subtitle": "Mark the deer route (22 markers) and report to Kyle.",
     "map": "greenisland",
     "x": 360.5483382181701,
-    "y": -478.06375105710447
+    "y": -478.06375105710447,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Future Bread",
     "subtitle": "Pick up fertilizer from Kurt Burlow at the general store, deliver it to Dwight Collins and place it near the wheelbarrow.",
     "foreignId": "kurt",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Smells Like a Bun",
     "subtitle": "Pick up 2 wheat sacks from the wheat farm and deliver them to the bakery.",
     "foreignId": "dwight",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Clean and Fresh",
     "subtitle": "Ride to Wiseman's horse rehab and clean 5 manure piles.",
     "foreignId": "philip",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Milky Hands",
     "subtitle": "Talk to the farmer, milk 5 cows, and deliver the milk to the general store.",
     "foreignId": "derek",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
   {
     "title": "Horse Massaging",
     "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
     "foreignId": "thomas",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Fresh Fish Delivery",
     "subtitle": "Go to the fishing village, collect 3 fish and deliver them to Kurt Burlow at the general store.",
     "map": "greenisland",
     "x": -613.0490388934733,
-    "y": -570.046873803426
+    "y": -570.046873803426,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Deer Trail",
     "subtitle": "Mark the deer route (25 markers) and report to Kyle.",
     "map": "greenisland",
     "x": 69.69802303419942,
-    "y": -336.77985651592655
+    "y": -336.77985651592655,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   }
 ]

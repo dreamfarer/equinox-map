@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Basic Bridle",
+    "price": { "amount": 0, "currency": "silver" },
+    "reputation": { "level": 0, "type": null },
+    "stats": {
+      "speed": 17,
+      "agility": 9
+    }
+  }
+]

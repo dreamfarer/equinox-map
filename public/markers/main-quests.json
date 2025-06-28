@@ -4,56 +4,182 @@
     "subtitle": "Ride through the gates and return to Heather.",
     "map": "greenisland",
     "x": 323.36002053676566,
-    "y": 1013.5421724668381
+    "y": 1013.5421724668381,
+    "reputation": [{ "amount": 0 }]
   },
   {
     "title": "Ride To Your Home",
     "subtitle": "Go to the start of the red trail and follow the red markers to reach the barn.",
     "map": "greenisland",
     "x": 349.2628243867548,
-    "y": 943.6908491402883
+    "y": 943.6908491402883,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Home Sweet Home",
-    "subtitle": "Brush the horse, feed it, give it water, pick its hooves, explore the ground floor (4 spots), check the upper floor (3 spots), examine the windows, inspect Kendra's workspace, look behind the shelf, see what Kendra was up to, and check Kendra's portrait.",
+    "subtitle": "Brush the horse, feed it, give it water, pick its hooves, explore the ground floor (4 spots), check the upper floor (3 spots), examine the windows, inspect Kendra's workspace, look behind the shelf, see what Kendra was up to, and then check Kendra's portrait.",
     "foreignId": "player-barn",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "amount": 0 }]
   },
   {
     "title": "Getting Equipped",
-    "subtitle": "Go downstairs to meet Sarah, enter March's Tack Shop and speak to Wendy, visit the post office to fetch tail protectors from Lucas, return the package to Wendy, deliver packages to the Doctor's Office, Sheriff's Office, Antique Shop, and Lakeside Tavern, return to the Tack Shop to get your equipment, open your inventory and equip the saddle on your horse, then talk to Wendy.",
+    "subtitle": "Go downstairs to meet Sarah, enter March's Tack Shop and speak to Wendy, visit the post office to fetch tail protectors from Lucas, return the package to Wendy, deliver packages to the Doctor's Office, the Sheriff's Office, the Antique Shop, and the Lakeside Tavern, return to the Tack Shop to get your equipment, open your inventory and equip the saddle on your horse, then talk to Wendy.",
     "foreignId": "player-barn",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Treats and Races",
     "subtitle": "Ride to the River Trail, complete the race, visit the local market, talk to Kathy, feed your horse a treat, then return to Kathy.",
     "foreignId": "river-trail",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [
+      { "type": "Alderwood Downtown", "amount": 10 },
+      { "type": "Alderwood Farms", "amount": 10 }
+    ]
   },
   {
     "title": "Heart Of Alderwood",
     "subtitle": "Pick up the goods, find Carmen at the Equestrian Center, check what horses are for sale, look at the three different breeds, then return to Carmen.",
     "foreignId": "kathy",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
     "title": "Hit The Ground",
     "subtitle": "Find the Farrier's hut, talk to Samuel, locate grain to feed the crow, fill the crow's bowl, return to Samuel, collect Samuel's tools (8) and place them on the rack, gather 5 logs and store them, inform Samuel you're done, finish the race, then to Samuel.",
     "foreignId": "samuel",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Forest Caretaker",
     "subtitle": "Ride to the Kyle's hut, read Kendra's journal, place vaccinated bait in Timberwolf Pass, Cedar Creek Bend, Fox Grove, Maple Trails, and Owl Ridge Lookout, investigate to track the diseased animal, then report back to Kyle.",
     "foreignId": "kyle",
-    "map": "greenisland"
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
   },
   {
     "title": "Follow the Light",
     "subtitle": "Ride to the lighthouse, search for Alfred in the museum shop, search on to the hallway, on the floors and on the observation deck of the lighthouse, then check Sarah's message.",
+    "foreignId": "alfred",
     "map": "greenisland",
-    "x": 79.38804497161902,
-    "y": -983.3603672777042
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+  },
+  {
+    "title": "The Body",
+    "subtitle": "Meet Sarah at the Funeral Home, follow Sarah inside, then talk to Sarah outside the morgue. Ride to the Lakeside Tavern, order and take the drinks, then follow Sarah outside.",
+    "foreignId": "bill",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Jenny's Last Moments",
+    "subtitle": "Ride to the woods where Jenny's body was found, search the area for clues, talk to Sarah (4x), then read Danny's message.",
+    "map": "greenisland",
+    "x": 167.80002520309415,
+    "y": 860.8149095564286,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Broken Heart",
+    "subtitle": "Meet Jett at the bridge, pack Jenny's belongings, check how Jett and Sarah are doing, finish the Coastal Ride, go back to Jett, then return to the barn.",
+    "map": "greenisland",
+    "x": -314.03504115625145,
+    "y": 67.0986873935019,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Kendra's Investigation",
+    "subtitle": "Go to Kendra's investigation board, check diary pages, old articles and the tape, search the living area for the tape recorder and listen to the recording, then ride to Hook's End",
+    "foreignId": "player-barn",
+    "map": "greenisland",
+    "reputation": [{ "amount": 0 }]
+  },
+  {
+    "title": "Mysterious Survivor",
+    "subtitle": "Go to the fishing village, talk to Robert Quint, Misty, and Harry Bell, find the man from the tape, then knock at Ben Willis' door.",
+    "map": "greenisland",
+    "x": -589.2439818632763,
+    "y": -510.4871132242678,
+    "reputation": [{ "type": "Alderwood Fishermen", "amount": 10 }]
+  },
+  {
+    "title": "Meet the Lighthouse Keeper",
+    "subtitle": "Talk to the lighthouse keeper anmed Alfred Bowman and place the horse, snake, fish and bird idol where they belong, then tell him you're done. Talk to Alfred Bowman, then read your new message from Lucas.",
+    "foreignId": "alfred",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+  },
+  {
+    "title": "Postman Duties",
+    "subtitle": "Meet Lucas at the post office, collect the three packages, deliver a package to Bobby Zanker, a package to Max Cross and a package to Walter Davidson. Kock on the door, leave Walter's package and tell Lucas you are done.",
+    "foreignId": "lucas",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Heather's Challenge",
+    "subtitle": "Ask the stable hand what kind of help is needed, pick up the horse brush, brush the three horses to make them shine, then return to Thomas. Win the race 'Alderwood Lap', then find Heather outside the equestrian center and answer the phone.",
+    "foreignId": "thomas",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Kyle's Findings",
+    "subtitle": "Talk to Kyle, ride to the location where you last spotted the strange deer, talk to Kyle, investigate the deer path, talk to Kyle, enter the cave, then answer the phone.",
+    "foreignId": "kyle",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+  },
+  {
+    "title": "Help Malcolm Yore",
+    "subtitle": "Meet Malcolm at the antique store, collect the item from Dwight Collins, Meredith Diaz, Kathy Miller and Philip Wiseman, and bring the items to Malcolm, then check the message from Sarah.",
+    "foreignId": "malcolm",
+    "map": "greenisland",
+    "reputation": [
+      { "type": "Alderwood Downtown", "amount": 10 },
+      { "type": "Alderwood Farms", "amount": 10 }
+    ]
+  },
+  {
+    "title": "Zoe's Disappearance",
+    "subtitle": "Check the gang's old hangout spot, go to the market, ask Kathy, search for Zoe near the Equestrian Center then follow the traces Zoe left.",
+    "map": "greenisland",
+    "x": -455.3202213179455,
+    "y": 171.68322030540617,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Missing Wrist Watch",
+    "subtitle": "Follow Zoe's traces backwards, talk to Zoe, keep following Zoe's traces backwards, talk to Zoe, follow Zoe to the cemetry, talk to Zoe, find the missing watch, talk to Zoe, take Zoe to the bookstore, then talk to Sarah.",
+    "map": "greenisland",
+    "x": 187.48008347308087,
+    "y": 282.8831099199506,
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 20 }]
+  },
+  {
+    "title": "Get Ready For the Party",
+    "subtitle": "Go to the Lakeside Tavern and speak to Danny, take the bottles, get the four snacks from the general store, then ride to Crystal Lake to get the party started.",
+    "foreignId": "danny",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Big Reunion",
+    "subtitle": "Collect logs in the woods.",
+    "id": "big-reunion",
+    "map": "greenisland",
+    "x": 426.0466013256896,
+    "y": -493.7616248325493,
+    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+  },
+  {
+    "title": "Late Ride Home",
+    "subtitle": "Return to the barn.",
+    "foreignId": "big-reunion",
+    "map": "greenisland",
+    "reputation": [{ "amount": 0 }]
   }
 ]
