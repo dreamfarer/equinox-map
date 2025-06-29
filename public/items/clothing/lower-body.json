@@ -2,7 +2,7 @@
   {
     "name": "Cargo Breeches",
     "price": { "amount": 500, "currency": "silver" },
-    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 5, "type": "Alderwood Fishing Village" },
     "upgrade": "raspberry",
     "stats": {
       "riding": 9,
@@ -22,7 +22,7 @@
   {
     "name": "Jean Shorts",
     "price": { "amount": 700, "currency": "silver" },
-    "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 7, "type": "Alderwood Fishing Village" },
     "upgrade": "carrot",
     "stats": {
       "jumping": 17,
@@ -156,7 +156,7 @@
   {
     "name": "Work Jeans",
     "price": { "amount": 900, "currency": "silver" },
-    "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 9, "type": "Alderwood Fishing Village" },
     "upgrade": "sulfur-shelf-mushroom",
     "stats": {
       "jumping": 17,
@@ -206,7 +206,7 @@
   {
     "name": "Breeches",
     "price": { "amount": 300, "currency": "silver" },
-    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 3, "type": "Alderwood Fishing Village" },
     "upgrade": "dryad-saddle-mushroom",
     "stats": {
       "control": 17,
