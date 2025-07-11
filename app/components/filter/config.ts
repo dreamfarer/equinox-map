@@ -28,6 +28,7 @@ export const categoryGroups: CategoryGroup[] = [
       { label: 'Weekly Quests', id: 'weekly-quest' },
       { label: 'Main Quests', id: 'main-quest' },
       { label: 'Side Quests', id: 'side-quest' },
+      { label: 'Daily Deliveries', id: 'deliveries' },
     ],
   },
   {

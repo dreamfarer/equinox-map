@@ -12,7 +12,7 @@
   {
     "name": "Hikers (Green)",
     "price": { "amount": 600, "currency": "silver" },
-    "reputation": { "level": 6, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 6, "type": "Alderwood Fishing Village" },
     "upgrade": "raspberry",
     "stats": {
       "control": 9,
@@ -22,7 +22,7 @@
   {
     "name": "Hikers (Blue)",
     "price": { "amount": 400, "currency": "silver" },
-    "reputation": { "level": 4, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 4, "type": "Alderwood Fishing Village" },
     "upgrade": "delphinium",
     "stats": {
       "jumping": 17,
@@ -72,7 +72,7 @@
   {
     "name": "Work Boots",
     "price": { "amount": 800, "currency": "silver" },
-    "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 8, "type": "Alderwood Fishing Village" },
     "upgrade": "water-lily",
     "stats": {
       "jumping": 9,

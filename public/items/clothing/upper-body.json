@@ -2,7 +2,7 @@
   {
     "name": "Varsity Jacket",
     "price": { "amount": 1000, "currency": "silver" },
-    "reputation": { "level": 10, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 10, "type": "Alderwood Fishing Village" },
     "upgrade": "eagle-feather",
     "stats": {
       "riding": 9,
@@ -170,7 +170,7 @@
   {
     "name": "Long T-Shirt",
     "price": { "amount": 0, "currency": "silver" },
-    "reputation": { "level": 0, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 0, "type": "Alderwood Fishing Village" },
     "upgrade": "dryad-saddle-mushroom",
     "stats": {
       "riding": 9,
@@ -180,7 +180,7 @@
   {
     "name": "Long T-Shirt (Black)",
     "price": { "amount": 300, "currency": "silver" },
-    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 3, "type": "Alderwood Fishing Village" },
     "upgrade": "raven-feather",
     "stats": {
       "jumping": 17,
@@ -190,7 +190,7 @@
   {
     "name": "Long T-Shirt (Blue)",
     "price": { "amount": 500, "currency": "coin" },
-    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 5, "type": "Alderwood Fishing Village" },
     "upgrade": "delphinium",
     "stats": {
       "control": 17,
@@ -200,7 +200,7 @@
   {
     "name": "Long T-Shirt (Cow Skull)",
     "price": { "amount": 600, "currency": "coin" },
-    "reputation": { "level": 6, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 6, "type": "Alderwood Fishing Village" },
     "upgrade": "antler",
     "stats": {
       "riding": 9,
@@ -210,7 +210,7 @@
   {
     "name": "Long T-Shirt (Green)",
     "price": { "amount": 700, "currency": "silver" },
-    "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 7, "type": "Alderwood Fishing Village" },
     "upgrade": "moss",
     "stats": {
       "riding": 17,
@@ -220,7 +220,7 @@
   {
     "name": "Long T-Shirt (Grey)",
     "price": { "amount": 800, "currency": "silver" },
-    "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 8, "type": "Alderwood Fishing Village" },
     "upgrade": "seagull-feather",
     "stats": {
       "jumping": 18,
@@ -230,7 +230,7 @@
   {
     "name": "Long T-Shirt (Island Life)",
     "price": { "amount": 900, "currency": "silver" },
-    "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 9, "type": "Alderwood Fishing Village" },
     "upgrade": "water-lily",
     "stats": {
       "riding": 9,
@@ -240,7 +240,7 @@
   {
     "name": "Long T-Shirt (Navy)",
     "price": { "amount": 1000, "currency": "silver" },
-    "reputation": { "level": 10, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 10, "type": "Alderwood Fishing Village" },
     "upgrade": "delphinium",
     "stats": {
       "jumping": 9,
@@ -250,7 +250,7 @@
   {
     "name": "Long T-Shirt (Orange)",
     "price": { "amount": 100, "currency": "silver" },
-    "reputation": { "level": 1, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 1, "type": "Alderwood Fishing Village" },
     "upgrade": "carrot",
     "stats": {
       "riding": 17,
@@ -260,7 +260,7 @@
   {
     "name": "Long T-Shirt (Red)",
     "price": { "amount": 300, "currency": "silver" },
-    "reputation": { "level": 3, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 3, "type": "Alderwood Fishing Village" },
     "upgrade": "poppy",
     "stats": {
       "jumping": 9,
@@ -270,7 +270,7 @@
   {
     "name": "Long T-Shirt (Ride)",
     "price": { "amount": 500, "currency": "coin" },
-    "reputation": { "level": 5, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 5, "type": "Alderwood Fishing Village" },
     "upgrade": "sulfur-shelf-mushroom",
     "stats": {
       "control": 9,
@@ -280,7 +280,7 @@
   {
     "name": "Long T-Shirt (South Shore)",
     "price": { "amount": 600, "currency": "coin" },
-    "reputation": { "level": 6, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 6, "type": "Alderwood Fishing Village" },
     "upgrade": "moss",
     "stats": {
       "riding": 9,
@@ -291,7 +291,7 @@
   {
     "name": "Long T-Shirt (Tan)",
     "price": { "amount": 700, "currency": "silver" },
-    "reputation": { "level": 7, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 7, "type": "Alderwood Fishing Village" },
     "upgrade": "sunflower",
     "stats": {
       "riding": 9,
@@ -302,7 +302,7 @@
   {
     "name": "Long T-Shirt (White)",
     "price": { "amount": 800, "currency": "silver" },
-    "reputation": { "level": 8, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 8, "type": "Alderwood Fishing Village" },
     "upgrade": "violet",
     "stats": {
       "riding": 9,
@@ -313,7 +313,7 @@
   {
     "name": "Long T-Shirt (Yellow)",
     "price": { "amount": 900, "currency": "silver" },
-    "reputation": { "level": 9, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 9, "type": "Alderwood Fishing Village" },
     "upgrade": "dandelion",
     "stats": {
       "jumping": 9,
@@ -454,7 +454,7 @@
   {
     "name": "Slouchy Sweater",
     "price": { "amount": 4, "currency": "silver" },
-    "reputation": { "level": 400, "type": "Alderwood Fishermen" },
+    "reputation": { "level": 400, "type": "Alderwood Fishing Village" },
     "upgrade": "violet",
     "stats": {
       "jumping": 9,

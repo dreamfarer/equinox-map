@@ -1,7 +1,8 @@
 [
   {
-    "title": "Agnes",
+    "title": "Agnes Green",
     "id": "agnes",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "icon": "agnes",
     "map": "greenisland",
     "x": -427.9526601412636,
@@ -9,6 +10,7 @@
   },
   {
     "title": "Celina Spike",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "celina",
     "icon": "celina",
     "map": "greenisland",
@@ -17,6 +19,7 @@
   },
   {
     "title": "Kurt Burlow",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "kurt",
     "icon": "kurt",
     "map": "greenisland",
@@ -25,6 +28,7 @@
   },
   {
     "title": "Danny Landor",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "danny",
     "icon": "danny",
     "map": "greenisland",
@@ -33,6 +37,7 @@
   },
   {
     "title": "Maia Landor",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "maia",
     "icon": "maia",
     "map": "greenisland",
@@ -41,6 +46,7 @@
   },
   {
     "title": "Kathy Miller",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "kathy",
     "icon": "kathy",
     "map": "greenisland",
@@ -49,6 +55,7 @@
   },
   {
     "title": "Paige Hansen",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "paige",
     "icon": "paige",
     "map": "greenisland",
@@ -57,6 +64,7 @@
   },
   {
     "title": "Wendy",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "wendy",
     "icon": "wendy",
     "map": "greenisland",
@@ -65,6 +73,7 @@
   },
   {
     "title": "Lucas Ledger",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "lucas",
     "icon": "lucas",
     "map": "greenisland",
@@ -73,6 +82,7 @@
   },
   {
     "title": "Heather Abbott",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "heather",
     "icon": "heather",
     "map": "greenisland",
@@ -81,6 +91,7 @@
   },
   {
     "title": "Thomas Pratt",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "thomas",
     "icon": "thomas",
     "map": "greenisland",
@@ -89,6 +100,7 @@
   },
   {
     "title": "Malcolm Yore",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "malcolm",
     "icon": "malcolm",
     "map": "greenisland",
@@ -97,6 +109,7 @@
   },
   {
     "title": "Valeria Bradford",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "valeria",
     "map": "greenisland",
     "x": -350.5347298336225,
@@ -104,6 +117,7 @@
   },
   {
     "title": "Carmen Pratt",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "carmen",
     "icon": "carmen",
     "map": "greenisland",
@@ -112,6 +126,7 @@
   },
   {
     "title": "Bill Rodd",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "bill",
     "icon": "bill",
     "map": "greenisland",
@@ -120,6 +135,7 @@
   },
   {
     "title": "Lucy Chen",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "lucy",
     "icon": "lucy",
     "map": "greenisland",
@@ -128,6 +144,7 @@
   },
   {
     "title": "Kai Chen",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "kai",
     "icon": "kai",
     "map": "greenisland",
@@ -136,6 +153,7 @@
   },
   {
     "title": "Emily Miller",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "emily",
     "icon": "emily",
     "map": "greenisland",
@@ -144,6 +162,7 @@
   },
   {
     "title": "Lewis Miller",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "lewis",
     "icon": "lewis",
     "map": "greenisland",
@@ -152,6 +171,7 @@
   },
   {
     "title": "Alicia Wilson",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "mrs-wilson",
     "icon": "mrs-weasley",
     "map": "greenisland",
@@ -160,6 +180,7 @@
   },
   {
     "title": "Samuel Smith",
+    "subtitle": "Is a member of Alderwood Wilds.",
     "id": "samuel",
     "icon": "samuel",
     "map": "greenisland",
@@ -168,6 +189,7 @@
   },
   {
     "title": "Harry Bell",
+    "subtitle": "Is a member of Alderwood Fishing Village.",
     "id": "harry",
     "icon": "harry",
     "map": "greenisland",
@@ -176,6 +198,7 @@
   },
   {
     "title": "Misty Doe",
+    "subtitle": "Is a member of Alderwood Fishing Village.",
     "id": "misty",
     "icon": "misty",
     "map": "greenisland",
@@ -184,6 +207,7 @@
   },
   {
     "title": "Robert Quint",
+    "subtitle": "Is a member of Alderwood Fishing Village.",
     "id": "robert",
     "icon": "robert",
     "map": "greenisland",
@@ -192,6 +216,7 @@
   },
   {
     "title": "Mike Gibson",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "mike",
     "icon": "mike",
     "map": "greenisland",
@@ -200,6 +225,7 @@
   },
   {
     "title": "Derek Whitlock",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "derek",
     "map": "greenisland",
     "x": 471.0893413095671,
@@ -207,6 +233,7 @@
   },
   {
     "title": "Old Williams",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "old-williams",
     "icon": "old-williams",
     "map": "greenisland",
@@ -215,6 +242,7 @@
   },
   {
     "title": "Meredith Diaz",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "meredith",
     "icon": "meredith",
     "map": "greenisland",
@@ -223,6 +251,7 @@
   },
   {
     "title": "Philip Wiseman",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "philip",
     "icon": "philip",
     "map": "greenisland",
@@ -230,7 +259,8 @@
     "y": 994.9787275212934
   },
   {
-    "title": "Anika",
+    "title": "Anika Sharma",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "anika",
     "map": "greenisland",
     "x": -691.9746733324243,
@@ -238,6 +268,7 @@
   },
   {
     "title": "Bobby Zanker",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "bobby",
     "icon": "bobby",
     "map": "greenisland",
@@ -246,6 +277,7 @@
   },
   {
     "title": "Jett Smith",
+    "subtitle": "Is a member of Alderwood Wilds.",
     "id": "jett",
     "icon": "jett",
     "map": "greenisland",
@@ -254,6 +286,7 @@
   },
   {
     "title": "Kyle Everhart",
+    "subtitle": "Is a member of Alderwood Wilds.",
     "id": "kyle",
     "icon": "kyle",
     "map": "greenisland",
@@ -262,6 +295,7 @@
   },
   {
     "title": "Dwight Collins",
+    "subtitle": "Is a member of Alderwood Farms.",
     "id": "dwight",
     "icon": "dwight",
     "map": "greenisland",
@@ -270,6 +304,7 @@
   },
   {
     "title": "Nina Corbin",
+    "subtitle": "Is a member of Alderwood Fishing Village.",
     "id": "nina",
     "icon": "nina",
     "map": "greenisland",
@@ -278,6 +313,7 @@
   },
   {
     "title": "Charles",
+    "subtitle": "Is a member of Alderwood Downtown.",
     "id": "charles",
     "map": "greenisland",
     "x": -368.914839274307,
@@ -285,16 +321,29 @@
   },
   {
     "title": "Alfred Bowman",
+    "subtitle": "Is a member of Alderwood Wilds.",
     "id": "alfred",
+    "icon": "alfred",
     "map": "greenisland",
     "x": 83.72609985441761,
     "y": -983.2244249289187
   },
   {
     "title": "Ben Willis",
+    "subtitle": "Is a member of Alderwood Fishing Village.",
     "id": "ben",
+    "icon": "ben",
     "map": "greenisland",
     "x": -644.0147584462907,
     "y": -622.1763722249909
+  },
+  {
+    "title": "Sarah Wiseman",
+    "subtitle": "Is a member of Alderwood Downtown.",
+    "id": "sarah",
+    "icon": "sarah",
+    "map": "greenisland",
+    "x": -396.57758616636124,
+    "y": 182.0648651186507
   }
 ]
