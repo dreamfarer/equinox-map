@@ -1,0 +1,50 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  display: flex;
+  background: var(--background-dark);
+  border: none;
+  color: var(--text-dark);
+  padding: var(--padding-6xs) var(--padding-xl);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-6xs);
+}
+
+.content {
+  position: absolute;
+  background: var(--accent-dark);
+  padding: none;
+  z-index: 1000;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  animation: panelIn 150ms ease-out both;
+  transform-origin: top;
+  min-width: 100%;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.item {
+  color: var(--text-dark);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--padding-6xs) var(--padding-xl);
+  white-space: nowrap;
+}
