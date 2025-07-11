@@ -3,33 +3,7 @@
   width: 15rem;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-
-.tabs {
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-}
-
-.tab {
-  display: flex;
-  padding: 0.3125rem;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  color: var(--text-dark);
-  border-radius: 0;
-  background: var(--accent-dark);
-  overflow-x: hidden;
-  white-space: nowrap;
-}
-
-.tab.active {
-  background: var(--background-dark);
+  align-items: start;
 }
 
 .content {

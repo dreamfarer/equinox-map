@@ -64,6 +64,19 @@ This script adds transparent padding, centers the image, and generates tiles. It
 
 Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
 
+## Statistics
+
+Since launch, the project has seen **2'010** unique visitors and **196'980** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+
+<details>
+<summary>June 2025</summary>
+<br>
+
+Unique Visitors: **2'010** \
+Total Requests: **196'980**
+
+</details>
+
 ## Acknowledgements
 
 This project wouldn’t be possible without the tireless efforts of the following individuals – and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind _Equinox: Homecoming_:

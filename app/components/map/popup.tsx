@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './popup.module.css';
 import { TCategoryPayloads } from '@/types/popup';
 import { TBookmarkId } from '@/types/bookmark';
+import Dropdown from '../dropdown';
 
 type Props = {
   id: string;
@@ -36,17 +37,11 @@ export default function Popup({
   return (
     <div className={styles.popup}>
       {categoryKeys.length > 1 && (
-        <div className={styles.tabs}>
-          {categoryKeys.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`${styles.tab} ${cat === activeCategory ? styles.active : ''}`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <Dropdown
+          options={categoryKeys}
+          selected={activeCategory}
+          onSelect={setActiveCategory}
+        />
       )}
 
       <div className={styles.content}>
