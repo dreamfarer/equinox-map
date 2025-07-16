@@ -3,7 +3,7 @@
   width: 15rem;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .content {
