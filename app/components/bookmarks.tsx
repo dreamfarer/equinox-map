@@ -1,13 +1,13 @@
 'use client';
 import type { NextPage } from 'next';
 import styles from './filter.module.css';
-import { useMarkerLayerContext } from '../context/marker-layer';
+import { useMarkerContext } from '../context/marker-context';
 import Results from './filter/results';
 import Menu from './menu';
 
 const Bookmarks: NextPage = () => {
   const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
-    useMarkerLayerContext();
+    useMarkerContext();
 
   const bookmarkedItems = bookmarkIds.flatMap((id) => {
     const [markerId, categoryId, itemId] = id.split('::');

@@ -3,7 +3,6 @@ import { ExtendedMap } from '@/types/extended-map';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { TPopups } from '@/types/popup';
 import { categories, TCategory } from '@/types/category';
-import { Maps } from '@/types/map';
 
 /**
  * Load the raw markers as GeoJSON for MapLibre and popups for the UI.
@@ -11,14 +10,12 @@ import { Maps } from '@/types/map';
 export async function loadData(): Promise<{
   markers: TMarkerFeatureCollection;
   popups: TPopups;
-  maps: Maps;
 }> {
-  const [markers, popups, maps] = await Promise.all([
+  const [markers, popups] = await Promise.all([
     fetch('/markers/markers.geojson').then((r) => r.json()),
     fetch('/markers/popups.json').then((r) => r.json()),
-    fetch('/maps.json').then((r) => r.json()),
   ]);
-  return { markers, popups, maps };
+  return { markers, popups };
 }
 
 /**

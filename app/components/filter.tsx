@@ -4,7 +4,7 @@ import styles from './filter.module.css';
 import Category from './filter/category';
 import Searchbar from './filter/searchbar';
 import { useState, useMemo } from 'react';
-import { useMarkerLayerContext } from '../context/marker-layer';
+import { useMarkerContext } from '../context/marker-context';
 import { categoryGroups } from './filter/config';
 import Results from './filter/results';
 import Menu from './menu';
@@ -19,7 +19,7 @@ const Filter: NextPage = () => {
     toggleBookmark,
     toggleBookmarks,
     categoryBookmarkMap,
-  } = useMarkerLayerContext();
+  } = useMarkerContext();
 
   const [query, setQuery] = useState('');
 

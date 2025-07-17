@@ -1,7 +1,7 @@
-import { MapMeta } from '@/types/map';
+import { MapMetadata } from '@/types/map-metadata';
 
 export function convertToLngLat(
-  map: MapMeta,
+  map: MapMetadata,
   x: number,
   y: number
 ): [number, number] {
@@ -22,7 +22,7 @@ export function convertToLngLat(
 }
 
 export function convertToUnit(
-  map: MapMeta,
+  map: MapMetadata,
   lon: number,
   lat: number
 ): [number, number] {
@@ -44,7 +44,7 @@ export function convertToUnit(
 }
 
 export function getMapBoundsLatLng(
-  map: MapMeta
+  map: MapMetadata
 ): [number, number, number, number] {
   const topLeft = convertToLngLat(map, map.boundsData[0], map.boundsData[1]);
   const bottomRight = convertToLngLat(

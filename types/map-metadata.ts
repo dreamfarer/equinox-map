@@ -1,4 +1,4 @@
-export type MapMeta = {
+export type MapMetadata = {
   size: [number, number];
   devUrl: string;
   prodUrl: string;
@@ -6,4 +6,4 @@ export type MapMeta = {
   boundsImage: [number, number, number, number];
 };
 
-export type Maps = Record<string, MapMeta>;
+export type MapMetadataRecord = Record<string, MapMetadata>;

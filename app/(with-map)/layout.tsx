@@ -1,7 +1,8 @@
 import MapWrapper from '../components/map-wrapper';
 import Overlay from '../components/overlay';
 import { DevModeProvider } from '../context/dev-mode';
-import { MarkerLayerProvider } from '../context/marker-layer';
+import { MapProvider } from '../context/map-context';
+import { MarkerProvider } from '../context/marker-context';
 
 export default function WithMapLayout({
   children,
@@ -9,12 +10,14 @@ export default function WithMapLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MarkerLayerProvider>
-      <DevModeProvider>
-        <Overlay />
-        <MapWrapper />
-        {children}
-      </DevModeProvider>
-    </MarkerLayerProvider>
+    <MapProvider>
+      <MarkerProvider>
+        <DevModeProvider>
+          <Overlay />
+          <MapWrapper />
+          {children}
+        </DevModeProvider>
+      </MarkerProvider>
+    </MapProvider>
   );
 }

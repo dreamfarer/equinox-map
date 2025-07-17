@@ -10,39 +10,32 @@ import {
 } from 'react';
 import { useEnabledCategories } from '../hooks/use-enabled-categories';
 import { useBookmarkManager } from '../hooks/use-bookmark-manager';
-import { useMapInstance } from '../hooks/use-map-instance';
 import { useMapInitialization } from '../hooks/use-map-initialization';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { TMarkerLayerContext } from '@/types/marker-layer-context';
+import { TMarkerContext } from '@/types/marker-layer-context';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapPopupHandler } from '../hooks/use-popup-handler';
 import { TCategory } from '@/types/category';
-import { Maps } from '@/types/map';
 import { loadData } from '@/lib/marker-layer-utility';
+import { useMapContext } from './map-context';
 
-const MarkerLayerContext = createContext<TMarkerLayerContext | null>(null);
+const MarkerContext = createContext<TMarkerContext | null>(null);
 
-export function MarkerLayerProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function MarkerProvider({ children }: { children: React.ReactNode }) {
   const [enabled, toggleCategory] = useEnabledCategories();
-  const [map, setMapInstance] = useMapInstance();
   const [popups, setPopups] = useState<TPopups>({});
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
-  const [maps, setMaps] = useState<Maps | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
+  const { mapInstance } = useMapContext();
 
   useEffect(() => {
     const load = async () => {
-      const { markers, popups, maps } = await loadData();
+      const { markers, popups } = await loadData();
       setMarkers(markers);
       setPopups(popups);
-      setMaps(maps);
     };
     load();
   }, []);
@@ -64,10 +57,10 @@ export function MarkerLayerProvider({
     []
   );
 
-  useMapInitialization(map, markers);
+  useMapInitialization(mapInstance, markers);
 
   useFilterUpdates(
-    map,
+    mapInstance,
     enabled,
     bookmarkedMarkerIds,
     popups,
@@ -75,7 +68,7 @@ export function MarkerLayerProvider({
   );
 
   useMapPopupHandler(
-    map,
+    mapInstance,
     filteredPopups,
     bookmarkIds,
     toggleBookmark,
@@ -83,14 +76,13 @@ export function MarkerLayerProvider({
     bookmarkedMarkerIds
   );
 
-  const flyToMarker = useFlyToMarker(map, popups, markers);
+  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
 
-  const contextValue = useMemo<TMarkerLayerContext>(
+  const contextValue = useMemo<TMarkerContext>(
     () => ({
       enabled,
       popups,
       markers,
-      maps,
       bookmarkIds,
       categoryBookmarkMap,
       flyToMarker,
@@ -98,13 +90,11 @@ export function MarkerLayerProvider({
       toggleBookmarks,
       clearBookmarks,
       toggleCategory,
-      setMapInstance,
     }),
     [
       enabled,
       popups,
       markers,
-      maps,
       bookmarkIds,
       categoryBookmarkMap,
       flyToMarker,
@@ -112,21 +102,18 @@ export function MarkerLayerProvider({
       toggleBookmarks,
       clearBookmarks,
       toggleCategory,
-      setMapInstance,
     ]
   );
 
   return (
-    <MarkerLayerContext.Provider value={contextValue}>
+    <MarkerContext.Provider value={contextValue}>
       {children}
-    </MarkerLayerContext.Provider>
+    </MarkerContext.Provider>
   );
 }
-export function useMarkerLayerContext() {
-  const context = useContext(MarkerLayerContext);
+export function useMarkerContext() {
+  const context = useContext(MarkerContext);
   if (!context)
-    throw new Error(
-      'useMarkerLayerContext must be used inside MarkerLayerProvider'
-    );
+    throw new Error('useMarkerContext must be used inside MarkerProvider');
   return context;
 }

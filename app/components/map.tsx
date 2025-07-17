@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './map.module.css';
-import { useMarkerLayerContext } from '../context/marker-layer';
 import { useDevMode } from '../context/dev-mode';
 import { TMarkerDev } from '@/types/marker-dev';
 import {
@@ -12,11 +11,12 @@ import {
   vhToPx,
   remToPx,
 } from '@/lib/convert';
+import { useMapContext } from '../context/map-context';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const { isDevMode } = useDevMode();
-  const { setMapInstance, maps } = useMarkerLayerContext();
+  const { mapMetadata, setMapInstance } = useMapContext();
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   const exportMarkerDebug = (
@@ -38,11 +38,13 @@ export default function Map() {
   };
 
   useEffect(() => {
-    if (!mapContainer.current || !maps?.greenisland) return;
+    if (!mapContainer.current || !mapMetadata?.greenisland) return;
 
     const isDev = process.env.NODE_ENV === 'development';
-    const tiles = isDev ? maps.greenisland.devUrl : maps.greenisland.prodUrl;
-    const bounds = getMapBoundsLatLng(maps.greenisland);
+    const tiles = isDev
+      ? mapMetadata.greenisland.devUrl
+      : mapMetadata.greenisland.prodUrl;
+    const bounds = getMapBoundsLatLng(mapMetadata.greenisland);
     let wasMobile = mapContainer.current.offsetWidth < 768;
 
     const map = new maplibregl.Map({
@@ -107,7 +109,7 @@ export default function Map() {
     if (isDevMode) {
       map.on('click', (e) => {
         const { lng, lat } = e.lngLat;
-        const positions = convertToUnit(maps.greenisland, lng, lat);
+        const positions = convertToUnit(mapMetadata.greenisland, lng, lat);
         exportMarkerDebug(map, lng, lat, positions[0], positions[1]);
       });
     }
@@ -122,7 +124,7 @@ export default function Map() {
       map.remove();
       ro.disconnect();
     };
-  }, [setMapInstance, isDevMode, maps]);
+  }, [setMapInstance, isDevMode, mapMetadata]);
 
   return (
     <div className={styles.mapWrapper}>
