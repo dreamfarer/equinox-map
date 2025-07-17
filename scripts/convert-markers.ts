@@ -27,6 +27,8 @@ export type MarkerSource = {
 
 type MapMeta = {
   size: [number, number];
+  devUrl: string;
+  prodUrl: string;
   boundsData: [number, number, number, number];
   boundsImage: [number, number, number, number];
 };

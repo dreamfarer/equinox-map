@@ -17,7 +17,6 @@ export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const { isDevMode } = useDevMode();
   const { setMapInstance, maps } = useMarkerLayerContext();
-  const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
   const exportMarkerDebug = (
@@ -39,19 +38,10 @@ export default function Map() {
   };
 
   useEffect(() => {
+    if (!mapContainer.current || !maps?.greenisland) return;
+
     const isDev = process.env.NODE_ENV === 'development';
-
-    if (isDev) {
-      setTileBaseUrl('/tiles/greenisland/v2');
-    } else {
-      setTileBaseUrl('https://cdn.equinoxmap.app/greenisland/v2');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
-      return;
-
+    const tiles = isDev ? maps.greenisland.devUrl : maps.greenisland.prodUrl;
     const bounds = getMapBoundsLatLng(maps.greenisland);
     let wasMobile = mapContainer.current.offsetWidth < 768;
 
@@ -62,7 +52,7 @@ export default function Map() {
         sources: {
           gameMap: {
             type: 'raster',
-            tiles: [`${tileBaseUrl}/{z}/{y}/{x}.png`],
+            tiles: [tiles],
             tileSize: 256,
             scheme: 'xyz',
             maxzoom: 5,
@@ -132,7 +122,7 @@ export default function Map() {
       map.remove();
       ro.disconnect();
     };
-  }, [tileBaseUrl, setMapInstance, isDevMode, maps]);
+  }, [setMapInstance, isDevMode, maps]);
 
   return (
     <div className={styles.mapWrapper}>
