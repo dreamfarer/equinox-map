@@ -2,7 +2,16 @@ import { TBookmarkId } from '@/types/bookmark';
 import { TCategory } from '@/types/category';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
 
-/* Calculate the popup offset dependent on the anchor. */
+/**
+ * Load the popups for the UI.
+ */
+export async function loadPopups(): Promise<TPopups> {
+  return fetch('/markers/popups.json').then((r) => r.json());
+}
+
+/**
+ * Calculate the popup offset dependent on the anchor.
+ */
 export function calculatePopupOffset(
   anchor: 'center' | 'bottom'
 ): Record<string, [number, number]> {
@@ -29,7 +38,9 @@ export function calculatePopupOffset(
       };
 }
 
-/* Return a flat array of category IDs that need to be shown inside a popup. */
+/**
+ * Return a flat array of category IDs that need to be shown inside a popup.
+ */
 export function getFilteredPopupCategories(
   markerId: string,
   popups: TPopups,

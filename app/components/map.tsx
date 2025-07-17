@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './map.module.css';
-import { useDevMode } from '../context/dev-mode';
+import { useDevMode } from '../context/dev-mode-context';
 import { TMarkerDev } from '@/types/marker-dev';
 import {
   convertToUnit,

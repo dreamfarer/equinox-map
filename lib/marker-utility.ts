@@ -5,17 +5,10 @@ import { TPopups } from '@/types/popup';
 import { categories, TCategory } from '@/types/category';
 
 /**
- * Load the raw markers as GeoJSON for MapLibre and popups for the UI.
+ * Load the raw markers as GeoJSON for MapLibre.
  */
-export async function loadData(): Promise<{
-  markers: TMarkerFeatureCollection;
-  popups: TPopups;
-}> {
-  const [markers, popups] = await Promise.all([
-    fetch('/markers/markers.geojson').then((r) => r.json()),
-    fetch('/markers/popups.json').then((r) => r.json()),
-  ]);
-  return { markers, popups };
+export async function loadMarkers(): Promise<TMarkerFeatureCollection> {
+  return fetch('/markers/popups.json').then((r) => r.json());
 }
 
 /**

@@ -1,7 +1,7 @@
 import {
   computeFilteredMarkersAndExpression,
   safelyRemovePopup,
-} from '@/lib/marker-layer-utility';
+} from '@/lib/marker-utility';
 import { TCategory } from '@/types/category';
 import { ExtendedMap } from '@/types/extended-map';
 import { TPopups } from '@/types/popup';

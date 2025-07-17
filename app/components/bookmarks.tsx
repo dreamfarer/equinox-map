@@ -4,10 +4,17 @@ import styles from './filter.module.css';
 import { useMarkerContext } from '../context/marker-context';
 import Results from './filter/results';
 import Menu from './menu';
+import { useBookmarkContext } from '../context/bookmark-context';
+import { usePopupContext } from '../context/popup-context';
+import { useFlyToMarker } from '../hooks/use-fly-to-marker';
+import { useMapContext } from '../context/map-context';
 
 const Bookmarks: NextPage = () => {
-  const { bookmarkIds, popups, flyToMarker, toggleBookmark } =
-    useMarkerContext();
+  const { mapInstance } = useMapContext();
+  const { popups } = usePopupContext();
+  const { bookmarkIds, toggleBookmark } = useBookmarkContext();
+  const { markers } = useMarkerContext();
+  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
 
   const bookmarkedItems = bookmarkIds.flatMap((id) => {
     const [markerId, categoryId, itemId] = id.split('::');

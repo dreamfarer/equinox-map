@@ -4,7 +4,7 @@ import styles from './navbar.module.css';
 import Group from './navbar/group';
 import { ListDashes, BookmarkSimple, CaretLeft } from '@phosphor-icons/react';
 import Link from 'next/link';
-import { useMenuState } from '../context/menu-state';
+import { useMenuState } from '../context/menu-state-context';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 

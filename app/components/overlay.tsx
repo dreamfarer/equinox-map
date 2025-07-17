@@ -3,10 +3,12 @@ import { useCallback } from 'react';
 import { useMarkerContext } from '../context/marker-context';
 import type { TCategory } from '@/types/category';
 import styles from './overlay.module.css';
-import { useMenuState } from '../context/menu-state';
+import { useMenuState } from '../context/menu-state-context';
+import { useBookmarkContext } from '../context/bookmark-context';
 
 export default function Overlay() {
-  const { enabled, toggleCategory, clearBookmarks } = useMarkerContext();
+  const { enabled, toggleCategory } = useMarkerContext();
+  const { clearBookmarks } = useBookmarkContext();
   const { activeMenuName } = useMenuState();
 
   const enableAll = useCallback(() => {

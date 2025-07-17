@@ -1,70 +1,49 @@
 'use client';
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useMemo,
-  useCallback,
-  useEffect,
-} from 'react';
+import { createContext, useContext, useState, useMemo, useEffect } from 'react';
 import { useEnabledCategories } from '../hooks/use-enabled-categories';
-import { useBookmarkManager } from '../hooks/use-bookmark-manager';
-import { useMapInitialization } from '../hooks/use-map-initialization';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
-import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { TMarkerContext } from '@/types/marker-layer-context';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapPopupHandler } from '../hooks/use-popup-handler';
 import { TCategory } from '@/types/category';
-import { loadData } from '@/lib/marker-layer-utility';
 import { useMapContext } from './map-context';
+import { loadMarkers } from '@/lib/marker-utility';
+import { usePopupContext } from './popup-context';
+import { useBookmarkContext } from './bookmark-context';
+
+type TMarkerContext = {
+  enabled: Record<TCategory, boolean>;
+  markers: TMarkerFeatureCollection | null;
+  toggleCategory: (category: TCategory) => void;
+};
 
 const MarkerContext = createContext<TMarkerContext | null>(null);
 
 export function MarkerProvider({ children }: { children: React.ReactNode }) {
+  const { mapInstance } = useMapContext();
+  const { popups } = usePopupContext();
+  const { bookmarkIds, toggleBookmark, bookmarkedMarkerIds } =
+    useBookmarkContext();
+
   const [enabled, toggleCategory] = useEnabledCategories();
-  const [popups, setPopups] = useState<TPopups>({});
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
-  const { mapInstance } = useMapContext();
 
   useEffect(() => {
-    const load = async () => {
-      const { markers, popups } = await loadData();
-      setMarkers(markers);
-      setPopups(popups);
-    };
-    load();
+    loadMarkers().then(setMarkers);
   }, []);
-
-  const {
-    bookmarkIds,
-    categoryBookmarkMap,
-    bookmarkedMarkerIds,
-    toggleBookmark,
-    toggleBookmarks,
-    clearBookmarks,
-  } = useBookmarkManager(popups);
-
-  const handleFilterResult = useCallback(
-    (result: { filtered: TPopups; activeCategories: TCategory[] }) => {
-      setFilteredPopups(result.filtered);
-      setActiveCategories(result.activeCategories);
-    },
-    []
-  );
-
-  useMapInitialization(mapInstance, markers);
 
   useFilterUpdates(
     mapInstance,
     enabled,
     bookmarkedMarkerIds,
     popups,
-    handleFilterResult
+    (result) => {
+      setFilteredPopups(result.filtered);
+      setActiveCategories(result.activeCategories);
+    }
   );
 
   useMapPopupHandler(
@@ -76,33 +55,13 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     bookmarkedMarkerIds
   );
 
-  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
-
   const contextValue = useMemo<TMarkerContext>(
     () => ({
       enabled,
-      popups,
       markers,
-      bookmarkIds,
-      categoryBookmarkMap,
-      flyToMarker,
-      toggleBookmark,
-      toggleBookmarks,
-      clearBookmarks,
       toggleCategory,
     }),
-    [
-      enabled,
-      popups,
-      markers,
-      bookmarkIds,
-      categoryBookmarkMap,
-      flyToMarker,
-      toggleBookmark,
-      toggleBookmarks,
-      clearBookmarks,
-      toggleCategory,
-    ]
+    [enabled, markers, toggleCategory]
   );
 
   return (
@@ -111,9 +70,10 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     </MarkerContext.Provider>
   );
 }
+
 export function useMarkerContext() {
   const context = useContext(MarkerContext);
   if (!context)
-    throw new Error('useMarkerContext must be used inside MarkerProvider');
+    throw new Error('useMarkerContext must be used inside <MarkerProvider>');
   return context;
 }

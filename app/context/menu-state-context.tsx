@@ -1,7 +1,7 @@
 'use client';
 import { createContext, useContext, useMemo, useState } from 'react';
 
-type MenuState = {
+type TMenuStateContext = {
   isMenuOpen: boolean;
   activeMenuName: string;
   toggleMenu: () => void;
@@ -9,13 +9,13 @@ type MenuState = {
   setActiveMenuName: (activeMenuName: string) => void;
 };
 
-const MenuStateContext = createContext<MenuState | null>(null);
+const MenuStateContext = createContext<TMenuStateContext | null>(null);
 
 export function MenuStateProvider({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [activeMenuName, SetMenuName] = useState('filter');
 
-  const contextValue = useMemo(
+  const contextValue = useMemo<TMenuStateContext>(
     () => ({
       isMenuOpen,
       activeMenuName,
@@ -36,6 +36,6 @@ export function MenuStateProvider({ children }: { children: React.ReactNode }) {
 export function useMenuState() {
   const context = useContext(MenuStateContext);
   if (!context)
-    throw new Error('useMenuState must be used within <MenuStateProvider>');
+    throw new Error('useMenuState must be used inside <MenuStateProvider>');
   return context;
 }

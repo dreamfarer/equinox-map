@@ -8,28 +8,28 @@ import { useMarkerContext } from '../context/marker-context';
 import { categoryGroups } from './filter/config';
 import Results from './filter/results';
 import Menu from './menu';
+import { usePopupContext } from '../context/popup-context';
+import { useBookmarkContext } from '../context/bookmark-context';
+import { useFlyToMarker } from '../hooks/use-fly-to-marker';
+import { useMapContext } from '../context/map-context';
+
+type MarkerSearchResult = {
+  markerId: string;
+  categoryId: string;
+  itemId: string;
+  title: string;
+  subtitle?: string;
+};
 
 const Filter: NextPage = () => {
-  const {
-    enabled,
-    toggleCategory,
-    popups,
-    flyToMarker,
-    bookmarkIds,
-    toggleBookmark,
-    toggleBookmarks,
-    categoryBookmarkMap,
-  } = useMarkerContext();
-
+  const { enabled, toggleCategory } = useMarkerContext();
+  const { mapInstance } = useMapContext();
+  const { markers } = useMarkerContext();
+  const { bookmarkIds, toggleBookmark, toggleBookmarks, categoryBookmarkMap } =
+    useBookmarkContext();
+  const { popups } = usePopupContext();
+  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
   const [query, setQuery] = useState('');
-
-  type MarkerSearchResult = {
-    markerId: string;
-    categoryId: string;
-    itemId: string;
-    title: string;
-    subtitle?: string;
-  };
 
   const results = useMemo((): MarkerSearchResult[] => {
     if (!query.trim()) return [];

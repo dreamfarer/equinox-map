@@ -1,6 +1,6 @@
 import './global.css';
 import Navbar from './components/navbar';
-import { MenuStateProvider } from './context/menu-state';
+import { MenuStateProvider } from './context/menu-state-context';
 import { Metadata } from 'next';
 
 export const viewport = {
