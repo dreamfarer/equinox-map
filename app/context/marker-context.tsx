@@ -1,6 +1,13 @@
 'use client';
 
-import { createContext, useContext, useState, useMemo, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+} from 'react';
 import { useEnabledCategories } from '../hooks/use-enabled-categories';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { TPopups } from '@/types/popup';
@@ -11,6 +18,8 @@ import { useMapContext } from './map-context';
 import { loadMarkers } from '@/lib/marker-utility';
 import { usePopupContext } from './popup-context';
 import { useBookmarkContext } from './bookmark-context';
+import { useMapInitialization } from '../hooks/use-map-initialization';
+import { ExpressionSpecification } from 'maplibre-gl';
 
 type TMarkerContext = {
   enabled: Record<TCategory, boolean>;
@@ -32,18 +41,32 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
 
   useEffect(() => {
-    loadMarkers().then(setMarkers);
+    const load = async () => {
+      setMarkers(await loadMarkers());
+    };
+    load();
   }, []);
+
+  useMapInitialization(mapInstance, markers);
+
+  const handleFilterUpdate = useCallback(
+    (result: {
+      filtered: TPopups;
+      expression: ExpressionSpecification | null;
+      activeCategories: TCategory[];
+    }) => {
+      setFilteredPopups(result.filtered);
+      setActiveCategories(result.activeCategories);
+    },
+    []
+  );
 
   useFilterUpdates(
     mapInstance,
     enabled,
     bookmarkedMarkerIds,
     popups,
-    (result) => {
-      setFilteredPopups(result.filtered);
-      setActiveCategories(result.activeCategories);
-    }
+    handleFilterUpdate
   );
 
   useMapPopupHandler(

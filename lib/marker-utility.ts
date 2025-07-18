@@ -8,7 +8,7 @@ import { categories, TCategory } from '@/types/category';
  * Load the raw markers as GeoJSON for MapLibre.
  */
 export async function loadMarkers(): Promise<TMarkerFeatureCollection> {
-  return fetch('/markers/popups.json').then((r) => r.json());
+  return fetch('/markers/markers.geojson').then((r) => r.json());
 }
 
 /**
