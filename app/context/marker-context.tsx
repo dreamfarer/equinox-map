@@ -8,12 +8,11 @@ import {
   useEffect,
   useCallback,
 } from 'react';
-import { useEnabledCategories } from '../hooks/use-enabled-categories';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapPopupHandler } from '../hooks/use-popup-handler';
-import { TCategory } from '@/types/category';
+import { categories, TCategory } from '@/types/category';
 import { useMapContext } from './map-context';
 import { loadMarkers } from '@/lib/marker-utility';
 import { usePopupContext } from './popup-context';
@@ -22,9 +21,9 @@ import { useMapInitialization } from '../hooks/use-map-initialization';
 import { ExpressionSpecification } from 'maplibre-gl';
 
 type TMarkerContext = {
-  enabled: Record<TCategory, boolean>;
+  enabledMarkerCategories: Record<TCategory, boolean>;
   markers: TMarkerFeatureCollection | null;
-  toggleCategory: (category: TCategory) => void;
+  toggleMarkerCategory: (category: TCategory) => void;
 };
 
 const MarkerContext = createContext<TMarkerContext | null>(null);
@@ -35,10 +34,26 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
   const { bookmarkIds, toggleBookmark, bookmarkedMarkerIds } =
     useBookmarkContext();
 
-  const [enabled, toggleCategory] = useEnabledCategories();
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
   const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
+  const [enabledMarkerCategories, setEnabledMarkerCategories] = useState<
+    Record<TCategory, boolean>
+  >(
+    Object.fromEntries(categories.map((c) => [c, true])) as Record<
+      TCategory,
+      boolean
+    >
+  );
+
+  const toggleMarkerCategory = useCallback(
+    (category: TCategory) =>
+      setEnabledMarkerCategories((prev) => ({
+        ...prev,
+        [category]: !prev[category],
+      })),
+    []
+  );
 
   useEffect(() => {
     const load = async () => {
@@ -63,7 +78,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
 
   useFilterUpdates(
     mapInstance,
-    enabled,
+    enabledMarkerCategories,
     bookmarkedMarkerIds,
     popups,
     handleFilterUpdate
@@ -80,11 +95,11 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
 
   const contextValue = useMemo<TMarkerContext>(
     () => ({
-      enabled,
+      enabledMarkerCategories,
       markers,
-      toggleCategory,
+      toggleMarkerCategory,
     }),
-    [enabled, markers, toggleCategory]
+    [enabledMarkerCategories, markers, toggleMarkerCategory]
   );
 
   return (

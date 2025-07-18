@@ -7,25 +7,25 @@ import { useMenuState } from '../context/menu-state-context';
 import { useBookmarkContext } from '../context/bookmark-context';
 
 export default function Overlay() {
-  const { enabled, toggleCategory } = useMarkerContext();
+  const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
   const { clearBookmarks } = useBookmarkContext();
   const { activeMenuName } = useMenuState();
 
   const enableAll = useCallback(() => {
-    (Object.entries(enabled) as [TCategory, boolean][]).forEach(
+    (Object.entries(enabledMarkerCategories) as [TCategory, boolean][]).forEach(
       ([categoryId, isEnabled]) => {
-        if (!isEnabled) toggleCategory(categoryId);
+        if (!isEnabled) toggleMarkerCategory(categoryId);
       }
     );
-  }, [enabled, toggleCategory]);
+  }, [enabledMarkerCategories, toggleMarkerCategory]);
 
   const disableAll = useCallback(() => {
-    (Object.entries(enabled) as [TCategory, boolean][]).forEach(
+    (Object.entries(enabledMarkerCategories) as [TCategory, boolean][]).forEach(
       ([categoryId, isEnabled]) => {
-        if (isEnabled) toggleCategory(categoryId);
+        if (isEnabled) toggleMarkerCategory(categoryId);
       }
     );
-  }, [enabled, toggleCategory]);
+  }, [enabledMarkerCategories, toggleMarkerCategory]);
 
   return (
     <div className={styles.overlay}>

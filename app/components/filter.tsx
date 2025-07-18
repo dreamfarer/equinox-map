@@ -22,7 +22,7 @@ type MarkerSearchResult = {
 };
 
 const Filter: NextPage = () => {
-  const { enabled, toggleCategory } = useMarkerContext();
+  const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
   const { mapInstance } = useMapContext();
   const { markers } = useMarkerContext();
   const { bookmarkIds, toggleBookmark, toggleBookmarks, categoryBookmarkMap } =
@@ -66,12 +66,16 @@ const Filter: NextPage = () => {
       <div className={styles.scrollArea}>
         {!query.trim() &&
           categoryGroups.map((group) => {
-            const isActive = group.entries.some(({ id }) => enabled[id]);
+            const isActive = group.entries.some(
+              ({ id }) => enabledMarkerCategories[id]
+            );
             const toggleAll = () => {
-              const anyActive = group.entries.some(({ id }) => enabled[id]);
+              const anyActive = group.entries.some(
+                ({ id }) => enabledMarkerCategories[id]
+              );
               group.entries.forEach(({ id }) => {
-                if (enabled[id] === anyActive) {
-                  toggleCategory(id);
+                if (enabledMarkerCategories[id] === anyActive) {
+                  toggleMarkerCategory(id);
                 }
               });
             };
@@ -93,8 +97,8 @@ const Filter: NextPage = () => {
 
               return {
                 label,
-                isActive: enabled[id],
-                onToggle: () => toggleCategory(id),
+                isActive: enabledMarkerCategories[id],
+                onToggle: () => toggleMarkerCategory(id),
                 onToggleBookmark: () => toggleBookmarks(id),
                 bookmarkState,
               };
