@@ -1,7 +1,6 @@
 'use client';
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { useMapInstance } from '../hooks/use-map';
 import { loadMapMetadata } from '@/lib/map-utility';
 import { MapMetadataRecord } from '@/types/map-metadata';
 import { Map } from 'maplibre-gl';
@@ -15,7 +14,7 @@ type TMapContext = {
 const MapContext = createContext<TMapContext | null>(null);
 
 export function MapProvider({ children }: { children: React.ReactNode }) {
-  const { mapInstance, setMapInstance } = useMapInstance();
+  const [mapInstance, setMapInstance] = useState<Map | null>(null);
   const [mapMetadata, setMapMetadata] = useState<MapMetadataRecord | null>(
     null
   );
