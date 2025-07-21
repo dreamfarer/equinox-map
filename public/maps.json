@@ -6,6 +6,10 @@
     "prodUrl": "https://cdn.equinoxmap.app/greenisland/v2/{z}/{y}/{x}.png",
     "boundsImage": [5692, 4963, 10692, 11421],
     "boundsData": [-815, -1183, 995, 1155],
+    "minZoom": 1,
+    "maxZoom": 5,
+    "maxOverscaledZoom": 7,
+    "initZoom": 2,
     "attribution": "Blue Scarab Entertainment"
   }
 }

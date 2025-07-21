@@ -40,7 +40,7 @@ export default function Map() {
             tiles: [tiles],
             tileSize: meta.tileSize,
             scheme: 'xyz',
-            maxzoom: 5,
+            maxzoom: meta.maxZoom,
             bounds,
             attribution: meta.attribution,
           },
@@ -53,9 +53,9 @@ export default function Map() {
           },
         ],
       },
-      zoom: 2,
-      minZoom: 1,
-      maxZoom: 7,
+      zoom: meta.initZoom,
+      minZoom: meta.minZoom,
+      maxZoom: meta.maxOverscaledZoom,
       interactive: true,
       bearingSnap: 0,
       pitchWithRotate: false,
@@ -74,7 +74,7 @@ export default function Map() {
           : { top: 0, right: 0, bottom: 0, left: remToPx(26.25) };
         map.setPadding(padding);
         map.fitBounds(bounds, {
-          maxZoom: 5,
+          maxZoom: meta.maxZoom,
           linear: true,
         });
       });

@@ -5,6 +5,10 @@ export type MapMetadata = {
   prodUrl: string;
   boundsData: [number, number, number, number];
   boundsImage: [number, number, number, number];
+  minZoom: number;
+  maxZoom: number;
+  maxOverscaledZoom: number;
+  initZoom: number;
   attribution: string;
 };
 
