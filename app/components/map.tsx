@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import maplibregl from 'maplibre-gl';
+import maplibregl, { Marker } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './map.module.css';
 import { useDevMode } from '../context/dev-mode-context';
@@ -16,35 +16,18 @@ import { useMapContext } from '../context/map-context';
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const { isDevMode } = useDevMode();
-  const { mapMetadata, setMapInstance } = useMapContext();
+  const { mapMetadata, setMapInstance, activeMap } = useMapContext();
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
-  const exportMarkerDebug = (
-    map: maplibregl.Map,
-    lng: number,
-    lat: number,
-    x: number,
-    y: number
-  ) => {
-    const marker: TMarkerDev = {
-      map: 'greenisland',
-      x,
-      y,
-    };
-    const markerJson = JSON.stringify(marker, null, 2) + ',';
-    console.log(markerJson);
-    navigator.clipboard.writeText(markerJson);
-    new maplibregl.Marker().setLngLat([lng, lat]).addTo(map);
-  };
-
   useEffect(() => {
-    if (!mapContainer.current || !mapMetadata?.greenisland) return;
+    if (!mapContainer.current || !mapMetadata || !activeMap) return;
+
+    const meta = mapMetadata[activeMap];
+    if (!meta) return;
 
     const isDev = process.env.NODE_ENV === 'development';
-    const tiles = isDev
-      ? mapMetadata.greenisland.devUrl
-      : mapMetadata.greenisland.prodUrl;
-    const bounds = getMapBoundsLatLng(mapMetadata.greenisland);
+    const tiles = isDev ? meta.devUrl : meta.prodUrl;
+    const bounds = getMapBoundsLatLng(meta);
     let wasMobile = mapContainer.current.offsetWidth < 768;
 
     const map = new maplibregl.Map({
@@ -55,11 +38,11 @@ export default function Map() {
           gameMap: {
             type: 'raster',
             tiles: [tiles],
-            tileSize: 256,
+            tileSize: meta.tileSize,
             scheme: 'xyz',
             maxzoom: 5,
             bounds,
-            attribution: 'Blue Scarab Entertainment',
+            attribution: meta.attribution,
           },
         },
         layers: [
@@ -109,8 +92,16 @@ export default function Map() {
     if (isDevMode) {
       map.on('click', (e) => {
         const { lng, lat } = e.lngLat;
-        const positions = convertToUnit(mapMetadata.greenisland, lng, lat);
-        exportMarkerDebug(map, lng, lat, positions[0], positions[1]);
+        const positions = convertToUnit(meta, lng, lat);
+        const marker: TMarkerDev = {
+          map: activeMap,
+          x: positions[0],
+          y: positions[1],
+        };
+        const markerJson = JSON.stringify(marker, null, 2) + ',';
+        console.log(markerJson);
+        navigator.clipboard.writeText(markerJson);
+        new Marker().setLngLat([lng, lat]).addTo(map);
       });
     }
 
@@ -124,7 +115,7 @@ export default function Map() {
       map.remove();
       ro.disconnect();
     };
-  }, [setMapInstance, isDevMode, mapMetadata]);
+  }, [setMapInstance, isDevMode, mapMetadata, activeMap]);
 
   return (
     <div className={styles.mapWrapper}>

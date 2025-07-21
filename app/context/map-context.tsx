@@ -8,13 +8,16 @@ import { Map } from 'maplibre-gl';
 type TMapContext = {
   mapInstance: Map | null;
   mapMetadata: MapMetadataRecord | null;
+  activeMap: string | null;
   setMapInstance: (map: Map) => void;
+  setActiveMap: (mapName: string) => void;
 };
 
 const MapContext = createContext<TMapContext | null>(null);
 
 export function MapProvider({ children }: { children: React.ReactNode }) {
   const [mapInstance, setMapInstance] = useState<Map | null>(null);
+  const [activeMap, setActiveMap] = useState<string | null>('greenisland');
   const [mapMetadata, setMapMetadata] = useState<MapMetadataRecord | null>(
     null
   );
@@ -30,9 +33,11 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
     () => ({
       mapInstance,
       mapMetadata,
+      activeMap,
       setMapInstance,
+      setActiveMap,
     }),
-    [mapInstance, mapMetadata, setMapInstance]
+    [mapInstance, mapMetadata, activeMap, setMapInstance, setActiveMap]
   );
 
   return (
