@@ -1,5 +1,5 @@
 import styles from './entry.module.css';
-import { BookmarkSimple } from '@phosphor-icons/react';
+import { BookmarkSimpleIcon } from '@phosphor-icons/react';
 
 type Props = {
   label: string;
@@ -35,7 +35,7 @@ export default function Entry({
         } ${label}`}
         data-bookmark-state={bookmarkState}
       >
-        <BookmarkSimple
+        <BookmarkSimpleIcon
           size="1em"
           weight={
             bookmarkState === 'full'

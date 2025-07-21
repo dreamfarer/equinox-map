@@ -1,4 +1,4 @@
-import { BookmarkSimple } from '@phosphor-icons/react';
+import { BookmarkSimpleIcon } from '@phosphor-icons/react';
 import styles from './result.module.css';
 
 type Props = {
@@ -40,9 +40,9 @@ export default function Result({
         }
       >
         {isBookmarked ? (
-          <BookmarkSimple size="2em" weight="fill" />
+          <BookmarkSimpleIcon size="2em" weight="fill" />
         ) : (
-          <BookmarkSimple size="2em" />
+          <BookmarkSimpleIcon size="2em" />
         )}
       </button>
     </div>

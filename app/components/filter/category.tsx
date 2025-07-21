@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './category.module.css';
-import { BookmarkSimple, CaretUp } from '@phosphor-icons/react';
+import { BookmarkSimpleIcon, CaretUpIcon } from '@phosphor-icons/react';
 import Entry from './category/entry';
 
 type EntryType = {
@@ -86,7 +86,7 @@ export default function Category({
           }
           aria-label="Toggle all bookmarks in category"
         >
-          <BookmarkSimple
+          <BookmarkSimpleIcon
             size="1em"
             weight={
               entries.every((e) => e.bookmarkState === 'full')
@@ -102,7 +102,7 @@ export default function Category({
           className={`${styles.caret} ${collapsed ? styles.collapsed : ''} ${isActive ? styles.active : styles.inactive}`}
           aria-label="Collapse Category"
         >
-          <CaretUp size="1em" />
+          <CaretUpIcon size="1em" />
         </button>
       </div>
       <div

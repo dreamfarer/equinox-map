@@ -1,4 +1,4 @@
-import { BookmarkSimple } from '@phosphor-icons/react';
+import { BookmarkSimpleIcon } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 import styles from './popup.module.css';
 import { TCategoryPayloads } from '@/types/popup';
@@ -70,9 +70,9 @@ export default function Popup({
                     }
                   >
                     {isBookmarked ? (
-                      <BookmarkSimple size="1.5rem" weight="fill" />
+                      <BookmarkSimpleIcon size="1.5rem" weight="fill" />
                     ) : (
-                      <BookmarkSimple size="1.5rem" />
+                      <BookmarkSimpleIcon size="1.5rem" />
                     )}
                   </button>
                 </div>
