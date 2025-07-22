@@ -17,7 +17,7 @@ import { useMapContext } from './map-context';
 import { loadMarkers } from '@/lib/marker-utility';
 import { usePopupContext } from './popup-context';
 import { useBookmarkContext } from './bookmark-context';
-import { useMapInitialization } from '../hooks/use-map-initialization';
+import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
 import { ExpressionSpecification } from 'maplibre-gl';
 
 type TMarkerContext = {
@@ -62,8 +62,6 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     load();
   }, []);
 
-  useMapInitialization(mapInstance, markers);
-
   const handleFilterUpdate = useCallback(
     (result: {
       filtered: TPopups;
@@ -76,6 +74,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
+  useMarkerLayerSetup(mapInstance, markers);
   useFilterUpdates(
     mapInstance,
     enabledMarkerCategories,
@@ -83,7 +82,6 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     popups,
     handleFilterUpdate
   );
-
   useMapPopupHandler(
     mapInstance,
     filteredPopups,
