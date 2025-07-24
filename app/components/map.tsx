@@ -1,10 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import maplibregl from 'maplibre-gl';
+import maplibregl, { Marker } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './map.module.css';
-import { useMarkerLayerContext } from '../context/marker-layer';
-import { useDevMode } from '../context/dev-mode';
+import { useDevMode } from '../context/dev-mode-context';
 import { TMarkerDev } from '@/types/marker-dev';
 import {
   convertToUnit,
@@ -12,47 +11,23 @@ import {
   vhToPx,
   remToPx,
 } from '@/lib/convert';
+import { useMapContext } from '../context/map-context';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const { isDevMode } = useDevMode();
-  const { setMapInstance, maps } = useMarkerLayerContext();
-  const [tileBaseUrl, setTileBaseUrl] = useState<string | null>(null);
+  const { mapMetadata, setMapInstance, activeMap } = useMapContext();
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
-  const exportMarkerDebug = (
-    map: maplibregl.Map,
-    lng: number,
-    lat: number,
-    x: number,
-    y: number
-  ) => {
-    const marker: TMarkerDev = {
-      map: 'greenisland',
-      x,
-      y,
-    };
-    const markerJson = JSON.stringify(marker, null, 2) + ',';
-    console.log(markerJson);
-    navigator.clipboard.writeText(markerJson);
-    new maplibregl.Marker().setLngLat([lng, lat]).addTo(map);
-  };
-
   useEffect(() => {
+    if (!mapContainer.current || !mapMetadata || !activeMap) return;
+
+    const meta = mapMetadata[activeMap];
+    if (!meta) return;
+
     const isDev = process.env.NODE_ENV === 'development';
-
-    if (isDev) {
-      setTileBaseUrl('/tiles/greenisland/v2');
-    } else {
-      setTileBaseUrl('https://cdn.equinoxmap.app/greenisland/v2');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!mapContainer.current || tileBaseUrl === null || !maps?.greenisland)
-      return;
-
-    const bounds = getMapBoundsLatLng(maps.greenisland);
+    const tiles = isDev ? meta.devUrl : meta.prodUrl;
+    const bounds = getMapBoundsLatLng(meta);
     let wasMobile = mapContainer.current.offsetWidth < 768;
 
     const map = new maplibregl.Map({
@@ -62,12 +37,12 @@ export default function Map() {
         sources: {
           gameMap: {
             type: 'raster',
-            tiles: [`${tileBaseUrl}/{z}/{y}/{x}.png`],
-            tileSize: 256,
+            tiles: [tiles],
+            tileSize: meta.tileSize,
             scheme: 'xyz',
-            maxzoom: 5,
+            maxzoom: meta.maxZoom,
             bounds,
-            attribution: 'Blue Scarab Entertainment',
+            attribution: meta.attribution,
           },
         },
         layers: [
@@ -78,9 +53,9 @@ export default function Map() {
           },
         ],
       },
-      zoom: 2,
-      minZoom: 1,
-      maxZoom: 7,
+      zoom: meta.initZoom,
+      minZoom: meta.minZoom,
+      maxZoom: meta.maxOverscaledZoom,
       interactive: true,
       bearingSnap: 0,
       pitchWithRotate: false,
@@ -99,7 +74,7 @@ export default function Map() {
           : { top: 0, right: 0, bottom: 0, left: remToPx(26.25) };
         map.setPadding(padding);
         map.fitBounds(bounds, {
-          maxZoom: 5,
+          maxZoom: meta.maxZoom,
           linear: true,
         });
       });
@@ -117,8 +92,16 @@ export default function Map() {
     if (isDevMode) {
       map.on('click', (e) => {
         const { lng, lat } = e.lngLat;
-        const positions = convertToUnit(maps.greenisland, lng, lat);
-        exportMarkerDebug(map, lng, lat, positions[0], positions[1]);
+        const positions = convertToUnit(meta, lng, lat);
+        const marker: TMarkerDev = {
+          map: activeMap,
+          x: positions[0],
+          y: positions[1],
+        };
+        const markerJson = JSON.stringify(marker, null, 2) + ',';
+        console.log(markerJson);
+        navigator.clipboard.writeText(markerJson);
+        new Marker().setLngLat([lng, lat]).addTo(map);
       });
     }
 
@@ -132,7 +115,7 @@ export default function Map() {
       map.remove();
       ro.disconnect();
     };
-  }, [tileBaseUrl, setMapInstance, isDevMode, maps]);
+  }, [setMapInstance, isDevMode, mapMetadata, activeMap]);
 
   return (
     <div className={styles.mapWrapper}>

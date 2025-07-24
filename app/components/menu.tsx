@@ -1,7 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
 import styles from './menu.module.css';
-import { useMenuState } from '../context/menu-state';
+import { useMenuState } from '../context/menu-state-context';
 
 type Props = {
   children: ReactNode;

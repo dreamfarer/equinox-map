@@ -4,6 +4,7 @@ import { randomUUID, createHash } from 'crypto';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '../lib/convert';
+import { MapMetadata } from '@/types/map-metadata';
 
 type MetaEntry = {
   category: string;
@@ -25,15 +26,9 @@ export type MarkerSource = {
   y: number;
 };
 
-type MapMeta = {
-  size: [number, number];
-  boundsData: [number, number, number, number];
-  boundsImage: [number, number, number, number];
-};
+let cachedMapJson: Record<string, MapMetadata> | null = null;
 
-let cachedMapJson: Record<string, MapMeta> | null = null;
-
-async function loadMapJson(): Promise<Record<string, MapMeta> | null> {
+async function loadMapJson(): Promise<Record<string, MapMetadata> | null> {
   if (!cachedMapJson) {
     const publicDir = path.resolve(__dirname, '../public');
     const json = await fs.readFile(path.join(publicDir, 'maps.json'), 'utf8');
@@ -42,7 +37,7 @@ async function loadMapJson(): Promise<Record<string, MapMeta> | null> {
   return cachedMapJson;
 }
 
-async function getMapMeta(map: string): Promise<MapMeta> {
+async function getMapMetadata(map: string): Promise<MapMetadata> {
   const mapJson = await loadMapJson();
   if (!mapJson) {
     throw new Error(`Missing map.json in /public`);
@@ -110,7 +105,7 @@ export async function processDirectMarkers(
   for (const m of raw) {
     if (m.foreignId || m.x == null || m.y == null || !m.map) continue;
 
-    const map = await getMapMeta(m.map);
+    const map = await getMapMetadata(m.map);
     const [lng, lat] = await convertToLngLat(map, m.x, m.y);
 
     let id =

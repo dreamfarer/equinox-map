@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { CaretDown } from '@phosphor-icons/react';
+import { CaretDownIcon } from '@phosphor-icons/react';
 import styles from './dropdown.module.css';
 
 type Props = {
@@ -29,7 +29,7 @@ export default function Dropdown({ options, selected, onSelect }: Props) {
         onClick={() => setOpen((prev) => !prev)}
       >
         {selected}
-        <CaretDown size="1em" />
+        <CaretDownIcon size="1em" />
       </button>
       {open && (
         <div className={styles.content}>

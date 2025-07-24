@@ -1,4 +1,5 @@
 'use client';
+
 import { createContext, useContext, useMemo, useState } from 'react';
 
 type DevMode = {
@@ -29,6 +30,6 @@ export function DevModeProvider({ children }: { children: React.ReactNode }) {
 export function useDevMode() {
   const context = useContext(DevModeContext);
   if (!context)
-    throw new Error('useDevMode must be used within <DevModeProvider>');
+    throw new Error('useDevMode must be used inside <DevModeProvider>');
   return context;
 }

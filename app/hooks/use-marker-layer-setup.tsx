@@ -1,11 +1,11 @@
 'use client';
 import { useEffect } from 'react';
 import { Map } from 'maplibre-gl';
-import { loadIcon } from '@/lib/marker-layer-utility';
+import { loadIcon } from '@/lib/marker-utility';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { TMarkerFeature } from '@/types/marker-feature';
 
-export function useMapInitialization(
+export function useMarkerLayerSetup(
   map: Map | null,
   markers: TMarkerFeatureCollection | null
 ) {
