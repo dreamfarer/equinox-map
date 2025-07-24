@@ -19,6 +19,7 @@ import { usePopupContext } from './popup-context';
 import { useBookmarkContext } from './bookmark-context';
 import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
 import { ExpressionSpecification } from 'maplibre-gl';
+import { useMenuState } from './menu-state-context';
 
 type TMarkerContext = {
   enabledMarkerCategories: Record<TCategory, boolean>;
@@ -31,6 +32,7 @@ const MarkerContext = createContext<TMarkerContext | null>(null);
 export function MarkerProvider({ children }: { children: React.ReactNode }) {
   const { mapInstance } = useMapContext();
   const { popups } = usePopupContext();
+  const { activeMenuName } = useMenuState();
   const { bookmarkIds, toggleBookmark, bookmarkedMarkerIds } =
     useBookmarkContext();
 
@@ -46,6 +48,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     >
   );
 
+  const isBookmarksMenu = activeMenuName === 'bookmarks';
   const toggleMarkerCategory = useCallback(
     (category: TCategory) =>
       setEnabledMarkerCategories((prev) => ({
@@ -80,6 +83,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
     enabledMarkerCategories,
     bookmarkedMarkerIds,
     popups,
+    isBookmarksMenu,
     handleFilterUpdate
   );
   useMapPopupHandler(

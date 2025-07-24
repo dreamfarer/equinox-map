@@ -33,7 +33,7 @@ export function computeFilteredMarkersAndExpression(
   enabled: Record<TCategory, boolean>,
   bookmarkedIds: string[] | null,
   popups: TPopups,
-  bookmarksOnly: boolean = false
+  bookmarksOnly: boolean
 ): {
   filtered: TPopups;
   expression: ExpressionSpecification | null;

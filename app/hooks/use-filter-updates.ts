@@ -13,6 +13,7 @@ export function useFilterUpdates(
   enabled: Record<TCategory, boolean>,
   bookmarkedIds: string[] | null,
   popups: TPopups,
+  isBookmarksMenu: boolean,
   onUpdate?: (result: {
     filtered: TPopups;
     expression: ExpressionSpecification | null;
@@ -25,7 +26,8 @@ export function useFilterUpdates(
     const result = computeFilteredMarkersAndExpression(
       enabled,
       bookmarkedIds,
-      popups
+      popups,
+      isBookmarksMenu
     );
 
     onUpdate?.(result);
@@ -40,5 +42,5 @@ export function useFilterUpdates(
         map.setFilter('markers-layer', result.expression);
       }
     });
-  }, [map, enabled, bookmarkedIds, popups, onUpdate]);
+  }, [map, enabled, bookmarkedIds, popups, isBookmarksMenu, onUpdate]);
 }
