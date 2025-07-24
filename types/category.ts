@@ -29,6 +29,7 @@ export const categories = [
   'side-quest',
   'main-quest',
   'deliveries',
+  'artefacts',
 ] as const;
 
 export type TCategory = (typeof categories)[number];
