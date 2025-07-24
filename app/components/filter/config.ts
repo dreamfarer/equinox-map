@@ -20,6 +20,7 @@ export const categoryGroups: CategoryGroup[] = [
       { label: 'Fast Travel Points', id: 'fast-travel' },
       { label: 'Scenic Rides', id: 'scenic-ride' },
       { label: 'Caves', id: 'cave' },
+      { label: 'Artefacts', id: 'artefacts' },
     ],
   },
   {

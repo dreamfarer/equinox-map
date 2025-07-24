@@ -56,8 +56,12 @@
   {
     "title": "Caves",
     "category": "cave",
-    "path": "markers/caves.json",
-    "anchor": "center"
+    "path": "markers/caves.json"
+  },
+  {
+    "title": "Artefacts",
+    "category": "artefacts",
+    "path": "markers/artefacts.json"
   },
   {
     "title": "Dandelions",

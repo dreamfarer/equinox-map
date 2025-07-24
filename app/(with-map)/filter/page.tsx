@@ -46,6 +46,9 @@ export default function FilterMenuPage() {
         Locate secret caves, underground paths, and tucked-away chambers.
       </p>
 
+      <h2 className="sr-only">Secret Artefacts in Equinox</h2>
+      <p className="sr-only">Find secret artefacts for Alfred.</p>
+
       <h2 className="sr-only">All Quests – Main, Side, Weekly</h2>
       <p className="sr-only">
         Track every quest type in Equinox: main story, side objectives, and
