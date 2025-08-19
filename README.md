@@ -66,7 +66,16 @@ Thanks to the separation between raw marker data and the runtime projection, you
 
 ## Statistics
 
-Since launch, the project has seen **2'010** unique visitors and **196'980** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+Since launch, the project has seen **3'540** unique visitors and **327'750** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+
+<details>
+<summary>July 2025</summary>
+<br>
+
+Unique Visitors: **1'530** \
+Total Requests: **130'770**
+
+</details>
 
 <details>
 <summary>June 2025</summary>
@@ -87,6 +96,6 @@ This project wouldn’t be possible without the tireless efforts of the followin
 - [**Onyx**](https://discordapp.com/users/403687942687686660): Provided the artefact locations.
 - [**Snowhawk**](https://discordapp.com/users/163581134209286144): Maintains a comprehensive [Google Sheet](https://docs.google.com/spreadsheets/d/1brrDNw7LZ8xx_Wryy8NNE05T4MEF4cvGN1b9SYE4jjE/edit?usp=sharing) tracking characters, quests, deliveries, clothing, tack, and more.
 - [**Sugertoxity**](https://discordapp.com/users/608320065439268864): Helped plan the overall concept, communications and early location data sourcing and processing.
-- [**Yumemi**](https://discordapp.com/users/260818698091102209): Submitted a missing location.
+- [**Yumemi**](https://discordapp.com/users/260818698091102209): Submitted missing locations.
 - [**zaaap!**](https://www.youtube.com/@zaaap): Produced a [video showcase](https://youtu.be/MgLdL8X9BY8?si=bUZRQiI6bdl6MCRE) of the interactive map.
 - [**☾ \* 𝔉𝔢𝔢𝔩𝔦 ༓ ☽**](https://discordapp.com/users/194775629244268545): Submitted a missing location.
