@@ -12,7 +12,11 @@
     "foreignId": "samuel"
   },
   {
-    "subtitle": "Requires Alderwood Fishing Village (currently Alderwood Wilds) reputation. ",
+    "subtitle": "Requires Alderwood Fishing Village (currently Alderwood Wilds) reputation.",
     "foreignId": "robert"
+  },
+  {
+    "subtitle": "Requires Alderwood's Equestrians reputation.",
+    "foreignId": "thomas"
   }
 ]
