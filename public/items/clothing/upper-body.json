@@ -472,5 +472,15 @@
       "jumping": 9,
       "control": 9
     }
+  },
+  {
+    "name": "Vneck Rolled",
+    "price": { "amount": 100, "currency": "silver" },
+    "reputation": { "level": 1, "type": "Alderwood Equestrians" },
+    "upgrade": null,
+    "stats": {
+      "riding": 13,
+      "jumping": 13
+    }
   }
 ]

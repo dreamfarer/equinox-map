@@ -1,0 +1,7 @@
+[
+  {
+    "name": "English Horse Helmet",
+    "price": { "amount": 1000, "currency": "silver" },
+    "reputation": { "level": null, "type": "Alderwood Downtown" }
+  }
+]

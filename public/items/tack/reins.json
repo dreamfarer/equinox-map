@@ -7,5 +7,23 @@
       "speed": 17,
       "agility": 9
     }
+  },
+  {
+    "name": "Basic Bridle (Red)",
+    "price": { "amount": 700, "currency": "silver" },
+    "reputation": { "level": 7, "type": "Alderwood Downtown" },
+    "stats": {
+      "endurance": 9,
+      "speed": 17
+    }
+  },
+  {
+    "name": "Basic Bridle (Black)",
+    "price": { "amount": 500, "currency": "silver" },
+    "reputation": { "level": 5, "type": "Alderwood Wilds" },
+    "stats": {
+      "endurance": 9,
+      "agility": 17
+    }
   }
 ]
