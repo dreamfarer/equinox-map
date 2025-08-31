@@ -52,6 +52,12 @@ Icons are processed using a script prior to deployment. The script optionally cr
 npm run build:prepare -- <img> <quality> <cropX> <cropY> <size>
 ```
 
+Values used in this project:
+
+```bash
+npm run build:prepare -- <img> 80 15 15 64
+```
+
 ### Map Tiling
 
 To prepare a large map image for use with MapLibre GL, run the script `scripts/tile.sh`:
