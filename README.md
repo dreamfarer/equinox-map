@@ -57,10 +57,10 @@ npm run build:prepare -- <img> <quality> <cropX> <cropY> <size>
 To prepare a large map image for use with MapLibre GL, run the script `scripts/tile.sh`:
 
 ```bash
-sh tile.sh <source-img>
+sh tile.sh <source-image.png> [<cropX_px> <cropY_px>]
 ```
 
-This script adds transparent padding, centers the image, and generates tiles. It also prints a partial `map.json` configuration to the console.
+This script adds transparent padding, centers and optionally crops the image, and generates tiles. It also prints a partial `map.json` configuration to the console.
 
 Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
 
