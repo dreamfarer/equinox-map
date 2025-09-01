@@ -1,3 +1,10 @@
+/**
+ * Usage:
+ *   npm run build:prepare -- <img> <quality> <cropX> <cropY> <size>
+ * Example:
+ *   npm run build:prepare -- <img> 80 15 15 64 (used in this project)
+ */
+
 import * as fs from 'fs';
 import * as path from 'path';
 import sharp from 'sharp';
