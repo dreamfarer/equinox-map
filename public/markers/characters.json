@@ -109,7 +109,7 @@
   },
   {
     "title": "Valeria Bradford",
-    "subtitle": "Is a member of Alderwood Downtown.",
+    "subtitle": "Is a member of Alderwood Equestrians.",
     "id": "valeria",
     "map": "greenisland",
     "x": -350.5347298336225,
@@ -325,8 +325,8 @@
     "id": "alfred",
     "icon": "alfred",
     "map": "greenisland",
-    "x": 83.72609985441761,
-    "y": -983.2244249289187
+    "x": 84.46290799392614,
+    "y": -985.4796531026016
   },
   {
     "title": "Ben Willis",
@@ -348,6 +348,7 @@
   },
   {
     "title": "Amanda Abbott",
+    "subtitle": "Only present during quests.",
     "id": "amanda",
     "icon": "amanda",
     "map": "greenisland",

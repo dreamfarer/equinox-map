@@ -7,7 +7,7 @@
   {
     "subtitle": "Daily Deliveries: 5 Apples",
     "foreignId": "thomas",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 5 }]
+    "reputation": [{ "type": "Alderwood Equestrians", "amount": 5 }]
   },
   {
     "subtitle": "Daily Deliveries: 5 Blackberries",
@@ -27,7 +27,7 @@
   {
     "subtitle": "Daily Deliveries: 5 Dandelions",
     "foreignId": "mike",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 5 }]
+    "reputation": [{ "type": "Alderwood Equestrians", "amount": 5 }]
   },
   {
     "subtitle": "Daily Deliveries: 5 Antlers",
@@ -52,7 +52,7 @@
   {
     "subtitle": "Daily Deliveries: 5 Dryad Saddle Mushrooms",
     "foreignId": "carmen",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 5 }]
+    "reputation": [{ "type": "Alderwood Equestrians", "amount": 5 }]
   },
   {
     "subtitle": "Daily Deliveries: Dryad Saddle Mushrooms",
@@ -162,7 +162,7 @@
   {
     "subtitle": "Daily Deliveries: 5 Water Lilies",
     "foreignId": "valeria",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 5 }]
+    "reputation": [{ "type": "Alderwood Equestrians", "amount": 5 }]
   },
   {
     "subtitle": "Daily Deliveries: 5 Carrots",
@@ -172,7 +172,7 @@
   {
     "subtitle": "Daily Deliveries: 5 Carrots",
     "foreignId": "philip",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 5 }]
+    "reputation": [{ "type": "Alderwood Equestrians", "amount": 5 }]
   },
   {
     "subtitle": "Daily Deliveries: 5 Raven Feathers",

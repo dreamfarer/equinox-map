@@ -61,7 +61,9 @@
   {
     "title": "Artefacts",
     "category": "artefacts",
-    "path": "markers/artefacts.json"
+    "path": "markers/artefacts.json",
+    "anchor": "center",
+    "icon": "artefact"
   },
   {
     "title": "Dandelions",
