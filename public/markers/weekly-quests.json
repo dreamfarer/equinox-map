@@ -21,8 +21,15 @@
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   },
   {
-    "title": "Flower Basket",
-    "subtitle": "Speak with Emily, collect 12 poppies and bring them back to her.",
+    "title": "Crimson Beauty",
+    "subtitle": "Collect and deliver 12 poppies to Emily.",
+    "foreignId": "emily",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "Aqua Beauty",
+    "subtitle": "Collect and deliver 5 water lilies to Emily.",
     "foreignId": "emily",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
@@ -37,7 +44,7 @@
   {
     "title": "Not-Easter Eggs",
     "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kathy at the market.",
-    "foreignId": "lewis",
+    "foreignId": "mrs-wilson",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   },
@@ -211,7 +218,7 @@
   },
   {
     "title": "Post Delivery",
-    "subtitle": "Pick up 4 letters from Lucas and deliver them.",
+    "subtitle": "Pick up a randomized amount of letters from Lucas and deliver them to randomized places.",
     "foreignId": "lucas",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
