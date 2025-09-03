@@ -272,5 +272,40 @@
     "x": -539.8858370076881,
     "y": -647.247148444871,
     "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+  },
+  {
+    "title": "Baking Challenge",
+    "subtitle": "Deliver 20 apples to Lucy.",
+    "foreignId": "lucy",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "Back to Fence",
+    "subtitle": "Talk to Dwight, find the hammer and the 2 wood planks at his shed, remove the broken fence plank, build the new fence, and then return to Dwight.",
+    "foreignId": "dwight",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "Moonlight Beauty",
+    "subtitle": "Collect and deliver 14 violets to Emily.",
+    "foreignId": "emily",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "All You Knead is Loaf",
+    "subtitle": "Talk to Celina, pick up 4 packages, and deliver them to Agnes, Bobby, Alfred and Alicia.",
+    "foreignId": "celina",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Chicken Fence Run",
+    "subtitle": "Talk to Mrs. Wilson, find the hammer, fix the fence, and then return to Mrs. Wilson.",
+    "foreignId": "mrs-wilson",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   }
 ]
