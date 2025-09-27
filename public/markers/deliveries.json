@@ -183,5 +183,15 @@
     "subtitle": "Daily Deliveries: 5 Sunflowers",
     "foreignId": "paige",
     "reputation": [{ "type": "Alderwood Farms", "amount": 5 }]
+  },
+  {
+    "subtitle": "Daily Deliveries: 5 Dandelions",
+    "foreignId": "florence",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 5 }]
+  },
+  {
+    "subtitle": "Daily Deliveries: 5 Raven Feathers",
+    "foreignId": "theresa",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 5 }]
   }
 ]

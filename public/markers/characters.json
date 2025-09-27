@@ -262,6 +262,7 @@
     "title": "Anika Sharma",
     "subtitle": "Is a member of Alderwood Downtown.",
     "id": "anika",
+    "icon": "anika",
     "map": "greenisland",
     "x": -691.9746733324243,
     "y": 283.8835979759285
@@ -354,5 +355,21 @@
     "map": "greenisland",
     "x": 728.9170301636893,
     "y": 234.0585508474387
+  },
+  {
+    "title": "Florence Abbott",
+    "id": "florence",
+    "map": "greenisland",
+    "x": 717.6021131963726,
+    "y": 354.5571143293405
+  },
+  {
+    "title": "Theresa Whitlock",
+    "subtitle": "Stylist",
+    "id": "theresa",
+    "icon": "theresa",
+    "map": "greenisland",
+    "x": -442.12235076957836,
+    "y": 155.87710178670022
   }
 ]
