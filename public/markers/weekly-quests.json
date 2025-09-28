@@ -307,5 +307,12 @@
     "foreignId": "mrs-wilson",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+  },
+  {
+    "title": "Loafing Around",
+    "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Philip, Nina, and Dwight.",
+    "foreignId": "celina",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
   }
 ]
