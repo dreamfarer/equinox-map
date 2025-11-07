@@ -2,6 +2,21 @@
   {
     "name": "English Horse Helmet",
     "price": { "amount": 1000, "currency": "silver" },
-    "reputation": { "level": null, "type": "Alderwood Downtown" }
+    "reputation": { "level": 5, "type": "Alderwood Downtown" }
+  },
+  {
+    "name": "English Horse Helmet (Carbon)",
+    "price": { "amount": 2000, "currency": "silver" },
+    "reputation": { "level": 10, "type": "Alderwood Downtown" }
+  },
+  {
+    "name": "English Horse Helmet (Pink)",
+    "price": { "amount": 2000, "currency": "silver" },
+    "reputation": { "level": 10, "type": "Alderwood Downtown" }
+  },
+  {
+    "name": "English Horse Helmet (Racing)",
+    "price": { "amount": 2000, "currency": "silver" },
+    "reputation": { "level": 10, "type": "Alderwood Downtown" }
   }
 ]
