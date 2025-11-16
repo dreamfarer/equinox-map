@@ -41,11 +41,6 @@ export default function FilterMenuPage() {
         Explore peaceful, scenic trails perfect for long horse rides.
       </p>
 
-      <h2 className="sr-only">Hidden Caves in Equinox</h2>
-      <p className="sr-only">
-        Locate secret caves, underground paths, and tucked-away chambers.
-      </p>
-
       <h2 className="sr-only">Secret Artefacts in Equinox</h2>
       <p className="sr-only">Find secret artefacts for Alfred.</p>
 

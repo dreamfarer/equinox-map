@@ -314,5 +314,19 @@
     "foreignId": "celina",
     "map": "greenisland",
     "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Spill the Tea",
+    "subtitle": "Fetch the order from Kurt and deliver it to Florence at the rose manor.",
+    "foreignId": "kurt",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+  },
+  {
+    "title": "Fruits of Wilderness",
+    "subtitle": "Collect and deliver 5 blackberries to Lucy.",
+    "foreignId": "lucy",
+    "map": "greenisland",
+    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
   }
 ]
