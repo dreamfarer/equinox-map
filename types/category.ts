@@ -9,7 +9,6 @@ export const categories = [
   'apple',
   'blackberry',
   'carrot',
-  'cave',
   'delphinium',
   'dryad-saddle-mushroom',
   'eagle-feather',

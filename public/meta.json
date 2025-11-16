@@ -54,11 +54,6 @@
     "icon": "carrot"
   },
   {
-    "title": "Caves",
-    "category": "cave",
-    "path": "markers/caves.json"
-  },
-  {
     "title": "Artefacts",
     "category": "artefacts",
     "path": "markers/artefacts.json",
