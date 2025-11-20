@@ -18,5 +18,9 @@
   {
     "subtitle": "Requires Alderwood's Equestrians reputation.",
     "foreignId": "thomas"
+  },
+  {
+    "subtitle": "Requires Tokens gained by playing the 'Crown Chase' multiplayer event.",
+    "foreignId": "danny"
   }
 ]

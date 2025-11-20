@@ -1,4 +1,9 @@
 [
+  { "map": "greenisland", "x": 623.4, "y": -308.5 },
+  { "map": "greenisland", "x": 642.3591, "y": -323.5466 },
+  { "map": "greenisland", "x": 637.6809, "y": -320.3523 },
+  { "map": "greenisland", "x": 609.2232, "y": -337.5929 },
+  { "map": "greenisland", "x": 625.5583, "y": -334.9445 },
   { "map": "greenisland", "x": 621.9996, "y": -295.4924 },
   { "map": "greenisland", "x": 666.6308, "y": -348.4467 },
   { "map": "greenisland", "x": -460.0534, "y": 91.1382 },
@@ -23,13 +28,20 @@
   { "map": "greenisland", "x": 538.8459, "y": -614.1241 },
   { "map": "greenisland", "x": 485.5897, "y": -655.5191 },
   { "map": "greenisland", "x": 507.8716, "y": -640.8777 },
+  { "map": "greenisland", "x": 617.1337, "y": -372.9498 },
   { "map": "greenisland", "x": 635.3433, "y": -822.9998 },
   { "map": "greenisland", "x": 640.4396, "y": -742.768 },
   { "map": "greenisland", "x": 599.2593, "y": -442.4581 },
   { "map": "greenisland", "x": 306.1717, "y": -797.02 },
   { "map": "greenisland", "x": 488.0861, "y": -777.7095 },
+  { "map": "greenisland", "x": 600.3854, "y": -350.2513 },
   { "map": "greenisland", "x": 491.972, "y": 634.6432 },
   { "map": "greenisland", "x": 366.0987, "y": -669.5695 },
   { "map": "greenisland", "x": -407.8134, "y": 118.5182 },
-  { "map": "greenisland", "x": 384.816, "y": -692.8934 }
+  { "map": "greenisland", "x": 384.816, "y": -692.8934 },
+  { "map": "greenisland", "x": 602.5262, "y": -368.6509 },
+  { "map": "greenisland", "x": 571.7955, "y": -359.2832 },
+  { "map": "greenisland", "x": 605.661, "y": -407.4739 },
+  { "map": "greenisland", "x": 573.7135, "y": -366.7297 },
+  { "map": "greenisland", "x": 582.0252, "y": -400.2188 }
 ]
