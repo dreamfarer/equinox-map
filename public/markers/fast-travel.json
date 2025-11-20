@@ -7,5 +7,30 @@
     "icon": "player-barn",
     "x": -268.28728145866467,
     "y": 568.82357547228
+  },
+  {
+    "title": "Wendy's Tack Shop",
+    "subtitle": "Purchased from Wendy for 5000 Silver Sols. Needs Alderwood Downtown reputation Level 5.",
+    "foreignId": "wendy"
+  },
+  {
+    "title": "Old William's Farm",
+    "subtitle": "Purchased from Kathy Miller for 5000 Silver Sols. Needs Alderwood Farms reputation Level 5.",
+    "foreignId": "old-williams"
+  },
+  {
+    "title": "Blacksmith",
+    "subtitle": "Purchased from Samuel Smith for 5000 Silver Sols. Needs Alderwood Wilds reputation Level 5.",
+    "foreignId": "samuel"
+  },
+  {
+    "title": "Fishing Village",
+    "subtitle": "Purchased from Robert Quint for 5000 Silver Sols. Needs Alderwood Fishing Village reputation Level 5.",
+    "foreignId": "robert"
+  },
+  {
+    "title": "Horse Rehabilitation Center",
+    "subtitle": "Purchased from Thomas Pratt for 5000 Silver Sols. Needs Alderwood Equestrians reputation Level 5.",
+    "foreignId": "philip"
   }
 ]
