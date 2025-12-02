@@ -1,20 +1,17 @@
 import MapWrapper from '../components/map-wrapper';
 import Overlay from '../components/overlay';
-import { BookmarkProvider } from '../context/bookmark-context';
 import { DevModeProvider } from '../context/dev-mode-context';
 import { MapProvider } from '../context/map-context';
 import { MarkerProvider } from '../context/marker-context';
 import { PopupProvider } from '../context/popup-context';
+import { IgnoredMarkerProvider } from '@/app/context/ignored-marker-provider';
+import { ReactNode } from 'react';
 
-export default function WithMapLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function WithMapLayout({ children }: { children: ReactNode }) {
   return (
     <MapProvider>
       <PopupProvider>
-        <BookmarkProvider>
+        <IgnoredMarkerProvider>
           <MarkerProvider>
             <DevModeProvider>
               <Overlay />
@@ -22,7 +19,7 @@ export default function WithMapLayout({
               {children}
             </DevModeProvider>
           </MarkerProvider>
-        </BookmarkProvider>
+        </IgnoredMarkerProvider>
       </PopupProvider>
     </MapProvider>
   );

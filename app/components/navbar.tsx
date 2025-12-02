@@ -2,11 +2,7 @@
 import Image from 'next/image';
 import styles from './navbar.module.css';
 import Group from './navbar/group';
-import {
-  ListDashesIcon,
-  BookmarkSimpleIcon,
-  CaretLeftIcon,
-} from '@phosphor-icons/react';
+import { ListDashesIcon, CaretLeftIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { useMenuState } from '../context/menu-state-context';
 import { usePathname } from 'next/navigation';
@@ -41,17 +37,6 @@ export default function Navbar() {
           aria-label="Show filter"
         >
           <ListDashesIcon size="2em" />
-        </Link>
-
-        <Link
-          href="/bookmarks"
-          scroll={false}
-          className={`${styles.button} ${
-            segment === 'bookmarks' ? styles.inactive : styles.active
-          }`}
-          aria-label="Show bookmarks"
-        >
-          <BookmarkSimpleIcon size="2em" />
         </Link>
       </Group>
 

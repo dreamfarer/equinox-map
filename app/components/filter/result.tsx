@@ -1,4 +1,3 @@
-import { BookmarkSimpleIcon } from '@phosphor-icons/react';
 import styles from './result.module.css';
 
 type Props = {
@@ -6,24 +5,10 @@ type Props = {
   subtitle?: string;
   category: string;
   count?: number;
-  isBookmarked: boolean;
   onSelect: () => void;
-  onToggleBookmark: () => void;
 };
 
-export default function Result({
-  title,
-  category,
-  count,
-  isBookmarked,
-  onSelect,
-  onToggleBookmark,
-}: Props) {
-  const handleBookmark = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onToggleBookmark();
-  };
-
+export default function Result({ title, category, count, onSelect }: Props) {
   return (
     <div className={styles.result} onClick={onSelect}>
       <div className={styles.information}>
@@ -32,19 +17,6 @@ export default function Result({
         </div>
         <div className={styles.subtitle}>{category}</div>
       </div>
-      <button
-        className={styles.button}
-        onClick={handleBookmark}
-        aria-label={
-          isBookmarked ? 'Remove bookmark from marker' : 'Bookmark marker'
-        }
-      >
-        {isBookmarked ? (
-          <BookmarkSimpleIcon size="2em" weight="fill" />
-        ) : (
-          <BookmarkSimpleIcon size="2em" />
-        )}
-      </button>
     </div>
   );
 }

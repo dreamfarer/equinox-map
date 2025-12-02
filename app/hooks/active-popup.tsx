@@ -5,7 +5,7 @@ import {
   calculatePopupOffset,
   createCategoriesKey,
   getFilteredPopupCategories,
-} from '../../lib/popup-utility';
+} from '@/lib/popup-utility';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
 import { TBookmarkId } from '@/types/bookmark';
@@ -15,10 +15,7 @@ import { TCategory } from '@/types/category';
 interface RenderArgs {
   feature: TMarkerFeature;
   popups: TPopups;
-  isBookmarkMode: boolean;
   activeCategories: TCategory[];
-  bookmarks: TBookmarkId[];
-  toggleBookmark: (id: TBookmarkId) => void;
   map: maplibregl.Map;
 }
 
@@ -26,9 +23,6 @@ interface UpdateArgs {
   map: maplibregl.Map;
   popups: TPopups;
   activeCategories: TCategory[];
-  bookmarks: TBookmarkId[];
-  bookmarkedIds: string[] | null;
-  toggleBookmark: (id: TBookmarkId) => void;
 }
 
 export function getBookmarkedItemIds(
@@ -63,22 +57,17 @@ export class ActivePopup {
     coordinates: [number, number],
     anchor: string,
     categories: TCategoryPayloads,
-    bookmarks: TBookmarkId[],
-    toggleBookmark: RenderArgs['toggleBookmark'],
     initialCategory: string
   ) {
     const container = document.createElement('div');
     const root = createRoot(container);
     const categoriesKey = createCategoriesKey(categories);
-    const bookmarkedItems = getBookmarkedItemIds(markerId, bookmarks);
 
     root.render(
       <Popup
         key={categoriesKey}
         id={markerId}
         categories={categories}
-        bookmarkedItems={bookmarkedItems}
-        toggleBookmark={toggleBookmark}
         initialCategory={initialCategory}
       />
     );
@@ -107,10 +96,7 @@ export class ActivePopup {
   render({
     feature,
     popups,
-    isBookmarkMode,
     activeCategories,
-    bookmarks,
-    toggleBookmark,
     map,
   }: RenderArgs) {
     const { id, anchor } = feature.properties;
@@ -119,8 +105,6 @@ export class ActivePopup {
     const categories = getFilteredPopupCategories(
       id,
       popups,
-      isBookmarkMode,
-      bookmarks,
       activeCategories
     );
     if (!categories || Object.keys(categories).length === 0) return;
@@ -135,8 +119,6 @@ export class ActivePopup {
       coordinates,
       anchor,
       categories,
-      bookmarks,
-      toggleBookmark,
       requestedCategory
     );
   }
@@ -144,24 +126,17 @@ export class ActivePopup {
   update({
     popups,
     activeCategories,
-    bookmarks,
-    bookmarkedIds,
-    toggleBookmark,
   }: UpdateArgs) {
     if (!this.root || !this.markerId) return;
 
-    const isBookmarkMode = bookmarkedIds !== null;
     const categories = getFilteredPopupCategories(
       this.markerId,
       popups,
-      isBookmarkMode,
-      bookmarks,
       activeCategories
     );
     if (!categories || Object.keys(categories).length === 0) return;
 
     const defaultCategory = Object.keys(categories)[0];
-    const bookmarkedItems = getBookmarkedItemIds(this.markerId, bookmarks);
     const categoriesKey = createCategoriesKey(categories);
 
     this.root.render(
@@ -169,8 +144,6 @@ export class ActivePopup {
         key={categoriesKey}
         id={this.markerId}
         categories={categories}
-        bookmarkedItems={bookmarkedItems}
-        toggleBookmark={toggleBookmark}
         initialCategory={defaultCategory}
       />
     );

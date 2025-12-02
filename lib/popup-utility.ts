@@ -1,4 +1,3 @@
-import { TBookmarkId } from '@/types/bookmark';
 import { TCategory } from '@/types/category';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
 
@@ -44,36 +43,12 @@ export function calculatePopupOffset(
 export function getFilteredPopupCategories(
   markerId: string,
   popups: TPopups,
-  isBookmarkMode: boolean,
-  bookmarks: TBookmarkId[],
   activeCategories: TCategory[] = []
 ): TCategoryPayloads {
   const fullPopup = popups[markerId];
   if (!fullPopup) return {};
 
   const result: TCategoryPayloads = {};
-
-  if (isBookmarkMode) {
-    const itemIdsForMarker = bookmarks
-      .filter((b) => b.startsWith(`${markerId}::`))
-      .map((b) => {
-        const [, categoryId, itemId] = b.split('::');
-        return { categoryId, itemId };
-      });
-
-    for (const { categoryId, itemId } of itemIdsForMarker) {
-      const categoryItems = fullPopup[categoryId];
-      if (!categoryItems) continue;
-
-      const item = categoryItems[itemId];
-      if (!item) continue;
-
-      if (!result[categoryId]) result[categoryId] = {};
-      result[categoryId][itemId] = item;
-    }
-
-    return result;
-  }
 
   for (const [categoryId, items] of Object.entries(fullPopup)) {
     if (activeCategories.includes(categoryId as TCategory)) {

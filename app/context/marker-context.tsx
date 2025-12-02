@@ -7,6 +7,7 @@ import {
   useMemo,
   useEffect,
   useCallback,
+  ReactNode,
 } from 'react';
 import { useFilterUpdates } from '../hooks/use-filter-updates';
 import { TPopups } from '@/types/popup';
@@ -16,7 +17,6 @@ import { categories, TCategory } from '@/types/category';
 import { useMapContext } from './map-context';
 import { loadMarkers } from '@/lib/marker-utility';
 import { usePopupContext } from './popup-context';
-import { useBookmarkContext } from './bookmark-context';
 import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
 import { ExpressionSpecification } from 'maplibre-gl';
 import { useMenuState } from './menu-state-context';
@@ -29,12 +29,10 @@ type TMarkerContext = {
 
 const MarkerContext = createContext<TMarkerContext | null>(null);
 
-export function MarkerProvider({ children }: { children: React.ReactNode }) {
+export function MarkerProvider({ children }: { children: ReactNode }) {
   const { mapInstance } = useMapContext();
   const { popups } = usePopupContext();
   const { activeMenuName } = useMenuState();
-  const { bookmarkIds, toggleBookmark, bookmarkedMarkerIds } =
-    useBookmarkContext();
 
   const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
   const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
@@ -81,7 +79,6 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
   useFilterUpdates(
     mapInstance,
     enabledMarkerCategories,
-    bookmarkedMarkerIds,
     popups,
     isBookmarksMenu,
     handleFilterUpdate
@@ -89,10 +86,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
   useMapPopupHandler(
     mapInstance,
     filteredPopups,
-    bookmarkIds,
-    toggleBookmark,
-    activeCategories,
-    bookmarkedMarkerIds
+    activeCategories
   );
 
   const contextValue = useMemo<TMarkerContext>(
@@ -105,9 +99,9 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <MarkerContext.Provider value={contextValue}>
+    <MarkerContext value={contextValue}>
       {children}
-    </MarkerContext.Provider>
+    </MarkerContext>
   );
 }
 

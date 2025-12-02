@@ -1,14 +1,12 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import styles from './category.module.css';
-import { BookmarkSimpleIcon, CaretUpIcon } from '@phosphor-icons/react';
+import { CaretUpIcon } from '@phosphor-icons/react';
 import Entry from './category/entry';
 
 type EntryType = {
   label: string;
   isActive: boolean;
   onToggle: () => void;
-  onToggleBookmark: () => void;
-  bookmarkState: 'none' | 'partial' | 'full';
 };
 
 type Props = {
@@ -62,42 +60,6 @@ export default function Category({
           {title}
         </button>
         <button
-          onClick={() => {
-            const anyBookmarked = entries.some(
-              (e) => e.bookmarkState !== 'none'
-            );
-            entries.forEach((entry) => {
-              const shouldChange = anyBookmarked
-                ? entry.bookmarkState !== 'none'
-                : entry.bookmarkState === 'none';
-
-              if (shouldChange) {
-                entry.onToggleBookmark();
-              }
-            });
-          }}
-          className={`${styles.button} ${isActive ? styles.active : styles.inactive}`}
-          data-bookmark-state={
-            entries.every((e) => e.bookmarkState === 'full')
-              ? 'full'
-              : entries.some((e) => e.bookmarkState !== 'none')
-                ? 'partial'
-                : 'none'
-          }
-          aria-label="Toggle all bookmarks in category"
-        >
-          <BookmarkSimpleIcon
-            size="1em"
-            weight={
-              entries.every((e) => e.bookmarkState === 'full')
-                ? 'fill'
-                : entries.some((e) => e.bookmarkState !== 'none')
-                  ? 'duotone'
-                  : 'regular'
-            }
-          />
-        </button>
-        <button
           onClick={() => setCollapsed((prev) => !prev)}
           className={`${styles.caret} ${collapsed ? styles.collapsed : ''} ${isActive ? styles.active : styles.inactive}`}
           aria-label="Collapse Category"
@@ -116,8 +78,6 @@ export default function Category({
             isActive={entry.isActive}
             columnIndex={i % 2}
             onToggle={entry.onToggle}
-            onToggleBookmark={entry.onToggleBookmark}
-            bookmarkState={entry.bookmarkState}
           />
         ))}
       </div>

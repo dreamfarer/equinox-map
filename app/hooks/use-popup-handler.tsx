@@ -6,7 +6,7 @@ import { TMarkerFeature } from '@/types/marker-feature';
 import { TCategory } from '@/types/category';
 import { TPopups } from '@/types/popup';
 import { ActivePopup } from './active-popup';
-import { getFilteredPopupCategories } from '../../lib/popup-utility';
+import { getFilteredPopupCategories } from '@/lib/popup-utility';
 
 const MARKERS_LAYER = 'markers-layer';
 const LONG_PRESS_MS = 400;
@@ -17,32 +17,17 @@ const activePopup = new ActivePopup();
 export function useMapPopupHandler(
   map: Map | null,
   popups: TPopups,
-  bookmarks: TBookmarkId[],
-  toggleBookmark: (id: TBookmarkId) => void,
   activeCategories: TCategory[],
-  bookmarkedIds: string[] | null
 ) {
   const popupsRef = useRef(popups);
-  const bookmarksRef = useRef(bookmarks);
-  const toggleRef = useRef(toggleBookmark);
   const activeCategoriesRef = useRef(activeCategories);
-  const bookmarkedIdsRef = useRef(bookmarkedIds);
 
   useEffect(() => {
     popupsRef.current = popups;
   }, [popups]);
   useEffect(() => {
-    bookmarksRef.current = bookmarks;
-  }, [bookmarks]);
-  useEffect(() => {
-    toggleRef.current = toggleBookmark;
-  }, [toggleBookmark]);
-  useEffect(() => {
     activeCategoriesRef.current = activeCategories;
   }, [activeCategories]);
-  useEffect(() => {
-    bookmarkedIdsRef.current = bookmarkedIds;
-  }, [bookmarkedIds]);
 
   useEffect(() => {
     if (!map || popupHandlerAttached.has(map)) return;
@@ -56,10 +41,7 @@ export function useMapPopupHandler(
       activePopup.render({
         feature,
         popups: popupsRef.current,
-        isBookmarkMode: bookmarkedIdsRef.current !== null,
         activeCategories: activeCategoriesRef.current,
-        bookmarks: bookmarksRef.current,
-        toggleBookmark: toggleRef.current,
         map,
       });
     };
@@ -70,8 +52,6 @@ export function useMapPopupHandler(
       const categories = getFilteredPopupCategories(
         markerId,
         popupsRef.current,
-        bookmarkedIdsRef.current !== null,
-        bookmarksRef.current,
         activeCategoriesRef.current
       );
       if (!categories) return { count: 0, first: null };
@@ -94,7 +74,7 @@ export function useMapPopupHandler(
       const { count, first } = getItemCountAndFirstBookmark(markerId);
 
       if (count === 1 && first) {
-        toggleRef.current(first);
+        // toggleRef.current(first);
       } else if (count > 1) {
         openPopup(feature);
       }
@@ -145,9 +125,6 @@ export function useMapPopupHandler(
       map,
       popups,
       activeCategories,
-      bookmarks,
-      bookmarkedIds,
-      toggleBookmark,
     });
-  }, [popups, activeCategories, bookmarks, bookmarkedIds, toggleBookmark, map]);
+  }, [popups, activeCategories, map]);
 }

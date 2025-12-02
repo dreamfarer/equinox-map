@@ -31,9 +31,8 @@ function emptyFilter(): ExpressionSpecification {
  */
 export function computeFilteredMarkersAndExpression(
   enabled: Record<TCategory, boolean>,
-  bookmarkedIds: string[] | null,
+  ignoredMarkerIds: string[],
   popups: TPopups,
-  bookmarksOnly: boolean
 ): {
   filtered: TPopups;
   expression: ExpressionSpecification | null;
@@ -42,35 +41,13 @@ export function computeFilteredMarkersAndExpression(
   const activeCategories = categories.filter((cat) => enabled[cat]);
   const activeSet = new Set(activeCategories);
 
-  const bookmarkedIdSet =
-    bookmarkedIds && bookmarkedIds.length > 0
-      ? new Set(bookmarkedIds.map((b) => b.split('::')[0]))
+  const ignoredMarkerIdsSet =
+    ignoredMarkerIds && ignoredMarkerIds.length > 0
+      ? new Set(ignoredMarkerIds.map((b) => b.split('::')[0]))
       : null;
 
-  if (bookmarksOnly && !bookmarkedIdSet) {
-    return { filtered: {}, expression: emptyFilter(), activeCategories: [] };
-  }
-
-  if (bookmarksOnly && bookmarkedIdSet) {
-    const filtered: TPopups = Object.fromEntries(
-      Object.entries(popups).filter(([markerId]) =>
-        bookmarkedIdSet.has(markerId)
-      )
-    );
-
-    return {
-      filtered,
-      expression: [
-        'in',
-        ['get', 'id'],
-        ['literal', Array.from(bookmarkedIdSet)],
-      ],
-      activeCategories: [],
-    };
-  }
-
   if (
-    (bookmarkedIds && bookmarkedIds.length === 0) ||
+    (ignoredMarkerIds && ignoredMarkerIds.length === 0) ||
     activeCategories.length === 0
   ) {
     return { filtered: {}, expression: emptyFilter(), activeCategories: [] };
@@ -81,7 +58,7 @@ export function computeFilteredMarkersAndExpression(
       const hasActiveCategory = Object.keys(categoryPayloads).some((cat) =>
         activeSet.has(cat as TCategory)
       );
-      const isBookmarked = !bookmarkedIdSet || bookmarkedIdSet.has(markerId);
+      const isBookmarked = !ignoredMarkerIdsSet || ignoredMarkerIdsSet.has(markerId);
       return hasActiveCategory && isBookmarked;
     })
   );
@@ -98,8 +75,8 @@ export function computeFilteredMarkersAndExpression(
         ];
 
   const idExpression: ExpressionSpecification | null =
-    bookmarkedIdSet !== null
-      ? ['in', ['get', 'id'], ['literal', Array.from(bookmarkedIdSet)]]
+    ignoredMarkerIdsSet !== null
+      ? ['in', ['get', 'id'], ['literal', Array.from(ignoredMarkerIdsSet)]]
       : null;
 
   let expression: ExpressionSpecification | null = null;

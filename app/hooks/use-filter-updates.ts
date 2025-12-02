@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 export function useFilterUpdates(
   map: Map | null,
   enabled: Record<TCategory, boolean>,
-  bookmarkedIds: string[] | null,
   popups: TPopups,
   isBookmarksMenu: boolean,
   onUpdate?: (result: {
@@ -25,9 +24,8 @@ export function useFilterUpdates(
 
     const result = computeFilteredMarkersAndExpression(
       enabled,
-      bookmarkedIds,
+      [], // TODO: Give ignored marker ids
       popups,
-      isBookmarksMenu
     );
 
     onUpdate?.(result);
@@ -42,5 +40,5 @@ export function useFilterUpdates(
         map.setFilter('markers-layer', result.expression);
       }
     });
-  }, [map, enabled, bookmarkedIds, popups, isBookmarksMenu, onUpdate]);
+  }, [map, enabled, popups, isBookmarksMenu, onUpdate]);
 }

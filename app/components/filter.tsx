@@ -9,7 +9,6 @@ import { categoryGroups } from './filter/config';
 import Results from './filter/results';
 import Menu from './menu';
 import { usePopupContext } from '../context/popup-context';
-import { useBookmarkContext } from '../context/bookmark-context';
 import { useFlyToMarker } from '../hooks/use-fly-to-marker';
 import { useMapContext } from '../context/map-context';
 
@@ -25,8 +24,6 @@ const Filter: NextPage = () => {
   const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
   const { mapInstance } = useMapContext();
   const { markers } = useMarkerContext();
-  const { bookmarkIds, toggleBookmark, toggleBookmarks, categoryBookmarkMap } =
-    useBookmarkContext();
   const { popups } = usePopupContext();
   const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
   const [query, setQuery] = useState('');
@@ -81,26 +78,10 @@ const Filter: NextPage = () => {
             };
 
             const entries = group.entries.map(({ label, id }) => {
-              const entryBookmarkIds = categoryBookmarkMap[id] || [];
-
-              let bookmarkState: 'none' | 'partial' | 'full' = 'none';
-              if (entryBookmarkIds.length > 0) {
-                const count = entryBookmarkIds.filter((bid) =>
-                  bookmarkIds.includes(bid)
-                ).length;
-                if (count === entryBookmarkIds.length) {
-                  bookmarkState = 'full';
-                } else if (count > 0) {
-                  bookmarkState = 'partial';
-                }
-              }
-
               return {
                 label,
                 isActive: enabledMarkerCategories[id],
                 onToggle: () => toggleMarkerCategory(id),
-                onToggleBookmark: () => toggleBookmarks(id),
-                bookmarkState,
               };
             });
 
@@ -116,13 +97,7 @@ const Filter: NextPage = () => {
           })}
 
         <div className={styles.results}>
-          <Results
-            results={results}
-            bookmarkIds={bookmarkIds}
-            onSelect={flyToMarker}
-            toggleBookmark={toggleBookmark}
-            toggleBookmarks={(ids) => ids.forEach(toggleBookmark)}
-          />
+          <Results results={results} onSelect={flyToMarker} />
           {query && results.length === 0 && (
             <div className={styles.noResult}>No matches. (´•︵•`)</div>
           )}
