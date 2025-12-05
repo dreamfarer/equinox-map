@@ -83,11 +83,7 @@ export function MarkerProvider({ children }: { children: ReactNode }) {
     isBookmarksMenu,
     handleFilterUpdate
   );
-  useMapPopupHandler(
-    mapInstance,
-    filteredPopups,
-    activeCategories
-  );
+  useMapPopupHandler(mapInstance, filteredPopups, activeCategories);
 
   const contextValue = useMemo<TMarkerContext>(
     () => ({
@@ -98,11 +94,7 @@ export function MarkerProvider({ children }: { children: ReactNode }) {
     [enabledMarkerCategories, markers, toggleMarkerCategory]
   );
 
-  return (
-    <MarkerContext value={contextValue}>
-      {children}
-    </MarkerContext>
-  );
+  return <MarkerContext value={contextValue}>{children}</MarkerContext>;
 }
 
 export function useMarkerContext() {

@@ -93,20 +93,11 @@ export class ActivePopup {
     extMap.__activePopupMarkerId = markerId;
   }
 
-  render({
-    feature,
-    popups,
-    activeCategories,
-    map,
-  }: RenderArgs) {
+  render({ feature, popups, activeCategories, map }: RenderArgs) {
     const { id, anchor } = feature.properties;
     const coordinates = feature.geometry.coordinates;
 
-    const categories = getFilteredPopupCategories(
-      id,
-      popups,
-      activeCategories
-    );
+    const categories = getFilteredPopupCategories(id, popups, activeCategories);
     if (!categories || Object.keys(categories).length === 0) return;
 
     const defaultCategory = Object.keys(categories)[0];
@@ -123,10 +114,7 @@ export class ActivePopup {
     );
   }
 
-  update({
-    popups,
-    activeCategories,
-  }: UpdateArgs) {
+  update({ popups, activeCategories }: UpdateArgs) {
     if (!this.root || !this.markerId) return;
 
     const categories = getFilteredPopupCategories(

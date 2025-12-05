@@ -4,14 +4,14 @@ import { DevModeProvider } from '../context/dev-mode-context';
 import { MapProvider } from '../context/map-context';
 import { MarkerProvider } from '../context/marker-context';
 import { PopupProvider } from '../context/popup-context';
-import { IgnoredMarkerProvider } from '@/app/context/ignored-marker-provider';
 import { ReactNode } from 'react';
+import { CollectedMarkerProvider } from '@/app/context/collected-marker-provider';
 
 export default function WithMapLayout({ children }: { children: ReactNode }) {
   return (
     <MapProvider>
       <PopupProvider>
-        <IgnoredMarkerProvider>
+        <CollectedMarkerProvider>
           <MarkerProvider>
             <DevModeProvider>
               <Overlay />
@@ -19,7 +19,7 @@ export default function WithMapLayout({ children }: { children: ReactNode }) {
               {children}
             </DevModeProvider>
           </MarkerProvider>
-        </IgnoredMarkerProvider>
+        </CollectedMarkerProvider>
       </PopupProvider>
     </MapProvider>
   );

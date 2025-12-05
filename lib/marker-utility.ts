@@ -32,7 +32,7 @@ function emptyFilter(): ExpressionSpecification {
 export function computeFilteredMarkersAndExpression(
   enabled: Record<TCategory, boolean>,
   ignoredMarkerIds: string[],
-  popups: TPopups,
+  popups: TPopups
 ): {
   filtered: TPopups;
   expression: ExpressionSpecification | null;
@@ -58,7 +58,8 @@ export function computeFilteredMarkersAndExpression(
       const hasActiveCategory = Object.keys(categoryPayloads).some((cat) =>
         activeSet.has(cat as TCategory)
       );
-      const isBookmarked = !ignoredMarkerIdsSet || ignoredMarkerIdsSet.has(markerId);
+      const isBookmarked =
+        !ignoredMarkerIdsSet || ignoredMarkerIdsSet.has(markerId);
       return hasActiveCategory && isBookmarked;
     })
   );
@@ -79,7 +80,7 @@ export function computeFilteredMarkersAndExpression(
       ? ['in', ['get', 'id'], ['literal', Array.from(ignoredMarkerIdsSet)]]
       : null;
 
-  let expression: ExpressionSpecification | null = null;
+  let expression: ExpressionSpecification | null;
   if (categoryExpression && idExpression) {
     expression = ['all', categoryExpression, idExpression];
   } else {

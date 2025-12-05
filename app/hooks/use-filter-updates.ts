@@ -25,7 +25,7 @@ export function useFilterUpdates(
     const result = computeFilteredMarkersAndExpression(
       enabled,
       [], // TODO: Give ignored marker ids
-      popups,
+      popups
     );
 
     onUpdate?.(result);

@@ -9,11 +9,7 @@ type Props = {
   initialCategory?: string;
 };
 
-export default function Popup({
-  id,
-  categories,
-  initialCategory,
-}: Props) {
+export default function Popup({ id, categories, initialCategory }: Props) {
   const categoryKeys = Object.keys(categories);
   const [activeCategory, setActiveCategory] = useState(
     initialCategory && categoryKeys.includes(initialCategory)

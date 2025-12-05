@@ -17,7 +17,7 @@ const activePopup = new ActivePopup();
 export function useMapPopupHandler(
   map: Map | null,
   popups: TPopups,
-  activeCategories: TCategory[],
+  activeCategories: TCategory[]
 ) {
   const popupsRef = useRef(popups);
   const activeCategoriesRef = useRef(activeCategories);
