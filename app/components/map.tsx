@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import maplibregl, { Marker } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './map.module.css';
-import { useDevMode } from '../context/dev-mode-context';
 import { TMarkerDev } from '@/types/marker-dev';
 import {
   convertToUnit,
@@ -12,10 +11,11 @@ import {
   remToPx,
 } from '@/lib/convert';
 import { useMapContext } from '../context/map-context';
+import { useDevModeContext } from '@/app/context/dev-mode-context';
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const { isDevMode } = useDevMode();
+  const { isDevMode } = useDevModeContext();
   const { mapMetadata, setMapInstance, activeMap } = useMapContext();
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 

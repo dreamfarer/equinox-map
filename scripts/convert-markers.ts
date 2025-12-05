@@ -3,7 +3,7 @@ import path from 'path';
 import { randomUUID, createHash } from 'crypto';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
-import { convertToLngLat } from '../lib/convert';
+import { convertToLngLat } from '@/lib/convert';
 import { MapMetadata } from '@/types/map-metadata';
 
 type MetaEntry = {
@@ -30,7 +30,7 @@ let cachedMapJson: Record<string, MapMetadata> | null = null;
 
 async function loadMapJson(): Promise<Record<string, MapMetadata> | null> {
   if (!cachedMapJson) {
-    const publicDir = path.resolve(__dirname, '../public');
+    const publicDir = path.resolve(__dirname, '../data');
     const json = await fs.readFile(path.join(publicDir, 'maps.json'), 'utf8');
     cachedMapJson = JSON.parse(json);
   }
