@@ -8,7 +8,7 @@
     "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
     "build:move": "ts-node --project tsconfig.scripts.json --transpile-only scripts/move-markers.ts",
     "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
-    "build": "npm run build:convert && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"{app,lib,scripts,types}/**/*.{js,jsx,ts,tsx,json,md}\""
