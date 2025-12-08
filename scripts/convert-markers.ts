@@ -2,9 +2,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import { randomUUID, createHash } from 'crypto';
 import { TPopups } from '@/types/popup';
-import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '@/lib/convert';
 import { MapMetadata } from '@/types/map-metadata';
+import { TMarkerFeatureProperties } from '@/types/marker';
 
 type MetaEntry = {
   category: string;
@@ -196,7 +196,7 @@ function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
 
 async function writeOutput(publicDir: string, geojson: any, popups: TPopups) {
   await fs.writeFile(
-    path.join(publicDir, 'markers/markers.geojson'),
+    path.join(publicDir, 'markers/markers.json'),
     JSON.stringify(geojson)
   );
   await fs.writeFile(

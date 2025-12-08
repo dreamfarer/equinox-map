@@ -6,11 +6,10 @@ import {
   createCategoriesKey,
   getFilteredPopupCategories,
 } from '@/lib/popup-utility';
-import { TMarkerFeature } from '@/types/marker-feature';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
-import { TBookmarkId } from '@/types/bookmark';
 import { ExtendedMap } from '@/types/extended-map';
 import { TCategory } from '@/types/category';
+import { TMarkerFeature } from '@/types/marker';
 
 interface RenderArgs {
   feature: TMarkerFeature;
@@ -23,15 +22,6 @@ interface UpdateArgs {
   map: maplibregl.Map;
   popups: TPopups;
   activeCategories: TCategory[];
-}
-
-export function getBookmarkedItemIds(
-  markerId: string,
-  bookmarks: TBookmarkId[]
-): string[] {
-  return bookmarks
-    .filter((b) => b.startsWith(`${markerId}::`))
-    .map((b) => b.split('::').slice(1).join('::'));
 }
 
 export class ActivePopup {
@@ -54,7 +44,7 @@ export class ActivePopup {
   private internalRender(
     map: maplibregl.Map,
     markerId: string,
-    coordinates: [number, number],
+    coordinates: number[],
     anchor: string,
     categories: TCategoryPayloads,
     initialCategory: string
@@ -78,7 +68,7 @@ export class ActivePopup {
       offset: calculatePopupOffset(anchor as 'center' | 'bottom') as Offset,
     })
       .setDOMContent(container)
-      .setLngLat(coordinates)
+      .setLngLat([coordinates[0], coordinates[1]])
       .addTo(map);
 
     popupInstance.on('close', () => this.remove());

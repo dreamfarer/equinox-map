@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Map } from 'maplibre-gl';
 import { ExtendedMap } from '@/types/extended-map';
 import { TPopups } from '@/types/popup';
-import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
+import { TMarkerFeatureCollection } from '@/types/marker';
 
 export function useFlyToMarker(
   map: Map | null,

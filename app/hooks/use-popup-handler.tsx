@@ -2,11 +2,11 @@
 import { useEffect, useRef } from 'react';
 import { Map } from 'maplibre-gl';
 import { TBookmarkId } from '@/types/bookmark';
-import { TMarkerFeature } from '@/types/marker-feature';
 import { TCategory } from '@/types/category';
 import { TPopups } from '@/types/popup';
 import { ActivePopup } from './active-popup';
 import { getFilteredPopupCategories } from '@/lib/popup-utility';
+import { TMarkerFeature } from '@/types/marker';
 
 const MARKERS_LAYER = 'markers-layer';
 const LONG_PRESS_MS = 400;
