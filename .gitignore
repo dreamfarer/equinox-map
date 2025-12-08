@@ -40,8 +40,8 @@ next-env.d.ts
 
 # user-defined
 tiles/
-public/markers/markers.geojson
-public/markers/popups.json
+data/markers.json
+data/popups.json
 
 # editor
 .idea

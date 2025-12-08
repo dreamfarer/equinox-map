@@ -32,3 +32,4 @@ export const categories = [
 ] as const;
 
 export type TCategory = (typeof categories)[number];
+export type TActiveCategories = Record<TCategory, boolean>;

@@ -6,11 +6,8 @@ import Searchbar from './filter/searchbar';
 import { useState, useMemo } from 'react';
 import { useMarkerContext } from '../context/marker-context';
 import { categoryGroups } from './filter/config';
-import Results from './filter/results';
 import Menu from './menu';
 import { usePopupContext } from '../context/popup-context';
-import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { useMapContext } from '../context/map-context';
 
 type MarkerSearchResult = {
   markerId: string;
@@ -21,11 +18,9 @@ type MarkerSearchResult = {
 };
 
 const Filter: NextPage = () => {
-  const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
-  const { mapInstance } = useMapContext();
-  const { markers } = useMarkerContext();
+  const { activeCategories, toggleCategory } = useMarkerContext();
   const { popups } = usePopupContext();
-  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
+  // const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
   const [query, setQuery] = useState('');
 
   const results = useMemo((): MarkerSearchResult[] => {
@@ -64,15 +59,15 @@ const Filter: NextPage = () => {
         {!query.trim() &&
           categoryGroups.map((group) => {
             const isActive = group.entries.some(
-              ({ id }) => enabledMarkerCategories[id]
+              ({ id }) => activeCategories[id]
             );
             const toggleAll = () => {
               const anyActive = group.entries.some(
-                ({ id }) => enabledMarkerCategories[id]
+                ({ id }) => activeCategories[id]
               );
               group.entries.forEach(({ id }) => {
-                if (enabledMarkerCategories[id] === anyActive) {
-                  toggleMarkerCategory(id);
+                if (activeCategories[id] === anyActive) {
+                  toggleCategory(id);
                 }
               });
             };
@@ -80,8 +75,8 @@ const Filter: NextPage = () => {
             const entries = group.entries.map(({ label, id }) => {
               return {
                 label,
-                isActive: enabledMarkerCategories[id],
-                onToggle: () => toggleMarkerCategory(id),
+                isActive: activeCategories[id],
+                onToggle: () => toggleCategory(id),
               };
             });
 
@@ -96,12 +91,13 @@ const Filter: NextPage = () => {
             );
           })}
 
-        <div className={styles.results}>
+        {/* comment <div className={styles.results}>
           <Results results={results} onSelect={flyToMarker} />
           {query && results.length === 0 && (
             <div className={styles.noResult}>No matches. (´•︵•`)</div>
           )}
         </div>
+        */}
       </div>
     </Menu>
   );

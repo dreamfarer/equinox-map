@@ -1,15 +1,8 @@
 import { ExpressionSpecification, Map } from 'maplibre-gl';
 import { ExtendedMap } from '@/types/extended-map';
-import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
+import { TMarkerFeatureCollection } from '@/types/marker';
 import { TPopups } from '@/types/popup';
 import { categories, TCategory } from '@/types/category';
-
-/**
- * Load the raw markers as GeoJSON for MapLibre.
- */
-export async function loadMarkers(): Promise<TMarkerFeatureCollection> {
-  return fetch('/markers/markers.geojson').then((r) => r.json());
-}
 
 /**
  * Load marker icons.

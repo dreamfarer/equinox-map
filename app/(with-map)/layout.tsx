@@ -1,26 +1,30 @@
-import MapWrapper from '../components/map-wrapper';
-import Overlay from '../components/overlay';
-import { DevModeProvider } from '../context/dev-mode-context';
-import { MapProvider } from '../context/map-context';
-import { MarkerProvider } from '../context/marker-context';
-import { PopupProvider } from '../context/popup-context';
 import { ReactNode } from 'react';
-import { CollectedMarkerProvider } from '@/app/context/collected-marker-provider';
+import { DevModeContextProvider } from '@/app/provider/dev-mode-context-provider';
+import { MapContextProvider } from '@/app/provider/map-context-provider';
+import MapWrapper from '@/app/components/map-wrapper';
+import { MarkerContextProvider } from '@/app/provider/marker-provider';
+import mapsJson from '@/data/maps.json';
+import markersJson from '@/data/markers.json';
+import popupsJson from '@/data/popups.json';
+import type { MapMetadataRecord } from '@/types/map-metadata';
+import { TMarkerFeatureCollection } from '@/types/marker';
+import { TPopups } from '@/types/popup';
+import { PopupProvider } from '@/app/context/popup-context';
+const mapMetadata: MapMetadataRecord = mapsJson;
+const markers = markersJson as TMarkerFeatureCollection;
+const popups: TPopups = popupsJson
 
 export default function WithMapLayout({ children }: { children: ReactNode }) {
   return (
-    <MapProvider>
+    <MapContextProvider mapMetadata={mapMetadata}>
       <PopupProvider>
-        <CollectedMarkerProvider>
-          <MarkerProvider>
-            <DevModeProvider>
-              <Overlay />
+          <MarkerContextProvider markers={markers} popups={popups}>
+            <DevModeContextProvider>
               <MapWrapper />
               {children}
-            </DevModeProvider>
-          </MarkerProvider>
-        </CollectedMarkerProvider>
+            </DevModeContextProvider>
+          </MarkerContextProvider>
       </PopupProvider>
-    </MapProvider>
+    </MapContextProvider>
   );
 }
