@@ -11,7 +11,7 @@
         "build": "npm run build:convert && next build",
         "start": "next start",
         "lint": "next lint",
-        "format": "prettier --write \"{app,lib,scripts,types}/**/*.{js,jsx,ts,tsx,json,md}\""
+        "format": "prettier --write ."
     },
     "dependencies": {
         "@phosphor-icons/react": "2.1.10",
