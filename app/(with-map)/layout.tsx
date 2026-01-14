@@ -7,23 +7,23 @@ import { MarkerProvider } from '../context/marker-context';
 import { PopupProvider } from '../context/popup-context';
 
 export default function WithMapLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <MapProvider>
-      <PopupProvider>
-        <BookmarkProvider>
-          <MarkerProvider>
-            <DevModeProvider>
-              <Overlay />
-              <MapWrapper />
-              {children}
-            </DevModeProvider>
-          </MarkerProvider>
-        </BookmarkProvider>
-      </PopupProvider>
-    </MapProvider>
-  );
+    return (
+        <MapProvider>
+            <PopupProvider>
+                <BookmarkProvider>
+                    <MarkerProvider>
+                        <DevModeProvider>
+                            <Overlay />
+                            <MapWrapper />
+                            {children}
+                        </DevModeProvider>
+                    </MarkerProvider>
+                </BookmarkProvider>
+            </PopupProvider>
+        </MapProvider>
+    );
 }

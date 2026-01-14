@@ -1,18 +1,18 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: '/filter',
-  },
-  openGraph: {
-    url: '/filter',
-  },
+    alternates: {
+        canonical: '/filter',
+    },
+    openGraph: {
+        url: '/filter',
+    },
 };
 
 export default function FilterLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return <>{children}</>;
+    return <>{children}</>;
 }

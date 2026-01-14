@@ -1,27 +1,27 @@
 .searchBar {
-  align-self: stretch;
-  height: 2.5rem;
-  background-color: var(--accent-dark);
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0 var(--padding-mini);
-  box-sizing: border-box;
+    align-self: stretch;
+    height: 2.5rem;
+    background-color: var(--accent-dark);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--padding-mini);
+    box-sizing: border-box;
 }
 
 .input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  font-size: var(--font-size-title);
-  outline: none;
-  color: var(--text-dark);
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: var(--font-size-title);
+    outline: none;
+    color: var(--text-dark);
 }
 
 .input::placeholder {
-  color: var(--text-dark);
-  opacity: 0.6;
+    color: var(--text-dark);
+    opacity: 0.6;
 }

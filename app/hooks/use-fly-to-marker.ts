@@ -5,36 +5,36 @@ import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 
 export function useFlyToMarker(
-  map: Map | null,
-  popups: TPopups,
-  markers: TMarkerFeatureCollection | null
+    map: Map | null,
+    popups: TPopups,
+    markers: TMarkerFeatureCollection | null
 ) {
-  return useCallback(
-    (markerId: string, categoryId?: string) => {
-      if (!map || !markers) return;
+    return useCallback(
+        (markerId: string, categoryId?: string) => {
+            if (!map || !markers) return;
 
-      const markerData = popups[markerId];
-      const feature = markers.features.find(
-        (f) => f.properties.id === markerId
-      );
+            const markerData = popups[markerId];
+            const feature = markers.features.find(
+                (f) => f.properties.id === markerId
+            );
 
-      if (!markerData || !feature) return;
+            if (!markerData || !feature) return;
 
-      const [lng, lat] = feature.geometry.coordinates;
+            const [lng, lat] = feature.geometry.coordinates;
 
-      const extendedMap = map as ExtendedMap;
-      const categoryKeys = Object.keys(markerData);
-      extendedMap.__requestedCategoryForPopup =
-        categoryId && categoryKeys.includes(categoryId)
-          ? categoryId
-          : categoryKeys[0];
+            const extendedMap = map as ExtendedMap;
+            const categoryKeys = Object.keys(markerData);
+            extendedMap.__requestedCategoryForPopup =
+                categoryId && categoryKeys.includes(categoryId)
+                    ? categoryId
+                    : categoryKeys[0];
 
-      extendedMap.flyTo({
-        center: [lng, lat],
-        zoom: 6,
-        essential: true,
-      });
-    },
-    [map, popups, markers]
-  );
+            extendedMap.flyTo({
+                center: [lng, lat],
+                zoom: 6,
+                essential: true,
+            });
+        },
+        [map, popups, markers]
+    );
 }

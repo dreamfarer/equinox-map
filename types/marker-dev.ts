@@ -1,5 +1,5 @@
 export type TMarkerDev = {
-  map: string;
-  x: number;
-  y: number;
+    map: string;
+    x: number;
+    y: number;
 };

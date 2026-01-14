@@ -7,42 +7,43 @@ import { useMenuState } from '../context/menu-state-context';
 import { useBookmarkContext } from '../context/bookmark-context';
 
 export default function Overlay() {
-  const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
-  const { clearBookmarks } = useBookmarkContext();
-  const { activeMenuName } = useMenuState();
+    const { enabledMarkerCategories, toggleMarkerCategory } =
+        useMarkerContext();
+    const { clearBookmarks } = useBookmarkContext();
+    const { activeMenuName } = useMenuState();
 
-  const enableAll = useCallback(() => {
-    (Object.entries(enabledMarkerCategories) as [TCategory, boolean][]).forEach(
-      ([categoryId, isEnabled]) => {
-        if (!isEnabled) toggleMarkerCategory(categoryId);
-      }
+    const enableAll = useCallback(() => {
+        (
+            Object.entries(enabledMarkerCategories) as [TCategory, boolean][]
+        ).forEach(([categoryId, isEnabled]) => {
+            if (!isEnabled) toggleMarkerCategory(categoryId);
+        });
+    }, [enabledMarkerCategories, toggleMarkerCategory]);
+
+    const disableAll = useCallback(() => {
+        (
+            Object.entries(enabledMarkerCategories) as [TCategory, boolean][]
+        ).forEach(([categoryId, isEnabled]) => {
+            if (isEnabled) toggleMarkerCategory(categoryId);
+        });
+    }, [enabledMarkerCategories, toggleMarkerCategory]);
+
+    return (
+        <div className={styles.overlay}>
+            {activeMenuName === 'bookmarks' ? (
+                <button onClick={clearBookmarks} className={styles.button}>
+                    Unbookmark All
+                </button>
+            ) : (
+                <>
+                    <button onClick={enableAll} className={styles.button}>
+                        Enable All
+                    </button>
+                    <button onClick={disableAll} className={styles.button}>
+                        Disable All
+                    </button>
+                </>
+            )}
+        </div>
     );
-  }, [enabledMarkerCategories, toggleMarkerCategory]);
-
-  const disableAll = useCallback(() => {
-    (Object.entries(enabledMarkerCategories) as [TCategory, boolean][]).forEach(
-      ([categoryId, isEnabled]) => {
-        if (isEnabled) toggleMarkerCategory(categoryId);
-      }
-    );
-  }, [enabledMarkerCategories, toggleMarkerCategory]);
-
-  return (
-    <div className={styles.overlay}>
-      {activeMenuName === 'bookmarks' ? (
-        <button onClick={clearBookmarks} className={styles.button}>
-          Unbookmark All
-        </button>
-      ) : (
-        <>
-          <button onClick={enableAll} className={styles.button}>
-            Enable All
-          </button>
-          <button onClick={disableAll} className={styles.button}>
-            Disable All
-          </button>
-        </>
-      )}
-    </div>
-  );
 }
