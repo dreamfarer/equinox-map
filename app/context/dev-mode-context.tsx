@@ -6,6 +6,7 @@ import {
     ReactNode,
     SetStateAction,
     useContext,
+    useMemo,
     useState,
 } from 'react';
 
@@ -21,11 +22,15 @@ const DevModeContext = createContext<DevModeContextValue | undefined>(
 export function DevModeProvider({ children }: { children: ReactNode }) {
     const [isDevMode, setIsDevMode] = useState(false);
 
-    return (
-        <DevModeContext value={{ isDevMode, setIsDevMode }}>
-            {children}
-        </DevModeContext>
+    const contextValue = useMemo<DevModeContextValue>(
+        () => ({
+            isDevMode,
+            setIsDevMode,
+        }),
+        [isDevMode]
     );
+
+    return <DevModeContext value={contextValue}>{children}</DevModeContext>;
 }
 
 export function useDevMode() {
