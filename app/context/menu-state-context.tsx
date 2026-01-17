@@ -1,38 +1,41 @@
 'use client';
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 
-type TMenuStateContext = {
+type MenuStateContextValue = {
     isMenuOpen: boolean;
+    setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
     activeMenuName: string;
-    toggleMenu: () => void;
-    setMenuOpen: (open: boolean) => void;
-    setActiveMenuName: (activeMenuName: string) => void;
+    setActiveMenuName: Dispatch<SetStateAction<string>>;
 };
 
-const MenuStateContext = createContext<TMenuStateContext | null>(null);
+const MenuStateContext = createContext<MenuStateContextValue | undefined>(
+    undefined
+);
 
-export function MenuStateProvider({ children }: { children: React.ReactNode }) {
+export function MenuStateProvider({ children }: { children: ReactNode }) {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
-    const [activeMenuName, SetMenuName] = useState('filter');
+    const [activeMenuName, setActiveMenuName] = useState('filter');
 
-    const contextValue = useMemo<TMenuStateContext>(
+    const contextValue = useMemo<MenuStateContextValue>(
         () => ({
             isMenuOpen,
+            setIsMenuOpen,
             activeMenuName,
-            toggleMenu: () => setIsMenuOpen((v) => !v),
-            setMenuOpen: (v: boolean) => setIsMenuOpen(v),
-            setActiveMenuName: (v: string) => SetMenuName(v),
+            setActiveMenuName,
         }),
         [isMenuOpen, activeMenuName]
     );
 
-    return (
-        <MenuStateContext.Provider value={contextValue}>
-            {children}
-        </MenuStateContext.Provider>
-    );
+    return <MenuStateContext value={contextValue}>{children}</MenuStateContext>;
 }
-
 export function useMenuState() {
     const context = useContext(MenuStateContext);
     if (!context)

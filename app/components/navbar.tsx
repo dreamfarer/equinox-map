@@ -13,7 +13,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function Navbar() {
-    const { isMenuOpen, toggleMenu, setActiveMenuName } = useMenuState();
+    const { isMenuOpen, setIsMenuOpen, setActiveMenuName } = useMenuState();
     const segment = usePathname().split('/').filter(Boolean).pop() ?? 'filter';
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function Navbar() {
 
             <Group>
                 <button
-                    onClick={toggleMenu}
+                    onClick={() => setIsMenuOpen((prev) => !prev)}
                     className={`${styles.caret} ${
                         !isMenuOpen ? styles.inactive : styles.active
                     }`}
