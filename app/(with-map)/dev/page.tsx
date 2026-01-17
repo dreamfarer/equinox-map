@@ -4,10 +4,10 @@ import { useDevMode } from '../../context/dev-mode-context';
 import { useEffect } from 'react';
 
 export default function DevPage() {
-    const { setDevMode } = useDevMode();
+    const { setIsDevMode } = useDevMode();
     useEffect(() => {
-        setDevMode(true);
-        return () => setDevMode(false);
-    }, [setDevMode]);
+        setIsDevMode(true);
+        return () => setIsDevMode(false);
+    });
     return <Filter />;
 }
