@@ -1,29 +1,30 @@
 'use client';
 
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useContext,
+    useState,
+} from 'react';
 
-type DevMode = {
+type DevModeContextValue = {
     isDevMode: boolean;
-    setDevMode: (activate: boolean) => void;
+    setIsDevMode: Dispatch<SetStateAction<boolean>>;
 };
 
-const DevModeContext = createContext<DevMode | null>(null);
+const DevModeContext = createContext<DevModeContextValue | undefined>(
+    undefined
+);
 
-export function DevModeProvider({ children }: { children: React.ReactNode }) {
+export function DevModeProvider({ children }: { children: ReactNode }) {
     const [isDevMode, setIsDevMode] = useState(false);
 
-    const contextValue = useMemo<DevMode>(
-        () => ({
-            isDevMode,
-            setDevMode: (v: boolean) => setIsDevMode(v),
-        }),
-        [isDevMode]
-    );
-
     return (
-        <DevModeContext.Provider value={contextValue}>
+        <DevModeContext value={{ isDevMode, setIsDevMode }}>
             {children}
-        </DevModeContext.Provider>
+        </DevModeContext>
     );
 }
 
