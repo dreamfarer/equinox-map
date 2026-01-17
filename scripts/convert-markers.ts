@@ -30,11 +30,8 @@ let cachedMapJson: Record<string, MapMetadata> | null = null;
 
 async function loadMapJson(): Promise<Record<string, MapMetadata> | null> {
     if (!cachedMapJson) {
-        const publicDir = path.resolve(__dirname, '../public');
-        const json = await fs.readFile(
-            path.join(publicDir, 'maps.json'),
-            'utf8'
-        );
+        const dataDir = path.resolve(__dirname, '../app/data');
+        const json = await fs.readFile(path.join(dataDir, 'maps.json'), 'utf8');
         cachedMapJson = JSON.parse(json);
     }
     return cachedMapJson;
@@ -109,7 +106,7 @@ export async function processDirectMarkers(
         if (m.foreignId || m.x == null || m.y == null || !m.map) continue;
 
         const map = await getMapMetadata(m.map);
-        const [lng, lat] = await convertToLngLat(map, m.x, m.y);
+        const [lng, lat] = convertToLngLat(map, m.x, m.y);
 
         let id =
             m.id?.trim() ||

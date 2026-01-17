@@ -1,11 +1,10 @@
 'use client';
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { loadMapMetadata } from '@/lib/map-utility';
-import { MapMetadataRecord } from '@/types/map-metadata';
-import { Map } from 'maplibre-gl';
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import type { MapMetadataRecord } from '@/types/map-metadata';
+import type { Map } from 'maplibre-gl';
 
-type TMapContext = {
+type MapContextValue = {
     mapInstance: Map | null;
     mapMetadata: MapMetadataRecord | null;
     activeMap: string | null;
@@ -13,23 +12,18 @@ type TMapContext = {
     setActiveMap: (mapName: string) => void;
 };
 
-const MapContext = createContext<TMapContext | null>(null);
+type MapProviderProps = {
+    children: ReactNode;
+    mapMetadata: MapMetadataRecord;
+};
 
-export function MapProvider({ children }: { children: React.ReactNode }) {
+const MapContext = createContext<MapContextValue | undefined>(undefined);
+
+export function MapProvider({ children, mapMetadata }: MapProviderProps) {
     const [mapInstance, setMapInstance] = useState<Map | null>(null);
-    const [activeMap, setActiveMap] = useState<string | null>('greenisland');
-    const [mapMetadata, setMapMetadata] = useState<MapMetadataRecord | null>(
-        null
-    );
+    const [activeMap, setActiveMap] = useState<string>('greenisland');
 
-    useEffect(() => {
-        const load = async () => {
-            setMapMetadata(await loadMapMetadata());
-        };
-        load();
-    }, []);
-
-    const contextValue = useMemo<TMapContext>(
+    const contextValue = useMemo<MapContextValue>(
         () => ({
             mapInstance,
             mapMetadata,
@@ -37,14 +31,10 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
             setMapInstance,
             setActiveMap,
         }),
-        [mapInstance, mapMetadata, activeMap, setMapInstance, setActiveMap]
+        [mapInstance, mapMetadata, activeMap]
     );
 
-    return (
-        <MapContext.Provider value={contextValue}>
-            {children}
-        </MapContext.Provider>
-    );
+    return <MapContext value={contextValue}>{children}</MapContext>;
 }
 
 export function useMapContext() {
