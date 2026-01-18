@@ -7,11 +7,12 @@ import { MapProvider } from '../context/map-context';
 import { MarkerProvider } from '../context/marker-context';
 import { PopupProvider } from '../context/popup-context';
 import mapMetadata from '../data/maps.json';
+import popups from '../data/popups.json';
 
 export default function WithMapLayout({ children }: { children: ReactNode }) {
     return (
         <MapProvider mapMetadata={mapMetadata}>
-            <PopupProvider>
+            <PopupProvider popups={popups}>
                 <BookmarkProvider>
                     <MarkerProvider>
                         <DevModeProvider>

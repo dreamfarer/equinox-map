@@ -201,13 +201,18 @@ function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
     };
 }
 
-async function writeOutput(publicDir: string, geojson: any, popups: TPopups) {
+async function writeOutput(
+    publicDir: string,
+    dataDir: string,
+    geojson: any,
+    popups: TPopups
+) {
     await fs.writeFile(
         path.join(publicDir, 'markers/markers.geojson'),
         JSON.stringify(geojson)
     );
     await fs.writeFile(
-        path.join(publicDir, 'markers/popups.json'),
+        path.join(dataDir, 'popups.json'),
         JSON.stringify(popups)
     );
 
@@ -218,6 +223,7 @@ async function writeOutput(publicDir: string, geojson: any, popups: TPopups) {
 
 async function build() {
     const publicDir = path.resolve(__dirname, '../public');
+    const dataDir = path.resolve(__dirname, '../app/data');
     const meta = await loadMeta(path.join(publicDir, 'meta.json'));
 
     const popups: TPopups = {};
@@ -249,7 +255,7 @@ async function build() {
     processDeferredMarkers(deferred, popups, originalTitles, slugRegistry, geo);
 
     const geojson = buildGeoJSON(geo);
-    await writeOutput(publicDir, geojson, popups);
+    await writeOutput(publicDir, dataDir, geojson, popups);
 }
 
 build().catch((err) => {

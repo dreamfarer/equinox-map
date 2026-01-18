@@ -3,13 +3,6 @@ import { TCategory } from '@/types/category';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
 
 /**
- * Load the popups for the UI.
- */
-export async function loadPopups(): Promise<TPopups> {
-    return fetch('/markers/popups.json').then((r) => r.json());
-}
-
-/**
  * Calculate the popup offset dependent on the anchor.
  */
 export function calculatePopupOffset(

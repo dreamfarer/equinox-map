@@ -1,37 +1,28 @@
 'use client';
 
-import { loadPopups } from '@/lib/popup-utility';
 import { TPopups } from '@/types/popup';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useMemo } from 'react';
 
-type TPopupContext = {
+type PopupContextValue = {
     popups: TPopups;
 };
 
-const PopupContext = createContext<TPopupContext | null>(null);
+type PopupProviderProps = {
+    children: ReactNode;
+    popups: TPopups;
+};
 
-export function PopupProvider({ children }: { children: React.ReactNode }) {
-    const [popups, setPopups] = useState<TPopups>({});
+const PopupContext = createContext<PopupContextValue | undefined>(undefined);
 
-    useEffect(() => {
-        const load = async () => {
-            setPopups(await loadPopups());
-        };
-        load();
-    }, []);
-
-    const contextValue = useMemo<TPopupContext>(
+export function PopupProvider({ children, popups }: PopupProviderProps) {
+    const contextValue = useMemo<PopupContextValue>(
         () => ({
             popups,
         }),
         [popups]
     );
 
-    return (
-        <PopupContext.Provider value={contextValue}>
-            {children}
-        </PopupContext.Provider>
-    );
+    return <PopupContext value={contextValue}>{children}</PopupContext>;
 }
 
 export function usePopupContext() {
