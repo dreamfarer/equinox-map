@@ -6,8 +6,8 @@ import type { Map } from 'maplibre-gl';
 
 type MapContextValue = {
     mapInstance: Map | null;
-    mapMetadata: MapMetadataRecord | null;
-    activeMap: string | null;
+    mapMetadata: MapMetadataRecord;
+    activeMap: string;
     setMapInstance: (map: Map) => void;
     setActiveMap: (mapName: string) => void;
 };
