@@ -20,6 +20,7 @@ import { useBookmarkContext } from './bookmark-context';
 import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
 import { ExpressionSpecification } from 'maplibre-gl';
 import { useMenuState } from './menu-state-context';
+import { usePopupEventRegister } from '@/app/hooks/use-popup-event-register';
 
 type TMarkerContext = {
     enabledMarkerCategories: Record<TCategory, boolean>;
@@ -88,6 +89,8 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
         isBookmarksMenu,
         handleFilterUpdate
     );
+    usePopupEventRegister();
+    /*
     useMapPopupHandler(
         mapInstance,
         filteredPopups,
@@ -96,6 +99,7 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
         activeCategories,
         bookmarkedMarkerIds
     );
+    */
 
     const contextValue = useMemo<TMarkerContext>(
         () => ({
