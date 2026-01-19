@@ -10,7 +10,8 @@
         "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
         "build": "npm run build:convert && next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
         "format": "prettier --write ."
     },
     "dependencies": {
