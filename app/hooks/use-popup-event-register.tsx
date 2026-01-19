@@ -1,14 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useMapContext } from '@/app/context/map-context';
-import { TMarkerFeature } from '@/types/marker-feature';
-import { MapGeoJSONFeature } from 'maplibre-gl';
+import { OpenPopup, useMapContext } from '@/app/context/map-context';
+import type { TMarkerFeature } from '@/types/marker-feature';
+import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
 
-type MarkerLayerEvent = {
-    features?: MapGeoJSONFeature[];
-    preventDefault?: () => void;
-};
+type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
 function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
     if (!event.features?.length) return null;
@@ -16,7 +13,7 @@ function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
 }
 
 export function usePopupEventRegister() {
-    const { mapInstance } = useMapContext();
+    const { mapInstance, setOpenPopup } = useMapContext();
     const longPressTimerIdRef = useRef<number | null>(null);
 
     useEffect(() => {
@@ -33,14 +30,24 @@ export function usePopupEventRegister() {
         const onClick = (event: MarkerLayerEvent) => {
             const feature = extractFeature(event);
             if (!feature) return;
-            // Check if the same popup is already open.
-            // Open popup.
+            const markerId = feature.properties.id as string;
+            const lngLat: [number, number] = feature.geometry.coordinates;
+            setOpenPopup((prev) => {
+                const isSameMarkerOpen = prev?.featureId === markerId;
+                if (isSameMarkerOpen) return null;
+                const newPopup: OpenPopup = {
+                    featureId: markerId,
+                    lngLat,
+                    feature,
+                };
+                return newPopup;
+            });
         };
 
         const onContextMenu = (event: MarkerLayerEvent) => {
             const feature = extractFeature(event);
             if (!feature) return;
-            event.preventDefault?.();
+            event.preventDefault();
             // Toggle collected status.
         };
 
@@ -70,5 +77,5 @@ export function usePopupEventRegister() {
             mapInstance.off('touchend', cancelLongPress);
             mapInstance.off('touchcancel', cancelLongPress);
         };
-    }, [mapInstance]);
+    }, [mapInstance, setOpenPopup]);
 }

@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import maplibregl, { Marker } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -11,12 +12,21 @@ import {
     vhToPx,
     remToPx,
 } from '@/lib/convert';
-import { useMapContext } from '../context/map-context';
+import { useMapContext } from '@/app/context/map-context';
+import ReactPopup from '@/app/components/map/react-popup';
 
 export default function Map() {
     const mapContainer = useRef<HTMLDivElement>(null);
     const { isDevMode } = useDevMode();
-    const { mapMetadata, setMapInstance, activeMap } = useMapContext();
+    const {
+        mapMetadata,
+        setMapInstance,
+        activeMap,
+        mapInstance,
+        openPopup,
+        setOpenPopup,
+    } = useMapContext();
+
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
     useEffect(() => {
@@ -100,7 +110,7 @@ export default function Map() {
                 };
                 const markerJson = JSON.stringify(marker, null, 2) + ',';
                 console.log(markerJson);
-                navigator.clipboard.writeText(markerJson);
+                navigator.clipboard.writeText(markerJson).then();
                 new Marker().setLngLat([lng, lat]).addTo(map);
             });
         }
@@ -112,10 +122,12 @@ export default function Map() {
         setMapInstance(map);
 
         return () => {
+            setOpenPopup(null);
+            setMapInstance(null);
             map.remove();
             ro.disconnect();
         };
-    }, [setMapInstance, isDevMode, mapMetadata, activeMap]);
+    }, [setMapInstance, setOpenPopup, isDevMode, mapMetadata, activeMap]);
 
     return (
         <div className={styles.mapWrapper}>
@@ -148,7 +160,23 @@ export default function Map() {
                     </div>
                 </div>
             )}
+
             <div ref={mapContainer} className={styles.map} />
+
+            {mapInstance && openPopup && (
+                <ReactPopup
+                    map={mapInstance}
+                    lngLat={openPopup.lngLat}
+                    isOpen={true}
+                >
+                    {/* TODO: Replace dummy with real UI */}
+                    <div style={{ minWidth: 220, backgroundColor: 'red' }}>
+                        <div>
+                            <strong>ID:</strong> {openPopup.featureId}
+                        </div>
+                    </div>
+                </ReactPopup>
+            )}
         </div>
     );
 }

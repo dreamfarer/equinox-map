@@ -1,15 +1,32 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import React, {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 import type { MapMetadataRecord } from '@/types/map-metadata';
 import type { Map } from 'maplibre-gl';
+import type { TMarkerFeature } from '@/types/marker-feature';
+
+export type OpenPopup = {
+    featureId: string;
+    lngLat: [number, number];
+    feature: TMarkerFeature;
+} | null;
 
 type MapContextValue = {
     mapInstance: Map | null;
     mapMetadata: MapMetadataRecord;
     activeMap: string;
-    setMapInstance: (map: Map) => void;
+    setMapInstance: (map: Map | null) => void;
     setActiveMap: (mapName: string) => void;
+    openPopup: OpenPopup;
+    setOpenPopup: Dispatch<SetStateAction<OpenPopup>>;
 };
 
 type MapProviderProps = {
@@ -22,6 +39,7 @@ const MapContext = createContext<MapContextValue | undefined>(undefined);
 export function MapProvider({ children, mapMetadata }: MapProviderProps) {
     const [mapInstance, setMapInstance] = useState<Map | null>(null);
     const [activeMap, setActiveMap] = useState<string>('greenisland');
+    const [openPopup, setOpenPopup] = useState<OpenPopup>(null);
 
     const contextValue = useMemo<MapContextValue>(
         () => ({
@@ -30,8 +48,10 @@ export function MapProvider({ children, mapMetadata }: MapProviderProps) {
             activeMap,
             setMapInstance,
             setActiveMap,
+            openPopup,
+            setOpenPopup,
         }),
-        [mapInstance, mapMetadata, activeMap]
+        [mapInstance, mapMetadata, activeMap, openPopup]
     );
 
     return <MapContext value={contextValue}>{children}</MapContext>;
