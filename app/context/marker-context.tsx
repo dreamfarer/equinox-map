@@ -8,18 +8,17 @@ import {
     useEffect,
     useCallback,
 } from 'react';
-import { useFilterUpdates } from '../hooks/use-filter-updates';
+import { ExpressionSpecification } from 'maplibre-gl';
+import { useFilterUpdates } from '@/app/hooks/use-filter-updates';
 import { TPopups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { useMapPopupHandler } from '../hooks/use-popup-handler';
 import { categories, TCategory } from '@/types/category';
-import { useMapContext } from './map-context';
+import { useMapContext } from '@/app/context/map-context';
 import { loadMarkers } from '@/lib/marker-utility';
-import { usePopupContext } from './popup-context';
-import { useBookmarkContext } from './bookmark-context';
-import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
-import { ExpressionSpecification } from 'maplibre-gl';
-import { useMenuState } from './menu-state-context';
+import { usePopupContext } from '@/app/context/popup-context';
+import { useBookmarkContext } from '@/app/context/bookmark-context';
+import { useMarkerLayerSetup } from '@/app/hooks/use-marker-layer-setup';
+import { useMenuState } from '@/app/context/menu-state-context';
 import { usePopupEventRegister } from '@/app/hooks/use-popup-event-register';
 
 type TMarkerContext = {
@@ -90,16 +89,6 @@ export function MarkerProvider({ children }: { children: React.ReactNode }) {
         handleFilterUpdate
     );
     usePopupEventRegister();
-    /*
-    useMapPopupHandler(
-        mapInstance,
-        filteredPopups,
-        bookmarkIds,
-        toggleBookmark,
-        activeCategories,
-        bookmarkedMarkerIds
-    );
-    */
 
     const contextValue = useMemo<TMarkerContext>(
         () => ({

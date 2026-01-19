@@ -1,3 +1,5 @@
+import { ExpressionSpecification, Map } from 'maplibre-gl';
+import { useEffect } from 'react';
 import {
     computeFilteredMarkersAndExpression,
     safelyRemovePopup,
@@ -5,8 +7,6 @@ import {
 import { TCategory } from '@/types/category';
 import { ExtendedMap } from '@/types/extended-map';
 import { TPopups } from '@/types/popup';
-import { ExpressionSpecification, Map } from 'maplibre-gl';
-import { useEffect } from 'react';
 
 export function useFilterUpdates(
     map: Map | null,

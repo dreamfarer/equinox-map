@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './group.module.css';
+import styles from '@/app/components/navbar/group.module.css';
 
 interface Props {
     children: React.ReactNode;

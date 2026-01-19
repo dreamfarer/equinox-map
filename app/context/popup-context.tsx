@@ -1,7 +1,7 @@
 'use client';
 
-import { TPopups } from '@/types/popup';
 import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { TPopups } from '@/types/popup';
 
 type PopupContextValue = {
     popups: TPopups;

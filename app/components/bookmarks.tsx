@@ -1,13 +1,14 @@
 'use client';
+
 import type { NextPage } from 'next';
-import styles from './filter.module.css';
-import { useMarkerContext } from '../context/marker-context';
-import Results from './filter/results';
-import Menu from './menu';
-import { useBookmarkContext } from '../context/bookmark-context';
-import { usePopupContext } from '../context/popup-context';
-import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { useMapContext } from '../context/map-context';
+import styles from '@/app/components/filter.module.css';
+import { useMarkerContext } from '@/app/context/marker-context';
+import Results from '@/app/components/filter/results';
+import Menu from '@/app/components/menu';
+import { useBookmarkContext } from '@/app/context/bookmark-context';
+import { usePopupContext } from '@/app/context/popup-context';
+import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
+import { useMapContext } from '@/app/context/map-context';
 
 const Bookmarks: NextPage = () => {
     const { mapInstance } = useMapContext();

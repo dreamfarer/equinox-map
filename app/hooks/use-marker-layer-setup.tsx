@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect } from 'react';
 import { Map } from 'maplibre-gl';
 import { loadIcon } from '@/lib/marker-utility';

@@ -1,4 +1,4 @@
-import Result from './result';
+import Result from '@/app/components/filter/result';
 
 type MarkerSearchResult = {
     markerId: string;

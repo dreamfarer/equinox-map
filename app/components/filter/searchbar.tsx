@@ -1,18 +1,19 @@
 'use client';
+
 import { useState, ChangeEvent } from 'react';
-import styles from './searchbar.module.css';
+import styles from '@/app/components/filter/searchbar.module.css';
 
 type Props = {
-    onSearch: (query: string) => void;
+    onSearchAction: (query: string) => void;
 };
 
-export default function Searchbar({ onSearch }: Props) {
+export default function Searchbar({ onSearchAction }: Props) {
     const [query, setQuery] = useState('');
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setQuery(value);
-        onSearch(value);
+        onSearchAction(value);
     };
 
     return (

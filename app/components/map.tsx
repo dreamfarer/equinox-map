@@ -1,10 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import maplibregl, { Marker } from 'maplibre-gl';
-import 'maplibre-gl/dist/maplibre-gl.css';
-import styles from './map.module.css';
-import { useDevMode } from '../context/dev-mode-context';
+import { Map as MapLibreMap, Marker } from 'maplibre-gl';
+import { useDevMode } from '@/app/context/dev-mode-context';
 import { TMarkerDev } from '@/types/marker-dev';
 import {
     convertToUnit,
@@ -14,6 +12,8 @@ import {
 } from '@/lib/convert';
 import { useMapContext } from '@/app/context/map-context';
 import ReactPopup from '@/app/components/map/react-popup';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import styles from '@/app/components/map.module.css';
 
 export default function Map() {
     const mapContainer = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ export default function Map() {
         const bounds = getMapBoundsLatLng(meta);
         let wasMobile = mapContainer.current.offsetWidth < 768;
 
-        const map = new maplibregl.Map({
+        const map = new MapLibreMap({
             container: mapContainer.current,
             style: {
                 version: 8,

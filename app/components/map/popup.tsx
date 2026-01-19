@@ -1,9 +1,9 @@
 import { BookmarkSimpleIcon } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
-import styles from './popup.module.css';
 import { TCategoryPayloads } from '@/types/popup';
 import { TBookmarkId } from '@/types/bookmark';
-import Dropdown from '../dropdown';
+import Dropdown from '@/app/components/dropdown';
+import styles from '@/app/styles/popup.module.css';
 
 type Props = {
     id: string;

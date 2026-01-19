@@ -1,5 +1,5 @@
-import styles from './entry.module.css';
 import { BookmarkSimpleIcon } from '@phosphor-icons/react';
+import styles from '@/app/components/filter/category/entry.module.css';
 
 type Props = {
     label: string;

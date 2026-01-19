@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
 import { OpenPopup, useMapContext } from '@/app/context/map-context';
 import type { TMarkerFeature } from '@/types/marker-feature';
-import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 

@@ -1,16 +1,17 @@
 'use client';
+
 import Image from 'next/image';
-import styles from './navbar.module.css';
-import Group from './navbar/group';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import Link from 'next/link';
+import Group from '@/app/components/navbar/group';
+import { useMenuState } from '@/app/context/menu-state-context';
 import {
     ListDashesIcon,
     BookmarkSimpleIcon,
     CaretLeftIcon,
 } from '@phosphor-icons/react';
-import Link from 'next/link';
-import { useMenuState } from '../context/menu-state-context';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import styles from '@/app/components/navbar.module.css';
 
 export default function Navbar() {
     const { isMenuOpen, setIsMenuOpen, setActiveMenuName } = useMenuState();

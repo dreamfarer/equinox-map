@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
     title: 'Development',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function DevelopmentLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     return <>{children}</>;
 }

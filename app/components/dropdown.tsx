@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { CaretDownIcon } from '@phosphor-icons/react';
-import styles from './dropdown.module.css';
+import styles from '@/app/components/dropdown.module.css';
 
 type Props = {
     options: string[];

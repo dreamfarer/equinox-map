@@ -1,6 +1,6 @@
 'use client';
 
-import React, {
+import {
     createContext,
     Dispatch,
     ReactNode,
@@ -9,8 +9,8 @@ import React, {
     useMemo,
     useState,
 } from 'react';
-import type { MapMetadataRecord } from '@/types/map-metadata';
 import type { Map } from 'maplibre-gl';
+import type { MapMetadataRecord } from '@/types/map-metadata';
 import type { TMarkerFeature } from '@/types/marker-feature';
 
 export type OpenPopup = {

@@ -1,7 +1,8 @@
-import './global.css';
-import Navbar from './components/navbar';
-import { MenuStateProvider } from './context/menu-state-context';
 import { Metadata } from 'next';
+import { ReactNode } from 'react';
+import '@/app/global.css';
+import Navbar from '@/app/components/navbar';
+import { MenuStateProvider } from '@/app/context/menu-state-context';
 
 export const viewport = {
     width: 'device-width',
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     return (
         <html lang="en">

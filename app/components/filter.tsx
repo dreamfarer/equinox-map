@@ -1,17 +1,18 @@
 'use client';
+
 import type { NextPage } from 'next';
-import styles from './filter.module.css';
-import Category from './filter/category';
-import Searchbar from './filter/searchbar';
 import { useState, useMemo } from 'react';
-import { useMarkerContext } from '../context/marker-context';
-import { categoryGroups } from './filter/config';
-import Results from './filter/results';
-import Menu from './menu';
-import { usePopupContext } from '../context/popup-context';
-import { useBookmarkContext } from '../context/bookmark-context';
-import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { useMapContext } from '../context/map-context';
+import Category from '@/app/components/filter/category';
+import Searchbar from '@/app/components/filter/searchbar';
+import { useMarkerContext } from '@/app/context/marker-context';
+import { categoryGroups } from '@/app/components/filter/config';
+import Results from '@/app/components/filter/results';
+import Menu from '@/app/components/menu';
+import { usePopupContext } from '@/app/context/popup-context';
+import { useBookmarkContext } from '@/app/context/bookmark-context';
+import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
+import { useMapContext } from '@/app/context/map-context';
+import styles from '@/app/components/filter.module.css';
 
 type MarkerSearchResult = {
     markerId: string;
@@ -66,7 +67,7 @@ const Filter: NextPage = () => {
     return (
         <Menu>
             <div className={styles.header}>
-                <Searchbar onSearch={setQuery} />
+                <Searchbar onSearchAction={setQuery} />
             </div>
             <div className={styles.scrollArea}>
                 {!query.trim() &&

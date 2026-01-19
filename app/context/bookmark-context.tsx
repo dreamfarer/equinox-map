@@ -14,8 +14,8 @@ import {
     loadBookmarks,
     saveBookmarks,
 } from '@/lib/bookmark-utility';
-import { useMenuState } from './menu-state-context';
-import { usePopupContext } from './popup-context';
+import { useMenuState } from '@/app/context/menu-state-context';
+import { usePopupContext } from '@/app/context/popup-context';
 
 type TBookmarkContext = {
     bookmarkIds: TBookmarkId[];

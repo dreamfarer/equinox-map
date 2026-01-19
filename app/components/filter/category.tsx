@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import styles from './category.module.css';
 import { BookmarkSimpleIcon, CaretUpIcon } from '@phosphor-icons/react';
-import Entry from './category/entry';
+import styles from '@/app/components/filter/category.module.css';
+import Entry from '@/app/components/filter/category/entry';
 
 type EntryType = {
     label: string;

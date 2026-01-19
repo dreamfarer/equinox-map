@@ -1,10 +1,11 @@
 'use client';
+
 import { useCallback } from 'react';
-import { useMarkerContext } from '../context/marker-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 import type { TCategory } from '@/types/category';
-import styles from './overlay.module.css';
-import { useMenuState } from '../context/menu-state-context';
-import { useBookmarkContext } from '../context/bookmark-context';
+import { useMenuState } from '@/app/context/menu-state-context';
+import { useBookmarkContext } from '@/app/context/bookmark-context';
+import styles from '@/app/components/overlay.module.css';
 
 export default function Overlay() {
     const { enabledMarkerCategories, toggleMarkerCategory } =

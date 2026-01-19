@@ -1,11 +1,11 @@
-import maplibregl, { Offset, Popup as MapLibrePopup } from 'maplibre-gl';
 import { Root, createRoot } from 'react-dom/client';
-import Popup from '../components/map/popup';
+import { Map as MapLibreMap, Offset, Popup as MapLibrePopup } from 'maplibre-gl';
+import Popup from '@/app/components/map/popup';
 import {
     calculatePopupOffset,
     createCategoriesKey,
     getFilteredPopupCategories,
-} from '../../lib/popup-utility';
+} from '@/lib/popup-utility';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { TCategoryPayloads, TPopups } from '@/types/popup';
 import { TBookmarkId } from '@/types/bookmark';
@@ -19,11 +19,11 @@ interface RenderArgs {
     activeCategories: TCategory[];
     bookmarks: TBookmarkId[];
     toggleBookmark: (id: TBookmarkId) => void;
-    map: maplibregl.Map;
+    map: MapLibreMap;
 }
 
 interface UpdateArgs {
-    map: maplibregl.Map;
+    map: MapLibreMap;
     popups: TPopups;
     activeCategories: TCategory[];
     bookmarks: TBookmarkId[];
@@ -58,7 +58,7 @@ export class ActivePopup {
     }
 
     private internalRender(
-        map: maplibregl.Map,
+        map: MapLibreMap,
         markerId: string,
         coordinates: [number, number],
         anchor: string,
