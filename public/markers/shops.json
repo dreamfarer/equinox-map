@@ -22,5 +22,9 @@
   {
     "subtitle": "Requires Tokens gained by playing the 'Crown Chase' multiplayer event.",
     "foreignId": "danny"
+  },
+  {
+    "subtitle": "Requires Ribbons gained by completing the weekly Club Challenges.",
+    "foreignId": "valeria"
   }
 ]

@@ -137,6 +137,7 @@ This project wouldn’t be possible without the tireless efforts of the followin
 
 - [**CookieFox**](https://discordapp.com/users/631401395454476298): Reported missing and incorrect locations, helped gather clothing and tack data, and tracked reputation gains for weekly quests initially.
 - [**dreamfarer**](https://github.com/dreamfarer): Leads overall concept, planning, communications, software engineering, DevOps, and data processing.
+- [**Kalyss**](https://discordapp.com/users/395567680888897536): Submitted missing locations.
 - [**Laika**](https://discordapp.com/users/465185463226073109): Created the original resource map in image form.
 - [**lil big guy**](https://discordapp.com/users/323358848184221707): Submitted missing locations.
 - [**Onyx**](https://discordapp.com/users/403687942687686660): Provided the artefact locations.
