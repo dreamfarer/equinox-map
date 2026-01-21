@@ -8,6 +8,7 @@ import { useDevMode } from '@/app/context/dev-mode-context';
 import { useMapContext } from '@/app/context/map-context';
 import { useMapLibreMap } from '@/app/hooks/use-map-libre-map';
 import { useMapLibreMapEventRegister } from '@/app/hooks/use-map-libre-map-event-register';
+import { useMapLibreMapLayerRegister } from '@/app/hooks/use-map-libre-map-layer-register';
 
 export default function Map() {
     const { isDevMode } = useDevMode();
@@ -15,6 +16,7 @@ export default function Map() {
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
     useMapLibreMap();
+    useMapLibreMapLayerRegister();
     useMapLibreMapEventRegister();
 
     return (

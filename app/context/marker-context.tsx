@@ -9,9 +9,7 @@ import {
     ReactNode,
 } from 'react';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { useMapContext } from '@/app/context/map-context';
 import { loadMarkers } from '@/lib/marker-utility';
-import { useMarkerLayerSetup } from '@/app/hooks/use-marker-layer-setup';
 
 type TMarkerContext = {
     markers: TMarkerFeatureCollection | null;
@@ -20,8 +18,6 @@ type TMarkerContext = {
 const MarkerContext = createContext<TMarkerContext | null>(null);
 
 export function MarkerProvider({ children }: { children: ReactNode }) {
-    const { mapInstance } = useMapContext();
-
     const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(
         null
     );
@@ -32,8 +28,6 @@ export function MarkerProvider({ children }: { children: ReactNode }) {
         };
         load();
     }, []);
-
-    useMarkerLayerSetup(mapInstance, markers);
 
     const contextValue = useMemo<TMarkerContext>(
         () => ({

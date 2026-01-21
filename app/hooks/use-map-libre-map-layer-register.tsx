@@ -1,17 +1,17 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Map } from 'maplibre-gl';
 import { loadIcon } from '@/lib/marker-utility';
-import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { TMarkerFeature } from '@/types/marker-feature';
+import { useMapContext } from '@/app/context/map-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 
-export function useMarkerLayerSetup(
-    map: Map | null,
-    markers: TMarkerFeatureCollection | null
-) {
+export function useMapLibreMapLayerRegister() {
+    const { mapInstance } = useMapContext();
+    const { markers } = useMarkerContext();
+
     useEffect(() => {
-        if (!map || !markers) return;
+        if (!mapInstance || !markers) return;
 
         const init = async () => {
             const uniqueIcons: string[] = Array.from(
@@ -24,26 +24,26 @@ export function useMarkerLayerSetup(
 
             await Promise.all(
                 uniqueIcons.map(async (icon) => {
-                    if (!map.hasImage(icon)) {
+                    if (!mapInstance.hasImage(icon)) {
                         const img = await loadIcon(
-                            map,
+                            mapInstance,
                             `/icon/64/${icon}.webp`
                         );
-                        map.addImage(icon, img);
+                        mapInstance.addImage(icon, img);
                     }
                 })
             );
 
-            if (!map.getSource('markers')) {
-                map.addSource('markers', {
+            if (!mapInstance.getSource('markers')) {
+                mapInstance.addSource('markers', {
                     type: 'geojson',
                     data: markers,
                     cluster: false,
                 });
             }
 
-            if (!map.getLayer('markers-layer')) {
-                map.addLayer({
+            if (!mapInstance.getLayer('markers-layer')) {
+                mapInstance.addLayer({
                     id: 'markers-layer',
                     type: 'symbol',
                     source: 'markers',
@@ -61,7 +61,7 @@ export function useMarkerLayerSetup(
             }
         };
 
-        if (map.isStyleLoaded()) init();
-        else map.once('load', init);
-    }, [map, markers]);
+        if (mapInstance.isStyleLoaded()) init().then();
+        else mapInstance.once('load', init);
+    }, [mapInstance, markers]);
 }
