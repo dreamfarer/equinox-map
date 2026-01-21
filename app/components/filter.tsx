@@ -9,7 +9,6 @@ import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';
 import Menu from '@/app/components/menu';
 import { usePopupContext } from '@/app/context/popup-context';
-import { useBookmarkContext } from '@/app/context/bookmark-context';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { useMapContext } from '@/app/context/map-context';
 import { useFilterContext } from '@/app/context/filter-context';
@@ -26,7 +25,6 @@ type MarkerSearchResult = {
 const Filter: NextPage = () => {
     const { mapInstance } = useMapContext();
     const { markers } = useMarkerContext();
-    const { bookmarkIds, toggleBookmark } = useBookmarkContext();
     const { activeCategories, setActiveCategories, toggleActiveCategory } =
         useFilterContext();
     const { popups } = usePopupContext();
@@ -107,13 +105,7 @@ const Filter: NextPage = () => {
                     })}
 
                 <div className={styles.results}>
-                    <Results
-                        results={results}
-                        bookmarkIds={bookmarkIds}
-                        onSelect={flyToMarker}
-                        toggleBookmark={toggleBookmark}
-                        toggleBookmarks={(ids) => ids.forEach(toggleBookmark)}
-                    />
+                    <Results results={results} onSelect={flyToMarker} />
                     {query && results.length === 0 && (
                         <div className={styles.noResult}>
                             No matches. (´•︵•`)

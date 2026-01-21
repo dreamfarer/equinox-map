@@ -2,14 +2,10 @@
 
 import { useCallback } from 'react';
 import { categories } from '@/types/category';
-import { useMenuState } from '@/app/context/menu-state-context';
-import { useBookmarkContext } from '@/app/context/bookmark-context';
 import { useFilterContext } from '@/app/context/filter-context';
 import styles from '@/app/components/overlay.module.css';
 
 export default function Overlay() {
-    const { clearBookmarks } = useBookmarkContext();
-    const { activeMenuName } = useMenuState();
     const { setActiveCategories } = useFilterContext();
 
     const enableAll = useCallback(() => {
@@ -34,20 +30,14 @@ export default function Overlay() {
 
     return (
         <div className={styles.overlay}>
-            {activeMenuName === 'bookmarks' ? (
-                <button onClick={clearBookmarks} className={styles.button}>
-                    Unbookmark All
+            <>
+                <button onClick={enableAll} className={styles.button}>
+                    Enable All
                 </button>
-            ) : (
-                <>
-                    <button onClick={enableAll} className={styles.button}>
-                        Enable All
-                    </button>
-                    <button onClick={disableAll} className={styles.button}>
-                        Disable All
-                    </button>
-                </>
-            )}
+                <button onClick={disableAll} className={styles.button}>
+                    Disable All
+                </button>
+            </>
         </div>
     );
 }

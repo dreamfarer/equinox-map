@@ -6,11 +6,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Group from '@/app/components/navbar/group';
 import { useMenuState } from '@/app/context/menu-state-context';
-import {
-    ListDashesIcon,
-    BookmarkSimpleIcon,
-    CaretLeftIcon,
-} from '@phosphor-icons/react';
+import { ListDashesIcon, CaretLeftIcon } from '@phosphor-icons/react';
 import styles from '@/app/components/navbar.module.css';
 
 export default function Navbar() {
@@ -32,7 +28,6 @@ export default function Navbar() {
                 >
                     <Image loading="lazy" fill alt="Logo" src="/logo.svg" />
                 </Link>
-
                 <Link
                     href="/filter"
                     scroll={false}
@@ -42,19 +37,6 @@ export default function Navbar() {
                     aria-label="Show filter"
                 >
                     <ListDashesIcon size="2em" />
-                </Link>
-
-                <Link
-                    href="/bookmarks"
-                    scroll={false}
-                    className={`${styles.button} ${
-                        segment === 'bookmarks'
-                            ? styles.inactive
-                            : styles.active
-                    }`}
-                    aria-label="Show bookmarks"
-                >
-                    <BookmarkSimpleIcon size="2em" />
                 </Link>
             </Group>
 

@@ -10,19 +10,10 @@ type MarkerSearchResult = {
 
 type Props = {
     results: MarkerSearchResult[];
-    bookmarkIds: string[];
     onSelect: (markerId: string, categoryId: string) => void;
-    toggleBookmark: (id: string) => void;
-    toggleBookmarks: (ids: string[]) => void;
 };
 
-export default function Results({
-    results,
-    bookmarkIds,
-    onSelect,
-    toggleBookmark,
-    toggleBookmarks,
-}: Props) {
+export default function Results({ results, onSelect }: Props) {
     const grouped = new Map<
         string,
         {
@@ -52,35 +43,17 @@ export default function Results({
         <>
             {Array.from(grouped.values()).map(
                 ({ title, category, entries }) => {
-                    const bookmarkIdsForGroup = entries.map(
-                        (e) => `${e.markerId}::${e.categoryId}::${e.itemId}`
-                    );
-
-                    const countBookmarked = bookmarkIdsForGroup.filter((id) =>
-                        bookmarkIds.includes(id)
-                    ).length;
-
-                    const allBookmarked = countBookmarked === entries.length;
-
                     return (
                         <Result
                             key={`${title}::${category}`}
                             title={title}
                             category={category}
                             count={entries.length}
-                            isBookmarked={allBookmarked}
                             onSelect={() =>
                                 onSelect(
                                     entries[0].markerId,
                                     entries[0].categoryId
                                 )
-                            }
-                            onToggleBookmark={() =>
-                                allBookmarked
-                                    ? bookmarkIdsForGroup.forEach(
-                                          toggleBookmark
-                                      )
-                                    : toggleBookmarks(bookmarkIdsForGroup)
                             }
                         />
                     );
