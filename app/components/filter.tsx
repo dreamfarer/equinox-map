@@ -1,7 +1,7 @@
 'use client';
 
 import type { NextPage } from 'next';
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Category from '@/app/components/filter/category';
 import Searchbar from '@/app/components/filter/searchbar';
 import { useMarkerContext } from '@/app/context/marker-context';
@@ -12,6 +12,7 @@ import { usePopupContext } from '@/app/context/popup-context';
 import { useBookmarkContext } from '@/app/context/bookmark-context';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { useMapContext } from '@/app/context/map-context';
+import { useFilterContext } from '@/app/context/filter-context';
 import styles from '@/app/components/filter.module.css';
 
 type MarkerSearchResult = {
@@ -23,16 +24,11 @@ type MarkerSearchResult = {
 };
 
 const Filter: NextPage = () => {
-    const { enabledMarkerCategories, toggleMarkerCategory } =
-        useMarkerContext();
     const { mapInstance } = useMapContext();
     const { markers } = useMarkerContext();
-    const {
-        bookmarkIds,
-        toggleBookmark,
-        toggleBookmarks,
-        categoryBookmarkMap,
-    } = useBookmarkContext();
+    const { bookmarkIds, toggleBookmark } = useBookmarkContext();
+    const { activeCategories, setActiveCategories, toggleActiveCategory } =
+        useFilterContext();
     const { popups } = usePopupContext();
     const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
     const [query, setQuery] = useState('');
@@ -69,54 +65,41 @@ const Filter: NextPage = () => {
             <div className={styles.header}>
                 <Searchbar onSearchAction={setQuery} />
             </div>
+
             <div className={styles.scrollArea}>
                 {!query.trim() &&
                     categoryGroups.map((group) => {
-                        const isActive = group.entries.some(
-                            ({ id }) => enabledMarkerCategories[id]
+                        const anyActive = group.entries.some(
+                            ({ id }) => activeCategories[id]
                         );
+                        const allActive = group.entries.every(
+                            ({ id }) => activeCategories[id]
+                        );
+
                         const toggleAll = () => {
-                            const anyActive = group.entries.some(
-                                ({ id }) => enabledMarkerCategories[id]
-                            );
-                            group.entries.forEach(({ id }) => {
-                                if (enabledMarkerCategories[id] === anyActive) {
-                                    toggleMarkerCategory(id);
+                            setActiveCategories((prev) => {
+                                const next = { ...prev };
+                                const nextValue = !allActive;
+
+                                for (const { id } of group.entries) {
+                                    next[id] = nextValue;
                                 }
+
+                                return next;
                             });
                         };
 
-                        const entries = group.entries.map(({ label, id }) => {
-                            const entryBookmarkIds =
-                                categoryBookmarkMap[id] || [];
-
-                            let bookmarkState: 'none' | 'partial' | 'full' =
-                                'none';
-                            if (entryBookmarkIds.length > 0) {
-                                const count = entryBookmarkIds.filter((bid) =>
-                                    bookmarkIds.includes(bid)
-                                ).length;
-                                if (count === entryBookmarkIds.length) {
-                                    bookmarkState = 'full';
-                                } else if (count > 0) {
-                                    bookmarkState = 'partial';
-                                }
-                            }
-
-                            return {
-                                label,
-                                isActive: enabledMarkerCategories[id],
-                                onToggle: () => toggleMarkerCategory(id),
-                                onToggleBookmark: () => toggleBookmarks(id),
-                                bookmarkState,
-                            };
-                        });
+                        const entries = group.entries.map(({ label, id }) => ({
+                            label,
+                            isActive: !!activeCategories[id],
+                            onToggle: () => toggleActiveCategory(id),
+                        }));
 
                         return (
                             <Category
                                 key={group.title}
                                 title={group.title}
-                                isActive={isActive}
+                                isActive={anyActive}
                                 onToggle={toggleAll}
                                 entries={entries}
                             />

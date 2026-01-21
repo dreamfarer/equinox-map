@@ -1,95 +1,54 @@
-import { BookmarkSimpleIcon } from '@phosphor-icons/react';
-import { useEffect, useState } from 'react';
-import { TCategoryPayloads } from '@/types/popup';
-import { TBookmarkId } from '@/types/bookmark';
 import Dropdown from '@/app/components/dropdown';
-import styles from '@/app/styles/popup.module.css';
+import styles from '@/app/components/map/popup.module.css';
+import { useFilterContext } from '@/app/context/filter-context';
+import { useState } from 'react';
+import { TCategory } from '@/types/category';
+import { usePopupContext } from '@/app/context/popup-context';
 
-type Props = {
-    id: string;
-    categories: TCategoryPayloads;
-    bookmarkedItems: string[];
-    toggleBookmark: (id: TBookmarkId) => void;
-    initialCategory?: string;
-};
+type PopupProps = { featureId: string };
 
-export default function Popup({
-    id,
-    categories,
-    bookmarkedItems,
-    toggleBookmark,
-    initialCategory,
-}: Props) {
-    const categoryKeys = Object.keys(categories);
-    const [activeCategory, setActiveCategory] = useState(
-        initialCategory && categoryKeys.includes(initialCategory)
-            ? initialCategory
-            : categoryKeys[0]
+export default function Popup({ featureId }: PopupProps) {
+    const { activeCategoryList } = useFilterContext();
+    const { popups } = usePopupContext();
+
+    const [shownCategory, setShownCategory] = useState<TCategory | undefined>(
+        activeCategoryList[0]
     );
 
-    useEffect(() => {
-        if (!categoryKeys.includes(activeCategory))
-            setActiveCategory(categoryKeys[0]);
-    }, [categoryKeys, activeCategory]);
+    const itemsById = shownCategory
+        ? popups?.[featureId]?.[shownCategory]
+        : undefined;
 
-    const activeItems = categories[activeCategory] || {};
+    if (!itemsById) return null;
 
     return (
         <div className={styles.popup}>
-            {categoryKeys.length > 1 && (
+            {activeCategoryList.length > 1 && (
                 <Dropdown
-                    options={categoryKeys}
-                    selected={activeCategory}
-                    onSelect={setActiveCategory}
+                    options={activeCategoryList}
+                    selected={shownCategory}
+                    onSelect={setShownCategory}
                 />
             )}
 
             <div className={styles.content}>
                 <div className={styles.scroll}>
-                    {Object.entries(activeItems).map(([itemId, item]) => {
-                        const bookmarkSuffix = `${activeCategory}::${itemId}`;
-                        const bookmarkId: TBookmarkId = `${id}::${bookmarkSuffix}`;
-                        const isBookmarked =
-                            bookmarkedItems.includes(bookmarkSuffix);
-
-                        return (
-                            <div key={itemId} className={styles.item}>
-                                <div className={styles.header}>
-                                    {item.title && (
-                                        <div className={styles.title}>
-                                            {item.title}
-                                        </div>
-                                    )}
-                                    <button
-                                        className={styles.bookmark}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            toggleBookmark(bookmarkId);
-                                        }}
-                                        aria-label={
-                                            isBookmarked
-                                                ? 'Remove bookmark from this item'
-                                                : 'Bookmark this item'
-                                        }
-                                    >
-                                        {isBookmarked ? (
-                                            <BookmarkSimpleIcon
-                                                size="1.5rem"
-                                                weight="fill"
-                                            />
-                                        ) : (
-                                            <BookmarkSimpleIcon size="1.5rem" />
-                                        )}
-                                    </button>
-                                </div>
-                                {item.subtitle && (
-                                    <div className={styles.subtitle}>
-                                        {item.subtitle}
+                    {Object.entries(itemsById).map(([itemId, item]) => (
+                        <div key={itemId} className={styles.item}>
+                            <div className={styles.header}>
+                                {item.title && (
+                                    <div className={styles.title}>
+                                        {item.title}
                                     </div>
                                 )}
                             </div>
-                        );
-                    })}
+                            {item.subtitle && (
+                                <div className={styles.subtitle}>
+                                    {item.subtitle}
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -14,6 +14,8 @@ import { useMapContext } from '@/app/context/map-context';
 import ReactPopup from '@/app/components/map/react-popup';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from '@/app/components/map.module.css';
+import Popup from '@/app/components/map/popup';
+import { useFilterContext } from '@/app/context/filter-context';
 
 export default function Map() {
     const mapContainer = useRef<HTMLDivElement>(null);
@@ -26,6 +28,7 @@ export default function Map() {
         openPopup,
         setOpenPopup,
     } = useMapContext();
+    const { mapLibreFilterExpression } = useFilterContext();
 
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
@@ -129,6 +132,10 @@ export default function Map() {
         };
     }, [setMapInstance, setOpenPopup, isDevMode, mapMetadata, activeMap]);
 
+    useEffect(() => {
+        mapInstance?.setFilter('markers-layer', mapLibreFilterExpression);
+    }, [mapInstance, mapLibreFilterExpression]);
+
     return (
         <div className={styles.mapWrapper}>
             {!disclaimerAccepted && isDevMode && (
@@ -169,12 +176,7 @@ export default function Map() {
                     lngLat={openPopup.lngLat}
                     isOpen={true}
                 >
-                    {/* TODO: Replace dummy with real UI */}
-                    <div style={{ minWidth: 220, backgroundColor: 'red' }}>
-                        <div>
-                            <strong>ID:</strong> {openPopup.featureId}
-                        </div>
-                    </div>
+                    <Popup featureId={openPopup.featureId} />
                 </ReactPopup>
             )}
         </div>

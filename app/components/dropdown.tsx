@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { CaretDownIcon } from '@phosphor-icons/react';
 import styles from '@/app/components/dropdown.module.css';
+import { TCategory } from '@/types/category';
 
 type Props = {
-    options: string[];
-    selected: string;
-    onSelect: (value: string) => void;
+    options: TCategory[];
+    selected: TCategory | undefined;
+    onSelect: (value: TCategory) => void;
 };
 
 export default function Dropdown({ options, selected, onSelect }: Props) {
