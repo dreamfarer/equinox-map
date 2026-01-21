@@ -5,10 +5,12 @@ import { loadIcon } from '@/lib/marker-utility';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { useMapContext } from '@/app/context/map-context';
 import { useMarkerContext } from '@/app/context/marker-context';
+import { useFilterContext } from '@/app/context/filter-context';
 
 export function useMapLibreMapLayerRegister() {
     const { mapInstance } = useMapContext();
     const { markers } = useMarkerContext();
+    const { mapLibreFilterExpression } = useFilterContext();
 
     useEffect(() => {
         if (!mapInstance || !markers) return;
@@ -64,4 +66,18 @@ export function useMapLibreMapLayerRegister() {
         if (mapInstance.isStyleLoaded()) init().then();
         else mapInstance.once('load', init);
     }, [mapInstance, markers]);
+
+    useEffect(() => {
+        if (!mapInstance) return;
+
+        const applyFilter = () => {
+            if (!mapInstance.getLayer('markers-layer')) return;
+            mapInstance.setFilter('markers-layer', mapLibreFilterExpression);
+        };
+
+        if (mapInstance.isStyleLoaded()) applyFilter();
+        else {
+            mapInstance.once('load', applyFilter);
+        }
+    }, [mapInstance, mapLibreFilterExpression]);
 }

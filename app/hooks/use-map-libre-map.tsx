@@ -16,7 +16,6 @@ import {
 } from '@/lib/convert';
 import { useMapContext } from '@/app/context/map-context';
 import { useDevMode } from '@/app/context/dev-mode-context';
-import { useFilterContext } from '@/app/context/filter-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
@@ -27,9 +26,7 @@ export function useMapLibreMap() {
         activeMap,
         setMapInstance,
         setOpenPopup,
-        mapInstance,
     } = useMapContext();
-    const { mapLibreFilterExpression } = useFilterContext();
     const { isDevMode } = useDevMode();
 
     const mapRef = useRef<MapLibreMap | null>(null);
@@ -136,10 +133,6 @@ export function useMapLibreMap() {
         setMapInstance,
         setOpenPopup,
     ]);
-
-    useEffect(() => {
-        mapInstance?.setFilter('markers-layer', mapLibreFilterExpression);
-    }, [mapInstance, mapLibreFilterExpression]);
 
     return mapRef;
 }
