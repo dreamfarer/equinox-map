@@ -4,19 +4,20 @@ import { useFilterContext } from '@/app/context/filter-context';
 import { useState } from 'react';
 import { TCategory } from '@/types/category';
 import { usePopupContext } from '@/app/context/popup-context';
+import { useMapContext } from '@/app/context/map-context';
 
-type PopupProps = { featureId: string };
-
-export default function Popup({ featureId }: PopupProps) {
+export default function Popup() {
     const { activeCategoryList } = useFilterContext();
+    const { openPopup } = useMapContext();
     const { popups } = usePopupContext();
-
     const [shownCategory, setShownCategory] = useState<TCategory | undefined>(
         activeCategoryList[0]
     );
 
+    if (!openPopup) return null;
+
     const itemsById = shownCategory
-        ? popups?.[featureId]?.[shownCategory]
+        ? popups?.[openPopup?.featureId]?.[shownCategory]
         : undefined;
 
     if (!itemsById) return null;

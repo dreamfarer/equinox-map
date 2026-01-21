@@ -1,29 +1,21 @@
 import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Map, Offset, Popup } from 'maplibre-gl';
+import { Offset, Popup as MapLibrePopup } from 'maplibre-gl';
+import { useMapContext } from '@/app/context/map-context';
+import { calculatePopupOffset } from '@/lib/popup-utility';
 
-type ReactPopupProps = {
-    map: Map | null;
-    lngLat: [number, number];
-    isOpen: boolean;
-    offset?: number | Offset;
-    children: ReactNode;
-};
-
-export default function ReactPopup({
-    map,
-    lngLat,
-    isOpen,
-    offset,
-    children,
-}: ReactPopupProps) {
-    const popupRef = useRef<Popup | null>(null);
+export default function ReactPopup({ children }: { children: ReactNode }) {
+    const { mapInstance, openPopup } = useMapContext();
+    const popupRef = useRef<MapLibrePopup | null>(null);
     const container = useMemo(() => document.createElement('div'), []);
 
     useEffect(() => {
-        if (!map) return;
-        const popup = new Popup({
-            offset,
+        if (!mapInstance) return;
+        const anchor = openPopup?.feature.properties.anchor;
+        if (!anchor) return;
+        const offset = calculatePopupOffset(anchor);
+        const popup = new MapLibrePopup({
+            offset: offset as Offset,
             closeButton: false,
             className: 'equinox-popup',
         }).setDOMContent(container);
@@ -32,16 +24,18 @@ export default function ReactPopup({
             popup.remove();
             popupRef.current = null;
         };
-    }, [map, container, offset]);
+    }, [mapInstance, container, openPopup]);
 
     useEffect(() => {
-        const popup = popupRef.current;
-        if (!popup || !map) return;
-        popup.setLngLat(lngLat);
-        if (isOpen) popup.addTo(map);
-        else popup.remove();
-    }, [map, lngLat, isOpen]);
+        if (!popupRef.current || !mapInstance) return;
+        if (!openPopup) {
+            popupRef.current.remove();
+            return;
+        }
+        popupRef.current.setLngLat(openPopup.lngLat);
+        popupRef.current.addTo(mapInstance);
+    }, [mapInstance, openPopup]);
 
-    if (!map) return null;
+    if (!mapInstance) return null;
     return createPortal(children, container);
 }

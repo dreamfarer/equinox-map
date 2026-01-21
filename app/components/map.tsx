@@ -51,8 +51,8 @@ export default function Map() {
             <div ref={mapContainer} className={styles.map} />
 
             {mapInstance && openPopup && (
-                <ReactPopup map={mapInstance} lngLat={openPopup.lngLat} isOpen>
-                    <Popup featureId={openPopup.featureId} />
+                <ReactPopup>
+                    <Popup />
                 </ReactPopup>
             )}
         </div>
