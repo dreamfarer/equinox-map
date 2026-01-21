@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/app/components/map.module.css';
 import ReactPopup from '@/app/components/map/react-popup';
 import Popup from '@/app/components/map/popup';
 import { useDevMode } from '@/app/context/dev-mode-context';
@@ -9,6 +8,8 @@ import { useMapContext } from '@/app/context/map-context';
 import { useMapLibreMap } from '@/app/hooks/use-map-libre-map';
 import { useMapLibreMapEventRegister } from '@/app/hooks/use-map-libre-map-event-register';
 import { useMapLibreMapLayerRegister } from '@/app/hooks/use-map-libre-map-layer-register';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import styles from '@/app/components/map.module.css';
 
 export default function Map() {
     const { isDevMode } = useDevMode();
