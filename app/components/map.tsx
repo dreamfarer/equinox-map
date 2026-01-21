@@ -1,20 +1,21 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from '@/app/components/map.module.css';
 import ReactPopup from '@/app/components/map/react-popup';
 import Popup from '@/app/components/map/popup';
 import { useDevMode } from '@/app/context/dev-mode-context';
 import { useMapContext } from '@/app/context/map-context';
 import { useMapLibreMap } from '@/app/hooks/use-map-libre-map';
+import { useMapLibreMapEventRegister } from '@/app/hooks/use-map-libre-map-event-register';
 
 export default function Map() {
-    const mapContainerRef = useRef<HTMLDivElement>(null);
     const { isDevMode } = useDevMode();
-    const { mapInstance, openPopup } = useMapContext();
+    const { mapInstance, openPopup, mapContainer } = useMapContext();
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
-    useMapLibreMap(mapContainerRef);
+    useMapLibreMap();
+    useMapLibreMapEventRegister();
 
     return (
         <div className={styles.mapWrapper}>
@@ -44,7 +45,7 @@ export default function Map() {
                 </div>
             )}
 
-            <div ref={mapContainerRef} className={styles.map} />
+            <div ref={mapContainer} className={styles.map} />
 
             {mapInstance && openPopup && (
                 <ReactPopup map={mapInstance} lngLat={openPopup.lngLat} isOpen>

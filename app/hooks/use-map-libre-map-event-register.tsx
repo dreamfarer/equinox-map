@@ -12,7 +12,7 @@ function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
     return event.features[0] as unknown as TMarkerFeature; // TODO: tighten type
 }
 
-export function usePopupEventRegister() {
+export function useMapLibreMapEventRegister() {
     const { mapInstance, setOpenPopup } = useMapContext();
     const longPressTimerIdRef = useRef<number | null>(null);
 

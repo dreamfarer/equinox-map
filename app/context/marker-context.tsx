@@ -12,7 +12,6 @@ import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { useMapContext } from '@/app/context/map-context';
 import { loadMarkers } from '@/lib/marker-utility';
 import { useMarkerLayerSetup } from '@/app/hooks/use-marker-layer-setup';
-import { usePopupEventRegister } from '@/app/hooks/use-popup-event-register';
 
 type TMarkerContext = {
     markers: TMarkerFeatureCollection | null;
@@ -35,8 +34,6 @@ export function MarkerProvider({ children }: { children: ReactNode }) {
     }, []);
 
     useMarkerLayerSetup(mapInstance, markers);
-
-    usePopupEventRegister();
 
     const contextValue = useMemo<TMarkerContext>(
         () => ({

@@ -1,6 +1,6 @@
 'use client';
 
-import { RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
     Map as MapLibreMap,
     type MapLayerMouseEvent,
@@ -20,10 +20,9 @@ import { useFilterContext } from '@/app/context/filter-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
-export function useMapLibreMap(
-    mapContainerRef: RefObject<HTMLDivElement | null>
-) {
+export function useMapLibreMap() {
     const {
+        mapContainer,
         mapMetadata,
         activeMap,
         setMapInstance,
@@ -36,7 +35,7 @@ export function useMapLibreMap(
     const mapRef = useRef<MapLibreMap | null>(null);
 
     useEffect(() => {
-        const el = mapContainerRef.current;
+        const el = mapContainer.current;
         if (!el || !mapMetadata || !activeMap) return;
 
         const meta = mapMetadata[activeMap];
@@ -130,7 +129,7 @@ export function useMapLibreMap(
             mapRef.current = null;
         };
     }, [
-        mapContainerRef,
+        mapContainer,
         mapMetadata,
         activeMap,
         isDevMode,
