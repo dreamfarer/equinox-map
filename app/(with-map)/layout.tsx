@@ -13,7 +13,7 @@ export default function WithMapLayout({ children }: { children: ReactNode }) {
     return (
         <FilterProvider>
             <MapProvider mapMetadata={mapMetadata}>
-                <PopupProvider popups={popups}>
+                <PopupProvider allPopups={popups}>
                     <MarkerProvider>
                         <DevModeProvider>
                             <Overlay />

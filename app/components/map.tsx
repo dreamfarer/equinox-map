@@ -10,10 +10,12 @@ import { useMapLibreMapEventRegister } from '@/app/hooks/use-map-libre-map-event
 import { useMapLibreMapLayerRegister } from '@/app/hooks/use-map-libre-map-layer-register';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from '@/app/components/map.module.css';
+import { usePopupContext } from '@/app/context/popup-context';
 
 export default function Map() {
     const { isDevMode } = useDevMode();
-    const { mapInstance, openPopup, mapContainer } = useMapContext();
+    const { mapInstance, mapContainer } = useMapContext();
+    const { activePopup } = usePopupContext();
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
 
     useMapLibreMap();
@@ -50,7 +52,7 @@ export default function Map() {
 
             <div ref={mapContainer} className={styles.map} />
 
-            {mapInstance && openPopup && (
+            {mapInstance && activePopup && (
                 <ReactPopup>
                     <Popup />
                 </ReactPopup>

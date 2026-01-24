@@ -16,17 +16,14 @@ import {
 } from '@/lib/convert';
 import { useMapContext } from '@/app/context/map-context';
 import { useDevMode } from '@/app/context/dev-mode-context';
+import { usePopupContext } from '@/app/context/popup-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
 export function useMapLibreMap() {
-    const {
-        mapContainer,
-        mapMetadata,
-        activeMap,
-        setMapInstance,
-        setOpenPopup,
-    } = useMapContext();
+    const { mapContainer, mapMetadata, activeMap, setMapInstance } =
+        useMapContext();
+    const { setActivePopupByFeature } = usePopupContext();
     const { isDevMode } = useDevMode();
 
     const mapRef = useRef<MapLibreMap | null>(null);
@@ -119,7 +116,7 @@ export function useMapLibreMap() {
 
         return () => {
             setMapInstance?.(null);
-            setOpenPopup?.(null);
+            setActivePopupByFeature?.(null);
             if (isDevMode) map.off('click', onClick);
             ro.disconnect();
             map.remove();
@@ -131,7 +128,7 @@ export function useMapLibreMap() {
         activeMap,
         isDevMode,
         setMapInstance,
-        setOpenPopup,
+        setActivePopupByFeature,
     ]);
 
     return mapRef;

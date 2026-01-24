@@ -27,8 +27,8 @@ const Filter: NextPage = () => {
     const { markers } = useMarkerContext();
     const { activeCategories, setActiveCategories, toggleActiveCategory } =
         useFilterContext();
-    const { popups } = usePopupContext();
-    const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
+    const { allPopups } = usePopupContext();
+    const flyToMarker = useFlyToMarker(mapInstance, allPopups, markers);
     const [query, setQuery] = useState('');
 
     const results = useMemo((): MarkerSearchResult[] => {
@@ -37,7 +37,7 @@ const Filter: NextPage = () => {
         const q = query.toLowerCase();
         const matches: MarkerSearchResult[] = [];
 
-        for (const [markerId, categories] of Object.entries(popups)) {
+        for (const [markerId, categories] of Object.entries(allPopups)) {
             for (const [categoryId, items] of Object.entries(categories)) {
                 for (const [itemId, item] of Object.entries(items)) {
                     const text =
@@ -56,7 +56,7 @@ const Filter: NextPage = () => {
         }
 
         return matches;
-    }, [query, popups]);
+    }, [query, allPopups]);
 
     return (
         <Menu>

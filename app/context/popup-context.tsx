@@ -1,28 +1,67 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useMemo } from 'react';
-import { TPopups } from '@/types/popup';
+import React, {
+    createContext,
+    ReactNode,
+    useCallback,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
+import { TCategoryPayloads, TPopups } from '@/types/popup';
+import { TMarkerFeature } from '@/types/marker-feature';
+import { calculatePopupOffset } from '@/lib/popup-utility';
 
-type PopupContextValue = {
-    popups: TPopups;
+type ActivePopup = {
+    id: string;
+    lngLat: [number, number];
+    offset: Record<string, [number, number]>;
+    content: TCategoryPayloads;
 };
 
-type PopupProviderProps = {
-    children: ReactNode;
-    popups: TPopups;
+type PopupContextValue = {
+    activePopup: ActivePopup | null;
+    allPopups: TPopups;
+    setActivePopupByFeature: (feature: TMarkerFeature | null) => void;
 };
 
 const PopupContext = createContext<PopupContextValue | undefined>(undefined);
 
-export function PopupProvider({ children, popups }: PopupProviderProps) {
-    const contextValue = useMemo<PopupContextValue>(
-        () => ({
-            popups,
-        }),
-        [popups]
+type PopupProviderProps = {
+    children: ReactNode;
+    allPopups: TPopups;
+};
+
+export function PopupProvider({ children, allPopups }: PopupProviderProps) {
+    const [activePopup, setActivePopup] = useState<ActivePopup | null>(null);
+
+    const setActivePopupByFeature = useCallback(
+        (feature: TMarkerFeature | null) => {
+            if (!feature) {
+                setActivePopup(null);
+                return;
+            }
+            const id = feature.properties.id;
+            setActivePopup({
+                id,
+                lngLat: feature.geometry.coordinates as [number, number],
+                offset: calculatePopupOffset(feature.properties.anchor),
+                content: allPopups[id],
+            });
+        },
+        [allPopups]
     );
 
-    return <PopupContext value={contextValue}>{children}</PopupContext>;
+    const value = useMemo(
+        () => ({
+            activePopup,
+            allPopups,
+            setActivePopupByFeature,
+        }),
+        [activePopup, allPopups, setActivePopupByFeature]
+    );
+
+    return <PopupContext value={value}>{children}</PopupContext>;
 }
 
 export function usePopupContext() {

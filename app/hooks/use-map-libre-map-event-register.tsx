@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
-import { OpenPopup, useMapContext } from '@/app/context/map-context';
+import { useMapContext } from '@/app/context/map-context';
 import type { TMarkerFeature } from '@/types/marker-feature';
+import { usePopupContext } from '@/app/context/popup-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
@@ -13,7 +14,8 @@ function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
 }
 
 export function useMapLibreMapEventRegister() {
-    const { mapInstance, setOpenPopup } = useMapContext();
+    const { mapInstance } = useMapContext();
+    const { activePopup, setActivePopupByFeature } = usePopupContext();
     const longPressTimerIdRef = useRef<number | null>(null);
 
     useEffect(() => {
@@ -31,17 +33,10 @@ export function useMapLibreMapEventRegister() {
             const feature = extractFeature(event);
             if (!feature) return;
             const markerId = feature.properties.id as string;
-            const lngLat: [number, number] = feature.geometry.coordinates;
-            setOpenPopup((prev) => {
-                const isSameMarkerOpen = prev?.featureId === markerId;
-                if (isSameMarkerOpen) return null;
-                const newPopup: OpenPopup = {
-                    featureId: markerId,
-                    lngLat,
-                    feature,
-                };
-                return newPopup;
-            });
+            if (activePopup && activePopup.id === markerId) {
+                return setActivePopupByFeature(null);
+            }
+            setActivePopupByFeature(feature);
         };
 
         const onContextMenu = (event: MarkerLayerEvent) => {
@@ -77,5 +72,5 @@ export function useMapLibreMapEventRegister() {
             mapInstance.off('touchend', cancelLongPress);
             mapInstance.off('touchcancel', cancelLongPress);
         };
-    }, [mapInstance, setOpenPopup]);
+    }, [activePopup, mapInstance, setActivePopupByFeature]);
 }

@@ -2,20 +2,18 @@ import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Offset, Popup as MapLibrePopup } from 'maplibre-gl';
 import { useMapContext } from '@/app/context/map-context';
-import { calculatePopupOffset } from '@/lib/popup-utility';
+import { usePopupContext } from '@/app/context/popup-context';
 
 export default function ReactPopup({ children }: { children: ReactNode }) {
-    const { mapInstance, openPopup } = useMapContext();
+    const { mapInstance } = useMapContext();
+    const { activePopup } = usePopupContext();
     const popupRef = useRef<MapLibrePopup | null>(null);
     const container = useMemo(() => document.createElement('div'), []);
 
     useEffect(() => {
-        if (!mapInstance) return;
-        const anchor = openPopup?.feature.properties.anchor;
-        if (!anchor) return;
-        const offset = calculatePopupOffset(anchor);
+        if (!mapInstance || !activePopup) return;
         const popup = new MapLibrePopup({
-            offset: offset as Offset,
+            offset: activePopup.offset as Offset,
             closeButton: false,
             className: 'equinox-popup',
         }).setDOMContent(container);
@@ -24,17 +22,17 @@ export default function ReactPopup({ children }: { children: ReactNode }) {
             popup.remove();
             popupRef.current = null;
         };
-    }, [mapInstance, container, openPopup]);
+    }, [mapInstance, container, activePopup]);
 
     useEffect(() => {
         if (!popupRef.current || !mapInstance) return;
-        if (!openPopup) {
+        if (!activePopup) {
             popupRef.current.remove();
             return;
         }
-        popupRef.current.setLngLat(openPopup.lngLat);
+        popupRef.current.setLngLat(activePopup.lngLat);
         popupRef.current.addTo(mapInstance);
-    }, [mapInstance, openPopup]);
+    }, [mapInstance, activePopup]);
 
     if (!mapInstance) return null;
     return createPortal(children, container);
