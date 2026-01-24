@@ -28,7 +28,13 @@ const FilterContext = createContext<FilterContextValue | undefined>(undefined);
 export function FilterProvider({ children }: { children: ReactNode }) {
     const [activeCategories, setActiveCategories] = useState<
         Partial<Record<TCategory, boolean>>
-    >({});
+    >(
+        () =>
+            Object.fromEntries(categories.map((cat) => [cat, true])) as Record<
+                TCategory,
+                boolean
+            >
+    );
 
     const toggleActiveCategory = useCallback((category: TCategory) => {
         setActiveCategories((prev) => ({
