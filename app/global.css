@@ -2,7 +2,7 @@
 
 :root {
     /* Fonts */
-    --font-inter: Inter;
+    --font-inter: Jost, sans-serif;
 
     /* font sizes */
     --font-size-mini: 0.75rem;
@@ -29,9 +29,10 @@
     /* Figma Variables */
 
     /* Color Variables */
-    --accent-dark: #282828;
+    --accent-dark: rgba(10, 10, 10, 0.90);
     --accent-light: #d6d6d6;
-    --background-dark: #0a0a0a;
+    --background-dark: rgb(10, 10, 10);
+    --background-dark-transparent: rgba(10, 10, 10, 0.75);
     --text-dark: #d5d5d5;
     --text-disabled-dark: #777777;
     --theme: #fe28f7;
