@@ -1,16 +1,32 @@
 import Dropdown from '@/app/components/dropdown';
 import styles from '@/app/components/map/popup.module.css';
 import { useFilterContext } from '@/app/context/filter-context';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { TCategory } from '@/types/category';
 import { usePopupContext } from '@/app/context/popup-context';
 
 export default function Popup() {
     const { activeCategoryList } = useFilterContext();
     const { allPopups, activePopup } = usePopupContext();
-    const [shownCategory, setShownCategory] = useState<TCategory | undefined>(
-        activeCategoryList[0]
-    );
+    const [selectedCategory, setSelectedCategory] = useState<
+        TCategory | undefined
+    >(undefined);
+
+    const effectiveCategories = useMemo(() => {
+        if (!activePopup) return [];
+        const popupCats = allPopups?.[activePopup.id] ?? {};
+        return activeCategoryList.filter((cat) => cat in popupCats);
+    }, [activeCategoryList, activePopup, allPopups]);
+
+    const shownCategory = useMemo(() => {
+        if (
+            selectedCategory &&
+            effectiveCategories.includes(selectedCategory)
+        ) {
+            return selectedCategory;
+        }
+        return effectiveCategories[0];
+    }, [selectedCategory, effectiveCategories]);
 
     if (!activePopup) return null;
 
@@ -22,11 +38,11 @@ export default function Popup() {
 
     return (
         <div className={styles.popup}>
-            {activeCategoryList.length > 1 && (
+            {effectiveCategories.length > 1 && (
                 <Dropdown
-                    options={activeCategoryList}
+                    options={effectiveCategories}
                     selected={shownCategory}
-                    onSelect={setShownCategory}
+                    onSelect={setSelectedCategory}
                 />
             )}
 
