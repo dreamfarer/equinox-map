@@ -1,8 +1,7 @@
 'use client';
 
-import Filter from '@/app/components/filter';
-import { useDevMode } from '../../context/dev-mode-context';
 import { useEffect } from 'react';
+import { useDevMode } from '@/app/context/dev-mode-context';
 
 export default function DevPage() {
     const { setIsDevMode } = useDevMode();
@@ -10,5 +9,4 @@ export default function DevPage() {
         setIsDevMode(true);
         return () => setIsDevMode(false);
     });
-    return <Filter />;
 }

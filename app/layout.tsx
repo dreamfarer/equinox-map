@@ -1,8 +1,18 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-import '@/app/global.css';
-import Navbar from '@/app/components/navbar';
+import { DevModeProvider } from '@/app/context/dev-mode-context';
+import { MapProvider } from '@/app/context/map-context';
+import { MarkerProvider } from '@/app/context/marker-context';
+import { PopupProvider } from '@/app/context/popup-context';
+import { FilterProvider } from '@/app/context/filter-context';
 import { MenuStateProvider } from '@/app/context/menu-state-context';
+import MapWrapper from '@/app/components/map-wrapper';
+import Overlay from '@/app/components/overlay';
+import Filter from '@/app/components/filter';
+import Navbar from '@/app/components/navbar';
+import mapMetadata from '@/app/data/maps.json';
+import popups from '@/app/data/popups.json';
+import '@/app/global.css';
 
 export const viewport = {
     width: 'device-width',
@@ -56,6 +66,7 @@ export const metadata: Metadata = {
         ],
         apple: '/apple-touch-icon.png',
     },
+    robots: { index: false, follow: true },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -63,8 +74,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html lang="en">
             <body>
                 <MenuStateProvider>
-                    <Navbar />
-                    {children}
+                    <FilterProvider>
+                        <MapProvider mapMetadata={mapMetadata}>
+                            <PopupProvider allPopups={popups}>
+                                <MarkerProvider>
+                                    <DevModeProvider>
+                                        <Navbar />
+                                        <Overlay />
+                                        <MapWrapper />
+                                        <Filter />
+                                        {children}
+                                    </DevModeProvider>
+                                </MarkerProvider>
+                            </PopupProvider>
+                        </MapProvider>
+                    </FilterProvider>
                 </MenuStateProvider>
             </body>
         </html>
