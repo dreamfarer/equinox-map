@@ -1,18 +1,11 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
 import { useMenuState } from '@/app/context/menu-state-context';
 import { ListDashesIcon } from '@phosphor-icons/react';
 import styles from '@/app/components/navbar.module.css';
 
 export default function Navbar() {
-    const { setIsMenuOpen, setActiveMenuName } = useMenuState();
-    const segment = usePathname().split('/').filter(Boolean).pop() ?? 'filter';
-
-    useEffect(() => {
-        setActiveMenuName(segment);
-    }, [segment, setActiveMenuName]);
+    const { activeMenuName, setIsMenuOpen, setActiveMenuName } = useMenuState();
 
     return (
         <div className={styles.navbar}>
@@ -22,7 +15,9 @@ export default function Navbar() {
                     setIsMenuOpen((prev) => !prev);
                 }}
                 className={`${styles.button} ${
-                    segment === 'filter' ? styles.inactive : styles.active
+                    activeMenuName === 'filter'
+                        ? styles.inactive
+                        : styles.active
                 }`}
                 aria-label="Show filter"
             >
