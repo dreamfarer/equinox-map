@@ -29,10 +29,10 @@
     /* Figma Variables */
 
     /* Color Variables */
-    --accent-dark: rgba(10, 10, 10, 0.90);
+    --accent-dark: rgba(10, 10, 10, 0.9);
     --accent-light: #d6d6d6;
     --background-dark: rgb(10, 10, 10);
-    --background-dark-transparent: rgba(10, 10, 10, 0.75);
+    --background-dark-transparent: rgba(10, 10, 10, 0.5);
     --text-dark: #d5d5d5;
     --text-disabled-dark: #777777;
     --theme: #fe28f7;
@@ -67,8 +67,7 @@ body {
     align-items: stretch;
     margin: 0;
     line-height: normal;
-    height: 100%;
-    font-family: var(--font-inter);
+    font-family: var(--font-inter), sans-serif;
     background: var(--background-dark);
 }
 
