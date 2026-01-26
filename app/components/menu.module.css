@@ -14,16 +14,21 @@
     justify-content: flex-start;
     position: absolute;
     left: 3.75rem;
-    transform: translateX(0);
-    transition: transform 0.2s ease-out;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier( 0.0, 0.35, 0.0, 1.0 );
     overflow: hidden;
     backdrop-filter: blur(0.5rem);
     border-radius: 0.5rem;
+    opacity: 1;
 }
 
 .closed {
-    transform: translateX(-100%);
+    transform: scaleX(0);
     pointer-events: none;
+    opacity: 0.5;
 }
 
 /* Mobile Layout*/
