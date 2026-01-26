@@ -6,7 +6,6 @@
         "dev": "next dev --turbopack",
         "build:convert": "ts-node --project tsconfig.scripts.json --transpile-only scripts/convert-markers.ts",
         "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
-        "build:move": "ts-node --project tsconfig.scripts.json --transpile-only scripts/move-markers.ts",
         "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
         "build": "npm run build:convert && next build",
         "start": "next start",
