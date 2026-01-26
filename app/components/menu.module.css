@@ -1,8 +1,7 @@
 .menu {
     width: 26.25rem;
-    height: 100%;
+    top: 10px;
     background-color: var(--background-dark-transparent);
-    border-left: 1px solid var(--accent-dark);
     box-sizing: border-box;
     flex-shrink: 0;
     padding: var(--padding-xl) var(--padding-xl);
@@ -18,7 +17,8 @@
     transform: translateX(0);
     transition: transform 0.2s ease-out;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0.5rem;
 }
 
 .closed {
@@ -34,7 +34,6 @@
         height: 40vh;
         align-self: stretch;
         border-left: none;
-        border-bottom: 1px solid var(--accent-dark);
         bottom: 3.75rem;
         left: 0;
         transform: translateY(0);

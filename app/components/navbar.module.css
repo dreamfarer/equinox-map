@@ -1,13 +1,16 @@
 .navbar {
-    align-self: stretch;
-    background-color: var(--background-dark);
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0;
-    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
+    z-index: 2;
+    align-self: stretch;
+    background-color: transparent;
+    flex-direction: column;
+    justify-content: start;
     padding: var(--padding-3xs);
+    gap: var(--gap-3xs);
 }
 
 .button,
@@ -24,7 +27,6 @@
     transition: color 0.2s ease;
     color: var(--text-dark);
     border-radius: 0.5rem;
-    transition: transform 0.2s ease-out;
 }
 
 .button.active {

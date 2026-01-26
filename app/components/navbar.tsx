@@ -1,16 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import Link from 'next/link';
-import Group from '@/app/components/navbar/group';
 import { useMenuState } from '@/app/context/menu-state-context';
-import { ListDashesIcon, CaretLeftIcon } from '@phosphor-icons/react';
+import { ListDashesIcon } from '@phosphor-icons/react';
 import styles from '@/app/components/navbar.module.css';
 
 export default function Navbar() {
-    const { isMenuOpen, setIsMenuOpen, setActiveMenuName } = useMenuState();
+    const { setIsMenuOpen, setActiveMenuName } = useMenuState();
     const segment = usePathname().split('/').filter(Boolean).pop() ?? 'filter';
 
     useEffect(() => {
@@ -19,38 +16,18 @@ export default function Navbar() {
 
     return (
         <div className={styles.navbar}>
-            <Group>
-                <Link
-                    href="/filter"
-                    scroll={false}
-                    className={`${styles.button} ${styles.logo}`}
-                    aria-label="Home"
-                >
-                    <Image loading="lazy" fill alt="Logo" src="/logo.svg" />
-                </Link>
-                <Link
-                    href="/filter"
-                    scroll={false}
-                    className={`${styles.button} ${
-                        segment === 'filter' ? styles.inactive : styles.active
-                    }`}
-                    aria-label="Show filter"
-                >
-                    <ListDashesIcon size="2em" />
-                </Link>
-            </Group>
-
-            <Group>
-                <button
-                    onClick={() => setIsMenuOpen((prev) => !prev)}
-                    className={`${styles.caret} ${
-                        !isMenuOpen ? styles.inactive : styles.active
-                    }`}
-                    aria-label={isMenuOpen ? 'Hide menu' : 'Show menu'}
-                >
-                    <CaretLeftIcon size="2em" className="" />
-                </button>
-            </Group>
+            <button
+                onClick={() => {
+                    setActiveMenuName('filter');
+                    setIsMenuOpen((prev) => !prev);
+                }}
+                className={`${styles.button} ${
+                    segment === 'filter' ? styles.inactive : styles.active
+                }`}
+                aria-label="Show filter"
+            >
+                <ListDashesIcon size="2em" />
+            </button>
         </div>
     );
 }
