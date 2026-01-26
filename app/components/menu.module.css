@@ -18,7 +18,7 @@
     transform-origin: left;
     transition-property: transform, opacity;
     transition-duration: 0.25s;
-    transition-timing-function: cubic-bezier( 0.0, 0.35, 0.0, 1.0 );
+    transition-timing-function: cubic-bezier(0, 0.35, 0, 1);
     overflow: hidden;
     backdrop-filter: blur(0.5rem);
     border-radius: 0.5rem;
