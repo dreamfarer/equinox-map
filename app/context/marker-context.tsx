@@ -1,39 +1,25 @@
 'use client';
 
-import {
-    createContext,
-    useContext,
-    useState,
-    useMemo,
-    useEffect,
-    ReactNode,
-} from 'react';
+import { createContext, useContext, useMemo, ReactNode } from 'react';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { loadMarkers } from '@/lib/marker-utility';
 
 type TMarkerContext = {
-    markers: TMarkerFeatureCollection | null;
+    allMarkers: TMarkerFeatureCollection;
+};
+
+type MarkerProviderProps = {
+    children: ReactNode;
+    allMarkers: TMarkerFeatureCollection;
 };
 
 const MarkerContext = createContext<TMarkerContext | null>(null);
 
-export function MarkerProvider({ children }: { children: ReactNode }) {
-    const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(
-        null
-    );
-
-    useEffect(() => {
-        const load = async () => {
-            setMarkers(await loadMarkers());
-        };
-        load();
-    }, []);
-
+export function MarkerProvider({ children, allMarkers }: MarkerProviderProps) {
     const contextValue = useMemo<TMarkerContext>(
         () => ({
-            markers,
+            allMarkers,
         }),
-        [markers]
+        [allMarkers]
     );
 
     return <MarkerContext value={contextValue}>{children}</MarkerContext>;

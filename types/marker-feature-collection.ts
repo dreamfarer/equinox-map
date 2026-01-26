@@ -1,6 +1,6 @@
 import { TMarkerFeature } from './marker-feature';
 
 export type TMarkerFeatureCollection = {
-    type: 'FeatureCollection';
+    type: string;
     features: TMarkerFeature[];
 };

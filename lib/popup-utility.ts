@@ -6,7 +6,7 @@ import { TCategoryPayloads, TPopups } from '@/types/popup';
  * Calculate the popup offset dependent on the anchor.
  */
 export function calculatePopupOffset(
-    anchor: 'center' | 'bottom'
+    anchor: string
 ): Record<string, [number, number]> {
     return anchor === 'center'
         ? {

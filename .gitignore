@@ -43,5 +43,5 @@ next-env.d.ts
 # user-defined
 .idea
 tiles/
-public/markers/markers.geojson
+app/data/markers.json
 app/data/popups.json

@@ -4,15 +4,15 @@ export type TMarkerFeatureProperties = {
     lng: number;
     lat: number;
     icon: string;
-    anchor: 'bottom' | 'center';
+    anchor: string;
     categories: string[];
 };
 
 export type TMarkerFeature = {
-    type: 'Feature';
+    type: string;
     geometry: {
-        type: 'Point';
-        coordinates: [number, number];
+        type: string;
+        coordinates: number[];
     };
     properties: TMarkerFeatureProperties;
 };

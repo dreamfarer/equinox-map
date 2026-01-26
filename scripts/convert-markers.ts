@@ -5,6 +5,7 @@ import { TPopups } from '@/types/popup';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '../lib/convert';
 import { MapMetadata } from '@/types/map-metadata';
+import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 
 type MetaEntry = {
     category: string;
@@ -190,7 +191,9 @@ function processDeferredMarkers(
     }
 }
 
-function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
+function buildGeoJSON(
+    geo: Record<string, TMarkerFeatureProperties>
+): TMarkerFeatureCollection {
     return {
         type: 'FeatureCollection',
         features: Object.values(geo).map((p) => ({
@@ -202,13 +205,12 @@ function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
 }
 
 async function writeOutput(
-    publicDir: string,
     dataDir: string,
-    geojson: any,
+    geojson: TMarkerFeatureCollection,
     popups: TPopups
 ) {
     await fs.writeFile(
-        path.join(publicDir, 'markers/markers.geojson'),
+        path.join(dataDir, 'markers.json'),
         JSON.stringify(geojson)
     );
     await fs.writeFile(
@@ -217,7 +219,7 @@ async function writeOutput(
     );
 
     console.log(
-        `markers.geojson (${geojson.features.length}) and popups.json (${Object.keys(popups).length}) written.`
+        `markers.json (${geojson.features.length}) and popups.json (${Object.keys(popups).length}) written.`
     );
 }
 
@@ -255,7 +257,7 @@ async function build() {
     processDeferredMarkers(deferred, popups, originalTitles, slugRegistry, geo);
 
     const geojson = buildGeoJSON(geo);
-    await writeOutput(publicDir, dataDir, geojson, popups);
+    await writeOutput(dataDir, geojson, popups);
 }
 
 build().catch((err) => {

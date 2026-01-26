@@ -12,6 +12,7 @@ import Filter from '@/app/components/filter';
 import Navbar from '@/app/components/navbar';
 import mapMetadata from '@/app/data/maps.json';
 import popups from '@/app/data/popups.json';
+import markers from '@/app/data/markers.json';
 import '@/app/global.css';
 
 export const viewport = {
@@ -77,7 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <FilterProvider>
                         <MapProvider mapMetadata={mapMetadata}>
                             <PopupProvider allPopups={popups}>
-                                <MarkerProvider>
+                                <MarkerProvider allMarkers={markers}>
                                     <DevModeProvider>
                                         <Navbar />
                                         <Overlay />

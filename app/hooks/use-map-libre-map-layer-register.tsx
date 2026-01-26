@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { GeoJSON } from 'geojson';
 import { loadIcon } from '@/lib/marker-utility';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { useMapContext } from '@/app/context/map-context';
@@ -9,16 +10,16 @@ import { useFilterContext } from '@/app/context/filter-context';
 
 export function useMapLibreMapLayerRegister() {
     const { mapInstance } = useMapContext();
-    const { markers } = useMarkerContext();
+    const { allMarkers } = useMarkerContext();
     const { mapLibreFilterExpression } = useFilterContext();
 
     useEffect(() => {
-        if (!mapInstance || !markers) return;
+        if (!mapInstance || !allMarkers) return;
 
         const init = async () => {
             const uniqueIcons: string[] = Array.from(
                 new Set(
-                    (markers.features as TMarkerFeature[]).map(
+                    (allMarkers.features as TMarkerFeature[]).map(
                         (f) => f.properties.icon?.trim() || 'default-marker'
                     )
                 )
@@ -39,7 +40,7 @@ export function useMapLibreMapLayerRegister() {
             if (!mapInstance.getSource('markers')) {
                 mapInstance.addSource('markers', {
                     type: 'geojson',
-                    data: markers,
+                    data: allMarkers as GeoJSON,
                     cluster: false,
                 });
             }
@@ -65,7 +66,7 @@ export function useMapLibreMapLayerRegister() {
 
         if (mapInstance.isStyleLoaded()) init().then();
         else mapInstance.once('load', init);
-    }, [mapInstance, markers]);
+    }, [mapInstance, allMarkers]);
 
     useEffect(() => {
         if (!mapInstance) return;

@@ -24,11 +24,11 @@ type MarkerSearchResult = {
 
 const Filter: NextPage = () => {
     const { mapInstance } = useMapContext();
-    const { markers } = useMarkerContext();
+    const { allMarkers } = useMarkerContext();
     const { activeCategories, setActiveCategories, toggleActiveCategory } =
         useFilterContext();
     const { allPopups } = usePopupContext();
-    const flyToMarker = useFlyToMarker(mapInstance, allPopups, markers);
+    const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
     const [query, setQuery] = useState('');
 
     const results = useMemo((): MarkerSearchResult[] => {
