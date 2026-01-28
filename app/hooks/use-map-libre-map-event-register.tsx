@@ -43,16 +43,23 @@ export function useMapLibreMapEventRegister() {
             const feature = extractFeature(event);
             if (!feature) return;
             event.preventDefault();
-            // Toggle collected status.
+            const id = feature.properties.id;
+            const key = { source: 'markers', id };
+            const current = mapInstance.getFeatureState(key);
+            mapInstance.setFeatureState(key, { dim: !current.dim });
         };
 
         const onTouchStart = (event: MarkerLayerEvent) => {
             const feature = extractFeature(event);
             if (!feature) return;
-
             cancelLongPress();
             longPressTimerIdRef.current = window.setTimeout(() => {
-                // long press action for this feature
+                const feature = extractFeature(event);
+                if (!feature) return;
+                const id = feature.properties.id;
+                const key = { source: 'markers', id };
+                const current = mapInstance.getFeatureState(key);
+                mapInstance.setFeatureState(key, { dim: !current.dim });
             }, 500);
         };
 

@@ -42,6 +42,7 @@ export function useMapLibreMapLayerRegister() {
                     type: 'geojson',
                     data: allMarkers as GeoJSON,
                     cluster: false,
+                    promoteId: 'id',
                 });
             }
 
@@ -59,6 +60,14 @@ export function useMapLibreMapLayerRegister() {
                         ],
                         'icon-allow-overlap': true,
                         'icon-size': 0.5,
+                    },
+                    paint: {
+                        'icon-opacity': [
+                            'case',
+                            ['boolean', ['feature-state', 'dim'], false],
+                            0.5,
+                            1.0,
+                        ],
                     },
                 });
             }
