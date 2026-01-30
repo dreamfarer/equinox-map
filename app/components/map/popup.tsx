@@ -14,7 +14,7 @@ export default function Popup() {
 
     const effectiveCategories = useMemo(() => {
         if (!activePopup) return [];
-        const popupCats = allPopups?.[activePopup.id] ?? {};
+        const popupCats = allPopups?.[activePopup.featureId] ?? {};
         return activeCategoryList.filter((cat) => cat in popupCats);
     }, [activeCategoryList, activePopup, allPopups]);
 
@@ -31,7 +31,7 @@ export default function Popup() {
     if (!activePopup) return null;
 
     const itemsById = shownCategory
-        ? allPopups?.[activePopup.id]?.[shownCategory]
+        ? allPopups?.[activePopup.featureId]?.[shownCategory]
         : undefined;
 
     if (!itemsById) return null;

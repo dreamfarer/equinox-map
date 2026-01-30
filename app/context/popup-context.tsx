@@ -13,7 +13,7 @@ import { TMarkerFeature } from '@/types/marker-feature';
 import { calculatePopupOffset } from '@/lib/popup-utility';
 
 type ActivePopup = {
-    id: string;
+    featureId: string;
     lngLat: [number, number];
     offset: Record<string, [number, number]>;
     content: TCategoryPayloads;
@@ -41,12 +41,12 @@ export function PopupProvider({ children, allPopups }: PopupProviderProps) {
                 setActivePopup(null);
                 return;
             }
-            const id = feature.properties.id;
+            const featureId = feature.properties.id;
             setActivePopup({
-                id,
+                featureId,
                 lngLat: feature.geometry.coordinates as [number, number],
                 offset: calculatePopupOffset(feature.properties.anchor),
-                content: allPopups[id],
+                content: allPopups[featureId],
             });
         },
         [allPopups]

@@ -33,7 +33,7 @@ export function useMapLibreMapEventRegister() {
             const feature = extractFeature(event);
             if (!feature) return;
             const markerId = feature.properties.id as string;
-            if (activePopup && activePopup.id === markerId) {
+            if (activePopup && activePopup.featureId === markerId) {
                 return setActivePopupByFeature(null);
             }
             setActivePopupByFeature(feature);
