@@ -1,5 +1,5 @@
 import { TBookmarkId } from '@/types/bookmark';
-import { TPopups } from '@/types/popup';
+import { Popups } from '@/types/popup';
 
 const BOOKMARKS_STORAGE_KEY = 'bookmarks-v2';
 
@@ -38,7 +38,7 @@ export function removeBookmarks() {
  * Create a record such that all bookmark Ids can be retrieved by supplying the category Id.
  */
 export function getCategoryBookmarkMap(
-    popups: TPopups
+    popups: Popups
 ): Record<string, TBookmarkId[]> {
     const map: Record<string, TBookmarkId[]> = {};
     for (const [markerId, categories] of Object.entries(popups)) {

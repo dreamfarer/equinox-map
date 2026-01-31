@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { Map } from 'maplibre-gl';
 import { ExtendedMap } from '@/types/extended-map';
-import { TPopups } from '@/types/popup';
+import { Popups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 
 export function useFlyToMarker(
     map: Map | null,
-    popups: TPopups,
+    popups: Popups,
     markers: TMarkerFeatureCollection | null
 ) {
     return useCallback(

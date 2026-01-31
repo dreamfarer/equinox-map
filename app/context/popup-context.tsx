@@ -8,7 +8,7 @@ import React, {
     useMemo,
     useState,
 } from 'react';
-import { TCategoryPayloads, TPopups } from '@/types/popup';
+import { CategoryPayloads, Popups } from '@/types/popup';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { calculatePopupOffset } from '@/lib/popup-utility';
 
@@ -16,12 +16,12 @@ type ActivePopup = {
     featureId: string;
     lngLat: [number, number];
     offset: Record<string, [number, number]>;
-    content: TCategoryPayloads;
+    content: CategoryPayloads;
 };
 
 type PopupContextValue = {
     activePopup: ActivePopup | null;
-    allPopups: TPopups;
+    allPopups: Popups;
     setActivePopupByFeature: (feature: TMarkerFeature | null) => void;
 };
 
@@ -29,7 +29,7 @@ const PopupContext = createContext<PopupContextValue | undefined>(undefined);
 
 type PopupProviderProps = {
     children: ReactNode;
-    allPopups: TPopups;
+    allPopups: Popups;
 };
 
 export function PopupProvider({ children, allPopups }: PopupProviderProps) {
