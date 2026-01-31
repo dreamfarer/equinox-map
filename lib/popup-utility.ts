@@ -1,7 +1,3 @@
-import { TBookmarkId } from '@/types/bookmark';
-import { TCategory } from '@/types/category';
-import { TCategoryPayloads, TPopups } from '@/types/popup';
-
 /**
  * Calculate the popup offset dependent on the anchor.
  */
@@ -29,44 +25,4 @@ export function calculatePopupOffset(
               'bottom-left': [14, -32],
               'bottom-right': [-14, -32],
           };
-}
-
-/**
- * Return a flat array of category IDs that need to be shown inside a popup.
- */
-export function getFilteredPopupCategories(
-    markerId: string,
-    popups: TPopups,
-    isBookmarkMode: boolean,
-    bookmarks: TBookmarkId[],
-    activeCategories: TCategory[] = []
-): TCategoryPayloads {
-    const fullPopup = popups[markerId];
-    if (!fullPopup) return {};
-
-    const result: TCategoryPayloads = {};
-
-    for (const [categoryId, items] of Object.entries(fullPopup)) {
-        if (activeCategories.includes(categoryId as TCategory)) {
-            result[categoryId as TCategory] = items;
-        }
-    }
-
-    return result;
-}
-
-export function createCategoriesKey(categories: TCategoryPayloads): string {
-    const parts: string[] = [];
-
-    const sortedCategories = Object.keys(categories).sort();
-    for (const category of sortedCategories) {
-        const items = categories[category];
-        const sortedItemIds = Object.keys(items).sort();
-
-        for (const itemId of sortedItemIds) {
-            parts.push(`${category}::${itemId}`);
-        }
-    }
-
-    return parts.join('|');
 }
