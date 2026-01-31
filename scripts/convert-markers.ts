@@ -1,19 +1,17 @@
-import fs from 'fs/promises';
-import path from 'path';
+import path from 'node:path';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '../lib/convert';
 import { MapMetadata, MapMetadataRecord } from '@/types/map-metadata';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { MarkerSource } from '@/types/marker-source';
+import { readFile, writeFile } from 'node:fs/promises';
+import { Popups } from '@/types/popup';
 
 const publicDir = path.resolve(__dirname, '../public');
 const dataDir = path.resolve(__dirname, '../app/data');
 const markerMetadataPath = path.resolve(__dirname, '../public/meta.json');
 const mapMetadataPath = path.resolve(__dirname, '../app/data/maps.json');
 
-type Popups = Record<string, CategoryPayloads>;
-type CategoryPayloads = Record<string, ItemPayload[]>;
-type ItemPayload = { title: string; subtitle?: string };
 type DeferredMarker = {
     marker: MarkerSource;
     category: string;
@@ -29,23 +27,11 @@ type MetaEntry = {
     subtitle?: string;
 };
 
-async function loadMarkerMetadata(): Promise<MetaEntry[]> {
-    return JSON.parse(await fs.readFile(markerMetadataPath, 'utf8'));
-}
-
-async function loadMarkersByCategory(
-    entry: MetaEntry
-): Promise<MarkerSource[]> {
-    return JSON.parse(
-        await fs.readFile(path.join(publicDir, entry.path), 'utf8')
-    );
-}
-
 /** Retrieve (cached) metdata for each map. */
 let cachedMapJson: MapMetadataRecord | null = null;
 async function getMapMetadata(map: string): Promise<MapMetadata> {
     if (!cachedMapJson) {
-        const raw = await fs.readFile(mapMetadataPath, 'utf8');
+        const raw = await readFile(mapMetadataPath, 'utf8');
         cachedMapJson = JSON.parse(raw);
         if (!cachedMapJson) {
             throw new Error(`Missing maps.json in /app/data`);
@@ -54,6 +40,7 @@ async function getMapMetadata(map: string): Promise<MapMetadata> {
     return cachedMapJson[map];
 }
 
+/** Write markers and popups for markers with explicit ID.*/
 export async function processDirectMarkers(
     markerSource: MarkerSource[],
     entry: MetaEntry,
@@ -90,6 +77,7 @@ export async function processDirectMarkers(
     }
 }
 
+/** Write markers and popups for markers with foreign ID.*/
 function processDeferredMarkers(
     deferred: { marker: MarkerSource; category: string; meta: MetaEntry }[],
     popups: Popups,
@@ -123,19 +111,17 @@ function buildFeatureCollection(
     };
 }
 
+/** Write markers and popups to files.*/
 async function writeOutput(
     dataDir: string,
     featureCollection: TMarkerFeatureCollection,
     popups: Popups
 ) {
-    await fs.writeFile(
+    await writeFile(
         path.join(dataDir, 'markers.json'),
         JSON.stringify(featureCollection)
     );
-    await fs.writeFile(
-        path.join(dataDir, 'popups.json'),
-        JSON.stringify(popups)
-    );
+    await writeFile(path.join(dataDir, 'popups.json'), JSON.stringify(popups));
 
     console.log(
         `markers.json (${featureCollection.features.length}) and popups.json (${Object.keys(popups).length}) written.`
@@ -146,16 +132,20 @@ async function build() {
     const popups: Popups = {};
     const features: Record<string, TMarkerFeatureProperties> = {};
     const deferredMarkers: DeferredMarker[] = [];
-    for (const entry of await loadMarkerMetadata()) {
-        const markers = await loadMarkersByCategory(entry);
+    const markerMetadata = JSON.parse(
+        await readFile(markerMetadataPath, 'utf8')
+    );
+    for (const metadataEntry of markerMetadata) {
+        const markersPath = path.join(publicDir, metadataEntry.path);
+        const markers = JSON.parse(await readFile(markersPath, 'utf8'));
         for (const marker of markers)
             if (marker.foreignId)
                 deferredMarkers.push({
                     marker,
-                    category: entry.category,
-                    meta: entry,
+                    category: metadataEntry.category,
+                    meta: metadataEntry,
                 });
-        await processDirectMarkers(markers, entry, features, popups);
+        await processDirectMarkers(markers, metadataEntry, features, popups);
     }
     processDeferredMarkers(deferredMarkers, popups, features);
     const featureCollection = buildFeatureCollection(features);
