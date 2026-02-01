@@ -2,11 +2,11 @@ import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Offset, Popup as MapLibrePopup } from 'maplibre-gl';
 import { useMapContext } from '@/app/context/map-context';
-import { usePopupContext } from '@/app/context/popup-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 
 export default function ReactPopup({ children }: { children: ReactNode }) {
     const { mapInstance } = useMapContext();
-    const { activePopup } = usePopupContext();
+    const { activePopup } = useMarkerContext();
     const popupRef = useRef<MapLibrePopup | null>(null);
     const container = useMemo(() => document.createElement('div'), []);
 

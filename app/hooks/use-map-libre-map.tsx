@@ -16,14 +16,14 @@ import {
 } from '@/lib/convert';
 import { useMapContext } from '@/app/context/map-context';
 import { useDevMode } from '@/app/context/dev-mode-context';
-import { usePopupContext } from '@/app/context/popup-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
 export function useMapLibreMap() {
     const { mapContainer, mapMetadata, activeMap, setMapInstance } =
         useMapContext();
-    const { setActivePopupByFeature } = usePopupContext();
+    const { setActivePopupByFeature } = useMarkerContext();
     const { isDevMode } = useDevMode();
 
     const mapRef = useRef<MapLibreMap | null>(null);

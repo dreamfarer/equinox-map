@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { DevModeProvider } from '@/app/context/dev-mode-context';
 import { MapProvider } from '@/app/context/map-context';
 import { MarkerProvider } from '@/app/context/marker-context';
-import { PopupProvider } from '@/app/context/popup-context';
 import { FilterProvider } from '@/app/context/filter-context';
 import { MenuStateProvider } from '@/app/context/menu-state-context';
 import MapWrapper from '@/app/components/map-wrapper';
@@ -77,17 +76,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <MenuStateProvider>
                     <FilterProvider>
                         <MapProvider mapMetadata={mapMetadata}>
-                            <PopupProvider allPopups={popups}>
-                                <MarkerProvider allMarkers={markers}>
-                                    <DevModeProvider>
-                                        <Navbar />
-                                        <Overlay />
-                                        <MapWrapper />
-                                        <Filter />
-                                        {children}
-                                    </DevModeProvider>
-                                </MarkerProvider>
-                            </PopupProvider>
+                            <MarkerProvider
+                                allPopups={popups}
+                                allMarkers={markers}
+                            >
+                                <DevModeProvider>
+                                    <Navbar />
+                                    <Overlay />
+                                    <MapWrapper />
+                                    <Filter />
+                                    {children}
+                                </DevModeProvider>
+                            </MarkerProvider>
                         </MapProvider>
                     </FilterProvider>
                 </MenuStateProvider>

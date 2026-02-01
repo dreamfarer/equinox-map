@@ -8,7 +8,6 @@ import { useMarkerContext } from '@/app/context/marker-context';
 import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';
 import Menu from '@/app/components/menu';
-import { usePopupContext } from '@/app/context/popup-context';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { useMapContext } from '@/app/context/map-context';
 import { useFilterContext } from '@/app/context/filter-context';
@@ -24,10 +23,9 @@ type MarkerSearchResult = {
 
 const Filter: NextPage = () => {
     const { mapInstance } = useMapContext();
-    const { allMarkers } = useMarkerContext();
+    const { allMarkers, allPopups } = useMarkerContext();
     const { activeCategories, setActiveCategories, toggleActiveCategory } =
         useFilterContext();
-    const { allPopups } = usePopupContext();
     const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
     const [query, setQuery] = useState('');
 

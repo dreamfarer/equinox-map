@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
 import { useMapContext } from '@/app/context/map-context';
 import type { TMarkerFeature } from '@/types/marker-feature';
-import { usePopupContext } from '@/app/context/popup-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 
 type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
@@ -15,7 +15,7 @@ function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
 
 export function useMapLibreMapEventRegister() {
     const { mapInstance } = useMapContext();
-    const { activePopup, setActivePopupByFeature } = usePopupContext();
+    const { activePopup, setActivePopupByFeature } = useMarkerContext();
     const longPressTimerIdRef = useRef<number | null>(null);
 
     useEffect(() => {

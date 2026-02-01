@@ -3,11 +3,11 @@ import styles from '@/app/components/map/popup.module.css';
 import { useFilterContext } from '@/app/context/filter-context';
 import { useMemo, useState } from 'react';
 import { TCategory } from '@/types/category';
-import { usePopupContext } from '@/app/context/popup-context';
+import { useMarkerContext } from '@/app/context/marker-context';
 
 export default function Popup() {
     const { activeCategoryList } = useFilterContext();
-    const { allPopups, activePopup } = usePopupContext();
+    const { allPopups, activePopup } = useMarkerContext();
     const [selectedCategory, setSelectedCategory] = useState<
         TCategory | undefined
     >(undefined);
