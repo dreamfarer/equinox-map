@@ -10,11 +10,12 @@ type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
 function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
     if (!event.features?.length) return null;
-    return event.features[0] as unknown as TMarkerFeature; // TODO: tighten type
+    return event.features[0] as unknown as TMarkerFeature;
 }
 
 export function useMapLibreMapEventRegister() {
     const { mapInstance } = useMapContext();
+    const { setCollectedMarkerIds } = useMarkerContext();
     const { activePopup, setActivePopupByFeature } = useMarkerContext();
     const longPressTimerIdRef = useRef<number | null>(null);
 
@@ -43,10 +44,16 @@ export function useMapLibreMapEventRegister() {
             const feature = extractFeature(event);
             if (!feature) return;
             event.preventDefault();
-            const id = feature.properties.id;
-            const key = { source: 'markers', id };
-            const current = mapInstance.getFeatureState(key);
-            mapInstance.setFeatureState(key, { dim: !current.dim });
+            const id = String(feature.properties.id);
+            setCollectedMarkerIds((prev) => {
+                const next = new Set(prev);
+                if (next.has(id)) {
+                    next.delete(id);
+                } else {
+                    next.add(id);
+                }
+                return next;
+            });
         };
 
         const onTouchStart = (event: MarkerLayerEvent) => {
@@ -57,9 +64,15 @@ export function useMapLibreMapEventRegister() {
                 const feature = extractFeature(event);
                 if (!feature) return;
                 const id = feature.properties.id;
-                const key = { source: 'markers', id };
-                const current = mapInstance.getFeatureState(key);
-                mapInstance.setFeatureState(key, { dim: !current.dim });
+                setCollectedMarkerIds((prev) => {
+                    const next = new Set(prev);
+                    if (next.has(id)) {
+                        next.delete(id);
+                    } else {
+                        next.add(id);
+                    }
+                    return next;
+                });
             }, 500);
         };
 
@@ -79,5 +92,10 @@ export function useMapLibreMapEventRegister() {
             mapInstance.off('touchend', cancelLongPress);
             mapInstance.off('touchcancel', cancelLongPress);
         };
-    }, [activePopup, mapInstance, setActivePopupByFeature]);
+    }, [
+        activePopup,
+        mapInstance,
+        setActivePopupByFeature,
+        setCollectedMarkerIds,
+    ]);
 }

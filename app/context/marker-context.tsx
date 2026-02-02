@@ -7,6 +7,8 @@ import {
     ReactNode,
     useState,
     useCallback,
+    Dispatch,
+    SetStateAction,
 } from 'react';
 import { CategoryPayloads, Popups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
@@ -20,9 +22,11 @@ type ActivePopup = {
     content: CategoryPayloads;
 };
 
-type TMarkerContext = {
+type MarkerContextValue = {
     activePopup: ActivePopup | null;
     setActivePopupByFeature: (feature: TMarkerFeature | null) => void;
+    collectedMarkerIds: Set<string>;
+    setCollectedMarkerIds: Dispatch<SetStateAction<Set<string>>>;
     allPopups: Popups;
     allMarkers: TMarkerFeatureCollection;
 };
@@ -33,7 +37,7 @@ type MarkerProviderProps = {
     allMarkers: TMarkerFeatureCollection;
 };
 
-const MarkerContext = createContext<TMarkerContext | null>(null);
+const MarkerContext = createContext<MarkerContextValue | null>(null);
 
 export function MarkerProvider({
     children,
@@ -41,6 +45,9 @@ export function MarkerProvider({
     allMarkers,
 }: Readonly<MarkerProviderProps>) {
     const [activePopup, setActivePopup] = useState<ActivePopup | null>(null);
+    const [collectedMarkerIds, setCollectedMarkerIds] = useState<Set<string>>(
+        new Set()
+    );
 
     const setActivePopupByFeature = useCallback(
         (feature: TMarkerFeature | null) => {
@@ -59,14 +66,22 @@ export function MarkerProvider({
         [allPopups]
     );
 
-    const contextValue = useMemo<TMarkerContext>(
+    const contextValue = useMemo<MarkerContextValue>(
         () => ({
             activePopup,
             setActivePopupByFeature,
+            collectedMarkerIds,
+            setCollectedMarkerIds,
             allPopups,
             allMarkers,
         }),
-        [activePopup, setActivePopupByFeature, allPopups, allMarkers]
+        [
+            activePopup,
+            setActivePopupByFeature,
+            collectedMarkerIds,
+            allPopups,
+            allMarkers,
+        ]
     );
 
     return <MarkerContext value={contextValue}>{children}</MarkerContext>;
