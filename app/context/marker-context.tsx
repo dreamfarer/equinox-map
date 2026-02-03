@@ -14,6 +14,7 @@ import { CategoryPayloads, Popups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { calculatePopupOffset } from '@/lib/popup-utility';
+import { loadCollectedMarkerIdsFromLocalStorage } from '@/lib/storage-utility';
 
 type ActivePopup = {
     featureId: string;
@@ -46,7 +47,7 @@ export function MarkerProvider({
 }: Readonly<MarkerProviderProps>) {
     const [activePopup, setActivePopup] = useState<ActivePopup | null>(null);
     const [collectedMarkerIds, setCollectedMarkerIds] = useState<Set<string>>(
-        new Set()
+        () => loadCollectedMarkerIdsFromLocalStorage(allMarkers)
     );
 
     const setActivePopupByFeature = useCallback(
