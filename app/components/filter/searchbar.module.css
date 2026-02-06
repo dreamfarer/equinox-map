@@ -1,15 +1,14 @@
 .searchBar {
     align-self: stretch;
     height: 2.5rem;
-    background-color: var(--accent-dark);
+    background-color: var(--background-dark-transparent);
     overflow: hidden;
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0 var(--padding-mini);
-    box-sizing: border-box;
+    padding: 0 var(--spacer-mini);
     border-radius: 0.5rem;
 }
 

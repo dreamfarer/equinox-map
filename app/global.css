@@ -17,13 +17,13 @@
     /* Paddings */
     --padding-6xs: 0.3125rem;
     --padding-3xs: 0.625rem;
-    --padding-mini: 0.937rem;
+    --spacer-mini: 0.75rem;
     --padding-lgi: 1.187rem;
     --padding-xl: 1.25rem;
     --padding-31xl: 3.125rem;
     --padding-274xl: 18.312rem;
 
-    /* Border radiuses */
+    /* Border radi */
     --br-3xs: 10px;
 
     /* Figma Variables */
@@ -32,7 +32,7 @@
     --accent-dark: rgba(10, 10, 10, 0.9);
     --accent-light: #d6d6d6;
     --background-dark: rgb(10, 10, 10);
-    --background-dark-transparent: rgba(10, 10, 10, 0.5);
+    --background-dark-transparent: rgba(10, 10, 10, 0.65);
     --text-dark: #d5d5d5;
     --text-disabled-dark: #777777;
     --theme: #fe28f7;

@@ -1,7 +1,8 @@
 .navbar {
+    width: calc(4 * var(--spacer-mini));
+    margin: var(--spacer-mini);
     position: absolute;
-    top: 0;
-    bottom: 0;
+    inset: 0;
     display: flex;
     align-items: center;
     z-index: 2;
@@ -9,7 +10,6 @@
     background-color: transparent;
     flex-direction: column;
     justify-content: start;
-    padding: var(--padding-3xs);
     gap: var(--gap-3xs);
 }
 
@@ -17,9 +17,8 @@
 .caret {
     background: none;
     border: none;
-    width: 2.5rem;
-    height: 2.5rem;
-    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,9 +36,6 @@
     background-color: var(--accent-dark);
 }
 
-.button.logo {
-    height: 3rem;
-}
 
 .caret.inactive {
     transform: scale(-1, 1);
@@ -48,16 +44,13 @@
 /* Mobile Layout*/
 @media (max-width: 768px) {
     .navbar {
-        display: flex;
+        display: none;
+        left: 0;
+        right: 0;
         justify-content: space-between;
         align-items: flex-end;
         align-self: stretch;
         flex-direction: row;
-        padding: var(--padding-3xs) var(--padding-xl);
-    }
-
-    .button.logo {
-        height: 2.5rem;
     }
 
     .caret.active {
