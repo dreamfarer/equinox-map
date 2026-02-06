@@ -11,8 +11,12 @@ type Props = {
 export default function Menu({ children }: Props) {
     const { isMenuOpen } = useMenuState();
     return (
-        <div className={`${styles.menu} ${!isMenuOpen ? styles.closed : ''}`}>
-            {children}
+        <div className={styles.menuWrapper}>
+            <div
+                className={`${styles.menu} ${!isMenuOpen ? styles.closed : ''}`}
+            >
+                {children}
+            </div>
         </div>
     );
 }

@@ -1,45 +1,59 @@
+.menuWrapper {
+    position: absolute;
+    top: var(--spacer-mini);
+    left: calc(6 * var(--spacer-mini));
+    max-height: calc(100% - 2* var(--spacer-mini));
+    width: 25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 .menu {
-    width: 26.25rem;
-    top: 10px;
+    width: 25rem;
+    height: 50%;
+    overflow: auto;
     background-color: var(--background-dark-transparent);
-    box-sizing: border-box;
-    flex-shrink: 0;
-    padding: var(--padding-xl) var(--padding-xl);
+    padding: calc(2 * var(--spacer-mini));
     gap: var(--gap-xl);
-    font-size: var(--font-size-title);
     color: var(--text-dark);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    left: 3.75rem;
-    transform: scaleX(1);
+    position: relative;
+    transform: translateX(0%);
     transform-origin: left;
     transition-property: transform, opacity;
     transition-duration: 0.25s;
-    transition-timing-function: cubic-bezier(0, 0.35, 0, 1);
-    overflow: hidden;
+    transition:
+            transform 0.25s cubic-bezier(0, 0.35, 0, 1),
+            opacity 0.25s ease-in;
     backdrop-filter: blur(0.5rem);
     border-radius: 0.5rem;
+    max-height: 100%;
+    box-sizing: border-box;
     opacity: 1;
 }
 
 .closed {
-    transform: scaleX(0);
+    transform: translateX(-100%);
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.85;
 }
 
 /* Mobile Layout*/
 @media (max-width: 768px) {
+
+    .menuWrapper {
+        top: auto;
+        bottom: 0;
+        left: 0;
+    }
+
     .menu {
+        box-sizing: border-box;
         width: 100%;
-        max-width: unset;
         height: 40vh;
         align-self: stretch;
-        border-left: none;
-        bottom: 3.75rem;
         left: 0;
         transform: translateY(0);
     }
