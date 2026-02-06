@@ -6,7 +6,6 @@ import { MarkerProvider } from '@/app/context/marker-context';
 import { FilterProvider } from '@/app/context/filter-context';
 import { MenuStateProvider } from '@/app/context/menu-state-context';
 import MapWrapper from '@/app/components/map-wrapper';
-import Overlay from '@/app/components/overlay';
 import Filter from '@/app/components/filter';
 import Navbar from '@/app/components/navbar';
 import mapMetadata from '@/app/data/maps.json';
@@ -82,7 +81,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                             >
                                 <DevModeProvider>
                                     <Navbar />
-                                    <Overlay />
                                     <MapWrapper />
                                     <Filter />
                                     {children}
