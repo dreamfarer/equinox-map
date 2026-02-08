@@ -36,7 +36,6 @@
     background-color: var(--accent-dark);
 }
 
-
 .caret.inactive {
     transform: scale(-1, 1);
 }
