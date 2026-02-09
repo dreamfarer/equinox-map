@@ -1,17 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { MapLayerMouseEvent, MapLayerTouchEvent } from 'maplibre-gl';
 import { useMapContext } from '@/app/context/map-context';
-import type { TMarkerFeature } from '@/types/marker-feature';
 import { useMarkerContext } from '@/app/context/marker-context';
-
-type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
-
-function extractFeature(event: MarkerLayerEvent): TMarkerFeature | null {
-    if (!event.features?.length) return null;
-    return event.features[0] as unknown as TMarkerFeature;
-}
+import { MarkerLayerEvent } from '@/types/marker-layer-event';
+import { extractFeature } from '@/lib/extract-feature';
 
 export function useMapLibreMapEventRegister() {
     const { mapInstance } = useMapContext();
@@ -31,7 +24,7 @@ export function useMapLibreMapEventRegister() {
         };
 
         const onClick = (event: MarkerLayerEvent) => {
-            const feature = extractFeature(event);
+            const feature = extractFeature(mapInstance, event);
             if (!feature) return;
             const markerId = feature.properties.id as string;
             if (activePopup && activePopup.featureId === markerId) {
@@ -41,7 +34,7 @@ export function useMapLibreMapEventRegister() {
         };
 
         const onContextMenu = (event: MarkerLayerEvent) => {
-            const feature = extractFeature(event);
+            const feature = extractFeature(mapInstance, event);
             if (!feature) return;
             event.preventDefault();
             const id = String(feature.properties.id);
@@ -57,11 +50,11 @@ export function useMapLibreMapEventRegister() {
         };
 
         const onTouchStart = (event: MarkerLayerEvent) => {
-            const feature = extractFeature(event);
+            const feature = extractFeature(mapInstance, event);
             if (!feature) return;
             cancelLongPress();
             longPressTimerIdRef.current = window.setTimeout(() => {
-                const feature = extractFeature(event);
+                const feature = extractFeature(mapInstance, event);
                 if (!feature) return;
                 const id = feature.properties.id;
                 setCollectedMarkerIds((prev) => {
