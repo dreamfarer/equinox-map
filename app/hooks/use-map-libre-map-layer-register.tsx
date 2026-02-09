@@ -58,16 +58,64 @@ export function useMapLibreMapLayerRegister() {
                             ['get', 'anchor'],
                             'bottom',
                         ],
-                        'icon-allow-overlap': true,
+                        'icon-overlap': 'always',
                         'icon-size': 0.5,
+                        'symbol-z-order': 'source',
+                        'symbol-sort-key': 0,
                     },
                     paint: {
                         'icon-opacity': [
                             'case',
-                            ['boolean', ['feature-state', 'dim'], false],
-                            0.5,
-                            1.0,
+                            ['boolean', ['feature-state', 'hover'], false],
+                            0,
+                            [
+                                'case',
+                                ['boolean', ['feature-state', 'dim'], false],
+                                0.5,
+                                1.0,
+                            ],
                         ],
+                        'icon-opacity-transition': {
+                            duration: 1200,
+                            delay: 0,
+                        },
+                    },
+                });
+            }
+
+            if (!mapInstance.getLayer('markers-hover-layer')) {
+                mapInstance.addLayer({
+                    id: 'markers-hover-layer',
+                    type: 'symbol',
+                    source: 'markers',
+                    layout: {
+                        'icon-image': ['get', 'icon'],
+                        'icon-anchor': [
+                            'coalesce',
+                            ['get', 'anchor'],
+                            'bottom',
+                        ],
+                        'icon-overlap': 'always',
+                        'icon-size': 0.65,
+                        'symbol-z-order': 'source',
+                        'symbol-sort-key': 1,
+                    },
+                    paint: {
+                        'icon-opacity': [
+                            'case',
+                            ['boolean', ['feature-state', 'hover'], false],
+                            [
+                                'case',
+                                ['boolean', ['feature-state', 'dim'], false],
+                                0.5,
+                                1.0,
+                            ],
+                            0,
+                        ],
+                        'icon-opacity-transition': {
+                            duration: 1200,
+                            delay: 0,
+                        },
                     },
                 });
             }
@@ -81,13 +129,21 @@ export function useMapLibreMapLayerRegister() {
         if (!mapInstance) return;
 
         const applyFilter = () => {
-            if (!mapInstance.getLayer('markers-layer')) return;
-            mapInstance.setFilter('markers-layer', mapLibreFilterExpression);
+            if (mapInstance.getLayer('markers-layer')) {
+                mapInstance.setFilter(
+                    'markers-layer',
+                    mapLibreFilterExpression
+                );
+            }
+            if (mapInstance.getLayer('markers-hover-layer')) {
+                mapInstance.setFilter(
+                    'markers-hover-layer',
+                    mapLibreFilterExpression
+                );
+            }
         };
 
         if (mapInstance.isStyleLoaded()) applyFilter();
-        else {
-            mapInstance.once('load', applyFilter);
-        }
+        else mapInstance.once('load', applyFilter);
     }, [mapInstance, mapLibreFilterExpression]);
 }

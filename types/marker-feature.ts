@@ -10,6 +10,7 @@ export type TMarkerFeatureProperties = {
 
 export type TMarkerFeature = {
     type: string;
+    id?: string;
     geometry: {
         type: string;
         coordinates: number[];

@@ -10,6 +10,7 @@ import { useMapLibreMapEventRegister } from '@/app/hooks/use-map-libre-map-event
 import { useMapLibreMapLayerRegister } from '@/app/hooks/use-map-libre-map-layer-register';
 import { useMarkerContext } from '@/app/context/marker-context';
 import { useUpdateCollectedMarkers } from '@/app/hooks/use-update-collected-markers';
+import { useMarkerHover } from '@/app/hooks/use-marker-hover';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from '@/app/components/map.module.css';
 
@@ -23,6 +24,7 @@ export default function Map() {
     useMapLibreMapLayerRegister();
     useMapLibreMapEventRegister();
     useUpdateCollectedMarkers();
+    useMarkerHover();
 
     return (
         <div className={styles.mapWrapper}>
