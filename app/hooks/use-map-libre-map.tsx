@@ -70,6 +70,7 @@ export function useMapLibreMap() {
             renderWorldCopies: false,
             doubleClickZoom: false,
             attributionControl: false,
+            fadeDuration: 0,
             transformRequest: (url) => ({ url }),
         });
 
