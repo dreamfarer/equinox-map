@@ -134,7 +134,6 @@ export default function Menu({ children }: Props) {
                 >
                     <div className={styles.handleBar} />
                 </div>
-
                 {children}
             </div>
         </div>

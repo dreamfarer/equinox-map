@@ -8,10 +8,12 @@ import { useMarkerContext } from '@/app/context/marker-context';
 import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';
 import Menu from '@/app/components/menu';
+import MarkerCollectionDisplay from '@/app/components/marker-collection-display';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { useMapContext } from '@/app/context/map-context';
 import { useFilterContext } from '@/app/context/filter-context';
 import styles from '@/app/components/filter.module.css';
+import { useUpdateActiveMarkerCount } from '@/app/hooks/use-update-active-marker-count';
 
 type MarkerSearchResult = {
     markerId: string;
@@ -28,6 +30,8 @@ const Filter: NextPage = () => {
         useFilterContext();
     const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
     const [query, setQuery] = useState('');
+
+    useUpdateActiveMarkerCount();
 
     const results = useMemo((): MarkerSearchResult[] => {
         if (!query.trim()) return [];
@@ -61,6 +65,8 @@ const Filter: NextPage = () => {
             <div className={styles.header}>
                 <Searchbar onSearchAction={setQuery} />
             </div>
+
+            <MarkerCollectionDisplay></MarkerCollectionDisplay>
 
             <div className={styles.scrollArea}>
                 {!query.trim() &&
