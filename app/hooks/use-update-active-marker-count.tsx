@@ -10,7 +10,7 @@ export function useUpdateActiveMarkerCount() {
         collectedMarkerIds,
         allMarkers,
         allFeatures,
-        markerCountByCategory,
+        allMarkerIdsByCategory,
     } = useMarkerContext();
     const { activeCategoryList } = useFilterContext();
 
@@ -23,31 +23,36 @@ export function useUpdateActiveMarkerCount() {
             setActiveMarkerCount(allMarkers.features.length);
             return;
         }
-        let count = 0;
+        const union = new Set<string>();
         for (const cat of activeCategoryList) {
-            count += markerCountByCategory[cat] ?? 0;
+            const set = allMarkerIdsByCategory[cat];
+            if (!set) continue;
+            for (const id of set) union.add(id);
         }
-        setActiveMarkerCount(count);
+        setActiveMarkerCount(union.size);
     }, [
-        allMarkers,
         activeCategoryList,
         setActiveMarkerCount,
-        markerCountByCategory,
+        allMarkers,
+        allMarkerIdsByCategory,
     ]);
 
     useEffect(() => {
+        if (activeCategoryList.length === 0) {
+            setActiveCollectedMarkerCount(0);
+            return;
+        }
         let count = 0;
+        const activeSet = new Set(activeCategoryList);
         collectedMarkerIds.forEach((id) => {
-            allFeatures[id].properties?.categories?.forEach((cat) => {
-                if (activeCategoryList.includes(cat as TCategory)) count++;
-            });
+            const cats = allFeatures[id]?.properties?.categories ?? [];
+            if (cats.some((c) => activeSet.has(c as TCategory))) count += 1;
         });
         setActiveCollectedMarkerCount(count);
     }, [
         collectedMarkerIds,
-        allMarkers,
         activeCategoryList,
-        setActiveCollectedMarkerCount,
         allFeatures,
+        setActiveCollectedMarkerCount,
     ]);
 }

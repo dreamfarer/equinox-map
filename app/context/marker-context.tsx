@@ -36,7 +36,7 @@ type MarkerContextValue = {
     allPopups: Popups;
     allMarkers: TMarkerFeatureCollection;
     allFeatures: Record<string, TMarkerFeature>;
-    markerCountByCategory: Record<string, number>;
+    allMarkerIdsByCategory: Record<string, Set<string>>;
 };
 
 type MarkerProviderProps = {
@@ -68,13 +68,15 @@ export function MarkerProvider({
         return map;
     }, [allMarkers]);
 
-    const markerCountByCategory = useMemo(() => {
-        const map = {} as Record<string, number>;
-        allMarkers.features.forEach((feature) => {
-            feature.properties.categories?.forEach((cat) => {
-                map[cat] = (map[cat] ?? 0) + 1;
-            });
-        });
+    const allMarkerIdsByCategory = useMemo(() => {
+        const map = {} as Record<string, Set<string>>;
+        for (const feature of allMarkers.features) {
+            const id = feature.properties.id;
+            for (const cat of feature.properties.categories ?? []) {
+                if (!map[cat]) map[cat] = new Set<string>();
+                map[cat].add(id);
+            }
+        }
         return map;
     }, [allMarkers]);
 
@@ -114,7 +116,7 @@ export function MarkerProvider({
             allPopups,
             allMarkers,
             allFeatures,
-            markerCountByCategory,
+            allMarkerIdsByCategory,
         }),
         [
             activePopup,
@@ -125,7 +127,7 @@ export function MarkerProvider({
             allPopups,
             allMarkers,
             allFeatures,
-            markerCountByCategory,
+            allMarkerIdsByCategory,
         ]
     );
 
