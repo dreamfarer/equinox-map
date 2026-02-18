@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # user-defined
+.idea
 tiles/
 public/markers/markers.geojson
 public/markers/popups.json

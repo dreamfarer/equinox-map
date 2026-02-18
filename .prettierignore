@@ -1,4 +1,7 @@
+.github
+.idea
+.next
 node_modules
+public
 dist
 build
-.next
