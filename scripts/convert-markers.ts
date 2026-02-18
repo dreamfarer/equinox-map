@@ -12,11 +12,13 @@ const dataDir = path.resolve(__dirname, '../app/data');
 const markerMetadataPath = path.resolve(__dirname, '../public/meta.json');
 const mapMetadataPath = path.resolve(__dirname, '../app/data/maps.json');
 
-type DeferredMarker = {
+type DeferredMarkers = {
     marker: MarkerSource;
     category: string;
     meta: MetaEntry;
-};
+}[];
+
+type PrimaryMarkers = Record<string, MarkerSource>;
 
 type MetaEntry = {
     category: string;
@@ -79,17 +81,23 @@ export async function processDirectMarkers(
 
 /** Write markers and popups for markers with foreign ID.*/
 function processDeferredMarkers(
-    deferred: { marker: MarkerSource; category: string; meta: MetaEntry }[],
+    primaryMarkers: PrimaryMarkers,
+    deferredMarkers: {
+        marker: MarkerSource;
+        category: string;
+        meta: MetaEntry;
+    }[],
     popups: Popups,
     features: Record<string, TMarkerFeatureProperties>
 ) {
-    for (const { marker, category, meta } of deferred) {
+    for (const { marker, category, meta } of deferredMarkers) {
         const targetId = marker.foreignId!.toLowerCase();
         if (!popups[targetId]) {
             console.error(`foreignId "${targetId}" not found!`);
             continue;
         }
-        const title = marker.title || meta.title || '';
+        const foreignTitle = primaryMarkers[targetId]?.title;
+        const title = marker.title || foreignTitle || meta.title || '';
         const subtitle = marker.subtitle || meta.subtitle || '';
         if (!popups[targetId][category]) popups[targetId][category] = [];
         features[targetId].categories.push(category);
@@ -131,23 +139,26 @@ async function writeOutput(
 async function build() {
     const popups: Popups = {};
     const features: Record<string, TMarkerFeatureProperties> = {};
-    const deferredMarkers: DeferredMarker[] = [];
+    const primaryMarkers: PrimaryMarkers = {};
+    const deferredMarkers: DeferredMarkers = [];
     const markerMetadata = JSON.parse(
         await readFile(markerMetadataPath, 'utf8')
     );
     for (const metadataEntry of markerMetadata) {
         const markersPath = path.join(publicDir, metadataEntry.path);
         const markers = JSON.parse(await readFile(markersPath, 'utf8'));
-        for (const marker of markers)
+        for (const marker of markers) {
             if (marker.foreignId)
                 deferredMarkers.push({
                     marker,
                     category: metadataEntry.category,
                     meta: metadataEntry,
                 });
+            else primaryMarkers[marker.id!] = marker;
+        }
         await processDirectMarkers(markers, metadataEntry, features, popups);
     }
-    processDeferredMarkers(deferredMarkers, popups, features);
+    processDeferredMarkers(primaryMarkers, deferredMarkers, popups, features);
     const featureCollection = buildFeatureCollection(features);
     await writeOutput(dataDir, featureCollection, popups);
 }
