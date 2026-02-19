@@ -127,23 +127,26 @@ export function useMapLibreMapLayerRegister() {
 
     useEffect(() => {
         if (!mapInstance) return;
-
-        const applyFilter = () => {
-            if (mapInstance.getLayer('markers-layer')) {
+        const applyFilterIfReady = () => {
+            if (
+                mapInstance.getLayer('markers-layer') &&
+                mapInstance.getLayer('markers-hover-layer')
+            ) {
                 mapInstance.setFilter(
                     'markers-layer',
                     mapLibreFilterExpression
                 );
-            }
-            if (mapInstance.getLayer('markers-hover-layer')) {
                 mapInstance.setFilter(
                     'markers-hover-layer',
                     mapLibreFilterExpression
                 );
+                mapInstance.off('styledata', applyFilterIfReady);
             }
         };
-
-        if (mapInstance.isStyleLoaded()) applyFilter();
-        else mapInstance.once('load', applyFilter);
+        applyFilterIfReady();
+        mapInstance.on('styledata', applyFilterIfReady);
+        return () => {
+            mapInstance.off('styledata', applyFilterIfReady);
+        };
     }, [mapInstance, mapLibreFilterExpression]);
 }
