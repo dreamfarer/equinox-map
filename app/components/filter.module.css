@@ -27,6 +27,30 @@
     border-radius: 0.25rem;
 }
 
+.buttonGroupHorizontal {
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-xl);
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 10px;
+    background: var(--background-dark-transparent);
+    border: none;
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    padding: 0;
+}
+
 .results {
     display: flex;
     flex-direction: column;

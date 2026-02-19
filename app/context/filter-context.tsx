@@ -26,6 +26,8 @@ type FilterContextValue = {
     toggleActiveCategory: (category: TCategory) => void;
     activeCategoryList: TCategory[];
     mapLibreFilterExpression: ExpressionSpecification;
+    setAllCategories: (show: boolean) => void;
+    allCategories: typeof categories;
 };
 
 type FilterProviderProps = {
@@ -35,17 +37,29 @@ type FilterProviderProps = {
 
 const FilterContext = createContext<FilterContextValue | undefined>(undefined);
 
+function buildCategoryState(
+    categories: readonly TCategory[],
+    value: boolean
+): Record<TCategory, boolean> {
+    return Object.fromEntries(categories.map((cat) => [cat, value])) as Record<
+        TCategory,
+        boolean
+    >;
+}
+
 export function FilterProvider({
     children,
     allCategories,
 }: Readonly<FilterProviderProps>) {
     const [activeCategories, setActiveCategories] = useState<
         Partial<Record<TCategory, boolean>>
-    >(
-        () =>
-            Object.fromEntries(
-                allCategories.map((cat) => [cat, true])
-            ) as Record<TCategory, boolean>
+    >(() => buildCategoryState(allCategories, true));
+
+    const setAllCategories = useCallback(
+        (show: boolean) => {
+            setActiveCategories(buildCategoryState(allCategories, show));
+        },
+        [allCategories]
     );
 
     const toggleActiveCategory = useCallback((category: TCategory) => {
@@ -103,12 +117,16 @@ export function FilterProvider({
             toggleActiveCategory,
             activeCategoryList,
             mapLibreFilterExpression: categoryExpression,
+            setAllCategories,
+            allCategories,
         }),
         [
             activeCategories,
             toggleActiveCategory,
             activeCategoryList,
             categoryExpression,
+            setAllCategories,
+            allCategories,
         ]
     );
 

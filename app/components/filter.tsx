@@ -1,7 +1,7 @@
 'use client';
 
 import type { NextPage } from 'next';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import Category from '@/app/components/filter/category';
 import Searchbar from '@/app/components/filter/searchbar';
 import { useMarkerContext } from '@/app/context/marker-context';
@@ -26,8 +26,14 @@ type MarkerSearchResult = {
 const Filter: NextPage = () => {
     const { mapInstance } = useMapContext();
     const { allMarkers, allPopups } = useMarkerContext();
-    const { activeCategories, setActiveCategories, toggleActiveCategory } =
-        useFilterContext();
+    const {
+        activeCategories,
+        activeCategoryList,
+        allCategories,
+        setActiveCategories,
+        toggleActiveCategory,
+        setAllCategories,
+    } = useFilterContext();
     const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
     const [query, setQuery] = useState('');
 
@@ -60,6 +66,18 @@ const Filter: NextPage = () => {
         return matches;
     }, [query, allPopups]);
 
+    const toggleAllCategories = useCallback(() => {
+        if (activeCategoryList.length < allCategories.length)
+            return setAllCategories(true);
+        return setAllCategories(false);
+    }, [activeCategoryList.length, allCategories.length, setAllCategories]);
+
+    const toggleAllCategoriesText = useMemo(() => {
+        return activeCategoryList.length < allCategories.length
+            ? 'Show All Markers'
+            : 'Hide All Markers';
+    }, [activeCategoryList.length, allCategories.length]);
+
     return (
         <Menu>
             <div className={styles.header}>
@@ -67,6 +85,13 @@ const Filter: NextPage = () => {
             </div>
 
             <MarkerCollectionDisplay></MarkerCollectionDisplay>
+
+            <div className={styles.buttonGroupHorizontal}>
+                <button className={styles.button} onClick={toggleAllCategories}>
+                    {toggleAllCategoriesText}
+                </button>
+                <button className={styles.button}>Reset Collection</button>
+            </div>
 
             <div className={styles.scrollArea}>
                 {!query.trim() &&
@@ -82,11 +107,9 @@ const Filter: NextPage = () => {
                             setActiveCategories((prev) => {
                                 const next = { ...prev };
                                 const nextValue = !allActive;
-
-                                for (const { id } of group.entries) {
-                                    next[id] = nextValue;
-                                }
-
+                                group.entries.forEach(
+                                    (entry) => (next[entry.id] = nextValue)
+                                );
                                 return next;
                             });
                         };
