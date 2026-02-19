@@ -25,8 +25,6 @@ export const categories = [
     'violet',
     'water-lily',
     'weekly-quest',
-    'side-quest',
-    'main-quest',
     'deliveries',
     'artefacts',
 ] as const;
