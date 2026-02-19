@@ -9,9 +9,14 @@ import {
     useMemo,
     useState,
     useCallback,
+    useEffect,
 } from 'react';
 import { categories, TCategory } from '@/types/category';
 import { ExpressionSpecification } from 'maplibre-gl';
+import {
+    loadActiveCategoriesFromLocalStorage,
+    saveActiveCategoriesToLocalStorage,
+} from '@/lib/storage-utility';
 
 type FilterContextValue = {
     activeCategories: Partial<Record<TCategory, boolean>>;
@@ -23,17 +28,24 @@ type FilterContextValue = {
     mapLibreFilterExpression: ExpressionSpecification;
 };
 
+type FilterProviderProps = {
+    children: ReactNode;
+    allCategories: typeof categories;
+};
+
 const FilterContext = createContext<FilterContextValue | undefined>(undefined);
 
-export function FilterProvider({ children }: { children: ReactNode }) {
+export function FilterProvider({
+    children,
+    allCategories,
+}: Readonly<FilterProviderProps>) {
     const [activeCategories, setActiveCategories] = useState<
         Partial<Record<TCategory, boolean>>
     >(
         () =>
-            Object.fromEntries(categories.map((cat) => [cat, true])) as Record<
-                TCategory,
-                boolean
-            >
+            Object.fromEntries(
+                allCategories.map((cat) => [cat, true])
+            ) as Record<TCategory, boolean>
     );
 
     const toggleActiveCategory = useCallback((category: TCategory) => {
@@ -42,6 +54,16 @@ export function FilterProvider({ children }: { children: ReactNode }) {
             [category]: !prev[category],
         }));
     }, []);
+
+    useEffect(() => {
+        setActiveCategories(
+            loadActiveCategoriesFromLocalStorage(allCategories)
+        );
+    }, [allCategories]);
+
+    useEffect(() => {
+        saveActiveCategoriesToLocalStorage(activeCategories);
+    }, [activeCategories]);
 
     const activeCategoryList = useMemo<TCategory[]>(() => {
         return (

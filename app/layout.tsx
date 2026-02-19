@@ -11,6 +11,7 @@ import Navbar from '@/app/components/navbar';
 import mapMetadata from '@/app/data/maps.json';
 import popups from '@/app/data/popups.json';
 import markers from '@/app/data/markers.json';
+import { categories } from '@/types/category';
 import '@/app/global.css';
 
 export const viewport = {
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html lang="en">
             <body>
                 <MenuStateProvider>
-                    <FilterProvider>
+                    <FilterProvider allCategories={categories}>
                         <MapProvider mapMetadata={mapMetadata}>
                             <MarkerProvider
                                 allPopups={popups}
