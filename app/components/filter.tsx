@@ -25,7 +25,8 @@ type MarkerSearchResult = {
 
 const Filter: NextPage = () => {
     const { mapInstance } = useMapContext();
-    const { allMarkers, allPopups } = useMarkerContext();
+    const { allMarkers, allPopups, collectedMarkerIds, setCollectedMarkerIds } =
+        useMarkerContext();
     const {
         activeCategories,
         activeCategoryList,
@@ -78,6 +79,14 @@ const Filter: NextPage = () => {
             : 'Hide All Markers';
     }, [activeCategoryList.length, allCategories.length]);
 
+    const showResetCollectionButton = useMemo(() => {
+        return collectedMarkerIds.size > 0;
+    }, [collectedMarkerIds]);
+
+    const resetCollection = useCallback(() => {
+        setCollectedMarkerIds(new Set([]));
+    }, [setCollectedMarkerIds]);
+
     return (
         <Menu>
             <div className={styles.header}>
@@ -86,11 +95,24 @@ const Filter: NextPage = () => {
 
             <MarkerCollectionDisplay></MarkerCollectionDisplay>
 
-            <div className={styles.buttonGroupHorizontal}>
+            <div className={`${styles.buttonGroupHorizontal} ${
+                showResetCollectionButton
+                    ? styles.gap
+                    : styles.noGap
+            }`}>
                 <button className={styles.button} onClick={toggleAllCategories}>
                     {toggleAllCategoriesText}
                 </button>
-                <button className={styles.button}>Reset Collection</button>
+                <button
+                    className={`${styles.button} ${
+                        showResetCollectionButton
+                            ? styles.visible
+                            : styles.hidden
+                    }`}
+                    onClick={resetCollection}
+                >
+                    Reset Collection
+                </button>
             </div>
 
             <div className={styles.scrollArea}>

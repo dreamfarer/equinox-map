@@ -32,23 +32,47 @@
     height: 2rem;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-xl);
     flex-shrink: 0;
     align-self: stretch;
+    transition: gap 250ms ease;
+}
+
+.gap {
+    gap: var(--gap-xl);
+}
+
+.noGap {
+    gap: 0;
 }
 
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1 0 0;
+    flex: 0 1 auto;
+    overflow: hidden;
+    width: 100%;
     align-self: stretch;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     background: var(--background-dark-transparent);
     border: none;
     color: var(--text-dark);
     font-size: var(--font-size-base);
     padding: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    transition: width 250ms ease, opacity 250ms ease;
+}
+
+.visible {
+    opacity: 1;
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
 }
 
 .results {
