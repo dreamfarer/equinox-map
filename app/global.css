@@ -25,6 +25,7 @@
 
     /* Color Variables */
     --accent-dark: rgba(10, 10, 10, 0.9);
+    --accent-dark-transparent: rgba(10, 10, 10, 0.4);
     --accent-light: #d6d6d6;
     --background-dark: rgb(10, 10, 10);
     --background-dark-transparent: rgba(10, 10, 10, 0.65);
@@ -51,6 +52,19 @@ a {
     a:hover {
         color: var(--theme) !important;
     }
+}
+
+h1 {
+    color: var(--text-dark);
+    font-size: var(--font-size-title);
+    font-weight: bold;
+    margin: 0;
+}
+
+p {
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    margin: 0;
 }
 
 html,
