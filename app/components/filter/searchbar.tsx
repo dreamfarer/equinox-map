@@ -2,6 +2,7 @@
 
 import { useState, ChangeEvent } from 'react';
 import styles from '@/app/components/filter/searchbar.module.css';
+import { XCircleIcon } from '@phosphor-icons/react';
 
 type Props = {
     onSearchAction: (query: string) => void;
@@ -16,6 +17,11 @@ export default function Searchbar({ onSearchAction }: Props) {
         onSearchAction(value);
     };
 
+    const clearSearch = () => {
+        setQuery('');
+        onSearchAction('');
+    };
+
     return (
         <div className={styles.searchBar}>
             <input
@@ -24,6 +30,17 @@ export default function Searchbar({ onSearchAction }: Props) {
                 value={query}
                 onChange={handleChange}
             />
+
+            {query && (
+                <button
+                    type="button"
+                    onClick={clearSearch}
+                    className={styles.clearButton}
+                    aria-label="Clear search"
+                >
+                    <XCircleIcon size={20} weight="regular" />
+                </button>
+            )}
         </div>
     );
 }
