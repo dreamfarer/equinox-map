@@ -6,12 +6,12 @@ const nextConfig: NextConfig = {
             {
                 source: '/filter',
                 destination: '/',
-                permanent: true,
+                permanent: false,
             },
             {
                 source: '/bookmarks',
                 destination: '/',
-                permanent: true,
+                permanent: false,
             },
         ];
     },
