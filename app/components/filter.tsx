@@ -1,13 +1,11 @@
 'use client';
 
-import type { NextPage } from 'next';
 import { useCallback, useMemo, useState } from 'react';
 import Category from '@/app/components/filter/category';
 import Searchbar from '@/app/components/filter/searchbar';
 import { useMarkerContext } from '@/app/context/marker-context';
 import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';
-import Menu from '@/app/components/menu';
 import MarkerCollectionDisplay from '@/app/components/marker-collection-display';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { useMapContext } from '@/app/context/map-context';
@@ -23,7 +21,7 @@ type MarkerSearchResult = {
     subtitle?: string;
 };
 
-const Filter: NextPage = () => {
+export default function Filter() {
     const { mapInstance } = useMapContext();
     const { allMarkers, allPopups, collectedMarkerIds, setCollectedMarkerIds } =
         useMarkerContext();
@@ -88,18 +86,18 @@ const Filter: NextPage = () => {
     }, [setCollectedMarkerIds]);
 
     return (
-        <Menu>
+        <>
             <div className={styles.header}>
                 <Searchbar onSearchAction={setQuery} />
             </div>
 
             <MarkerCollectionDisplay></MarkerCollectionDisplay>
 
-            <div className={`${styles.buttonGroupHorizontal} ${
-                showResetCollectionButton
-                    ? styles.gap
-                    : styles.noGap
-            }`}>
+            <div
+                className={`${styles.buttonGroupHorizontal} ${
+                    showResetCollectionButton ? styles.gap : styles.noGap
+                }`}
+            >
                 <button className={styles.button} onClick={toggleAllCategories}>
                     {toggleAllCategoriesText}
                 </button>
@@ -115,55 +113,49 @@ const Filter: NextPage = () => {
                 </button>
             </div>
 
-            <div className={styles.scrollArea}>
-                {!query.trim() &&
-                    categoryGroups.map((group) => {
-                        const anyActive = group.entries.some(
-                            ({ id }) => activeCategories[id]
-                        );
-                        const allActive = group.entries.every(
-                            ({ id }) => activeCategories[id]
-                        );
+            {!query.trim() &&
+                categoryGroups.map((group) => {
+                    const anyActive = group.entries.some(
+                        ({ id }) => activeCategories[id]
+                    );
+                    const allActive = group.entries.every(
+                        ({ id }) => activeCategories[id]
+                    );
 
-                        const toggleAll = () => {
-                            setActiveCategories((prev) => {
-                                const next = { ...prev };
-                                const nextValue = !allActive;
-                                group.entries.forEach(
-                                    (entry) => (next[entry.id] = nextValue)
-                                );
-                                return next;
-                            });
-                        };
+                    const toggleAll = () => {
+                        setActiveCategories((prev) => {
+                            const next = { ...prev };
+                            const nextValue = !allActive;
+                            group.entries.forEach(
+                                (entry) => (next[entry.id] = nextValue)
+                            );
+                            return next;
+                        });
+                    };
 
-                        const entries = group.entries.map(({ label, id }) => ({
-                            label,
-                            isActive: !!activeCategories[id],
-                            onToggle: () => toggleActiveCategory(id),
-                        }));
+                    const entries = group.entries.map(({ label, id }) => ({
+                        label,
+                        isActive: !!activeCategories[id],
+                        onToggle: () => toggleActiveCategory(id),
+                    }));
 
-                        return (
-                            <Category
-                                key={group.title}
-                                title={group.title}
-                                isActive={anyActive}
-                                onToggle={toggleAll}
-                                entries={entries}
-                            />
-                        );
-                    })}
+                    return (
+                        <Category
+                            key={group.title}
+                            title={group.title}
+                            isActive={anyActive}
+                            onToggle={toggleAll}
+                            entries={entries}
+                        />
+                    );
+                })}
 
-                <div className={styles.results}>
-                    <Results results={results} onSelect={flyToMarker} />
-                    {query && results.length === 0 && (
-                        <div className={styles.noResult}>
-                            No matches. (´•︵•`)
-                        </div>
-                    )}
-                </div>
+            <div className={styles.results}>
+                <Results results={results} onSelect={flyToMarker} />
+                {query && results.length === 0 && (
+                    <div className={styles.noResult}>No matches. (´•︵•`)</div>
+                )}
             </div>
-        </Menu>
+        </>
     );
-};
-
-export default Filter;
+}

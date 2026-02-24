@@ -26,21 +26,21 @@
     transition: color 0.2s ease;
     color: var(--text-dark);
     border-radius: 0.5rem;
+    backdrop-filter: blur(0.5rem);
 }
 
 .button.active {
-    background-color: transparent;
+    background-color: var(--accent-dark-transparent);
 }
 
 .button.inactive {
-    background-color: var(--accent-dark);
+    background-color: var(--background-dark-transparent);
 }
 
 .caret.inactive {
     transform: scale(-1, 1);
 }
 
-/* Mobile Layout*/
 @media (max-width: 768px) {
     .navbar {
         display: none;

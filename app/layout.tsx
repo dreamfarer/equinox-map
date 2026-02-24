@@ -1,18 +1,17 @@
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
 import { DevModeProvider } from '@/app/context/dev-mode-context';
 import { MapProvider } from '@/app/context/map-context';
 import { MarkerProvider } from '@/app/context/marker-context';
 import { FilterProvider } from '@/app/context/filter-context';
 import { MenuStateProvider } from '@/app/context/menu-state-context';
 import MapWrapper from '@/app/components/map-wrapper';
-import Filter from '@/app/components/filter';
 import Navbar from '@/app/components/navbar';
 import mapMetadata from '@/app/data/maps.json';
 import popups from '@/app/data/popups.json';
 import markers from '@/app/data/markers.json';
 import { categories } from '@/types/category';
 import '@/app/global.css';
+import Menu from '@/app/components/menu';
 
 export const viewport = {
     width: 'device-width',
@@ -69,7 +68,7 @@ export const metadata: Metadata = {
     robots: { index: false, follow: true },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout() {
     return (
         <html lang="en">
             <body>
@@ -83,8 +82,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                                 <DevModeProvider>
                                     <Navbar />
                                     <MapWrapper />
-                                    <Filter />
-                                    {children}
+                                    <Menu />
                                 </DevModeProvider>
                             </MarkerProvider>
                         </MapProvider>

@@ -1,19 +1,10 @@
 'use client';
 
-import {
-    ReactNode,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-    PointerEvent,
-} from 'react';
+import { useEffect, useMemo, useRef, useState, PointerEvent } from 'react';
 import styles from '@/app/components/menu.module.css';
 import { useMenuState } from '@/app/context/menu-state-context';
-
-type Props = {
-    children: ReactNode;
-};
+import Filter from '@/app/components/filter';
+import Information from '@/app/components/information';
 
 type SnapPointOptions = {
     top: number;
@@ -23,8 +14,8 @@ type SnapPointOptions = {
 
 type SnapPoint = 'mid' | 'top' | 'closed';
 
-export default function Menu({ children }: Props) {
-    const { isMenuOpen } = useMenuState();
+export default function Menu() {
+    const { isMenuOpen, activeMenuName } = useMenuState();
     const [dragging, setDragging] = useState(false);
     const [snapPoint, setSnapPoint] = useState<SnapPoint>('mid');
     const [dragY, setDragY] = useState<number | null>(null);
@@ -111,19 +102,31 @@ export default function Menu({ children }: Props) {
         setSnapPoint(nearestSnap(current));
     }
 
+    const content = useMemo(() => {
+        if (isMobile) {
+            return (
+                <>
+                    <Filter />
+                    <Information />
+                </>
+            );
+        }
+        if (activeMenuName === 'filter') return <Filter />;
+        return <Information />;
+    }, [activeMenuName, isMobile]);
+
     return (
-        <div className={styles.menuWrapper}>
+        <div
+            className={styles.mask}
+            style={{ pointerEvents: !isMenuOpen ? 'none' : 'auto' }}
+        >
             <div
                 className={[
                     styles.menu,
                     !isMenuOpen ? styles.closed : '',
                     dragging ? styles.dragging : '',
                 ].join(' ')}
-                style={
-                    isMobile
-                        ? { transform: `translateY(${effectiveY}px)` }
-                        : undefined
-                }
+                style={isMobile ? { top: `${effectiveY}px` } : undefined}
             >
                 <div
                     className={styles.handleArea}
@@ -134,7 +137,7 @@ export default function Menu({ children }: Props) {
                 >
                     <div className={styles.handleBar} />
                 </div>
-                {children}
+                <div className={styles.scrollArea}>{content}</div>
             </div>
         </div>
     );
