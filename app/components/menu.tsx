@@ -67,8 +67,7 @@ export default function Menu() {
         return best;
     }
 
-    const effectiveSnap: SnapPoint = !isMenuOpen ? 'closed' : snapPoint;
-    const snappedY = snapPointOptions ? snapPointOptions[effectiveSnap] : 0;
+    const snappedY = snapPointOptions ? snapPointOptions[snapPoint] : 0;
     const effectiveY = dragY ?? snappedY;
 
     function onPointerDown(e: PointerEvent) {
@@ -118,7 +117,9 @@ export default function Menu() {
     return (
         <div
             className={styles.mask}
-            style={{ pointerEvents: !isMenuOpen ? 'none' : 'auto' }}
+            style={{
+                pointerEvents: !isMenuOpen && !isMobile ? 'none' : 'auto',
+            }}
         >
             <div
                 className={[
