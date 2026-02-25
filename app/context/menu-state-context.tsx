@@ -9,12 +9,16 @@ import {
     useMemo,
     useState,
 } from 'react';
+import { useLocalStorage } from '@/app/hooks/useLocalStorage';
 
 type MenuStateContextValue = {
     isMenuOpen: boolean;
     setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
     activeMenuName: string;
     setActiveMenuName: Dispatch<SetStateAction<string>>;
+    isTutorialDone: boolean | undefined;
+    setIsTutorialDone: (next: boolean | undefined) => void;
+    isLocalStorageReady: boolean;
 };
 
 const MenuStateContext = createContext<MenuStateContextValue | undefined>(
@@ -24,6 +28,8 @@ const MenuStateContext = createContext<MenuStateContextValue | undefined>(
 export function MenuStateProvider({ children }: { children: ReactNode }) {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
     const [activeMenuName, setActiveMenuName] = useState('filter');
+    const [isTutorialDone, setIsTutorialDone, isLocalStorageReady] =
+        useLocalStorage<boolean>('isTutorialDone', false);
 
     const contextValue = useMemo<MenuStateContextValue>(
         () => ({
@@ -31,8 +37,17 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
             setIsMenuOpen,
             activeMenuName,
             setActiveMenuName,
+            isTutorialDone,
+            setIsTutorialDone,
+            isLocalStorageReady,
         }),
-        [isMenuOpen, activeMenuName]
+        [
+            isMenuOpen,
+            activeMenuName,
+            isTutorialDone,
+            setIsTutorialDone,
+            isLocalStorageReady,
+        ]
     );
 
     return <MenuStateContext value={contextValue}>{children}</MenuStateContext>;

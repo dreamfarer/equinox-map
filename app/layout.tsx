@@ -6,12 +6,13 @@ import { FilterProvider } from '@/app/context/filter-context';
 import { MenuStateProvider } from '@/app/context/menu-state-context';
 import MapWrapper from '@/app/components/map-wrapper';
 import Navbar from '@/app/components/navbar';
+import Tutorial from '@/app/components/tutorial';
+import Menu from '@/app/components/menu';
 import mapMetadata from '@/app/data/maps.json';
 import popups from '@/app/data/popups.json';
 import markers from '@/app/data/markers.json';
 import { categories } from '@/types/category';
 import '@/app/global.css';
-import Menu from '@/app/components/menu';
 
 export const viewport = {
     width: 'device-width',
@@ -83,6 +84,7 @@ export default function RootLayout() {
                                     <Navbar />
                                     <MapWrapper />
                                     <Menu />
+                                    <Tutorial />
                                 </DevModeProvider>
                             </MarkerProvider>
                         </MapProvider>

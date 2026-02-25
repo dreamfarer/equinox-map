@@ -1,6 +1,8 @@
 import styles from '@/app/components/information.module.css';
+import { useMenuState } from '@/app/context/menu-state-context';
 
 export default function Information() {
+    const { setIsTutorialDone } = useMenuState();
     return (
         <>
             <h1>Need Help, found a bug or want to contribute?</h1>
@@ -58,7 +60,9 @@ export default function Information() {
             >
                 Open Source Code
             </button>
-            <button className={styles.button}>Restart Tutorial</button>
+            <button className={styles.button} onClick={() => (setIsTutorialDone(undefined))}>
+                Restart Tutorial
+            </button>
         </>
     );
 }
