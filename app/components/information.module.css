@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     overflow: hidden;
     width: 100%;
     align-self: stretch;
