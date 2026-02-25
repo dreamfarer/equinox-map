@@ -60,7 +60,10 @@ export default function Information() {
             >
                 Open Source Code
             </button>
-            <button className={styles.button} onClick={() => (setIsTutorialDone(undefined))}>
+            <button
+                className={styles.button}
+                onClick={() => setIsTutorialDone(undefined)}
+            >
                 Restart Tutorial
             </button>
         </>
