@@ -8,14 +8,20 @@ export default function Navbar() {
     const { activeMenuName, isMenuOpen, setIsMenuOpen, setActiveMenuName } =
         useMenuState();
 
+    const toggleMenu = (target: 'filter' | 'information') => {
+        if (isMenuOpen && activeMenuName !== target) {
+            setActiveMenuName(target);
+            return;
+        }
+        setActiveMenuName(target);
+        setIsMenuOpen((prev) => !prev);
+    };
+
     return (
         <div className={styles.navbar}>
             <button
-                onClick={() => {
-                    setActiveMenuName('filter');
-                    if (activeMenuName !== 'filter' && isMenuOpen) return;
-                    setIsMenuOpen((prev) => !prev);
-                }}
+                id="filterButton"
+                onClick={() => toggleMenu('filter')}
                 className={`${styles.button} ${
                     activeMenuName === 'filter' && isMenuOpen
                         ? styles.inactive
@@ -26,17 +32,14 @@ export default function Navbar() {
                 <ListDashesIcon size="2em" />
             </button>
             <button
-                onClick={() => {
-                    setActiveMenuName('information');
-                    if (activeMenuName !== 'information' && isMenuOpen) return;
-                    setIsMenuOpen((prev) => !prev);
-                }}
+                id="informationButton"
+                onClick={() => toggleMenu('information')}
                 className={`${styles.button} ${
                     activeMenuName === 'information' && isMenuOpen
                         ? styles.inactive
                         : styles.active
                 }`}
-                aria-label="Show filter"
+                aria-label="Show info"
             >
                 <InfoIcon size="2em" />
             </button>
