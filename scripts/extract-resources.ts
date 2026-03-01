@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { MarkerSource } from '@/types/marker-source';
 
 type Marker = {
     x: number;
@@ -12,7 +13,7 @@ const DATA_DIR = path.resolve(__dirname, 'data'); // input directory of raw Unre
 const OUTPUT_DIR = path.resolve(__dirname, '../public/markers/resources'); // output directory for the map
 const MAP_NAME = 'greenisland'; // map name
 
-/** Convert internal names to more human-readable format. */
+/** Convert internal names to a more human-readable format. */
 const nameOverrides: Record<string, string> = {
     deerantler: 'antlers',
     apple: 'apples',
@@ -57,10 +58,10 @@ function extractMarkers(filePath: string): Markers {
     const markers: Markers = {};
     const rawFile = fs.readFileSync(filePath, 'utf-8');
 
-    let json: any;
+    let json: MarkerSource;
     try {
         json = JSON.parse(rawFile);
-    } catch (e) {
+    } catch {
         console.warn(`Invalid JSON in ${filePath}`);
         return markers;
     }
