@@ -66,7 +66,16 @@ Thanks to the separation between raw marker data and the runtime projection, you
 
 ## Statistics
 
-Since launch, the project has seen **15'350** unique visitors and **1'825'630** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+Since launch, the project has seen **17'910** unique visitors and **2'220'130** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+
+<details>
+<summary>February 2026</summary>
+<br>
+
+Unique Visitors: **2'560** \
+Total Requests: **394'500**
+
+</details>
 
 <details>
 <summary>January 2026</summary>
