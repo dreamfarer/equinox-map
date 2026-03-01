@@ -99,7 +99,7 @@ export default function Tutorial() {
                         popover: {
                             title: 'Search',
                             description:
-                                'Search markers, tiles, sub-tiles, and content.',
+                                'Search markers, titles, subtitles, and content.',
                             onNextClick: async () => {
                                 if (isMobile) return driverObj.moveTo(9);
                                 return driverObj.moveNext();
