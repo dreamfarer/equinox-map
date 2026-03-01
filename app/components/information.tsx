@@ -33,10 +33,13 @@ export default function Information() {
             </button>
             <h1>Acknowledgements</h1>
             <p>
-                Thanks to CookieFox, Laika, lil big guy, LupinchenBrause, 𝔉𝔢𝔢𝔩𝔦,
-                Onyx, Snowhawk, Sugertoxity, Yumemi, zaaap! and, of course, Blue
-                Scarab Entertainment, the studio behind Equinox: Homecoming —
-                without you wonderful people, this interactive map would not
+                Thanks to all members of the discord, specifically CookieFox,
+                𝔉𝔢𝔢𝔩𝔦, Laika, lil big guy, LupinchenBrause, Onyx, Snowhawk,
+                Sugertoxity, Yumemi, zaaap!, and, of course, Blue Scarab
+                Entertainment, the studio behind Equinox: Homecoming
+            </p>
+            <p>
+                Without you wonderful people, this interactive map would not
                 have been possible. Visit{' '}
                 <a
                     className={styles.link}

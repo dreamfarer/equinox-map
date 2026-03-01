@@ -23,7 +23,7 @@ export default function Searchbar({ onSearchAction }: Props) {
     };
 
     return (
-        <div className={styles.searchBar}>
+        <div className={styles.searchBar} id="searchBar">
             <input
                 className={styles.input}
                 placeholder="Search …"

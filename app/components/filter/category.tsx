@@ -51,7 +51,7 @@ export default function Category({
     }, [collapsed, entries.length]);
 
     return (
-        <div className={styles.category}>
+        <div className={`category ${styles.category}`}>
             <div className={styles.header}>
                 <button
                     onClick={onToggle}

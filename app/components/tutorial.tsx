@@ -3,10 +3,25 @@
 import { useEffect } from 'react';
 import 'driver.js/dist/driver.css';
 import { useMenuState } from '@/app/context/menu-state-context';
+import { useMarkerContext } from '@/app/context/marker-context';
+import { useMapContext } from '@/app/context/map-context';
+import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
+import { flushSync } from 'react-dom';
 
 export default function Tutorial() {
-    const { isTutorialDone, setIsTutorialDone, isLocalStorageReady } =
-        useMenuState();
+    const {
+        isTutorialDone,
+        setIsTutorialDone,
+        isLocalStorageReady,
+        setActiveMenuName,
+        setIsMenuOpen,
+        isMobile,
+    } = useMenuState();
+    const { mapInstance } = useMapContext();
+    const { allMarkers, allPopups } = useMarkerContext();
+    const { setCollectedMarkerIds } = useMarkerContext();
+    const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
+
     useEffect(() => {
         if (!isLocalStorageReady) return;
         if (isTutorialDone) return;
@@ -14,73 +29,107 @@ export default function Tutorial() {
         (async () => {
             const { driver } = await import('driver.js');
             const driverObj = driver({
-                allowClose: false,
                 showProgress: true,
+                overlayClickBehavior: () => {},
                 onDestroyed: () => {
                     setIsTutorialDone(true);
                 },
                 steps: [
                     {
                         popover: {
-                            title: 'Welcome to the Equinox Interactive Map Tour',
+                            title: 'Welcome to the Map Tour',
                             description:
-                                "In the following steps you'll learn everything equinoxmap.app, the interactive map for Equinox: Homecoming, has to offer.",
+                                'Learn how to use equinoxmap.app, the interactive map for Equinox: Homecoming.',
+                            onPopoverRender: () => {
+                                setActiveMenuName('filter');
+                                setIsMenuOpen(true);
+                                setCollectedMarkerIds(new Set());
+                            },
                         },
                     },
                     {
+                        element: '#toggleAllCategories',
                         popover: {
-                            title: 'Show/Hide All Markers',
+                            title: 'Toggle All Markers',
                             description:
-                                'Press this button to toggle all markers on/off. Go ahead and try it out.',
+                                'Turn all markers on or off. Give it a try.',
                         },
                     },
                     {
+                        element: '.category',
                         popover: {
-                            title: 'Show/Hide Individual Marker Categories',
+                            title: 'Toggle Categories',
                             description:
-                                'Press on parent and child categories to turn them on/off individually. Go ahead and try it out.',
+                                'Press a category or subcategory to show or hide its markers.',
                         },
                     },
                     {
+                        element: '#map',
+                        popover: {
+                            title: 'Marker Details',
+                            description:
+                                'Click a marker to view details. Use the dropdown to switch categories. Click again to close.',
+                            onPopoverRender: () => {
+                                flyToMarker('kathy');
+                            },
+                        },
+                    },
+                    {
+                        element: '#map',
                         popover: {
                             title: 'Collect Markers',
-                            description:
-                                "Right-click a marker on the map to collect it (long-press on mobile). The collection progress is always relative to the marker categories currently active. I've already collected one for you.",
+                            description: isMobile
+                                ? 'Long-press to collect. Pinch to zoom.'
+                                : 'Right-click to collect. Scroll to zoom.',
+                            onNextClick: async () => {
+                                setCollectedMarkerIds((prev) =>
+                                    new Set(prev).add('kathy')
+                                );
+                                flushSync(() => {});
+                                driverObj.moveNext();
+                            },
                         },
                     },
                     {
+                        element: '#buttonGroupHorizontal',
                         popover: {
-                            title: 'Reset the Collection',
-                            description:
-                                'Press this button to reset the marker collection.',
+                            title: 'Reset Collection',
+                            description: 'Clear all collected markers.',
                         },
                     },
                     {
+                        element: '#searchBar',
                         popover: {
                             title: 'Search',
                             description:
-                                'Search everything including marker names, tiles, sub-tiles and contents.',
+                                'Search markers, tiles, sub-tiles, and content.',
+                            onNextClick: async () => {
+                                if (isMobile) return driverObj.moveTo(9);
+                                return driverObj.moveNext();
+                            },
                         },
                     },
                     {
+                        element: '#filterButton',
                         popover: {
-                            title: 'Hide the Menu',
-                            description:
-                                'Press the burger menu to toggle the menu on/off.',
+                            title: 'Filter Menu',
+                            description: 'Open or close the filter menu.',
                         },
                     },
                     {
+                        element: '#informationButton',
                         popover: {
-                            title: 'Information / FAQ',
+                            title: 'Information',
                             description:
-                                'Press this icon to show the information and FAQ page. From there, you can also restart the tutorial.',
+                                'Open the info page. Find help, report bugs, view credits, or restart this tour.',
                         },
                     },
                     {
                         popover: {
                             title: 'Enjoy!',
-                            description:
-                                'Return to the default menu by pressing on the burger menu again. Enjoy equinoxmap.app, much love <3',
+                            description: isMobile
+                                ? 'Scroll to the end to find help, report bugs, view credits, or restart the tour. Enjoy equinoxmap.app! <3'
+                                : 'That’s it! Enjoy equinoxmap.app! <3',
                         },
                     },
                 ],
@@ -90,7 +139,15 @@ export default function Tutorial() {
         })();
 
         return () => {};
-    }, [isLocalStorageReady, isTutorialDone, setIsTutorialDone]);
+    }, [
+        flyToMarker,
+        isLocalStorageReady,
+        isTutorialDone,
+        setActiveMenuName,
+        setCollectedMarkerIds,
+        setIsMenuOpen,
+        setIsTutorialDone,
+    ]);
 
     return null;
 }

@@ -54,7 +54,7 @@ export default function Map() {
                 </div>
             )}
 
-            <div ref={mapContainer} className={styles.map} />
+            <div ref={mapContainer} className={styles.map} id="map" />
 
             {mapInstance && activePopup && (
                 <ReactPopup>

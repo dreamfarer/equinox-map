@@ -87,18 +87,20 @@ export default function Filter() {
 
     return (
         <>
-            <div className={styles.header}>
-                <Searchbar onSearchAction={setQuery} />
-            </div>
-
+            <Searchbar onSearchAction={setQuery} />
             <MarkerCollectionDisplay></MarkerCollectionDisplay>
 
             <div
                 className={`${styles.buttonGroupHorizontal} ${
                     showResetCollectionButton ? styles.gap : styles.noGap
                 }`}
+                id="buttonGroupHorizontal"
             >
-                <button className={styles.button} onClick={toggleAllCategories}>
+                <button
+                    className={styles.button}
+                    onClick={toggleAllCategories}
+                    id="toggleAllCategories"
+                >
                     {toggleAllCategoriesText}
                 </button>
                 <button
