@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import 'driver.js/dist/driver.css';
 import { useMenuState } from '@/app/context/menu-state-context';
 import { useMarkerContext } from '@/app/context/marker-context';
-import { useMapContext } from '@/app/context/map-context';
 import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 import { flushSync } from 'react-dom';
 
@@ -17,10 +16,8 @@ export default function Tutorial() {
         setIsMenuOpen,
         isMobile,
     } = useMenuState();
-    const { mapInstance } = useMapContext();
-    const { allMarkers, allPopups } = useMarkerContext();
     const { setCollectedMarkerIds } = useMarkerContext();
-    const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
+    const flyToMarker = useFlyToMarker();
 
     useEffect(() => {
         if (!isLocalStorageReady) return;
@@ -142,6 +139,7 @@ export default function Tutorial() {
     }, [
         flyToMarker,
         isLocalStorageReady,
+        isMobile,
         isTutorialDone,
         setActiveMenuName,
         setCollectedMarkerIds,

@@ -1,4 +1,5 @@
 import Result from '@/app/components/filter/result';
+import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
 
 type MarkerSearchResult = {
     markerId: string;
@@ -10,10 +11,10 @@ type MarkerSearchResult = {
 
 type Props = {
     results: MarkerSearchResult[];
-    onSelect: (markerId: string, categoryId: string) => void;
 };
 
-export default function Results({ results, onSelect }: Props) {
+export default function Results({ results }: Props) {
+    const flyToMarker = useFlyToMarker();
     const grouped = new Map<
         string,
         {
@@ -49,12 +50,7 @@ export default function Results({ results, onSelect }: Props) {
                             title={title}
                             category={category}
                             count={entries.length}
-                            onSelect={() =>
-                                onSelect(
-                                    entries[0].markerId,
-                                    entries[0].categoryId
-                                )
-                            }
+                            onSelect={() => flyToMarker(entries[0].markerId)}
                         />
                     );
                 }

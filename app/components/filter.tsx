@@ -7,8 +7,6 @@ import { useMarkerContext } from '@/app/context/marker-context';
 import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';
 import MarkerCollectionDisplay from '@/app/components/marker-collection-display';
-import { useFlyToMarker } from '@/app/hooks/use-fly-to-marker';
-import { useMapContext } from '@/app/context/map-context';
 import { useFilterContext } from '@/app/context/filter-context';
 import styles from '@/app/components/filter.module.css';
 import { useUpdateActiveMarkerCount } from '@/app/hooks/use-update-active-marker-count';
@@ -22,8 +20,7 @@ type MarkerSearchResult = {
 };
 
 export default function Filter() {
-    const { mapInstance } = useMapContext();
-    const { allMarkers, allPopups, collectedMarkerIds, setCollectedMarkerIds } =
+    const { allPopups, collectedMarkerIds, setCollectedMarkerIds } =
         useMarkerContext();
     const {
         activeCategories,
@@ -33,7 +30,6 @@ export default function Filter() {
         toggleActiveCategory,
         setAllCategories,
     } = useFilterContext();
-    const flyToMarker = useFlyToMarker(mapInstance, allPopups, allMarkers);
     const [query, setQuery] = useState('');
 
     useUpdateActiveMarkerCount();
@@ -153,7 +149,7 @@ export default function Filter() {
                 })}
 
             <div className={styles.results}>
-                <Results results={results} onSelect={flyToMarker} />
+                <Results results={results} />
                 {query && results.length === 0 && (
                     <div className={styles.noResult}>No matches. (´•︵•`)</div>
                 )}
