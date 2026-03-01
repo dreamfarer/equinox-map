@@ -15,12 +15,12 @@ type SnapPointOptions = {
 type SnapPoint = 'mid' | 'top' | 'closed';
 
 export default function Menu() {
-    const { isMenuOpen, activeMenuName } = useMenuState();
+    const { isMenuOpen, activeMenuName, isMobile, setIsMobile } =
+        useMenuState();
     const [dragging, setDragging] = useState(false);
     const [snapPoint, setSnapPoint] = useState<SnapPoint>('mid');
     const [dragY, setDragY] = useState<number | null>(null);
     const [vh, setVh] = useState<number | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
     const startYRef = useRef(0);
     const startTranslateRef = useRef(0);
 
@@ -39,7 +39,7 @@ export default function Menu() {
         update();
         mql.addEventListener('change', update);
         return () => mql.removeEventListener('change', update);
-    }, []);
+    }, [setIsMobile]);
 
     useEffect(() => {
         const compute = () => setVh(window.innerHeight);

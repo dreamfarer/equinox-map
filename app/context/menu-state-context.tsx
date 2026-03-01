@@ -19,6 +19,8 @@ type MenuStateContextValue = {
     isTutorialDone: boolean | undefined;
     setIsTutorialDone: (next: boolean | undefined) => void;
     isLocalStorageReady: boolean;
+    isMobile: boolean;
+    setIsMobile: Dispatch<SetStateAction<boolean>>;
 };
 
 const MenuStateContext = createContext<MenuStateContextValue | undefined>(
@@ -28,6 +30,7 @@ const MenuStateContext = createContext<MenuStateContextValue | undefined>(
 export function MenuStateProvider({ children }: { children: ReactNode }) {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
     const [activeMenuName, setActiveMenuName] = useState('filter');
+    const [isMobile, setIsMobile] = useState(false);
     const [isTutorialDone, setIsTutorialDone, isLocalStorageReady] =
         useLocalStorage<boolean>('isTutorialDone', false);
 
@@ -40,6 +43,8 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
             isTutorialDone,
             setIsTutorialDone,
             isLocalStorageReady,
+            isMobile,
+            setIsMobile,
         }),
         [
             isMenuOpen,
@@ -47,6 +52,7 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
             isTutorialDone,
             setIsTutorialDone,
             isLocalStorageReady,
+            isMobile,
         ]
     );
 
