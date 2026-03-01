@@ -1,50 +1,50 @@
 .result {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.625rem;
-  width: 100%;
-  flex-shrink: 0;
-  transition: color 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.625rem;
+    width: 100%;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
 }
 
 .result:hover {
-  cursor: pointer;
-  color: var(--theme);
+    cursor: pointer;
+    color: var(--theme);
 }
 
 .information {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1 1 auto;
-  min-width: 0;
-  color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: inherit;
 }
 
 .title {
-  color: inherit;
-  font-size: var(--font-size-title);
+    color: inherit;
+    font-size: var(--font-size-title);
 }
 
 .subtitle {
-  color: var(--text-disabled-dark);
-  font-size: var(--font-size-mini);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+    color: var(--text-disabled-dark);
+    font-size: var(--font-size-mini);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .button {
-  background: none;
-  border: none;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text-dark);
+    background: none;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dark);
 }

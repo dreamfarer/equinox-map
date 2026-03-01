@@ -1,53 +1,56 @@
 'use client';
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { loadMapMetadata } from '@/lib/map-utility';
-import { MapMetadataRecord } from '@/types/map-metadata';
-import { Map } from 'maplibre-gl';
+import {
+    createContext,
+    ReactNode,
+    RefObject,
+    useContext,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
+import type { Map } from 'maplibre-gl';
+import type { MapMetadataRecord } from '@/types/map-metadata';
 
-type TMapContext = {
-  mapInstance: Map | null;
-  mapMetadata: MapMetadataRecord | null;
-  activeMap: string | null;
-  setMapInstance: (map: Map) => void;
-  setActiveMap: (mapName: string) => void;
+type MapContextValue = {
+    mapInstance: Map | null;
+    mapContainer: RefObject<HTMLDivElement | null>;
+    mapMetadata: MapMetadataRecord;
+    activeMap: string;
+    setMapInstance: (map: Map | null) => void;
+    setActiveMap: (mapName: string) => void;
 };
 
-const MapContext = createContext<TMapContext | null>(null);
+type MapProviderProps = {
+    children: ReactNode;
+    mapMetadata: MapMetadataRecord;
+};
 
-export function MapProvider({ children }: { children: React.ReactNode }) {
-  const [mapInstance, setMapInstance] = useState<Map | null>(null);
-  const [activeMap, setActiveMap] = useState<string | null>('greenisland');
-  const [mapMetadata, setMapMetadata] = useState<MapMetadataRecord | null>(
-    null
-  );
+const MapContext = createContext<MapContextValue | undefined>(undefined);
 
-  useEffect(() => {
-    const load = async () => {
-      setMapMetadata(await loadMapMetadata());
-    };
-    load();
-  }, []);
+export function MapProvider({ children, mapMetadata }: MapProviderProps) {
+    const mapContainer = useRef<HTMLDivElement>(null);
+    const [mapInstance, setMapInstance] = useState<Map | null>(null);
+    const [activeMap, setActiveMap] = useState<string>('greenisland');
 
-  const contextValue = useMemo<TMapContext>(
-    () => ({
-      mapInstance,
-      mapMetadata,
-      activeMap,
-      setMapInstance,
-      setActiveMap,
-    }),
-    [mapInstance, mapMetadata, activeMap, setMapInstance, setActiveMap]
-  );
+    const contextValue = useMemo<MapContextValue>(
+        () => ({
+            mapInstance,
+            mapContainer,
+            mapMetadata,
+            activeMap,
+            setMapInstance,
+            setActiveMap,
+        }),
+        [mapInstance, mapMetadata, activeMap]
+    );
 
-  return (
-    <MapContext.Provider value={contextValue}>{children}</MapContext.Provider>
-  );
+    return <MapContext value={contextValue}>{children}</MapContext>;
 }
 
 export function useMapContext() {
-  const context = useContext(MapContext);
-  if (!context)
-    throw new Error('useMapContext must be used inside <MapProvider>');
-  return context;
+    const context = useContext(MapContext);
+    if (!context)
+        throw new Error('useMapContext must be used inside <MapProvider>');
+    return context;
 }

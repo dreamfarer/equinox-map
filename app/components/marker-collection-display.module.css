@@ -1,0 +1,46 @@
+.markerCollectionDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--padding-3xs);
+    align-self: stretch;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.progressBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-6xs);
+}
+
+.current,
+.of,
+.total,
+.title {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+}
+
+.progressBar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background: var(--background-dark-transparent);
+    overflow: hidden;
+}
+
+.filler {
+    height: 100%;
+    width: 100%;
+    background: var(--theme);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}

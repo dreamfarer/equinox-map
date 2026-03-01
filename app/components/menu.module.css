@@ -1,45 +1,149 @@
+.mask {
+    position: absolute;
+    top: var(--spacer-mini);
+    left: calc(6 * var(--spacer-mini));
+    max-height: calc(100% - 2 * var(--spacer-mini));
+    width: 25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+}
+
 .menu {
-  width: 26.25rem;
-  height: 100%;
-  background-color: var(--background-dark);
-  border-left: 1px solid var(--accent-dark);
-  box-sizing: border-box;
-  flex-shrink: 0;
-  padding: var(--padding-xl) var(--padding-xl);
-  gap: var(--gap-xl);
-  font-size: var(--font-size-title);
-  color: var(--text-dark);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  left: 3.75rem;
-  transform: translateX(0);
-  transition: transform 0.2s ease-out;
-  overflow: hidden;
+    width: 25rem;
+    background-color: var(--background-dark-transparent);
+    padding: 0;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: translateX(0%);
+    transform-origin: left;
+    transition:
+        transform 0.25s cubic-bezier(0, 0.35, 0, 1),
+        opacity 0.25s ease-in;
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0.5rem;
+    max-height: 100%;
+    box-sizing: border-box;
+    opacity: 1;
+    overflow: hidden;
 }
 
 .closed {
-  transform: translateX(-100%);
-  pointer-events: none;
+    transform: translateX(-100%);
+    opacity: 0.85;
 }
 
-/* Mobile Layout*/
-@media (max-width: 768px) {
-  .menu {
-    width: 100%;
-    max-width: unset;
-    height: 40vh;
-    align-self: stretch;
-    border-left: none;
-    border-bottom: 1px solid var(--accent-dark);
-    bottom: 3.75rem;
-    left: 0;
-    transform: translateY(0);
-  }
+.handleArea {
+    display: none;
+}
 
-  .closed {
-    transform: translateY(100%);
-  }
+.handleBar {
+    width: 3.25rem;
+    height: 0.35rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.scrollArea {
+    flex: 1;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: calc(2 * var(--spacer-mini));
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 3rem), transparent);
+    mask-mode: alpha;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-dark) transparent;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 calc(100% - 3rem),
+        transparent
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+}
+
+.scrollArea::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.scrollArea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+    background-color: var(--accent-dark);
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .mask {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        max-height: 100%;
+        overflow: visible;
+        z-index: 50;
+    }
+
+    .menu {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 45vh;
+        transform: none;
+        border-radius: 1rem 1rem 0 0;
+        overflow: hidden;
+        background-color: var(--background-dark-transparent);
+        color: var(--text-dark);
+        backdrop-filter: blur(0.5rem);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        will-change: top;
+        transition:
+            top 0.25s cubic-bezier(0, 0.35, 0, 1),
+            opacity 0.25s ease-in;
+    }
+
+    .dragging {
+        transition: none;
+    }
+
+    .handleArea {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 0 0.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        touch-action: none;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .scrollArea {
+        touch-action: pan-y;
+        padding-top: calc(1.25 * var(--spacer-mini));
+    }
+
+    .closed {
+        opacity: 0.95;
+    }
 }

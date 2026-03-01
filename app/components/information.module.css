@@ -1,0 +1,26 @@
+.button {
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    overflow: hidden;
+    width: 100%;
+    align-self: stretch;
+    border-radius: 0.5rem;
+    background: var(--background-dark-transparent);
+    border: none;
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    padding: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    transition:
+        width 250ms ease,
+        opacity 250ms ease;
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--text-dark);
+}

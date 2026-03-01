@@ -1,89 +1,71 @@
-import { BookmarkSimpleIcon } from '@phosphor-icons/react';
-import { useEffect, useState } from 'react';
-import styles from './popup.module.css';
-import { TCategoryPayloads } from '@/types/popup';
-import { TBookmarkId } from '@/types/bookmark';
-import Dropdown from '../dropdown';
+import Dropdown from '@/app/components/dropdown';
+import styles from '@/app/components/map/popup.module.css';
+import { useFilterContext } from '@/app/context/filter-context';
+import { useMemo, useState } from 'react';
+import { TCategory } from '@/types/category';
+import { useMarkerContext } from '@/app/context/marker-context';
 
-type Props = {
-  id: string;
-  categories: TCategoryPayloads;
-  bookmarkedItems: string[];
-  toggleBookmark: (id: TBookmarkId) => void;
-  initialCategory?: string;
-};
+export default function Popup() {
+    const { activeCategoryList } = useFilterContext();
+    const { allPopups, activePopup } = useMarkerContext();
+    const [selectedCategory, setSelectedCategory] = useState<
+        TCategory | undefined
+    >(undefined);
 
-export default function Popup({
-  id,
-  categories,
-  bookmarkedItems,
-  toggleBookmark,
-  initialCategory,
-}: Props) {
-  const categoryKeys = Object.keys(categories);
-  const [activeCategory, setActiveCategory] = useState(
-    initialCategory && categoryKeys.includes(initialCategory)
-      ? initialCategory
-      : categoryKeys[0]
-  );
+    const effectiveCategories = useMemo(() => {
+        if (!activePopup) return [];
+        const popupCats = allPopups?.[activePopup.featureId] ?? {};
+        return activeCategoryList.filter((cat) => cat in popupCats);
+    }, [activeCategoryList, activePopup, allPopups]);
 
-  useEffect(() => {
-    if (!categoryKeys.includes(activeCategory))
-      setActiveCategory(categoryKeys[0]);
-  }, [categoryKeys, activeCategory]);
+    const shownCategory = useMemo(() => {
+        if (
+            selectedCategory &&
+            effectiveCategories.includes(selectedCategory)
+        ) {
+            return selectedCategory;
+        }
+        return effectiveCategories[0];
+    }, [selectedCategory, effectiveCategories]);
 
-  const activeItems = categories[activeCategory] || {};
+    if (!activePopup) return null;
 
-  return (
-    <div className={styles.popup}>
-      {categoryKeys.length > 1 && (
-        <Dropdown
-          options={categoryKeys}
-          selected={activeCategory}
-          onSelect={setActiveCategory}
-        />
-      )}
+    const itemsById = shownCategory
+        ? allPopups?.[activePopup.featureId]?.[shownCategory]
+        : undefined;
 
-      <div className={styles.content}>
-        <div className={styles.scroll}>
-          {Object.entries(activeItems).map(([itemId, item]) => {
-            const bookmarkSuffix = `${activeCategory}::${itemId}`;
-            const bookmarkId: TBookmarkId = `${id}::${bookmarkSuffix}`;
-            const isBookmarked = bookmarkedItems.includes(bookmarkSuffix);
+    if (!itemsById) return null;
 
-            return (
-              <div key={itemId} className={styles.item}>
-                <div className={styles.header}>
-                  {item.title && (
-                    <div className={styles.title}>{item.title}</div>
-                  )}
-                  <button
-                    className={styles.bookmark}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleBookmark(bookmarkId);
-                    }}
-                    aria-label={
-                      isBookmarked
-                        ? 'Remove bookmark from this item'
-                        : 'Bookmark this item'
-                    }
-                  >
-                    {isBookmarked ? (
-                      <BookmarkSimpleIcon size="1.5rem" weight="fill" />
-                    ) : (
-                      <BookmarkSimpleIcon size="1.5rem" />
-                    )}
-                  </button>
+    return (
+        <div className={styles.popup}>
+            {effectiveCategories.length > 1 && (
+                <Dropdown
+                    options={effectiveCategories}
+                    selected={shownCategory}
+                    onSelect={setSelectedCategory}
+                />
+            )}
+
+            <div className={styles.content}>
+                <div className={styles.scroll}>
+                    {Object.entries(itemsById).map(([itemId, item]) => (
+                        <div key={itemId} className={styles.item}>
+                            <div className={styles.header}>
+                                {item.title && (
+                                    <div className={styles.title}>
+                                        {item.title}
+                                    </div>
+                                )}
+                            </div>
+                            {item.subtitle && (
+                                <div className={styles.subtitle}>
+                                    {item.subtitle}
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
-                {item.subtitle && (
-                  <div className={styles.subtitle}>{item.subtitle}</div>
-                )}
-              </div>
-            );
-          })}
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

@@ -1,68 +1,62 @@
 .navbar {
-  align-self: stretch;
-  background-color: var(--background-dark);
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  padding: var(--padding-3xs);
+    width: calc(4 * var(--spacer-mini));
+    margin: var(--spacer-mini);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    align-self: stretch;
+    background-color: transparent;
+    flex-direction: column;
+    justify-content: start;
+    gap: var(--gap-3xs);
 }
 
 .button,
 .caret {
-  background: none;
-  border: none;
-  width: 2.5rem;
-  height: 2.5rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  color: var(--text-dark);
-  border-radius: 0.5rem;
-  transition: transform 0.2s ease-out;
+    background: none;
+    border: none;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    color: var(--text-dark);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(0.5rem);
 }
 
 .button.active {
-  background-color: transparent;
+    background-color: var(--accent-dark-transparent);
 }
 
 .button.inactive {
-  background-color: var(--accent-dark);
-}
-
-.button.logo {
-  height: 3rem;
+    background-color: var(--background-dark-transparent);
 }
 
 .caret.inactive {
-  transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
 
-/* Mobile Layout*/
 @media (max-width: 768px) {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    align-self: stretch;
-    flex-direction: row;
-    padding: var(--padding-3xs) var(--padding-xl);
-  }
+    .navbar {
+        display: none;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-self: stretch;
+        flex-direction: row;
+    }
 
-  .button.logo {
-    height: 2.5rem;
-  }
+    .caret.active {
+        transform: rotate(-90deg);
+    }
 
-  .caret.active {
-    transform: rotate(-90deg);
-  }
-
-  .caret.inactive {
-    transform: rotate(-90deg) scale(-1, 1);
-  }
+    .caret.inactive {
+        transform: rotate(-90deg) scale(-1, 1);
+    }
 }

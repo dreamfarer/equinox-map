@@ -1,18 +1,19 @@
 export type TMarkerFeatureProperties = {
-  id: string;
-  map: string;
-  lng: number;
-  lat: number;
-  icon: string;
-  anchor: 'bottom' | 'center';
-  categories: string[];
+    id: string;
+    map: string;
+    lng: number;
+    lat: number;
+    icon: string;
+    anchor: string;
+    categories: string[];
 };
 
 export type TMarkerFeature = {
-  type: 'Feature';
-  geometry: {
-    type: 'Point';
-    coordinates: [number, number];
-  };
-  properties: TMarkerFeatureProperties;
+    type: string;
+    id?: string;
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
+    properties: TMarkerFeatureProperties;
 };

@@ -1,48 +1,68 @@
-.header {
-  flex-shrink: 0;
-  width: 100%;
+.buttonGroupHorizontal {
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    transition: gap 250ms ease;
 }
 
-.scrollArea {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xl);
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-dark) transparent;
+.gap {
+    gap: var(--gap-xl);
 }
 
-.scrollArea::-webkit-scrollbar {
-  width: 0.5rem;
+.noGap {
+    gap: 0;
 }
 
-.scrollArea::-webkit-scrollbar-track {
-  background: transparent;
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 auto;
+    overflow: hidden;
+    width: 100%;
+    align-self: stretch;
+    border-radius: 0.5rem;
+    background: var(--background-dark-transparent);
+    border: none;
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    padding: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    transition:
+        width 250ms ease,
+        opacity 250ms ease;
 }
 
-.scrollArea::-webkit-scrollbar-thumb {
-  background-color: var(--accent-dark);
-  border-radius: 0.25rem;
+.visible {
+    opacity: 1;
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0;
+    width: 0;
 }
 
 .results {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--padding-6xs);
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--padding-6xs);
+    width: 100%;
 }
 
 .noResult,
 .noBookmark {
-  color: var(--text-dark);
-  font-size: var(--font-size-title);
-  font-weight: 600;
+    color: var(--text-dark);
+    font-size: var(--font-size-title);
+    font-weight: 600;
 }
 
 .noBookmark.subtitle {
-  font-weight: 400;
-  font-size: var(--font-size-base);
+    font-weight: 400;
+    font-size: var(--font-size-base);
 }
