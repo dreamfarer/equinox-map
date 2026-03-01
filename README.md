@@ -55,7 +55,25 @@ Thanks to the separation between raw marker data and the runtime projection, you
 
 ## Statistics
 
-Since launch, the project has seen **13'710** unique visitors and **1'551'110** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+Since launch, the project has seen **17'910** unique visitors and **2'220'130** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+
+<details>
+<summary>February 2026</summary>
+<br>
+
+Unique Visitors: **2'560** \
+Total Requests: **394'500**
+
+</details>
+
+<details>
+<summary>January 2026</summary>
+<br>
+
+Unique Visitors: **1'640** \
+Total Requests: **274'520**
+
+</details>
 
 <details>
 <summary>December 2025</summary>
@@ -126,6 +144,7 @@ This project wouldn’t be possible without the tireless efforts of the followin
 
 - [**CookieFox**](https://discordapp.com/users/631401395454476298): Reported missing and incorrect locations, helped gather clothing and tack data, and tracked reputation gains for weekly quests initially.
 - [**dreamfarer**](https://github.com/dreamfarer): Leads overall concept, planning, communications, software engineering, DevOps, and data processing.
+- [**Kalyss**](https://discordapp.com/users/395567680888897536): Submitted missing locations.
 - [**Laika**](https://discordapp.com/users/465185463226073109): Created the original resource map in image form.
 - [**lil big guy**](https://discordapp.com/users/323358848184221707): Submitted missing locations.
 - [**Onyx**](https://discordapp.com/users/403687942687686660): Provided the artefact locations.

@@ -111,6 +111,7 @@
     "title": "Valeria Bradford",
     "subtitle": "Is a member of Alderwood Equestrians.",
     "id": "valeria",
+    "icon": "valeria",
     "map": "greenisland",
     "x": -350.5347298336225,
     "y": 163.07594176697307
@@ -359,6 +360,7 @@
   {
     "title": "Florence Abbott",
     "id": "florence",
+    "icon": "florence",
     "map": "greenisland",
     "x": 717.6021131963726,
     "y": 354.5571143293405
