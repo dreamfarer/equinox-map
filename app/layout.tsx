@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { DevModeProvider } from '@/app/context/dev-mode-context';
 import { MapProvider } from '@/app/context/map-context';
 import { MarkerProvider } from '@/app/context/marker-context';
 import { FilterProvider } from '@/app/context/filter-context';
@@ -80,12 +79,10 @@ export default function RootLayout() {
                                 allPopups={popups}
                                 allMarkers={markers}
                             >
-                                <DevModeProvider>
-                                    <Navbar />
-                                    <MapWrapper />
-                                    <Menu />
-                                    <Tutorial />
-                                </DevModeProvider>
+                                <Navbar />
+                                <MapWrapper />
+                                <Menu />
+                                <Tutorial />
                             </MarkerProvider>
                         </MapProvider>
                     </FilterProvider>

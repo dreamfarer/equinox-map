@@ -1,30 +1,15 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import {
-    Map as MapLibreMap,
-    type MapLayerMouseEvent,
-    type MapLayerTouchEvent,
-    Marker,
-} from 'maplibre-gl';
-import { TMarkerDev } from '@/types/marker-dev';
-import {
-    convertToUnit,
-    getMapBoundsLatLng,
-    vhToPx,
-    remToPx,
-} from '@/lib/convert';
+import { Map as MapLibreMap } from 'maplibre-gl';
+import { getMapBoundsLatLng, vhToPx, remToPx } from '@/lib/convert';
 import { useMapContext } from '@/app/context/map-context';
-import { useDevMode } from '@/app/context/dev-mode-context';
 import { useMarkerContext } from '@/app/context/marker-context';
-
-type MarkerLayerEvent = MapLayerMouseEvent | MapLayerTouchEvent;
 
 export function useMapLibreMap() {
     const { mapContainer, mapMetadata, activeMap, setMapInstance } =
         useMapContext();
     const { setActivePopupByFeature } = useMarkerContext();
-    const { isDevMode } = useDevMode();
 
     const mapRef = useRef<MapLibreMap | null>(null);
 
@@ -96,18 +81,6 @@ export function useMapLibreMap() {
             }
         });
 
-        const onClick = (event: MarkerLayerEvent) => {
-            const { lng, lat } = event.lngLat;
-            const [x, y] = convertToUnit(meta, lng, lat);
-            const marker: TMarkerDev = { map: activeMap, x, y };
-            const markerJson = JSON.stringify(marker, null, 2) + ',';
-            console.log(markerJson);
-            navigator.clipboard.writeText(markerJson).then();
-            new Marker().setLngLat([lng, lat]).addTo(map);
-        };
-
-        if (isDevMode) map.on('click', onClick);
-
         map.touchZoomRotate.disableRotation();
         map.scrollZoom.enable();
         centreForLayout(wasMobile);
@@ -118,7 +91,6 @@ export function useMapLibreMap() {
         return () => {
             setMapInstance?.(null);
             setActivePopupByFeature?.(null);
-            if (isDevMode) map.off('click', onClick);
             ro.disconnect();
             map.remove();
             mapRef.current = null;
@@ -127,7 +99,6 @@ export function useMapLibreMap() {
         mapContainer,
         mapMetadata,
         activeMap,
-        isDevMode,
         setMapInstance,
         setActivePopupByFeature,
     ]);
