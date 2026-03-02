@@ -11,6 +11,7 @@
     background: var(--background-dark-transparent);
     border: none;
     color: var(--text-dark);
+    font-family: var(--font-inter), sans-serif;
     font-size: var(--font-size-base);
     padding: 0;
     max-width: 100%;
