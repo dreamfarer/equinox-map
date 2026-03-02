@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         template: '%s | Interactive Map – Equinox: Homecoming',
     },
     description:
-        'An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
+        'An interactive map for Equinox Homecoming. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
     alternates: {
         canonical: 'https://equinoxmap.app/',
     },
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
         siteName: 'Interactive Map – Equinox: Homecoming',
         title: 'Interactive Map – Equinox: Homecoming',
         description:
-            'An interactive map for Equinox: Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
+            'An interactive map for Equinox Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
         images: [
             {
                 url: 'https://equinoxmap.app/og-image.jpg',
                 width: 1200,
-                height: 630,
+                height: 675,
                 alt: 'Interactive Map – Equinox: Homecoming preview',
             },
         ],
