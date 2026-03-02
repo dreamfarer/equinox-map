@@ -1,19 +1,25 @@
 .popup {
     display: flex;
-    width: 15rem;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    font-family: var(--font-inter), sans-serif;
 }
 
 .content {
     display: flex;
-    padding: var(--padding-xl);
+    padding: calc(2 * var(--spacer-mini));
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
-    background: var(--background-dark);
+    background-color: var(--background-dark-transparent);
     overflow: hidden;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    backdrop-filter: blur(0.5rem);
+}
+
+.content.noDropdown {
+    border-radius: 0.5rem;
 }
 
 .scroll {
@@ -27,7 +33,10 @@
     scrollbar-width: thin;
     scrollbar-color: var(--accent-dark) transparent;
     max-height: 6rem;
-    scrollbar-gutter: stable;
+}
+
+.scroll.noScroll {
+    overflow-y: visible;
 }
 
 .scroll::-webkit-scrollbar {
@@ -70,19 +79,4 @@
     color: var(--text-dark);
     line-height: 1rem;
     align-self: stretch;
-}
-
-.bookmark {
-    all: unset;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    color: var(--text-dark);
-    border-color: transparent;
-}
-
-.bookmark:hover {
-    filter: brightness(90%);
 }

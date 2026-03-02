@@ -5,7 +5,7 @@
 
 .button {
     display: flex;
-    background: var(--background-dark);
+    background-color: var(--background-dark-transparent);
     border: none;
     color: var(--text-dark);
     padding: var(--padding-6xs) var(--padding-xl);
@@ -13,18 +13,22 @@
     justify-content: center;
     align-items: center;
     gap: var(--gap-6xs);
+    border-radius: 0.5rem 0.5rem 0 0;
+    backdrop-filter: blur(0.5rem);
 }
 
 .content {
     position: absolute;
-    background: var(--accent-dark);
+    background-color: var(--background-dark-transparent);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0.5rem ;
     padding: 0;
     z-index: 1000;
     overflow: hidden;
-    top: 100%;
+    bottom: 150%;
     left: 0;
     animation: panelIn 150ms ease-out both;
-    transform-origin: top;
+    transform-origin: bottom;
     min-width: 100%;
 }
 
@@ -47,4 +51,13 @@
     cursor: pointer;
     padding: var(--padding-6xs) var(--padding-xl);
     white-space: nowrap;
+}
+
+.icon {
+    transform: scaleY(1);
+    transition: transform 150ms ease-in-out;
+}
+
+.icon.upsideDown {
+    transform: scaleY(-1);
 }

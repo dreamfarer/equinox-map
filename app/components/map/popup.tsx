@@ -46,8 +46,18 @@ export default function Popup() {
                 />
             )}
 
-            <div className={styles.content}>
-                <div className={styles.scroll}>
+            <div
+                className={`${styles.content} ${
+                    effectiveCategories.length === 1 ? styles.noDropdown : ''
+                }`}
+            >
+                <div
+                    className={`${styles.scroll} ${
+                        effectiveCategories.length === 1
+                            ? styles.noScroll
+                            : ''
+                    }`}
+                >
                     {Object.entries(itemsById).map(([itemId, item]) => (
                         <div key={itemId} className={styles.item}>
                             <div className={styles.header}>

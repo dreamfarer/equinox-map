@@ -31,7 +31,12 @@ export default function Dropdown({ options, selected, onSelect }: Props) {
                 onClick={() => setOpen((prev) => !prev)}
             >
                 {selected}
-                <CaretDownIcon size="1em" />
+                <CaretDownIcon
+                    size="1em"
+                    className={`${styles.icon} ${
+                        open ? styles.upsideDown : ''
+                    }`}
+                />
             </button>
             {open && (
                 <div className={styles.content}>

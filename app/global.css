@@ -2,7 +2,7 @@
 
 :root {
     /* Fonts */
-    --font-inter: Jost, sans-serif;
+    --font-inter: Jost;
 
     /* font sizes */
     --font-size-mini: 0.75rem;
@@ -35,6 +35,19 @@
     --tile-background: #18252e;
 }
 
+html,
+body {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    margin: 0;
+    line-height: normal;
+    font-family: var(--font-inter), sans-serif;
+    background: var(--background-dark);
+}
+
 input,
 textarea,
 button,
@@ -47,6 +60,7 @@ button,
 a {
     transition: color 0.3s ease;
 }
+
 @media (hover: hover) {
     button:hover,
     a:hover {
@@ -74,19 +88,6 @@ ul {
     margin: 0;
 }
 
-html,
-body {
-    overflow: hidden;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: stretch;
-    margin: 0;
-    line-height: normal;
-    font-family: var(--font-inter), sans-serif;
-    background: var(--background-dark);
-}
-
 /* Mobile Layout*/
 @media (max-width: 768px) {
     body {
@@ -95,12 +96,6 @@ body {
 }
 
 /* Overwrite MapLibre GL Popup */
-.equinox-popup.maplibregl-popup {
-    padding: 0;
-    background: none;
-    border: none;
-}
-
 .equinox-popup .maplibregl-popup-content {
     padding: 0;
     background: transparent;
@@ -110,21 +105,25 @@ body {
 .maplibregl-popup-anchor-top .maplibregl-popup-tip,
 .maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
 .maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
-    border-bottom-color: var(--background-dark) !important;
+    border-bottom-color: var(--background-dark-transparent) !important;
+    backdrop-filter: blur(0.5rem);
 }
 
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
 .maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
 .maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
-    border-top-color: var(--background-dark) !important;
+    border-top-color: var(--background-dark-transparent) !important;
+    backdrop-filter: blur(0.5rem);
 }
 
 .maplibregl-popup-anchor-left .maplibregl-popup-tip {
-    border-right-color: var(--background-dark) !important;
+    border-right-color: var(--background-dark-transparent) !important;
+    backdrop-filter: blur(0.5rem);
 }
 
 .maplibregl-popup-anchor-right .maplibregl-popup-tip {
-    border-left-color: var(--background-dark) !important;
+    border-left-color: var(--background-dark-transparent) !important;
+    backdrop-filter: blur(0.5rem);
 }
 
 .sr-only {
