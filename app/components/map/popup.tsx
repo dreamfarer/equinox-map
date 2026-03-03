@@ -53,9 +53,7 @@ export default function Popup() {
             >
                 <div
                     className={`${styles.scroll} ${
-                        effectiveCategories.length === 1
-                            ? styles.noScroll
-                            : ''
+                        effectiveCategories.length === 1 ? styles.noScroll : ''
                     }`}
                 >
                     {Object.entries(itemsById).map(([itemId, item]) => (
