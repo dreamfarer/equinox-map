@@ -1,41 +1,66 @@
 'use client';
-import { createContext, useContext, useMemo, useState } from 'react';
 
-type TMenuStateContext = {
-  isMenuOpen: boolean;
-  activeMenuName: string;
-  toggleMenu: () => void;
-  setMenuOpen: (open: boolean) => void;
-  setActiveMenuName: (activeMenuName: string) => void;
+import {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
+import { useLocalStorage } from '@/app/hooks/useLocalStorage';
+
+type MenuStateContextValue = {
+    isMenuOpen: boolean;
+    setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+    activeMenuName: string;
+    setActiveMenuName: Dispatch<SetStateAction<string>>;
+    isTutorialDone: boolean | undefined;
+    setIsTutorialDone: (next: boolean | undefined) => void;
+    isLocalStorageReady: boolean;
+    isMobile: boolean;
+    setIsMobile: Dispatch<SetStateAction<boolean>>;
 };
 
-const MenuStateContext = createContext<TMenuStateContext | null>(null);
+const MenuStateContext = createContext<MenuStateContextValue | undefined>(
+    undefined
+);
 
-export function MenuStateProvider({ children }: { children: React.ReactNode }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const [activeMenuName, SetMenuName] = useState('filter');
+export function MenuStateProvider({ children }: { children: ReactNode }) {
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
+    const [activeMenuName, setActiveMenuName] = useState('filter');
+    const [isMobile, setIsMobile] = useState(false);
+    const [isTutorialDone, setIsTutorialDone, isLocalStorageReady] =
+        useLocalStorage<boolean>('isTutorialDone', false);
 
-  const contextValue = useMemo<TMenuStateContext>(
-    () => ({
-      isMenuOpen,
-      activeMenuName,
-      toggleMenu: () => setIsMenuOpen((v) => !v),
-      setMenuOpen: (v: boolean) => setIsMenuOpen(v),
-      setActiveMenuName: (v: string) => SetMenuName(v),
-    }),
-    [isMenuOpen, activeMenuName]
-  );
+    const contextValue = useMemo<MenuStateContextValue>(
+        () => ({
+            isMenuOpen,
+            setIsMenuOpen,
+            activeMenuName,
+            setActiveMenuName,
+            isTutorialDone,
+            setIsTutorialDone,
+            isLocalStorageReady,
+            isMobile,
+            setIsMobile,
+        }),
+        [
+            isMenuOpen,
+            activeMenuName,
+            isTutorialDone,
+            setIsTutorialDone,
+            isLocalStorageReady,
+            isMobile,
+        ]
+    );
 
-  return (
-    <MenuStateContext.Provider value={contextValue}>
-      {children}
-    </MenuStateContext.Provider>
-  );
+    return <MenuStateContext value={contextValue}>{children}</MenuStateContext>;
 }
-
 export function useMenuState() {
-  const context = useContext(MenuStateContext);
-  if (!context)
-    throw new Error('useMenuState must be used inside <MenuStateProvider>');
-  return context;
+    const context = useContext(MenuStateContext);
+    if (!context)
+        throw new Error('useMenuState must be used inside <MenuStateProvider>');
+    return context;
 }

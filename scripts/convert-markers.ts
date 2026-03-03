@@ -1,250 +1,169 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { randomUUID, createHash } from 'crypto';
-import { TPopups } from '@/types/popup';
+import path from 'node:path';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '../lib/convert';
-import { MapMetadata } from '@/types/map-metadata';
+import { MapMetadata, MapMetadataRecord } from '@/types/map-metadata';
+import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
+import { MarkerSource } from '@/types/marker-source';
+import { readFile, writeFile } from 'node:fs/promises';
+import { Popups } from '@/types/popup';
+
+const publicDir = path.resolve(__dirname, '../public');
+const dataDir = path.resolve(__dirname, '../app/data');
+const markerMetadataPath = path.resolve(__dirname, '../public/meta.json');
+const mapMetadataPath = path.resolve(__dirname, '../app/data/maps.json');
+
+type DeferredMarkers = {
+    marker: MarkerSource;
+    category: string;
+    meta: MetaEntry;
+}[];
+
+type PrimaryMarkers = Record<string, MarkerSource>;
 
 type MetaEntry = {
-  category: string;
-  path: string;
-  anchor?: 'bottom' | 'center';
-  icon?: string;
-  title?: string;
-  subtitle?: string;
+    category: string;
+    path: string;
+    anchor?: 'bottom' | 'center';
+    icon?: string;
+    title?: string;
+    subtitle?: string;
 };
 
-export type MarkerSource = {
-  title?: string;
-  subtitle?: string;
-  id?: string;
-  foreignId?: string;
-  map: string;
-  icon?: string;
-  x: number;
-  y: number;
-};
-
-let cachedMapJson: Record<string, MapMetadata> | null = null;
-
-async function loadMapJson(): Promise<Record<string, MapMetadata> | null> {
-  if (!cachedMapJson) {
-    const publicDir = path.resolve(__dirname, '../public');
-    const json = await fs.readFile(path.join(publicDir, 'maps.json'), 'utf8');
-    cachedMapJson = JSON.parse(json);
-  }
-  return cachedMapJson;
-}
-
+/** Retrieve (cached) metdata for each map. */
+let cachedMapJson: MapMetadataRecord | null = null;
 async function getMapMetadata(map: string): Promise<MapMetadata> {
-  const mapJson = await loadMapJson();
-  if (!mapJson) {
-    throw new Error(`Missing map.json in /public`);
-  }
-  const meta = mapJson[map];
-  if (!meta) {
-    throw new Error(`Missing map metadata for: ${map}`);
-  }
-  return meta;
-}
-
-/** Converts an arbitrary string to a URL‑friendly slug */
-function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .normalize('NFKD')
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-}
-
-/** Generates a unique item key (no colons anymore – path segments are object keys) */
-function makeItemKey(title: string, existing: Set<string>): string {
-  const base = slugify(title);
-  if (!existing.has(base)) {
-    existing.add(base);
-    return base;
-  }
-  const hash = createHash('md5').update(title).digest('hex').slice(0, 6);
-  const finalKey = `${base}-${hash}`;
-  existing.add(finalKey);
-  return finalKey;
-}
-
-async function loadMeta(metaPath: string): Promise<MetaEntry[]> {
-  const data = await fs.readFile(metaPath, 'utf8');
-  return JSON.parse(data) as MetaEntry[];
-}
-
-async function loadMarkers(
-  entry: MetaEntry,
-  publicDir: string
-): Promise<MarkerSource[]> {
-  const absPath = path.join(publicDir, entry.path);
-  const data = await fs.readFile(absPath, 'utf8');
-  return JSON.parse(data) as MarkerSource[];
-}
-
-export async function processDirectMarkers(
-  raw: MarkerSource[],
-  entry: MetaEntry,
-  geo: Record<string, TMarkerFeatureProperties>,
-  popups: TPopups,
-  originalTitles: Record<string, { title: string; subtitle: string }>,
-  slugRegistry: Record<string, Set<string>>
-) {
-  const {
-    category,
-    anchor: metaAnchor = 'bottom',
-    icon: metaIcon,
-    title: metaTitle,
-    subtitle: metaSubtitle,
-  } = entry;
-
-  for (const m of raw) {
-    if (m.foreignId || m.x == null || m.y == null || !m.map) continue;
-
-    const map = await getMapMetadata(m.map);
-    const [lng, lat] = await convertToLngLat(map, m.x, m.y);
-
-    let id =
-      m.id?.trim() ||
-      (m.title ? slugify(`${m.title}-${lng}-${lat}`) : randomUUID());
-    id = id.toLowerCase();
-
-    const resolvedIcon = m.icon?.trim() || metaIcon || 'default-marker';
-    const resolvedTitle = m.title?.trim() || metaTitle || '';
-    const resolvedSubtitle = m.subtitle?.trim() || metaSubtitle || '';
-    const anchor: 'bottom' | 'center' =
-      resolvedIcon === 'default-marker'
-        ? 'bottom'
-        : metaAnchor === 'center'
-          ? 'center'
-          : 'bottom';
-
-    geo[id] = {
-      id,
-      map: m.map,
-      lng,
-      lat,
-      icon: resolvedIcon,
-      anchor,
-      categories: [category],
-    };
-
-    const slugSet = (slugRegistry[`${id}::${category}`] ??= new Set<string>());
-    const itemKey = makeItemKey(resolvedTitle, slugSet);
-
-    if (!popups[id]) popups[id] = {};
-    if (!popups[id][category]) popups[id][category] = {};
-
-    popups[id][category][itemKey] = {
-      title: resolvedTitle,
-      subtitle: resolvedSubtitle,
-    };
-
-    originalTitles[id] = { title: resolvedTitle, subtitle: resolvedSubtitle };
-  }
-}
-
-function processDeferredMarkers(
-  deferred: { m: MarkerSource; category: string; meta: MetaEntry }[],
-  popups: TPopups,
-  originalTitles: Record<string, { title: string; subtitle: string }>,
-  slugRegistry: Record<string, Set<string>>,
-  geo: Record<string, TMarkerFeatureProperties>
-) {
-  for (const { m, category, meta } of deferred) {
-    const targetId = m.foreignId!.toLowerCase();
-    const base = popups[targetId];
-
-    if (!base) {
-      console.warn(
-        `foreignId "${targetId}" not found (category "${category}") – skipping`
-      );
-      continue;
+    if (!cachedMapJson) {
+        const raw = await readFile(mapMetadataPath, 'utf8');
+        cachedMapJson = JSON.parse(raw);
+        if (!cachedMapJson) {
+            throw new Error(`Missing maps.json in /app/data`);
+        }
     }
-
-    const original = originalTitles[targetId] || { title: '', subtitle: '' };
-    const title = m.title || meta.title || original.title;
-    const subtitle = m.subtitle || meta.subtitle || original.subtitle;
-
-    if (!base[category]) base[category] = {};
-
-    const geoCats = geo[targetId].categories;
-    if (!geoCats.includes(category)) geoCats.push(category);
-
-    const slugSet = (slugRegistry[`${targetId}::${category}`] ??=
-      new Set<string>());
-    const itemKey = makeItemKey(title, slugSet);
-
-    base[category][itemKey] = { title, subtitle };
-  }
+    return cachedMapJson[map];
 }
 
-function buildGeoJSON(geo: Record<string, TMarkerFeatureProperties>) {
-  return {
-    type: 'FeatureCollection',
-    features: Object.values(geo).map((p) => ({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
-      properties: p,
-    })),
-  };
+/** Write markers and popups for markers with explicit ID.*/
+export async function processDirectMarkers(
+    markerSource: MarkerSource[],
+    entry: MetaEntry,
+    features: Record<string, TMarkerFeatureProperties>,
+    popups: Popups
+) {
+    for (const [index, marker] of markerSource.entries()) {
+        if (
+            marker.foreignId ||
+            marker.x == null ||
+            marker.y == null ||
+            !marker.map
+        )
+            continue;
+        const mapMetadata = await getMapMetadata(marker.map);
+        const [lng, lat] = convertToLngLat(mapMetadata, marker.x, marker.y);
+        const id = marker.id?.trim() || `${entry.category}-${index}`;
+        const icon = marker.icon?.trim() || entry.icon || 'default-marker';
+        const anchor = entry.anchor ? entry.anchor : 'bottom';
+        features[id] = {
+            id,
+            map: marker.map,
+            lng,
+            lat,
+            icon,
+            anchor,
+            categories: [entry.category],
+        };
+        if (!popups[id]) popups[id] = {};
+        if (!popups[id][entry.category]) popups[id][entry.category] = [];
+        const title = marker.title?.trim() || entry.title || '';
+        const subtitle = marker.subtitle?.trim() || entry.subtitle || '';
+        popups[id][entry.category].push({ title, subtitle });
+    }
 }
 
-async function writeOutput(publicDir: string, geojson: any, popups: TPopups) {
-  await fs.writeFile(
-    path.join(publicDir, 'markers/markers.geojson'),
-    JSON.stringify(geojson)
-  );
-  await fs.writeFile(
-    path.join(publicDir, 'markers/popups.json'),
-    JSON.stringify(popups)
-  );
+/** Write markers and popups for markers with foreign ID.*/
+function processDeferredMarkers(
+    primaryMarkers: PrimaryMarkers,
+    deferredMarkers: {
+        marker: MarkerSource;
+        category: string;
+        meta: MetaEntry;
+    }[],
+    popups: Popups,
+    features: Record<string, TMarkerFeatureProperties>
+) {
+    for (const { marker, category, meta } of deferredMarkers) {
+        const targetId = marker.foreignId!.toLowerCase();
+        if (!popups[targetId]) {
+            console.error(`foreignId "${targetId}" not found!`);
+            continue;
+        }
+        const foreignTitle = primaryMarkers[targetId]?.title;
+        const title = marker.title || foreignTitle || meta.title || '';
+        const subtitle = marker.subtitle || meta.subtitle || '';
+        if (!popups[targetId][category]) popups[targetId][category] = [];
+        features[targetId].categories.push(category);
+        popups[targetId][category].push({ title, subtitle });
+    }
+}
 
-  console.log(
-    `markers.geojson (${geojson.features.length}) and popups.json (${Object.keys(popups).length}) written.`
-  );
+/** Build JSON, that MapLibreGL understands, containing all the markers. */
+function buildFeatureCollection(
+    features: Record<string, TMarkerFeatureProperties>
+): TMarkerFeatureCollection {
+    return {
+        type: 'FeatureCollection',
+        features: Object.values(features).map((p) => ({
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+            properties: p,
+        })),
+    };
+}
+
+/** Write markers and popups to files.*/
+async function writeOutput(
+    dataDir: string,
+    featureCollection: TMarkerFeatureCollection,
+    popups: Popups
+) {
+    await writeFile(
+        path.join(dataDir, 'markers.json'),
+        JSON.stringify(featureCollection)
+    );
+    await writeFile(path.join(dataDir, 'popups.json'), JSON.stringify(popups));
+
+    console.log(
+        `markers.json (${featureCollection.features.length}) and popups.json (${Object.keys(popups).length}) written.`
+    );
 }
 
 async function build() {
-  const publicDir = path.resolve(__dirname, '../public');
-  const meta = await loadMeta(path.join(publicDir, 'meta.json'));
-
-  const popups: TPopups = {};
-  const geo: Record<string, TMarkerFeatureProperties> = {};
-  const originalTitles: Record<string, { title: string; subtitle: string }> =
-    {};
-  const deferred: { m: MarkerSource; category: string; meta: MetaEntry }[] = [];
-  const slugRegistry: Record<string, Set<string>> = {};
-
-  for (const entry of meta) {
-    const raw = await loadMarkers(entry, publicDir);
-
-    // collect deferred first so we preserve order of direct markers in popups
-    for (const m of raw)
-      if (m.foreignId)
-        deferred.push({ m, category: entry.category, meta: entry });
-
-    await processDirectMarkers(
-      raw,
-      entry,
-      geo,
-      popups,
-      originalTitles,
-      slugRegistry
+    const popups: Popups = {};
+    const features: Record<string, TMarkerFeatureProperties> = {};
+    const primaryMarkers: PrimaryMarkers = {};
+    const deferredMarkers: DeferredMarkers = [];
+    const markerMetadata = JSON.parse(
+        await readFile(markerMetadataPath, 'utf8')
     );
-  }
-
-  processDeferredMarkers(deferred, popups, originalTitles, slugRegistry, geo);
-
-  const geojson = buildGeoJSON(geo);
-  await writeOutput(publicDir, geojson, popups);
+    for (const metadataEntry of markerMetadata) {
+        const markersPath = path.join(publicDir, metadataEntry.path);
+        const markers = JSON.parse(await readFile(markersPath, 'utf8'));
+        for (const marker of markers) {
+            if (marker.foreignId)
+                deferredMarkers.push({
+                    marker,
+                    category: metadataEntry.category,
+                    meta: metadataEntry,
+                });
+            else primaryMarkers[marker.id!] = marker;
+        }
+        await processDirectMarkers(markers, metadataEntry, features, popups);
+    }
+    processDeferredMarkers(primaryMarkers, deferredMarkers, popups, features);
+    const featureCollection = buildFeatureCollection(features);
+    await writeOutput(dataDir, featureCollection, popups);
 }
 
 build().catch((err) => {
-  console.error(err);
-  process.exit(1);
+    console.error(err);
+    process.exit(1);
 });

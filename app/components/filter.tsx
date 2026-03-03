@@ -1,135 +1,159 @@
 'use client';
-import type { NextPage } from 'next';
-import styles from './filter.module.css';
-import Category from './filter/category';
-import Searchbar from './filter/searchbar';
-import { useState, useMemo } from 'react';
-import { useMarkerContext } from '../context/marker-context';
-import { categoryGroups } from './filter/config';
-import Results from './filter/results';
-import Menu from './menu';
-import { usePopupContext } from '../context/popup-context';
-import { useBookmarkContext } from '../context/bookmark-context';
-import { useFlyToMarker } from '../hooks/use-fly-to-marker';
-import { useMapContext } from '../context/map-context';
+
+import { useCallback, useMemo, useState } from 'react';
+import Category from '@/app/components/filter/category';
+import Searchbar from '@/app/components/filter/searchbar';
+import { useMarkerContext } from '@/app/context/marker-context';
+import { categoryGroups } from '@/app/components/filter/config';
+import Results from '@/app/components/filter/results';
+import MarkerCollectionDisplay from '@/app/components/marker-collection-display';
+import { useFilterContext } from '@/app/context/filter-context';
+import styles from '@/app/components/filter.module.css';
+import { useUpdateActiveMarkerCount } from '@/app/hooks/use-update-active-marker-count';
 
 type MarkerSearchResult = {
-  markerId: string;
-  categoryId: string;
-  itemId: string;
-  title: string;
-  subtitle?: string;
+    markerId: string;
+    categoryId: string;
+    itemId: string;
+    title: string;
+    subtitle?: string;
 };
 
-const Filter: NextPage = () => {
-  const { enabledMarkerCategories, toggleMarkerCategory } = useMarkerContext();
-  const { mapInstance } = useMapContext();
-  const { markers } = useMarkerContext();
-  const { bookmarkIds, toggleBookmark, toggleBookmarks, categoryBookmarkMap } =
-    useBookmarkContext();
-  const { popups } = usePopupContext();
-  const flyToMarker = useFlyToMarker(mapInstance, popups, markers);
-  const [query, setQuery] = useState('');
+export default function Filter() {
+    const { allPopups, collectedMarkerIds, setCollectedMarkerIds } =
+        useMarkerContext();
+    const {
+        activeCategories,
+        activeCategoryList,
+        allCategories,
+        setActiveCategories,
+        toggleActiveCategory,
+        setAllCategories,
+    } = useFilterContext();
+    const [query, setQuery] = useState('');
 
-  const results = useMemo((): MarkerSearchResult[] => {
-    if (!query.trim()) return [];
+    useUpdateActiveMarkerCount();
 
-    const q = query.toLowerCase();
-    const matches: MarkerSearchResult[] = [];
+    const results = useMemo((): MarkerSearchResult[] => {
+        if (!query.trim()) return [];
 
-    for (const [markerId, categories] of Object.entries(popups)) {
-      for (const [categoryId, items] of Object.entries(categories)) {
-        for (const [itemId, item] of Object.entries(items)) {
-          const text =
-            `${item.title ?? ''} ${item.subtitle ?? ''}`.toLowerCase();
-          if (text.includes(q)) {
-            matches.push({
-              markerId,
-              categoryId,
-              itemId,
-              title: item.title,
-              subtitle: item.subtitle,
-            });
-          }
+        const q = query.toLowerCase();
+        const matches: MarkerSearchResult[] = [];
+
+        for (const [markerId, categories] of Object.entries(allPopups)) {
+            for (const [categoryId, items] of Object.entries(categories)) {
+                for (const [itemId, item] of Object.entries(items)) {
+                    const text =
+                        `${item.title ?? ''} ${item.subtitle ?? ''}`.toLowerCase();
+                    if (text.includes(q)) {
+                        matches.push({
+                            markerId,
+                            categoryId,
+                            itemId,
+                            title: item.title,
+                            subtitle: item.subtitle,
+                        });
+                    }
+                }
+            }
         }
-      }
-    }
 
-    return matches;
-  }, [query, popups]);
+        return matches;
+    }, [query, allPopups]);
 
-  return (
-    <Menu>
-      <div className={styles.header}>
-        <Searchbar onSearch={setQuery} />
-      </div>
-      <div className={styles.scrollArea}>
-        {!query.trim() &&
-          categoryGroups.map((group) => {
-            const isActive = group.entries.some(
-              ({ id }) => enabledMarkerCategories[id]
-            );
-            const toggleAll = () => {
-              const anyActive = group.entries.some(
-                ({ id }) => enabledMarkerCategories[id]
-              );
-              group.entries.forEach(({ id }) => {
-                if (enabledMarkerCategories[id] === anyActive) {
-                  toggleMarkerCategory(id);
-                }
-              });
-            };
+    const toggleAllCategories = useCallback(() => {
+        if (activeCategoryList.length < allCategories.length)
+            return setAllCategories(true);
+        return setAllCategories(false);
+    }, [activeCategoryList.length, allCategories.length, setAllCategories]);
 
-            const entries = group.entries.map(({ label, id }) => {
-              const entryBookmarkIds = categoryBookmarkMap[id] || [];
+    const toggleAllCategoriesText = useMemo(() => {
+        return activeCategoryList.length < allCategories.length
+            ? 'Show All Markers'
+            : 'Hide All Markers';
+    }, [activeCategoryList.length, allCategories.length]);
 
-              let bookmarkState: 'none' | 'partial' | 'full' = 'none';
-              if (entryBookmarkIds.length > 0) {
-                const count = entryBookmarkIds.filter((bid) =>
-                  bookmarkIds.includes(bid)
-                ).length;
-                if (count === entryBookmarkIds.length) {
-                  bookmarkState = 'full';
-                } else if (count > 0) {
-                  bookmarkState = 'partial';
-                }
-              }
+    const showResetCollectionButton = useMemo(() => {
+        return collectedMarkerIds.size > 0;
+    }, [collectedMarkerIds]);
 
-              return {
-                label,
-                isActive: enabledMarkerCategories[id],
-                onToggle: () => toggleMarkerCategory(id),
-                onToggleBookmark: () => toggleBookmarks(id),
-                bookmarkState,
-              };
-            });
+    const resetCollection = useCallback(() => {
+        setCollectedMarkerIds(new Set([]));
+    }, [setCollectedMarkerIds]);
 
-            return (
-              <Category
-                key={group.title}
-                title={group.title}
-                isActive={isActive}
-                onToggle={toggleAll}
-                entries={entries}
-              />
-            );
-          })}
+    return (
+        <>
+            <Searchbar onSearchAction={setQuery} />
+            <MarkerCollectionDisplay></MarkerCollectionDisplay>
 
-        <div className={styles.results}>
-          <Results
-            results={results}
-            bookmarkIds={bookmarkIds}
-            onSelect={flyToMarker}
-            toggleBookmark={toggleBookmark}
-            toggleBookmarks={(ids) => ids.forEach(toggleBookmark)}
-          />
-          {query && results.length === 0 && (
-            <div className={styles.noResult}>No matches. (´•︵•`)</div>
-          )}
-        </div>
-      </div>
-    </Menu>
-  );
-};
+            <div
+                className={`${styles.buttonGroupHorizontal} ${
+                    showResetCollectionButton ? styles.gap : styles.noGap
+                }`}
+                id="buttonGroupHorizontal"
+            >
+                <button
+                    className={styles.button}
+                    onClick={toggleAllCategories}
+                    id="toggleAllCategories"
+                >
+                    {toggleAllCategoriesText}
+                </button>
+                <button
+                    className={`${styles.button} ${
+                        showResetCollectionButton
+                            ? styles.visible
+                            : styles.hidden
+                    }`}
+                    onClick={resetCollection}
+                >
+                    Reset Collection
+                </button>
+            </div>
 
-export default Filter;
+            {!query.trim() &&
+                categoryGroups.map((group) => {
+                    const anyActive = group.entries.some(
+                        ({ id }) => activeCategories[id]
+                    );
+                    const allActive = group.entries.every(
+                        ({ id }) => activeCategories[id]
+                    );
+
+                    const toggleAll = () => {
+                        setActiveCategories((prev) => {
+                            const next = { ...prev };
+                            const nextValue = !allActive;
+                            group.entries.forEach(
+                                (entry) => (next[entry.id] = nextValue)
+                            );
+                            return next;
+                        });
+                    };
+
+                    const entries = group.entries.map(({ label, id }) => ({
+                        label,
+                        isActive: !!activeCategories[id],
+                        onToggle: () => toggleActiveCategory(id),
+                    }));
+
+                    return (
+                        <Category
+                            key={group.title}
+                            title={group.title}
+                            isActive={anyActive}
+                            onToggle={toggleAll}
+                            entries={entries}
+                        />
+                    );
+                })}
+
+            <div className={styles.results}>
+                <Results results={results} />
+                {query && results.length === 0 && (
+                    <div className={styles.noResult}>No matches. (´•︵•`)</div>
+                )}
+            </div>
+        </>
+    );
+}

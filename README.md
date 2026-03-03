@@ -7,25 +7,15 @@ This interactive map for [Equinox: Homecoming](https://store.steampowered.com/ap
 The following features are fully implemented and available in the live version:
 
 - Toggle marker categories on/off via click in the menu
-- Search for markers using the search bar
+- Search markers, titles, subtitles, and content
 - Click a search result to fly to that marker on the map
 - Click a marker to open a popup with additional information
-- Bookmark markers directly from the search results or within popups
-- View only your bookmarked markers via the **Bookmarks** tab
+- Collect markers via right-click (_long-press on mobile_)
+- Interactive tutorial that guides users through all features
 
-## Roadmap
+## Help, Feedback, Issues, Suggestions
 
-We are committed to maintaining this project long-term. Our immediate goals include:
-
-- Add remaining markers (e.g., weekly, side and main quests)
-- Plot the course of the race when opening the popup
-- Display a short visual tutorial when first visiting the app
-- Refactor and abstracting code for future expansion
-- Implement caching & efficient bandwidth usage
-
-## Feedback, Issues, Suggestions
-
-Have feedback, found a bug, or have a feature request? Fill out this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLScLE-dfJ5pjGvxtdScB9KYc0hX9cZI7c1ba80hR33Ceieu2JA/viewform?usp=header) or open an [issue](https://github.com/dreamfarer/equinox-map/issues/new) on GitHub.
+Have feedback, found a bug, have a feature request, or need help? Open an [issue](https://github.com/dreamfarer/equinox-map/issues/new) on GitHub.
 
 ## Technical Overview
 
@@ -36,11 +26,10 @@ The project is currently running on **free** plans. The serverless Next.js front
 ### Data Sourcing & Processing
 
 This is a collaborative community effort, with data sourced by players exploring the game.
-We've implemented a **development mode**, accessible at [equinoxmap.app/dev](https://equinoxmap.app/dev). Clicking on the map in this mode spawns a marker and copies a template to the clipboard.
 
-All markers are first added to `/public/markers` in the `data` branch. They are then processed if necessary and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. At build time, a script merges, validates, and converts marker data to GeoJSON for use with MapLibre GL.
+All markers are first added to `/public/markers` in the `data` branch. They are then processed, if necessary, and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. At build time, a script merges, validates, and converts marker data to GeoJSON for use with MapLibre GL.
 
-Marker positions are stored in **Cartesian coordinates** (in meters), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in `map.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future.
+Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in `map.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future.
 
 While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection.
 
@@ -62,7 +51,7 @@ sh tile.sh <source-image.png> [<cropX_px> <cropY_px>]
 
 This script adds transparent padding, centers and optionally crops the image, and generates tiles. It also prints a partial `map.json` configuration to the console.
 
-Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
+Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting, or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
 
 ## Statistics
 

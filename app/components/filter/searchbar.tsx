@@ -1,28 +1,46 @@
 'use client';
+
 import { useState, ChangeEvent } from 'react';
-import styles from './searchbar.module.css';
+import styles from '@/app/components/filter/searchbar.module.css';
+import { XCircleIcon } from '@phosphor-icons/react';
 
 type Props = {
-  onSearch: (query: string) => void;
+    onSearchAction: (query: string) => void;
 };
 
-export default function Searchbar({ onSearch }: Props) {
-  const [query, setQuery] = useState('');
+export default function Searchbar({ onSearchAction }: Props) {
+    const [query, setQuery] = useState('');
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setQuery(value);
-    onSearch(value);
-  };
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setQuery(value);
+        onSearchAction(value);
+    };
 
-  return (
-    <div className={styles.searchBar}>
-      <input
-        className={styles.input}
-        placeholder="Search …"
-        value={query}
-        onChange={handleChange}
-      />
-    </div>
-  );
+    const clearSearch = () => {
+        setQuery('');
+        onSearchAction('');
+    };
+
+    return (
+        <div className={styles.searchBar} id="searchBar">
+            <input
+                className={styles.input}
+                placeholder="Search …"
+                value={query}
+                onChange={handleChange}
+            />
+
+            {query && (
+                <button
+                    type="button"
+                    onClick={clearSearch}
+                    className={styles.clearButton}
+                    aria-label="Clear search"
+                >
+                    <XCircleIcon size={20} weight="regular" />
+                </button>
+            )}
+        </div>
+    );
 }

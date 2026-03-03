@@ -1,119 +1,144 @@
 'use client';
 
 import {
-  createContext,
-  useContext,
-  useState,
-  useMemo,
-  useEffect,
-  useCallback,
+    createContext,
+    useContext,
+    useMemo,
+    ReactNode,
+    useState,
+    useCallback,
+    Dispatch,
+    SetStateAction,
+    useEffect,
 } from 'react';
-import { useFilterUpdates } from '../hooks/use-filter-updates';
-import { TPopups } from '@/types/popup';
+import { CategoryPayloads, Popups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
-import { useMapPopupHandler } from '../hooks/use-popup-handler';
-import { categories, TCategory } from '@/types/category';
-import { useMapContext } from './map-context';
-import { loadMarkers } from '@/lib/marker-utility';
-import { usePopupContext } from './popup-context';
-import { useBookmarkContext } from './bookmark-context';
-import { useMarkerLayerSetup } from '../hooks/use-marker-layer-setup';
-import { ExpressionSpecification } from 'maplibre-gl';
-import { useMenuState } from './menu-state-context';
+import { TMarkerFeature } from '@/types/marker-feature';
+import { calculatePopupOffset } from '@/lib/popup-utility';
+import { loadCollectedMarkerIdsFromLocalStorage } from '@/lib/storage-utility';
 
-type TMarkerContext = {
-  enabledMarkerCategories: Record<TCategory, boolean>;
-  markers: TMarkerFeatureCollection | null;
-  toggleMarkerCategory: (category: TCategory) => void;
+type ActivePopup = {
+    featureId: string;
+    lngLat: [number, number];
+    offset: Record<string, [number, number]>;
+    content: CategoryPayloads;
 };
 
-const MarkerContext = createContext<TMarkerContext | null>(null);
+type MarkerContextValue = {
+    activePopup: ActivePopup | null;
+    setActivePopupByFeature: (feature: TMarkerFeature | null) => void;
+    collectedMarkerIds: Set<string>;
+    setCollectedMarkerIds: Dispatch<SetStateAction<Set<string>>>;
+    activeMarkerCount: number;
+    setActiveMarkerCount: Dispatch<SetStateAction<number>>;
+    activeCollectedMarkerCount: number;
+    setActiveCollectedMarkerCount: Dispatch<SetStateAction<number>>;
+    allPopups: Popups;
+    allMarkers: TMarkerFeatureCollection;
+    allFeatures: Record<string, TMarkerFeature>;
+    allMarkerIdsByCategory: Record<string, Set<string>>;
+};
 
-export function MarkerProvider({ children }: { children: React.ReactNode }) {
-  const { mapInstance } = useMapContext();
-  const { popups } = usePopupContext();
-  const { activeMenuName } = useMenuState();
-  const { bookmarkIds, toggleBookmark, bookmarkedMarkerIds } =
-    useBookmarkContext();
+type MarkerProviderProps = {
+    children: ReactNode;
+    allPopups: Popups;
+    allMarkers: TMarkerFeatureCollection;
+};
 
-  const [markers, setMarkers] = useState<TMarkerFeatureCollection | null>(null);
-  const [filteredPopups, setFilteredPopups] = useState<TPopups>({});
-  const [activeCategories, setActiveCategories] = useState<TCategory[]>([]);
-  const [enabledMarkerCategories, setEnabledMarkerCategories] = useState<
-    Record<TCategory, boolean>
-  >(
-    Object.fromEntries(categories.map((c) => [c, true])) as Record<
-      TCategory,
-      boolean
-    >
-  );
+const MarkerContext = createContext<MarkerContextValue | null>(null);
 
-  const isBookmarksMenu = activeMenuName === 'bookmarks';
-  const toggleMarkerCategory = useCallback(
-    (category: TCategory) =>
-      setEnabledMarkerCategories((prev) => ({
-        ...prev,
-        [category]: !prev[category],
-      })),
-    []
-  );
+export function MarkerProvider({
+    children,
+    allPopups,
+    allMarkers,
+}: Readonly<MarkerProviderProps>) {
+    const [activePopup, setActivePopup] = useState<ActivePopup | null>(null);
+    const [activeMarkerCount, setActiveMarkerCount] = useState(0);
+    const [activeCollectedMarkerCount, setActiveCollectedMarkerCount] =
+        useState(0);
+    const [collectedMarkerIds, setCollectedMarkerIds] = useState<Set<string>>(
+        new Set<string>()
+    );
 
-  useEffect(() => {
-    const load = async () => {
-      setMarkers(await loadMarkers());
-    };
-    load();
-  }, []);
+    const allFeatures = useMemo(() => {
+        const map = {} as Record<string, TMarkerFeature>;
+        allMarkers.features.forEach((feature) => {
+            map[feature.properties.id] = feature;
+        });
+        return map;
+    }, [allMarkers]);
 
-  const handleFilterUpdate = useCallback(
-    (result: {
-      filtered: TPopups;
-      expression: ExpressionSpecification | null;
-      activeCategories: TCategory[];
-    }) => {
-      setFilteredPopups(result.filtered);
-      setActiveCategories(result.activeCategories);
-    },
-    []
-  );
+    const allMarkerIdsByCategory = useMemo(() => {
+        const map = {} as Record<string, Set<string>>;
+        for (const feature of allMarkers.features) {
+            const id = feature.properties.id;
+            for (const cat of feature.properties.categories ?? []) {
+                if (!map[cat]) map[cat] = new Set<string>();
+                map[cat].add(id);
+            }
+        }
+        return map;
+    }, [allMarkers]);
 
-  useMarkerLayerSetup(mapInstance, markers);
-  useFilterUpdates(
-    mapInstance,
-    enabledMarkerCategories,
-    bookmarkedMarkerIds,
-    popups,
-    isBookmarksMenu,
-    handleFilterUpdate
-  );
-  useMapPopupHandler(
-    mapInstance,
-    filteredPopups,
-    bookmarkIds,
-    toggleBookmark,
-    activeCategories,
-    bookmarkedMarkerIds
-  );
+    useEffect(() => {
+        setCollectedMarkerIds(
+            loadCollectedMarkerIdsFromLocalStorage(allMarkers)
+        );
+    }, [allMarkers]);
 
-  const contextValue = useMemo<TMarkerContext>(
-    () => ({
-      enabledMarkerCategories,
-      markers,
-      toggleMarkerCategory,
-    }),
-    [enabledMarkerCategories, markers, toggleMarkerCategory]
-  );
+    const setActivePopupByFeature = useCallback(
+        (feature: TMarkerFeature | null) => {
+            if (!feature) {
+                setActivePopup(null);
+                return;
+            }
+            const featureId = feature.properties.id;
+            setActivePopup({
+                featureId,
+                lngLat: feature.geometry.coordinates as [number, number],
+                offset: calculatePopupOffset(feature.properties.anchor),
+                content: allPopups[featureId],
+            });
+        },
+        [allPopups]
+    );
 
-  return (
-    <MarkerContext.Provider value={contextValue}>
-      {children}
-    </MarkerContext.Provider>
-  );
+    const contextValue = useMemo<MarkerContextValue>(
+        () => ({
+            activePopup,
+            setActivePopupByFeature,
+            collectedMarkerIds,
+            setCollectedMarkerIds,
+            activeMarkerCount,
+            setActiveMarkerCount,
+            activeCollectedMarkerCount,
+            setActiveCollectedMarkerCount,
+            allPopups,
+            allMarkers,
+            allFeatures,
+            allMarkerIdsByCategory,
+        }),
+        [
+            activePopup,
+            setActivePopupByFeature,
+            collectedMarkerIds,
+            activeMarkerCount,
+            activeCollectedMarkerCount,
+            allPopups,
+            allMarkers,
+            allFeatures,
+            allMarkerIdsByCategory,
+        ]
+    );
+
+    return <MarkerContext value={contextValue}>{children}</MarkerContext>;
 }
 
 export function useMarkerContext() {
-  const context = useContext(MarkerContext);
-  if (!context)
-    throw new Error('useMarkerContext must be used inside <MarkerProvider>');
-  return context;
+    const context = useContext(MarkerContext);
+    if (!context)
+        throw new Error(
+            'useMarkerContext must be used inside <MarkerProvider>'
+        );
+    return context;
 }
