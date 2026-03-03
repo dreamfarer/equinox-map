@@ -38,8 +38,11 @@ export default function Dropdown({ options, selected, onSelect }: Props) {
                     }`}
                 />
             </button>
-            {open && (
-                <div className={styles.content}>
+                <div
+                    className={`${styles.content} ${
+                        open ? '' : styles.hidden
+                    }`}
+                >
                     {options
                         .filter((option) => option !== selected)
                         .map((option) => (
@@ -55,7 +58,6 @@ export default function Dropdown({ options, selected, onSelect }: Props) {
                             </button>
                         ))}
                 </div>
-            )}
         </div>
     );
 }

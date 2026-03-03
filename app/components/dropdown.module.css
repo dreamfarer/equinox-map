@@ -27,20 +27,15 @@
     overflow: hidden;
     bottom: 150%;
     left: 0;
-    animation: panelIn 150ms ease-out both;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     transform-origin: bottom;
     min-width: 100%;
 }
 
-@keyframes panelIn {
-    from {
-        opacity: 0;
-        transform: scaleY(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scaleY(1);
-    }
+.content.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: scaleY(0);
 }
 
 .item {
