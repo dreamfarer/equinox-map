@@ -102,7 +102,7 @@ export default function Menu() {
     }
 
     const content = useMemo(() => {
-        if (isMobile) {
+        if (isMobile && snapPoint !== 'closed') {
             return (
                 <>
                     <Filter />
@@ -110,9 +110,10 @@ export default function Menu() {
                 </>
             );
         }
+        if (isMobile && snapPoint === 'closed') return null;
         if (activeMenuName === 'filter') return <Filter />;
         return <Information />;
-    }, [activeMenuName, isMobile]);
+    }, [activeMenuName, isMobile, snapPoint]);
 
     return (
         <div

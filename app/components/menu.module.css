@@ -128,7 +128,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem 0 0.5rem;
+        padding: 1.25rem 0 1.25rem;
         position: sticky;
         top: 0;
         z-index: 2;
@@ -140,7 +140,7 @@
 
     .scrollArea {
         touch-action: pan-y;
-        padding-top: calc(1.25 * var(--spacer-mini));
+        padding-top: 0;
     }
 
     .closed {

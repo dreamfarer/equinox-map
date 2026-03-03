@@ -21,7 +21,7 @@
     position: absolute;
     background-color: var(--background-dark-transparent);
     backdrop-filter: blur(0.5rem);
-    border-radius: 0.5rem ;
+    border-radius: 0.5rem;
     padding: 0;
     z-index: 1000;
     overflow: hidden;
