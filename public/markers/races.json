@@ -1,129 +1,129 @@
 [
-  {
-    "title": "River Loop",
-    "subtitle": "Takes about 1:30 min.",
-    "map": "greenisland",
-    "x": -335.35850974989296,
-    "y": 99.76660688643301
-  },
-  {
-    "title": "Beer Run",
-    "subtitle": "Takes about 2:30 min.",
-    "map": "greenisland",
-    "x": -455.0097241575921,
-    "y": 96.29426650899632
-  },
-  {
-    "title": "Station to Station",
-    "subtitle": "Takes about 4:00 min.",
-    "map": "greenisland",
-    "x": -336.7381940289249,
-    "y": 129.0637796430783
-  },
-  {
-    "title": "River Trail",
-    "subtitle": "Takes about 1:20 min.",
-    "id": "river-trail",
-    "map": "greenisland",
-    "x": -283.8661222672821,
-    "y": 475.11190844147177
-  },
-  {
-    "title": "Swamp Circuit",
-    "subtitle": "Takes about 1:10 min.",
-    "map": "greenisland",
-    "x": 153.2891735279377,
-    "y": 315.2451576186104
-  },
-  {
-    "title": "Radio Tower",
-    "subtitle": "Takes about 2:40 min.",
-    "map": "greenisland",
-    "x": 348.18298198185175,
-    "y": -204.5499269521788
-  },
-  {
-    "title": "Farmland Loop",
-    "subtitle": "Takes about 1:30 min.",
-    "map": "greenisland",
-    "x": 612.4222867977207,
-    "y": -531.3911436918619
-  },
-  {
-    "title": "Farmland Jumps",
-    "subtitle": "Takes about 1:00 min.",
-    "map": "greenisland",
-    "x": 458.49177957655183,
-    "y": -767.4661461934164
-  },
-  {
-    "title": "Mine Descent",
-    "subtitle": "Takes about 1:10 min.",
-    "map": "greenisland",
-    "x": 143.5260796663987,
-    "y": -483.3908718198684
-  },
-  {
-    "title": "Coastal Run",
-    "subtitle": "Takes about 1:10 min.",
-    "map": "greenisland",
-    "x": -436.2922873721664,
-    "y": -195.8364891329196
-  },
-  {
-    "title": "Blacksmith",
-    "subtitle": "Takes about 1:00 min.",
-    "map": "greenisland",
-    "x": -445.7542130187892,
-    "y": -276.02894262762675
-  },
-  {
-    "title": "Downhill Run",
-    "subtitle": "Takes about 0:40 min.",
-    "map": "greenisland",
-    "x": -448.68446248395736,
-    "y": -495.59707246445146
-  },
-  {
-    "title": "Lighthouse Climb",
-    "subtitle": "Takes about 1:10 min.",
-    "map": "greenisland",
-    "x": -180.6809227224653,
-    "y": -841.2172567160475
-  },
-  {
-    "title": "Forest Weave",
-    "subtitle": "Takes about 1:00 min.",
-    "map": "greenisland",
-    "x": 679.8630334598445,
-    "y": 92.14564307596106
-  },
-  {
-    "title": "Fisherman's Folly",
-    "subtitle": "Takes about 0:50 min.",
-    "map": "greenisland",
-    "x": -620.1447955912073,
-    "y": -525.2501440665848
-  },
-  {
-    "title": "Alderwood Lap",
-    "subtitle": "Takes about 2:00 min.",
-    "map": "greenisland",
-    "x": -282.53352763492126,
-    "y": 171.87770245122056
-  },
-  {
-    "title": "White Rock Ridge Ascent",
-    "subtitle": "Takes about 1:15 min.",
-    "map": "greenisland",
-    "x": 221.65624720533742,
-    "y": 991.9315588786585
-  },
-  {
-    "title": "Mine Climb",
-    "subtitle": "Takes about 1:00 min.",
-    "map": "greenisland",
-    "x": 203.94973708399266,
-    "y": -22.55798311489457
-  }
+    {
+        "title": "River Loop",
+        "subtitle": "Takes about 1:30 min.",
+        "map": "greenisland",
+        "x": -335.35850974989296,
+        "y": 99.76660688643301
+    },
+    {
+        "title": "Beer Run",
+        "subtitle": "Takes about 2:30 min.",
+        "map": "greenisland",
+        "x": -455.0097241575921,
+        "y": 96.29426650899632
+    },
+    {
+        "title": "Station to Station",
+        "subtitle": "Takes about 4:00 min.",
+        "map": "greenisland",
+        "x": -336.7381940289249,
+        "y": 129.0637796430783
+    },
+    {
+        "title": "River Trail",
+        "subtitle": "Takes about 1:20 min.",
+        "id": "river-trail",
+        "map": "greenisland",
+        "x": -283.8661222672821,
+        "y": 475.11190844147177
+    },
+    {
+        "title": "Swamp Circuit",
+        "subtitle": "Takes about 1:10 min.",
+        "map": "greenisland",
+        "x": 153.2891735279377,
+        "y": 315.2451576186104
+    },
+    {
+        "title": "Radio Tower",
+        "subtitle": "Takes about 2:40 min.",
+        "map": "greenisland",
+        "x": 348.18298198185175,
+        "y": -204.5499269521788
+    },
+    {
+        "title": "Farmland Loop",
+        "subtitle": "Takes about 1:30 min.",
+        "map": "greenisland",
+        "x": 612.4222867977207,
+        "y": -531.3911436918619
+    },
+    {
+        "title": "Farmland Jumps",
+        "subtitle": "Takes about 1:00 min.",
+        "map": "greenisland",
+        "x": 458.49177957655183,
+        "y": -767.4661461934164
+    },
+    {
+        "title": "Mine Descent",
+        "subtitle": "Takes about 1:10 min.",
+        "map": "greenisland",
+        "x": 143.5260796663987,
+        "y": -483.3908718198684
+    },
+    {
+        "title": "Coastal Run",
+        "subtitle": "Takes about 1:10 min.",
+        "map": "greenisland",
+        "x": -436.2922873721664,
+        "y": -195.8364891329196
+    },
+    {
+        "title": "Blacksmith",
+        "subtitle": "Takes about 1:00 min.",
+        "map": "greenisland",
+        "x": -445.7542130187892,
+        "y": -276.02894262762675
+    },
+    {
+        "title": "Downhill Run",
+        "subtitle": "Takes about 0:40 min.",
+        "map": "greenisland",
+        "x": -448.68446248395736,
+        "y": -495.59707246445146
+    },
+    {
+        "title": "Lighthouse Climb",
+        "subtitle": "Takes about 1:10 min.",
+        "map": "greenisland",
+        "x": -180.6809227224653,
+        "y": -841.2172567160475
+    },
+    {
+        "title": "Forest Weave",
+        "subtitle": "Takes about 1:00 min.",
+        "map": "greenisland",
+        "x": 679.8630334598445,
+        "y": 92.14564307596106
+    },
+    {
+        "title": "Fisherman's Folly",
+        "subtitle": "Takes about 0:50 min.",
+        "map": "greenisland",
+        "x": -620.1447955912073,
+        "y": -525.2501440665848
+    },
+    {
+        "title": "Alderwood Lap",
+        "subtitle": "Takes about 2:00 min.",
+        "map": "greenisland",
+        "x": -282.53352763492126,
+        "y": 171.87770245122056
+    },
+    {
+        "title": "White Rock Ridge Ascent",
+        "subtitle": "Takes about 1:15 min.",
+        "map": "greenisland",
+        "x": 221.65624720533742,
+        "y": 991.9315588786585
+    },
+    {
+        "title": "Mine Climb",
+        "subtitle": "Takes about 1:00 min.",
+        "map": "greenisland",
+        "x": 203.94973708399266,
+        "y": -22.55798311489457
+    }
 ]
