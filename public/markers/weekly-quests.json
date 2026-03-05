@@ -1,332 +1,332 @@
 [
-  {
-    "title": "Blocked Road",
-    "subtitle": "Meet Kai Chen and remove the fallen tree.",
-    "foreignId": "kai",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Pesky Crow",
-    "subtitle": "Talk to Dwight and find 3 items to dress the scarecrow.",
-    "foreignId": "dwight",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Thinning the Shots",
-    "subtitle": "Ride to Landor's farm, remove 8 excess grape clusters, and return to Danny at the bar.",
-    "foreignId": "danny",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Crimson Beauty",
-    "subtitle": "Collect and deliver 12 poppies to Emily.",
-    "foreignId": "emily",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Aqua Beauty",
-    "subtitle": "Collect and deliver 5 water lilies to Emily.",
-    "foreignId": "emily",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Goods on Demand",
-    "subtitle": "Talk to Lewis, pick up the products and deliver them to Kathy.",
-    "foreignId": "lewis",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Not-Easter Eggs",
-    "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kathy at the market.",
-    "foreignId": "mrs-wilson",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "King of All The Mushrooms",
-    "subtitle": "Collect 15 King Boletus mushrooms and deliver them to Maia.",
-    "foreignId": "maia",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Horse Brushing",
-    "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
-    "foreignId": "thomas",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
-  },
-  {
-    "title": "Tasty Saddle",
-    "subtitle": "Collect 15 Dryad Saddle mushrooms.",
-    "foreignId": "maia",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Sulfur Treat",
-    "subtitle": "Collect 15 Sulfur Shelf mushrooms.",
-    "foreignId": "maia",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Deer Footprints",
-    "subtitle": "Mark the deer route (20 markers) and report to Kyle.",
-    "map": "greenisland",
-    "x": 39.88489690821427,
-    "y": -585.6505491059621,
-    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
-  },
-  {
-    "title": "Deer Traces",
-    "subtitle": "Mark the deer route (18 markers) and report to Kyle.",
-    "map": "greenisland",
-    "x": 375.9989465895412,
-    "y": -319.48092881633227,
-    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
-  },
-  {
-    "title": "Horse Ointment",
-    "subtitle": "Talk to Philip Wiseman, apply ointment to 3 horses, then report back.",
-    "foreignId": "philip",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
-  },
-  {
-    "title": "Sheep Catcher",
-    "subtitle": "Talk to Old Williams, activate the 7 location tracker, then report back.",
-    "foreignId": "old-williams",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Deer Path",
-    "subtitle": "Mark the deer route (22 markers) and report to Kyle.",
-    "map": "greenisland",
-    "x": 360.5483382181701,
-    "y": -478.06375105710447,
-    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
-  },
-  {
-    "title": "Future Bread",
-    "subtitle": "Pick up fertilizer from Kurt Burlow at the general store, deliver it to Dwight Collins and place it near the wheelbarrow.",
-    "foreignId": "kurt",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Smells Like a Bun",
-    "subtitle": "Pick up 2 wheat sacks from the wheat farm and deliver them to the bakery (Celina).",
-    "foreignId": "dwight",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Clean and Fresh",
-    "subtitle": "Ride to Wiseman's horse rehab and clean 5 manure piles.",
-    "foreignId": "philip",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
-  },
-  {
-    "title": "Milky Hands",
-    "subtitle": "Talk to the farmer, milk 5 cows, and deliver the milk to the general store.",
-    "foreignId": "derek",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Horse Massaging",
-    "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
-    "foreignId": "thomas",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
-  },
-  {
-    "title": "Fresh Fish Delivery",
-    "subtitle": "Go to the fishing village, collect 3 fish and deliver them to Kurt Burlow at the general store.",
-    "map": "greenisland",
-    "x": -613.0490388934733,
-    "y": -570.046873803426,
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Deer Trail",
-    "subtitle": "Mark the deer route (25 markers) and report to Kyle.",
-    "map": "greenisland",
-    "x": 69.69802303419942,
-    "y": -336.77985651592655,
-    "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
-  },
-  {
-    "title": "Sunshine Beauty",
-    "subtitle": "Collect and deliver 5 sunflowers to Emily.",
-    "foreignId": "emily",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Jealousy Attack",
-    "subtitle": "Talk to Lucy, pick up the hammer, repair the broken fence, and return to Lucy.",
-    "foreignId": "lucy",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "A Gas Problem",
-    "subtitle": "Get gas from Charles at the gas station and deliver it to Robert.",
-    "foreignId": "charles",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
-  },
-  {
-    "title": "Bake a Leg",
-    "subtitle": "Collect and deliver 10 King Boletus mushrooms to Lucy.",
-    "foreignId": "lucy",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Hint of Sourness",
-    "subtitle": "Collect and deliver a bunch of raspberries to Lucy.",
-    "foreignId": "lucy",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Lost and Found",
-    "subtitle": "Go to the beach, find 3 pieces of fishing gear, and return them to Ben.",
-    "map": "greenisland",
-    "x": -649.0297213055671,
-    "y": -429.33297372364996,
-    "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
-  },
-  {
-    "title": "Boat Fixer",
-    "subtitle": "Collect 5 logs, bring them to the carpenter Anika, and then deliver the planks to Harry.",
-    "map": "greenisland",
-    "x": -516.370537526459,
-    "y": 362.77992276033547,
-    "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
-  },
-  {
-    "title": "Post Delivery",
-    "subtitle": "Pick up a randomized amount of letters from Lucas and deliver them to randomized places.",
-    "foreignId": "lucas",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Soothing Beauty",
-    "subtitle": "Collect and deliver 15 delphiniums to Emily.",
-    "foreignId": "emily",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Old William's Fence",
-    "subtitle": "Talk to Old William, repair the broken fence, and return to him.",
-    "foreignId": "old-williams",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "What's in the Box",
-    "subtitle": "Pick up a package from Lucas and deliver it to Amanda.",
-    "foreignId": "lucas",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "You Bread My Mind",
-    "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Kyle, Lucy, and Emily.",
-    "foreignId": "celina",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Right From the Oven",
-    "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Amanda, Jett, and Maia.",
-    "foreignId": "celina",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Creepy is Thy Mail",
-    "subtitle": "Pick up mail from Lucas and deliver it to the creepy hut.",
-    "foreignId": "lucas",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Not so Sharp",
-    "subtitle": "Go to the cooking spot, find 3 lost knives, and return them to Nina.",
-    "map": "greenisland",
-    "x": -539.8858370076881,
-    "y": -647.247148444871,
-    "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
-  },
-  {
-    "title": "Baking Challenge",
-    "subtitle": "Deliver 20 apples to Lucy.",
-    "foreignId": "lucy",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Back to Fence",
-    "subtitle": "Talk to Dwight, find the hammer and the 2 wood planks at his shed, remove the broken fence plank, build the new fence, and then return to Dwight.",
-    "foreignId": "dwight",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Moonlight Beauty",
-    "subtitle": "Collect and deliver 14 violets to Emily.",
-    "foreignId": "emily",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "All You Knead is Loaf",
-    "subtitle": "Talk to Celina, pick up 4 packages, and deliver them to Agnes, Bobby, Alfred and Alicia.",
-    "foreignId": "celina",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Chicken Fence Run",
-    "subtitle": "Talk to Mrs. Wilson, find the hammer, fix the fence, and then return to Mrs. Wilson.",
-    "foreignId": "mrs-wilson",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  },
-  {
-    "title": "Loafing Around",
-    "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Philip, Nina, and Dwight.",
-    "foreignId": "celina",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Spill the Tea",
-    "subtitle": "Fetch the order from Kurt and deliver it to Florence at the rose manor.",
-    "foreignId": "kurt",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
-  },
-  {
-    "title": "Fruits of Wilderness",
-    "subtitle": "Collect and deliver 5 blackberries to Lucy.",
-    "foreignId": "lucy",
-    "map": "greenisland",
-    "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
-  }
+    {
+        "title": "Blocked Road",
+        "subtitle": "Meet Kai Chen and remove the fallen tree.",
+        "foreignId": "kai",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Pesky Crow",
+        "subtitle": "Talk to Dwight and find 3 items to dress the scarecrow.",
+        "foreignId": "dwight",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Thinning the Shots",
+        "subtitle": "Ride to Landor's farm, remove 8 excess grape clusters, and return to Danny at the bar.",
+        "foreignId": "danny",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Crimson Beauty",
+        "subtitle": "Collect and deliver 12 poppies to Emily.",
+        "foreignId": "emily",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Aqua Beauty",
+        "subtitle": "Collect and deliver 5 water lilies to Emily.",
+        "foreignId": "emily",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Goods on Demand",
+        "subtitle": "Talk to Lewis, pick up the products and deliver them to Kathy.",
+        "foreignId": "lewis",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Not-Easter Eggs",
+        "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kathy at the market.",
+        "foreignId": "mrs-wilson",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "King of All The Mushrooms",
+        "subtitle": "Collect 15 King Boletus mushrooms and deliver them to Maia.",
+        "foreignId": "maia",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Horse Brushing",
+        "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
+        "foreignId": "thomas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Tasty Saddle",
+        "subtitle": "Collect 15 Dryad Saddle mushrooms.",
+        "foreignId": "maia",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Sulfur Treat",
+        "subtitle": "Collect 15 Sulfur Shelf mushrooms.",
+        "foreignId": "maia",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Deer Footprints",
+        "subtitle": "Mark the deer route (20 markers) and report to Kyle.",
+        "map": "greenisland",
+        "x": 39.88489690821427,
+        "y": -585.6505491059621,
+        "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+    },
+    {
+        "title": "Deer Traces",
+        "subtitle": "Mark the deer route (18 markers) and report to Kyle.",
+        "map": "greenisland",
+        "x": 375.9989465895412,
+        "y": -319.48092881633227,
+        "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+    },
+    {
+        "title": "Horse Ointment",
+        "subtitle": "Talk to Philip Wiseman, apply ointment to 3 horses, then report back.",
+        "foreignId": "philip",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Sheep Catcher",
+        "subtitle": "Talk to Old Williams, activate the 7 location tracker, then report back.",
+        "foreignId": "old-williams",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Deer Path",
+        "subtitle": "Mark the deer route (22 markers) and report to Kyle.",
+        "map": "greenisland",
+        "x": 360.5483382181701,
+        "y": -478.06375105710447,
+        "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+    },
+    {
+        "title": "Future Bread",
+        "subtitle": "Pick up fertilizer from Kurt Burlow at the general store, deliver it to Dwight Collins and place it near the wheelbarrow.",
+        "foreignId": "kurt",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Smells Like a Bun",
+        "subtitle": "Pick up 2 wheat sacks from the wheat farm and deliver them to the bakery (Celina).",
+        "foreignId": "dwight",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Clean and Fresh",
+        "subtitle": "Ride to Wiseman's horse rehab and clean 5 manure piles.",
+        "foreignId": "philip",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Milky Hands",
+        "subtitle": "Talk to the farmer, milk 5 cows, and deliver the milk to the general store.",
+        "foreignId": "derek",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Horse Massaging",
+        "subtitle": "Go to the Equestrian Center, massage 3 horses, and tell Thomas when you're done.",
+        "foreignId": "thomas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Fresh Fish Delivery",
+        "subtitle": "Go to the fishing village, collect 3 fish and deliver them to Kurt Burlow at the general store.",
+        "map": "greenisland",
+        "x": -613.0490388934733,
+        "y": -570.046873803426,
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Deer Trail",
+        "subtitle": "Mark the deer route (25 markers) and report to Kyle.",
+        "map": "greenisland",
+        "x": 69.69802303419942,
+        "y": -336.77985651592655,
+        "reputation": [{ "type": "Alderwood Wilds", "amount": 10 }]
+    },
+    {
+        "title": "Sunshine Beauty",
+        "subtitle": "Collect and deliver 5 sunflowers to Emily.",
+        "foreignId": "emily",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Jealousy Attack",
+        "subtitle": "Talk to Lucy, pick up the hammer, repair the broken fence, and return to Lucy.",
+        "foreignId": "lucy",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "A Gas Problem",
+        "subtitle": "Get gas from Charles at the gas station and deliver it to Robert.",
+        "foreignId": "charles",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+    },
+    {
+        "title": "Bake a Leg",
+        "subtitle": "Collect and deliver 10 King Boletus mushrooms to Lucy.",
+        "foreignId": "lucy",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Hint of Sourness",
+        "subtitle": "Collect and deliver a bunch of raspberries to Lucy.",
+        "foreignId": "lucy",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Lost and Found",
+        "subtitle": "Go to the beach, find 3 pieces of fishing gear, and return them to Ben.",
+        "map": "greenisland",
+        "x": -649.0297213055671,
+        "y": -429.33297372364996,
+        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+    },
+    {
+        "title": "Boat Fixer",
+        "subtitle": "Collect 5 logs, bring them to the carpenter Anika, and then deliver the planks to Harry.",
+        "map": "greenisland",
+        "x": -516.370537526459,
+        "y": 362.77992276033547,
+        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+    },
+    {
+        "title": "Post Delivery",
+        "subtitle": "Pick up a randomized amount of letters from Lucas and deliver them to randomized places.",
+        "foreignId": "lucas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Soothing Beauty",
+        "subtitle": "Collect and deliver 15 delphiniums to Emily.",
+        "foreignId": "emily",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Old William's Fence",
+        "subtitle": "Talk to Old William, repair the broken fence, and return to him.",
+        "foreignId": "old-williams",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "What's in the Box",
+        "subtitle": "Pick up a package from Lucas and deliver it to Amanda.",
+        "foreignId": "lucas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "You Bread My Mind",
+        "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Kyle, Lucy, and Emily.",
+        "foreignId": "celina",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Right From the Oven",
+        "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Amanda, Jett, and Maia.",
+        "foreignId": "celina",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Creepy is Thy Mail",
+        "subtitle": "Pick up mail from Lucas and deliver it to the creepy hut.",
+        "foreignId": "lucas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Not so Sharp",
+        "subtitle": "Go to the cooking spot, find 3 lost knives, and return them to Nina.",
+        "map": "greenisland",
+        "x": -539.8858370076881,
+        "y": -647.247148444871,
+        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+    },
+    {
+        "title": "Baking Challenge",
+        "subtitle": "Deliver 20 apples to Lucy.",
+        "foreignId": "lucy",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Back to Fence",
+        "subtitle": "Talk to Dwight, find the hammer and the 2 wood planks at his shed, remove the broken fence plank, build the new fence, and then return to Dwight.",
+        "foreignId": "dwight",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Moonlight Beauty",
+        "subtitle": "Collect and deliver 14 violets to Emily.",
+        "foreignId": "emily",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "All You Knead is Loaf",
+        "subtitle": "Talk to Celina, pick up 4 packages, and deliver them to Agnes, Bobby, Alfred and Alicia.",
+        "foreignId": "celina",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Chicken Fence Run",
+        "subtitle": "Talk to Mrs. Wilson, find the hammer, fix the fence, and then return to Mrs. Wilson.",
+        "foreignId": "mrs-wilson",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Loafing Around",
+        "subtitle": "Talk to Celina, pick up 3 packages, and deliver them to Philip, Nina, and Dwight.",
+        "foreignId": "celina",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Spill the Tea",
+        "subtitle": "Fetch the order from Kurt and deliver it to Florence at the rose manor.",
+        "foreignId": "kurt",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Fruits of Wilderness",
+        "subtitle": "Collect and deliver 5 blackberries to Lucy.",
+        "foreignId": "lucy",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    }
 ]

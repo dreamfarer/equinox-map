@@ -1,30 +1,30 @@
 [
-  {
-    "subtitle": "Requires Alderwood Downtown reputation.",
-    "foreignId": "wendy"
-  },
-  {
-    "subtitle": "Requires Alderwood Farms reputation.",
-    "foreignId": "kathy"
-  },
-  {
-    "subtitle": "Requires Alderwood Wilds reputation.",
-    "foreignId": "samuel"
-  },
-  {
-    "subtitle": "Requires Alderwood Fishing Village reputation.",
-    "foreignId": "robert"
-  },
-  {
-    "subtitle": "Requires Alderwood's Equestrians reputation.",
-    "foreignId": "thomas"
-  },
-  {
-    "subtitle": "Requires Tokens gained by playing the 'Crown Chase' multiplayer event.",
-    "foreignId": "danny"
-  },
-  {
-    "subtitle": "Requires Ribbons gained by completing the weekly Club Challenges.",
-    "foreignId": "valeria"
-  }
+    {
+        "subtitle": "Requires Alderwood Downtown reputation.",
+        "foreignId": "wendy"
+    },
+    {
+        "subtitle": "Requires Alderwood Farms reputation.",
+        "foreignId": "kathy"
+    },
+    {
+        "subtitle": "Requires Alderwood Wilds reputation.",
+        "foreignId": "samuel"
+    },
+    {
+        "subtitle": "Requires Alderwood Fishing Village reputation.",
+        "foreignId": "robert"
+    },
+    {
+        "subtitle": "Requires Alderwood's Equestrians reputation.",
+        "foreignId": "thomas"
+    },
+    {
+        "subtitle": "Requires Tokens gained by playing the 'Crown Chase' multiplayer event.",
+        "foreignId": "danny"
+    },
+    {
+        "subtitle": "Requires Ribbons gained by completing the weekly Club Challenges.",
+        "foreignId": "valeria"
+    }
 ]
