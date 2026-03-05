@@ -56,7 +56,7 @@
     {
         "title": "Artefacts",
         "category": "artefacts",
-        "path": "markers/artefacts.json",
+        "path": "markers/resources/artefacts.json",
         "anchor": "center",
         "icon": "artefact"
     },
