@@ -10,27 +10,27 @@
     },
     {
         "title": "Wendy's Tack Shop",
-        "subtitle": "Purchased from Wendy for 5000 Silver Sols. Needs Alderwood Downtown reputation Level 5.",
+        "subtitle": "Purchased from Wendy for 3000 Silver Sols. Needs Alderwood Downtown reputation Level 4.",
         "foreignId": "wendy"
     },
     {
-        "title": "Old William's Farm",
-        "subtitle": "Purchased from Kathy Miller for 5000 Silver Sols. Needs Alderwood Farms reputation Level 5.",
+        "title": "Old William's Orchard",
+        "subtitle": "Purchased from Kathy Miller for 3000 Silver Sols. Needs Alderwood Farms reputation Level 4.",
         "foreignId": "old-williams"
     },
     {
         "title": "Blacksmith",
-        "subtitle": "Purchased from Samuel Smith for 5000 Silver Sols. Needs Alderwood Wilds reputation Level 5.",
+        "subtitle": "Purchased from Samuel Smith for 3000 Silver Sols. Needs Alderwood Wilds reputation Level 4.",
         "foreignId": "samuel"
     },
     {
         "title": "Fishing Village",
-        "subtitle": "Purchased from Robert Quint for 5000 Silver Sols. Needs Alderwood Fishing Village reputation Level 5.",
+        "subtitle": "Purchased from Robert Quint for 3000 Silver Sols. Needs Alderwood Fishing Village reputation Level 4. Can be bought for 1 EA coin.",
         "foreignId": "robert"
     },
     {
         "title": "Horse Rehabilitation Center",
-        "subtitle": "Purchased from Thomas Pratt for 5000 Silver Sols. Needs Alderwood Equestrians reputation Level 5.",
+        "subtitle": "Purchased from Thomas Pratt for 3000 Silver Sols. Needs Alderwood Equestrians reputation Level 4.",
         "foreignId": "philip"
     }
 ]

@@ -1,5 +1,5 @@
 [
-    { "map": "greenisland", "x": 551.73, "y": -154.3016 },
+    { "map": "greenisland", "subtitle": "Found underground inside the cave.", "x": 551.73, "y": -154.3016 },
     { "map": "greenisland", "x": 652.6646, "y": -838.4377 },
     { "map": "greenisland", "x": -44.2422, "y": -444.1078 },
     { "map": "greenisland", "x": 227.9085, "y": 997.6402 },
@@ -13,6 +13,6 @@
     { "map": "greenisland", "x": -303.0779, "y": -22.2929 },
     { "map": "greenisland", "x": -477.0454, "y": 511.7375 },
     { "map": "greenisland", "x": -8.9378, "y": 581.361 },
-    { "map": "greenisland", "x": 296.3605, "y": -670.0967 },
+    { "map": "greenisland", "subtitle": "Found underground inside the train tunnel.", "x": 296.3605, "y": -670.0967 },
     { "map": "greenisland", "x": 806.201, "y": -272.4615 }
 ]
