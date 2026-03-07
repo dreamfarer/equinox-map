@@ -84,7 +84,7 @@ export default function Information() {
             <p>
                 Thanks to all members of the discord, especially CookieFox,
                 𝔉𝔢𝔢𝔩𝔦, {link('Laika Crafts', 'https://linktr.ee/Laika.Crafts')},
-                LupinchenBrause, Onyx, reko,{' '}
+                Griff, korpikorppi, LupinchenBrause, Onyx,{' '}
                 {link('Snowhawk', 'https://delphin.social/')},{' '}
                 {link('Sugertoxity', 'https://www.instagram.com/equinox.map/')},
                 Yumemi, {link('zaaap!', 'https://beacons.ai/zaaap')}, and, of
