@@ -331,16 +331,30 @@
     },
     {
         "title": "Good Day for Pie",
-        "subtitle": "Collect 6 eggs, 2 lemons, 16 raspberries and 12 apples and deliver them to Dwight.",
+        "subtitle": "Collect 6 eggs, 2 lemons, 16 raspberries and 12 apples, and then deliver them to Dwight.",
         "foreignId": "dwight",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
     },
     {
         "title": "Grandma's Speciality",
-        "subtitle": "Collect 10 king boletus mushrooms, 6 sulfur shelf mushrooms, 6 eggs, 2 lemons and 1 bottle of milk and deliver them to Dwight.",
+        "subtitle": "Collect 10 king boletus mushrooms, 6 sulfur shelf mushrooms, 6 eggs, 2 lemons and 1 bottle of milk, and then deliver them to Dwight.",
         "foreignId": "dwight",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Boat Makeover",
+        "subtitle": "Talk to Harry, paint the boat, and then return to Harry.",
+        "foreignId": "harry",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+    },
+    {
+        "title": "Missing Horsie",
+        "subtitle": "Talk to Philip, follow Nura's trail, feed Nura, then talk to Philip.",
+        "foreignId": "philip",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
     }
 ]
