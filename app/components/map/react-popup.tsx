@@ -13,7 +13,7 @@ export default function ReactPopup({ children }: { children: ReactNode }) {
     useEffect(() => {
         if (!mapInstance || !activePopup) return;
         const popup = new MapLibrePopup({
-            anchor: "bottom",
+            anchor: 'bottom',
             offset: activePopup.offset as Offset,
             closeButton: false,
             className: 'equinox-popup',
