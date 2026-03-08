@@ -5,8 +5,6 @@
     align-items: flex-start;
     gap: var(--gap-xl);
     align-self: stretch;
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
     justify-self: stretch;
     border-radius: 0.5rem;
     background-color: var(--background-dark-transparent);
