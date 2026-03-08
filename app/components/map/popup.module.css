@@ -28,11 +28,10 @@
     gap: var(--gap-3xs);
     align-items: flex-start;
     align-self: stretch;
-    flex: 1 1 auto;
     overflow-y: auto;
+    max-height: 6rem;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-dark) transparent;
-    max-height: 6rem;
 }
 
 .scroll.noScroll {
@@ -75,8 +74,8 @@
 
 .subtitle {
     font-size: var(--font-size-mini);
-    font-weight: 400;
     color: var(--text-dark);
-    line-height: 1rem;
     align-self: stretch;
+    line-height: 1;
+    overflow: clip;
 }

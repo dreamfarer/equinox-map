@@ -43,7 +43,6 @@ body {
     height: 100%;
     align-items: stretch;
     margin: 0;
-    line-height: normal;
     font-family: var(--font-inter), sans-serif;
     background: var(--background-dark);
 }
