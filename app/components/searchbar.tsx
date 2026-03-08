@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, ChangeEvent } from 'react';
-import styles from '@/app/components/filter/searchbar.module.css';
+import styles from '@/app/components/searchbar.module.css';
 import { XCircleIcon } from '@phosphor-icons/react';
 
 type Props = {
