@@ -1,16 +1,5 @@
 import { Metadata } from 'next';
-import { MapProvider } from '@/app/context/map-context';
-import { MarkerProvider } from '@/app/context/marker-context';
-import { FilterProvider } from '@/app/context/filter-context';
-import { MenuStateProvider } from '@/app/context/menu-state-context';
-import MapWrapper from '@/app/components/map-wrapper';
-import Navbar from '@/app/components/navbar';
-import Tutorial from '@/app/components/tutorial';
-import Menu from '@/app/components/menu';
-import mapMetadata from '@/app/data/maps.json';
-import popups from '@/app/data/popups.json';
-import markers from '@/app/data/markers.json';
-import { categories } from '@/types/category';
+import { ReactNode } from 'react';
 import '@/app/global.css';
 
 export const viewport = {
@@ -68,26 +57,10 @@ export const metadata: Metadata = {
     robots: { index: true, follow: true },
 };
 
-export default function RootLayout() {
+export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en">
-            <body>
-                <MenuStateProvider>
-                    <FilterProvider allCategories={categories}>
-                        <MapProvider mapMetadata={mapMetadata}>
-                            <MarkerProvider
-                                allPopups={popups}
-                                allMarkers={markers}
-                            >
-                                <Navbar />
-                                <MapWrapper />
-                                <Menu />
-                                <Tutorial />
-                            </MarkerProvider>
-                        </MapProvider>
-                    </FilterProvider>
-                </MenuStateProvider>
-            </body>
+            <body>{children}</body>
         </html>
     );
 }
