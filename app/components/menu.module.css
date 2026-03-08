@@ -48,7 +48,6 @@
 }
 
 .scrollArea {
-    flex: 1;
     overflow: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
