@@ -29,26 +29,40 @@ export default function Category({
     useLayoutEffect(() => {
         const el = contentRef.current;
         if (!el) return;
-        const full = el.scrollHeight;
+
+        const handleTransitionEnd = (e: TransitionEvent) => {
+            if (e.propertyName !== 'max-height') return;
+            if (!collapsed) {
+                el.style.maxHeight = 'none';
+            }
+        };
+
+        el.addEventListener('transitionend', handleTransitionEnd);
 
         if (!hasMounted.current) {
-            el.style.maxHeight = collapsed ? '0px' : `${full}px`;
+            el.style.maxHeight = collapsed ? '0px' : 'none';
             hasMounted.current = true;
-            return;
+            return () => {
+                el.removeEventListener('transitionend', handleTransitionEnd);
+            };
         }
 
         if (collapsed) {
-            el.style.maxHeight = `${full}px`;
+            el.style.maxHeight = `${el.scrollHeight}px`;
             requestAnimationFrame(() => {
                 el.style.maxHeight = '0px';
             });
         } else {
             el.style.maxHeight = '0px';
             requestAnimationFrame(() => {
-                el.style.maxHeight = `${full}px`;
+                el.style.maxHeight = `${el.scrollHeight}px`;
             });
         }
-    }, [collapsed, entries.length]);
+
+        return () => {
+            el.removeEventListener('transitionend', handleTransitionEnd);
+        };
+    }, [collapsed]);
 
     return (
         <div className={`category ${styles.category}`}>

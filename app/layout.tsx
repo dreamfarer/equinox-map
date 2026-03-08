@@ -19,16 +19,16 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://equinoxmap.app/',
-        siteName: 'Interactive Map – Equinox: Homecoming',
-        title: 'Interactive Map – Equinox: Homecoming',
+        siteName: 'Equinox: Homecoming Interactive Map',
+        title: 'Equinox: Homecoming Interactive Map',
         description:
-            'An interactive map for Equinox Homecoming. Filter, search, bookmark and track all collectible resources, quests, races, characters, shops and more.',
+            'An interactive map for Equinox Homecoming. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
         images: [
             {
                 url: 'https://equinoxmap.app/og-image.jpg',
                 width: 1200,
                 height: 675,
-                alt: 'Interactive Map – Equinox: Homecoming preview',
+                alt: 'Equinox: Homecoming Interactive Map Preview',
             },
         ],
     },
