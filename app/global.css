@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap');
 
 :root {
     /* Fonts */
@@ -43,7 +43,6 @@ body {
     height: 100%;
     align-items: stretch;
     margin: 0;
-    line-height: normal;
     font-family: var(--font-inter), sans-serif;
     background: var(--background-dark);
 }
@@ -73,6 +72,19 @@ h1 {
     font-size: var(--font-size-title);
     font-weight: bold;
     margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+h2 {
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
 }
 
 p,
