@@ -52,6 +52,10 @@ textarea,
 button,
 select,
 a {
+    font-family: var(--font-inter), sans-serif;
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
     -webkit-tap-highlight-color: transparent;
 }
 
