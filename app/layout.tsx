@@ -9,10 +9,7 @@ export const viewport = {
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://equinoxmap.app'),
-    title: {
-        default: 'Interactive Map – Equinox: Homecoming',
-        template: '%s | Interactive Map – Equinox: Homecoming',
-    },
+    title: 'Equinox: Homecoming Interactive Map',
     description:
         'An interactive map for Equinox Homecoming. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
     alternates: {
