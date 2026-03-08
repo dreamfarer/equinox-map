@@ -10,7 +10,9 @@
     justify-self: stretch;
     border-radius: 0.5rem;
     background-color: var(--background-dark-transparent);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 1rem 2rem, rgba(0, 0, 0, 0.22) 0 1rem 2rem;
+    box-shadow:
+        rgba(0, 0, 0, 0.3) 0 1rem 2rem,
+        rgba(0, 0, 0, 0.22) 0 1rem 2rem;
 }
 
 .header {
