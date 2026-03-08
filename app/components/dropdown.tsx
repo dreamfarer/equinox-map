@@ -38,26 +38,22 @@ export default function Dropdown({ options, selected, onSelect }: Props) {
                     }`}
                 />
             </button>
-                <div
-                    className={`${styles.content} ${
-                        open ? '' : styles.hidden
-                    }`}
-                >
-                    {options
-                        .filter((option) => option !== selected)
-                        .map((option) => (
-                            <button
-                                key={option}
-                                className={styles.item}
-                                onClick={() => {
-                                    onSelect(option);
-                                    setOpen(false);
-                                }}
-                            >
-                                {option}
-                            </button>
-                        ))}
-                </div>
+            <div className={`${styles.content} ${open ? '' : styles.hidden}`}>
+                {options
+                    .filter((option) => option !== selected)
+                    .map((option) => (
+                        <button
+                            key={option}
+                            className={styles.item}
+                            onClick={() => {
+                                onSelect(option);
+                                setOpen(false);
+                            }}
+                        >
+                            {option}
+                        </button>
+                    ))}
+            </div>
         </div>
     );
 }

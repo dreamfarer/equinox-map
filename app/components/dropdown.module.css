@@ -27,7 +27,9 @@
     overflow: hidden;
     bottom: 150%;
     left: 0;
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    transition:
+        opacity 150ms ease-in-out,
+        transform 150ms ease-in-out;
     transform-origin: bottom;
     min-width: 100%;
 }
