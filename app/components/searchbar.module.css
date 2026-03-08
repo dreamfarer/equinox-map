@@ -1,12 +1,13 @@
 .searchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     align-self: stretch;
+    width: 100%;
     height: 2.5rem;
     background-color: var(--background-dark-transparent);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    padding: 0 var(--spacer-mini);
     border-radius: 0.5rem;
+    flex-shrink: 0;
 }
 
 .input {
@@ -16,6 +17,8 @@
     font-size: var(--font-size-title);
     outline: none;
     color: var(--text-dark);
+    height: 100%;
+    margin: 0 var(--spacer-mini);
 }
 
 .input::placeholder {
@@ -29,13 +32,18 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-self: stretch;
     color: var(--text-dark);
     opacity: 0.6;
-    padding-right: 0;
-    padding-left: var(--spacer-mini);
+    padding: 0 var(--spacer-mini) 0 0;
 }
 
 .clearButton:hover {
     opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .searchBar {
+        max-width: 30rem;
+    }
 }
