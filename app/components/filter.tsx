@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import Category from '@/app/components/filter/category';
-import Searchbar from '@/app/components/filter/searchbar';
+import Searchbar from '@/app/components/searchbar';
 import { useMarkerContext } from '@/app/context/marker-context';
 import { categoryGroups } from '@/app/components/filter/config';
 import Results from '@/app/components/filter/results';

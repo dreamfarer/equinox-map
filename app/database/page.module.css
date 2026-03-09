@@ -4,19 +4,7 @@
     min-height: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-xl);
     background-color: var(--tile-background);
-}
-
-.grid {
-    display: grid;
-    padding: var(--gap-xl);
-    row-gap: var(--gap-xl);
-    column-gap: var(--gap-xl);
-    flex: 1 0 0;
-    align-self: stretch;
-    grid-template-columns: repeat(auto-fit, 20rem);
-    grid-auto-rows: 30rem;
     overflow: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
@@ -24,14 +12,52 @@
     scrollbar-color: var(--accent-dark) transparent;
 }
 
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    gap: var(--gap-xl);
+    padding: var(--gap-xl);
+    background-color: var(--tile-background);
+    z-index: 1000;
+    min-width: 0;
+}
+
+.button {
+    position: absolute;
+    left: var(--gap-xl);
+    background-color: var(--background-dark-transparent);
+    border: none;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dark);
+    border-radius: 0.5rem;
+    height: 2.5rem;
+}
+
+.grid {
+    display: grid;
+    padding: 0 var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    row-gap: var(--gap-xl);
+    column-gap: var(--gap-xl);
+    flex: 1 0 0;
+    align-self: stretch;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-auto-rows: 30rem;
+}
+
 @media (max-width: 768px) {
+    .button {
+        position: static;
+    }
+
     .grid {
-        display: grid;
-        padding: var(--gap-xl);
-        row-gap: var(--gap-xl);
-        column-gap: var(--gap-xl);
-        flex: 1 0 0;
-        align-self: stretch;
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         grid-auto-rows: 30rem;
     }
