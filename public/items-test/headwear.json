@@ -1,0 +1,12 @@
+[
+    {
+        "name": "English Horse Helmet (Carbon)",
+        "category": "Headwear",
+        "level": 10,
+        "faction": "Alderwood Downtown",
+        "cost": 2000,
+        "currency": "Silver Sols",
+        "shop": "March's Tack Shop",
+        "imagePath": "/icon/256/headwear/english-horse-helmet-carbon.webp"
+    }
+]
