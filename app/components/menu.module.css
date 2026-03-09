@@ -102,8 +102,8 @@
     max-width: 100%;
     white-space: nowrap;
     transition:
-            width 250ms ease,
-            opacity 250ms ease;
+        width 250ms ease,
+        opacity 250ms ease;
 }
 
 @media (max-width: 768px) {
