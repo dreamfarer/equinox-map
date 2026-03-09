@@ -71,7 +71,7 @@ export default function DatabasePage() {
         <div className={styles.page}>
             <div className={styles.header}>
                 <button
-                    id="button"
+                    id="navigateToMapButton"
                     onClick={() => router.push('/')}
                     className={styles.button}
                     aria-label="Navigate back to the interactive map"
