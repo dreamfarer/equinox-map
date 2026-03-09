@@ -5,6 +5,7 @@ import styles from '@/app/components/menu.module.css';
 import { useMenuState } from '@/app/context/menu-state-context';
 import Filter from '@/app/components/filter';
 import Information from '@/app/components/information';
+import { useRouter } from 'next/navigation';
 
 type SnapPointOptions = {
     top: number;
@@ -15,6 +16,7 @@ type SnapPointOptions = {
 type SnapPoint = 'mid' | 'top' | 'closed';
 
 export default function Menu() {
+    const router = useRouter();
     const { isMenuOpen, activeMenuName, isMobile, setIsMobile } =
         useMenuState();
     const [dragging, setDragging] = useState(false);
@@ -106,6 +108,13 @@ export default function Menu() {
             return (
                 <>
                     <Filter />
+                    <button
+                        className={styles.button}
+                        onClick={() => router.push('/database')}
+                        aria-label="Navigate to the database"
+                    >
+                        Open Database
+                    </button>
                     <Information />
                 </>
             );
@@ -113,7 +122,7 @@ export default function Menu() {
         if (isMobile && snapPoint === 'closed') return null;
         if (activeMenuName === 'filter') return <Filter />;
         return <Information />;
-    }, [activeMenuName, isMobile, snapPoint]);
+    }, [activeMenuName, isMobile, router, snapPoint]);
 
     return (
         <div
