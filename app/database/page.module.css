@@ -23,6 +23,7 @@
     padding: var(--gap-xl);
     background-color: var(--tile-background);
     z-index: 1000;
+    min-width: 0;
 }
 
 .button {
@@ -37,6 +38,7 @@
     cursor: pointer;
     color: var(--text-dark);
     border-radius: 0.5rem;
+    height: 2.5rem;
 }
 
 .grid {

@@ -53,6 +53,7 @@ button,
 select,
 a {
     font-family: var(--font-inter), sans-serif;
+    padding: 0;
     margin: 0;
     border: 0;
     vertical-align: baseline;
