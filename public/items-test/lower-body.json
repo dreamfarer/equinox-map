@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Breeches",
+        "id": "breeches",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Fitness",
+        "level": 3,
+        "faction": "Alderwood Fishing Village",
+        "cost": 300,
+        "currency": "Silver Sols",
+        "shop": "Robert Quint",
+        "upgradeAmount": 10,
+        "upgradeItem": "Dryad's Saddle Mushrooms",
+        "imagePath": "/icon/256/lower-body/breeches.webp"
+    }
+]
