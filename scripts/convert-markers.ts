@@ -4,7 +4,7 @@ import { convertToLngLat } from '../lib/convert';
 import { MapMetadata, MapMetadataRecord } from '@/types/map-metadata';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { MarkerSource } from '@/types/marker-source';
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { Popups } from '@/types/popup';
 
 const publicDir = path.resolve(__dirname, '../public');
@@ -125,12 +125,12 @@ async function writeOutput(
     featureCollection: TMarkerFeatureCollection,
     popups: Popups
 ) {
+    await mkdir(dataDir, { recursive: true });
     await writeFile(
         path.join(dataDir, 'markers.json'),
         JSON.stringify(featureCollection)
     );
     await writeFile(path.join(dataDir, 'popups.json'), JSON.stringify(popups));
-
     console.log(
         `markers.json (${featureCollection.features.length}) and popups.json (${Object.keys(popups).length}) written.`
     );

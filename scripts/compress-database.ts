@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
 import { z } from 'zod';
 
@@ -37,12 +37,11 @@ async function compressDatabase() {
         const validatedItems = z.array(DatabaseItemSchema).parse(parsed);
         databaseItems.push(...validatedItems);
     }
-
+    await mkdir(exportDir, { recursive: true });
     await writeFile(
         path.join(exportDir, 'database.json'),
         JSON.stringify(databaseItems)
     );
-
     console.log('database.json written.');
 }
 
