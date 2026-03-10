@@ -45,5 +45,4 @@ next-env.d.ts
 tiles/
 app/data/markers.json
 app/data/popups.json
-app/data/database.json
-app/data/mapping.json
+public/export
