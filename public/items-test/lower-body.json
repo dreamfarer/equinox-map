@@ -1,6 +1,7 @@
 [
     {
         "name": "Breeches",
+        "id": "breeches",
         "category": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
