@@ -30,7 +30,7 @@ export function useMapLibreMapLayerRegister() {
                     if (!mapInstance.hasImage(icon)) {
                         const img = await loadIcon(
                             mapInstance,
-                            `/icon/64/${icon}.webp`
+                            `https://cdn.equinoxmap.app/icon/64/${icon}.webp`
                         );
                         mapInstance.addImage(icon, img);
                     }
