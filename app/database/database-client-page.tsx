@@ -36,7 +36,7 @@ export default function DatabaseClientPage() {
         } else {
             params.delete('query');
         }
-        router.replace(`${pathname}?${params.toString()}`);
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
 
     return (
@@ -61,8 +61,8 @@ export default function DatabaseClientPage() {
                 </button>
             </div>
             <div className={styles.grid}>
-                {filtered.map((item, index) => (
-                    <DatabaseTile key={index} {...item} />
+                {filtered.map((item) => (
+                    <DatabaseTile key={item.id} {...item} />
                 ))}
             </div>
         </div>
