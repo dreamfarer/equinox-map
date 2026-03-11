@@ -52,13 +52,46 @@
     grid-auto-rows: 30rem;
 }
 
+.buttonSkeleton {
+    position: absolute;
+    left: var(--gap-xl);
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    composes: skeleton from '../global.module.css';
+}
+
+.searchbarSkeleton {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 0.5rem;
+    min-width: 0;
+    min-height: 2.5rem;
+    composes: skeleton from '../global.module.css';
+}
+
+.tileSkeleton {
+    display: flex;
+    justify-self: stretch;
+    border-radius: 0.5rem;
+    composes: skeleton from '../global.module.css';
+}
+
 @media (max-width: 768px) {
-    .button {
+    .button,
+    .buttonSkeleton {
         position: static;
     }
 
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         grid-auto-rows: 30rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .searchbarSkeleton {
+        max-width: 30rem;
     }
 }
