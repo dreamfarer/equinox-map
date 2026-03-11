@@ -28,7 +28,6 @@
 
 .button {
     position: absolute;
-    left: var(--gap-xl);
     background-color: var(--background-dark-transparent);
     border: none;
     aspect-ratio: 1;
@@ -39,6 +38,16 @@
     color: var(--text-dark);
     border-radius: 0.5rem;
     height: 2.5rem;
+}
+
+.buttonLeft {
+    composes: button;
+    left: var(--gap-xl);
+}
+
+.buttonRight {
+    composes: button;
+    right: var(--gap-xl);
 }
 
 .grid {
@@ -52,9 +61,18 @@
     grid-auto-rows: 30rem;
 }
 
-.buttonSkeleton {
-    position: absolute;
+.buttonSkeletonLeft {
     left: var(--gap-xl);
+    position: absolute;
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    composes: skeleton from '../global.module.css';
+}
+
+.buttonSkeletonRight {
+    right: var(--gap-xl);
+    position: absolute;
     height: 2.5rem;
     aspect-ratio: 1;
     border-radius: 0.5rem;
@@ -80,7 +98,9 @@
 
 @media (max-width: 768px) {
     .button,
-    .buttonSkeleton {
+    .buttonSkeleton,
+    .buttonSkeletonLeft,
+    .buttonSkeletonRight {
         position: static;
     }
 
