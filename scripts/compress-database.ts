@@ -20,7 +20,7 @@ export const DatabaseItemSchema = z.object({
 });
 
 const itemsDir = path.resolve(__dirname, '../public/items');
-const exportDir = path.resolve(__dirname, '../public/export');
+const exportDir = path.resolve(__dirname, '../app/data/');
 
 async function getDataFiles() {
     const files = await readdir(itemsDir, { recursive: true });
