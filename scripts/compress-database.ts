@@ -19,7 +19,7 @@ export const DatabaseItemSchema = z.object({
     imagePath: z.string(),
 });
 
-const itemsDir = path.resolve(__dirname, '../public/items-test');
+const itemsDir = path.resolve(__dirname, '../public/items');
 const exportDir = path.resolve(__dirname, '../public/export');
 
 async function getDataFiles() {
