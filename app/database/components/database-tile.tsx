@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '@/app/database/components/database-item.module.css';
+import styles from '@/app/database/components/database-tile.module.css';
 
 type Props = {
     name: string;
@@ -16,7 +16,7 @@ type Props = {
     imagePath: string;
 };
 
-export default function DatabaseItem({
+export default function DatabaseTile({
     name,
     category,
     statsAmount,
