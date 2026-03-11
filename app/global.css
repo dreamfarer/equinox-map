@@ -31,6 +31,7 @@
     --background-dark-transparent: rgba(10, 10, 10, 0.65);
     --text-dark: #d5d5d5;
     --text-disabled-dark: #777777;
+    --text-disabled-dark-transparent: rgba(213, 213, 213, 0.6);
     --theme: #fe28f7;
     --tile-background: #18252e;
 }
