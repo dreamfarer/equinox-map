@@ -7,21 +7,12 @@
     border-left: 2px solid var(--tile-background);
     border-bottom: 2px solid var(--tile-background);
     border-radius: 0.5rem;
-    padding: 0;
     background-color: var(--background-dark-transparent);
     backdrop-filter: blur(1rem);
     box-shadow:
         rgba(0, 0, 0, 0.3) 0 1rem 2rem,
         rgba(0, 0, 0, 0.22) 0 1rem 2rem;
-}
-
-.filterList {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: var(--gap-xl);
+    padding: var(--spacer-mini);
 }
 
 .resetButton {
@@ -30,6 +21,18 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.resetButtonTop {
+    composes: resetButton;
+    padding-bottom: var(--spacer-mini);
+}
+
+.resetButtonBottom {
+    composes: resetButton;
+    padding-top: var(--spacer-mini);
 }
 
 .category {

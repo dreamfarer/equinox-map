@@ -1,6 +1,8 @@
 import { CaretLeftIcon } from '@phosphor-icons/react';
-import styles from '@/app/database/components/filter-menu.module.css';
+import styles from '@/app/database/components/filter-category-multiple-choice.module.css';
+import filterStyles from '@/app/database/components/filter-menu.module.css';
 import { useDatabaseContext } from '@/app/context/database-context';
+import { camelToTitle } from '@/lib/miscellaneous';
 
 type Props = {
     category: string;
@@ -38,28 +40,35 @@ export default function FilterCategoryMultipleChoice({
     };
 
     return (
-        <div className={styles.filterMenu}>
-            <h1>{category}</h1>
+        <div className={filterStyles.filterMenu}>
+            <h1>{camelToTitle(category)}</h1>
 
-            <button className={styles.resetButton} onClick={resetCategory}>
+            <button
+                className={filterStyles.resetButtonTop}
+                onClick={resetCategory}
+            >
                 Reset all
             </button>
 
             {Array.from(options.entries()).map(([option, checked]) => (
-                <label key={option}>
-                    {option}
+                <label key={option} className={styles.container}>
                     <input
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleOption(option)}
                     />
+                    <span className={styles.checkmark}></span>
+                    {option}
                 </label>
             ))}
 
             <div>
-                <button onClick={onBack}>
-                    <CaretLeftIcon size="1.5em" />
-                    <h2>Return</h2>
+                <button
+                    className={filterStyles.resetButtonBottom}
+                    onClick={onBack}
+                >
+                    <CaretLeftIcon size="1em" />
+                    Return
                 </button>
             </div>
         </div>

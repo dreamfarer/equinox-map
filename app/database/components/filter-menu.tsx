@@ -3,6 +3,7 @@ import { CaretRightIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import FilterCategoryMultipleChoice from '@/app/database/components/filter-category-multiple-choice';
 import { useDatabaseContext } from '@/app/context/database-context';
+import { camelToTitle } from '@/lib/miscellaneous';
 
 export default function FilterMenu() {
     const { filter, resetFilters } = useDatabaseContext();
@@ -23,7 +24,7 @@ export default function FilterMenu() {
         <div className={styles.filterMenu}>
             <h1>Filter</h1>
 
-            <button className={styles.resetButton} onClick={resetFilters}>
+            <button className={styles.resetButtonTop} onClick={resetFilters}>
                 Reset all
             </button>
 
@@ -33,12 +34,12 @@ export default function FilterMenu() {
                     className={styles.category}
                     onClick={() => setSelectedCategory(category)}
                 >
-                    <h2 className={styles.buttonLabel}>{category}</h2>
+                    <h2 className={styles.buttonLabel}>
+                        {camelToTitle(category)}
+                    </h2>
                     <CaretRightIcon size="1.5em" />
                 </button>
             ))}
-
-            <button type="button">Close</button>
         </div>
     );
 }
