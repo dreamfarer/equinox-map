@@ -1,6 +1,12 @@
 import { CaretLeftIcon } from '@phosphor-icons/react';
 import styles from '@/app/database/components/filter-menu.module.css';
 import { useDatabaseFilterContext } from '@/app/context/database-filter-context';
+import { usePathname, useSearchParams } from 'next/navigation';
+import {
+    cloneFilter,
+    updateAddressBar,
+    writeFilterToSearchParams,
+} from '@/lib/database';
 
 type Props = {
     category: string;
@@ -11,8 +17,9 @@ export default function FilterCategoryMultipleChoice({
     category,
     onBack,
 }: Props) {
-    const { filter, setFilter } = useDatabaseFilterContext();
-
+    const { filter } = useDatabaseFilterContext();
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
     const options = filter.get(category);
 
     if (!options) {
@@ -20,30 +27,30 @@ export default function FilterCategoryMultipleChoice({
     }
 
     const toggleOption = (option: string) => {
-        setFilter((prev) => {
-            const newFilter = new Map(prev);
-            const categoryMap = new Map(newFilter.get(category));
-
-            const currentValue = categoryMap.get(option) ?? false;
-            categoryMap.set(option, !currentValue);
-
-            newFilter.set(category, categoryMap);
-            return newFilter;
-        });
+        const nextFilter = cloneFilter(filter);
+        const categoryMap = nextFilter.get(category);
+        if (!categoryMap) return;
+        const currentValue = categoryMap.get(option) ?? false;
+        categoryMap.set(option, !currentValue);
+        const nextParams = writeFilterToSearchParams(
+            new URLSearchParams(searchParams.toString()),
+            nextFilter
+        );
+        updateAddressBar(nextParams, pathname);
     };
 
     const resetCategory = () => {
-        setFilter((prev) => {
-            const newFilter = new Map(prev);
-            const categoryMap = new Map(newFilter.get(category));
-
-            categoryMap.forEach((_, option) => {
-                categoryMap.set(option, false);
-            });
-
-            newFilter.set(category, categoryMap);
-            return newFilter;
+        const nextFilter = cloneFilter(filter);
+        const categoryMap = nextFilter.get(category);
+        if (!categoryMap) return;
+        categoryMap.forEach((_, option) => {
+            categoryMap.set(option, false);
         });
+        const nextParams = writeFilterToSearchParams(
+            new URLSearchParams(searchParams.toString()),
+            nextFilter
+        );
+        updateAddressBar(nextParams, pathname);
     };
 
     return (
@@ -70,8 +77,6 @@ export default function FilterCategoryMultipleChoice({
                     <CaretLeftIcon size="1.5em" />
                     <h2>Return</h2>
                 </button>
-
-                <button onClick={onBack}>Apply</button>
             </div>
         </div>
     );
