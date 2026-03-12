@@ -2,7 +2,7 @@
     position: absolute;
     right: 5rem;
     top: var(--gap-xl);
-    width: 300px;
+    width: 15rem;
     z-index: 1000;
     border-left: 2px solid var(--tile-background);
     border-bottom: 2px solid var(--tile-background);
@@ -56,5 +56,15 @@
 @media (hover: hover) {
     .category:hover .buttonLabel {
         color: var(--theme);
+    }
+}
+
+@media (max-width: 768px) {
+    .filterMenu {
+        left: var(--gap-xl);
+        right: var(--gap-xl);
+        width: auto;
+        top: 5rem;
+        border-right: 2px solid var(--tile-background);
     }
 }
