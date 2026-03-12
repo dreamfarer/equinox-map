@@ -1,0 +1,57 @@
+.filterMenu {
+    position: absolute;
+    right: 5rem;
+    top: var(--gap-xl);
+    width: 300px;
+    z-index: 1000;
+    border-left: 2px solid var(--tile-background);
+    border-bottom: 2px solid var(--tile-background);
+    border-radius: 0.5rem;
+    padding: 0;
+    background-color: var(--background-dark-transparent);
+    backdrop-filter: blur(1rem);
+    box-shadow:
+        rgba(0, 0, 0, 0.3) 0 1rem 2rem,
+        rgba(0, 0, 0, 0.22) 0 1rem 2rem;
+}
+
+.filterList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: var(--gap-xl);
+}
+
+.resetButton {
+    color: var(--text-disabled-dark-transparent);
+    font-size: var(--font-size-base);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background-color: transparent;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.buttonLabel {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .category:hover .buttonLabel {
+        color: var(--theme);
+    }
+}
