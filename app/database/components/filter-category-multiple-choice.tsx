@@ -1,12 +1,6 @@
 import { CaretLeftIcon } from '@phosphor-icons/react';
 import styles from '@/app/database/components/filter-menu.module.css';
-import { useDatabaseFilterContext } from '@/app/context/database-filter-context';
-import { usePathname, useSearchParams } from 'next/navigation';
-import {
-    cloneFilter,
-    updateAddressBar,
-    writeFilterToSearchParams,
-} from '@/lib/database';
+import { useDatabaseContext } from '@/app/context/database-context';
 
 type Props = {
     category: string;
@@ -17,9 +11,7 @@ export default function FilterCategoryMultipleChoice({
     category,
     onBack,
 }: Props) {
-    const { filter } = useDatabaseFilterContext();
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
+    const { filter, writeFilter, getClonedFilter } = useDatabaseContext();
     const options = filter.get(category);
 
     if (!options) {
@@ -27,30 +19,22 @@ export default function FilterCategoryMultipleChoice({
     }
 
     const toggleOption = (option: string) => {
-        const nextFilter = cloneFilter(filter);
+        const nextFilter = getClonedFilter();
         const categoryMap = nextFilter.get(category);
         if (!categoryMap) return;
         const currentValue = categoryMap.get(option) ?? false;
         categoryMap.set(option, !currentValue);
-        const nextParams = writeFilterToSearchParams(
-            new URLSearchParams(searchParams.toString()),
-            nextFilter
-        );
-        updateAddressBar(nextParams, pathname);
+        writeFilter(nextFilter);
     };
 
     const resetCategory = () => {
-        const nextFilter = cloneFilter(filter);
+        const nextFilter = getClonedFilter();
         const categoryMap = nextFilter.get(category);
         if (!categoryMap) return;
         categoryMap.forEach((_, option) => {
             categoryMap.set(option, false);
         });
-        const nextParams = writeFilterToSearchParams(
-            new URLSearchParams(searchParams.toString()),
-            nextFilter
-        );
-        updateAddressBar(nextParams, pathname);
+        writeFilter(nextFilter);
     };
 
     return (

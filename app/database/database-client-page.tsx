@@ -7,38 +7,20 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FunnelIcon, MapTrifoldIcon } from '@phosphor-icons/react';
 import DatabaseTile from '@/app/database/components/database-tile';
 import FilterMenu from '@/app/database/components/filter-menu';
-import { useDatabaseFilterContext } from '@/app/context/database-filter-context';
-import { DatabaseFilterProvider } from '@/app/context/database-filter-context';
-import { buildFilterFromSearchParams, updateAddressBar } from '@/lib/database';
+import { useDatabaseContext } from '@/app/context/database-context';
+import { DatabaseProvider } from '@/app/context/database-context';
 import { DatabaseItem } from '@/types/database-item';
-import { FilterOptions } from '@/types/filter';
-import { Dispatch, SetStateAction } from 'react';
+import { Filter, FilterOptions } from '@/types/filter';
 
 type Props = {
     allDatabaseItems: DatabaseItem[];
     filterOptions: FilterOptions;
 };
 
-function DatabasePageContent({
-    query,
-    setQuery,
-    isFilterOpen,
-    setIsFilterOpen,
-}: {
-    query: string;
-    setQuery: (nextQuery: string) => void;
-    isFilterOpen: boolean;
-    setIsFilterOpen: Dispatch<SetStateAction<boolean>>;
-}) {
-    const { filteredDatabaseItems } = useDatabaseFilterContext();
+function Content() {
+    const { filteredDatabaseItems, writeSearchQuery } = useDatabaseContext();
     const router = useRouter();
-
-    const searchedAndFilteredDatabaseItems = useMemo(() => {
-        if (!query.trim()) return filteredDatabaseItems;
-        return filteredDatabaseItems.filter((item) =>
-            item.name.toLowerCase().includes(query.trim().toLowerCase())
-        );
-    }, [filteredDatabaseItems, query]);
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     return (
         <div className={styles.page}>
@@ -51,7 +33,7 @@ function DatabasePageContent({
                 >
                     <MapTrifoldIcon size="2em" />
                 </button>
-                <Searchbar onSearchAction={setQuery} />
+                <Searchbar onSearchAction={writeSearchQuery} />
                 <button
                     id="filter"
                     onClick={() => setIsFilterOpen((prev) => !prev)}
@@ -63,7 +45,7 @@ function DatabasePageContent({
                 {isFilterOpen && <FilterMenu />}
             </div>
             <div className={styles.grid}>
-                {searchedAndFilteredDatabaseItems.map((item) => (
+                {filteredDatabaseItems.map((item) => (
                     <DatabaseTile key={item.id} {...item} />
                 ))}
             </div>
@@ -75,40 +57,31 @@ export default function DatabaseClientPage({
     allDatabaseItems,
     filterOptions,
 }: Props) {
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const searchParams = useSearchParams();
+    const urlParameters = useSearchParams();
     const pathname = usePathname();
 
-    const query = searchParams.get('query') ?? '';
-
     const filter = useMemo(() => {
-        return buildFilterFromSearchParams(
-            new URLSearchParams(searchParams.toString()),
-            filterOptions
-        );
-    }, [searchParams, filterOptions]);
-
-    function setQuery(nextQuery: string) {
-        const params = new URLSearchParams(searchParams.toString());
-        if (nextQuery.trim()) {
-            params.set('query', nextQuery);
-        } else {
-            params.delete('query');
-        }
-        updateAddressBar(params, pathname);
-    }
+        const filter: Filter = new Map();
+        const params = new URLSearchParams(urlParameters.toString());
+        filterOptions.forEach((options, category) => {
+            const selected = new Set(params.getAll(category));
+            const optionMap = new Map<string, boolean>();
+            options.forEach((option) => {
+                optionMap.set(option, selected.has(option));
+            });
+            filter.set(category, optionMap);
+        });
+        return filter;
+    }, [urlParameters, filterOptions]);
 
     return (
-        <DatabaseFilterProvider
+        <DatabaseProvider
             allDatabaseItems={allDatabaseItems}
             filter={filter}
+            urlParameters={urlParameters}
+            pathname={pathname}
         >
-            <DatabasePageContent
-                query={query}
-                setQuery={setQuery}
-                isFilterOpen={isFilterOpen}
-                setIsFilterOpen={setIsFilterOpen}
-            />
-        </DatabaseFilterProvider>
+            <Content />
+        </DatabaseProvider>
     );
 }
