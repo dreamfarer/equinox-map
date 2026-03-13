@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
             },
         ];
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'cdn.equinoxmap.app',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

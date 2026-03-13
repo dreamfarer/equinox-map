@@ -39,7 +39,7 @@ export default function DatabaseTile({
 
             <div className={styles.image}>
                 <Image
-                    src={imagePath}
+                    src={`https://cdn.equinoxmap.app${imagePath}`}
                     alt={name}
                     fill
                     style={{ objectFit: 'contain' }}
