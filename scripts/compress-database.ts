@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
 import { z } from 'zod';
 
@@ -21,6 +21,7 @@ export const DatabaseItemSchema = z.object({
 
 const itemsDir = path.resolve(__dirname, '../public/items');
 const exportDir = path.resolve(__dirname, '../app/data/');
+const publicDir = path.resolve(__dirname, '../public');
 
 async function getDataFiles() {
     const files = await readdir(itemsDir, { recursive: true });
@@ -35,6 +36,15 @@ async function compressDatabase() {
     for (const file of files) {
         const parsed = JSON.parse(await readFile(file, 'utf8'));
         const validatedItems = z.array(DatabaseItemSchema).parse(parsed);
+        for (const item of validatedItems) {
+            if (item.imagePath) {
+                try {
+                    await access(path.join(publicDir, item.imagePath));
+                } catch {
+                    console.log(item.id);
+                }
+            }
+        }
         databaseItems.push(...validatedItems);
     }
     await mkdir(exportDir, { recursive: true });

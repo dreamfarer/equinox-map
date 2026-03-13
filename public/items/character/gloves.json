@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Horse Racing Gloves",
+        "id": "horse-racing-gloves",
+        "category": "Gloves",
+        "statsAmount": 40,
+        "statsType": "Riding",
+        "level": 2,
+        "faction": "Alderwood Farms",
+        "cost": 200,
+        "currency": "Silver Sols",
+        "shop": "Kathy's Shop",
+        "upgradeAmount": 10,
+        "upgradeItem": "Eagle Feathers",
+        "imagePath": "/icon/256/character/gloves/horse-racing-gloves.webp"
+    },
+    {
+        "name": "Horse Racing Gloves (White)",
+        "id": "horse-racing-gloves-white",
+        "category": "Gloves",
+        "statsAmount": 40,
+        "statsType": "Control",
+        "level": 6,
+        "faction": "Alderwood Farms",
+        "cost": 600,
+        "currency": "Silver Sols",
+        "shop": "Kathy's Shop",
+        "upgradeAmount": 10,
+        "upgradeItem": "Seagull Feathers",
+        "imagePath": "/icon/256/character/gloves/horse-racing-gloves-white.webp"
+    },
+    {
+        "name": "Leather Riding Gloves",
+        "id": "leather-riding-gloves",
+        "category": "Gloves",
+        "statsAmount": 40,
+        "statsType": "Jumping",
+        "level": 4,
+        "faction": "Alderwood Wilds",
+        "cost": 400,
+        "currency": "Silver Sols",
+        "shop": "Samuel's Shop",
+        "upgradeAmount": 10,
+        "upgradeItem": "Fossils",
+        "imagePath": "/icon/256/character/gloves/leather-riding-gloves.webp"
+    },
+    {
+        "name": "Leather Riding Gloves (Tan)",
+        "id": "leather-riding-gloves-tan",
+        "category": "Gloves",
+        "statsAmount": 40,
+        "statsType": "Control",
+        "level": 9,
+        "faction": "Alderwood Wilds",
+        "cost": 900,
+        "currency": "Silver Sols",
+        "shop": "Samuel's Shop",
+        "upgradeAmount": 10,
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/character/gloves/leather-riding-gloves-tan.webp"
+    }
+]
