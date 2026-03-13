@@ -1,5 +1,18 @@
 [
     {
+        "name": "Western Bridle",
+        "id": "western-bridle",
+        "category": "Bridles",
+        "statsAmount": 40,
+        "statsType": "Endurance",
+        "level": 6,
+        "faction": "Alderwood Equestrians",
+        "cost": 600,
+        "currency": "Silver Sols",
+        "shop": "Thomas' Shop",
+        "imagePath": "/icon/256/horse/bridles/western-bridle.webp"
+    },
+    {
         "name": "Basic Bridle (Red)",
         "id": "basic-bridle-red",
         "category": "Bridles",

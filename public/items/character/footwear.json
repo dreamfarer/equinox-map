@@ -180,6 +180,19 @@
         "imagePath": "/icon/256/character/footwear/slip-ons-black.webp"
     },
     {
+        "name": "Skate Shoes",
+        "id": "skate-shoes",
+        "category": "Footwear",
+        "statsAmount": 40,
+        "statsType": "Riding",
+        "level": 6,
+        "faction": "Alderwood Equestrians",
+        "cost": 600,
+        "currency": "Silver Sols",
+        "shop": "Thomas' Shop",
+        "imagePath": "/icon/256/character/footwear/skate-shoes.webp"
+    },
+    {
         "name": "Rubberboots",
         "id": "rubberboots",
         "category": "Footwear",
