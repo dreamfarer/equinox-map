@@ -42,7 +42,9 @@ export default function DatabaseTile({
                     src={`https://cdn.equinoxmap.app${imagePath}`}
                     alt={name}
                     fill
+                    sizes="256px"
                     style={{ objectFit: 'contain' }}
+                    unoptimized
                 />
             </div>
 
