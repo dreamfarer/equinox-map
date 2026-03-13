@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Tendon Wraps",
+        "id": "tendon-wraps",
+        "category": "Wraps",
+        "level": 5,
+        "faction": "Alderwood Equestrians",
+        "cost": 1000,
+        "currency": "Silver Sols",
+        "shop": "Thomas' Shop",
+        "imagePath": "/icon/256/horse/wraps/tendon-wraps.webp"
+    },
+    {
+        "name": "Tendon Wraps (White)",
+        "id": "tendon-wraps-white",
+        "category": "Wraps",
+        "level": 10,
+        "faction": "Alderwood Equestrians",
+        "cost": 2000,
+        "currency": "Silver Sols",
+        "shop": "Thomas' Shop",
+        "imagePath": "/icon/256/horse/wraps/tendon-wraps-white.webp"
+    },
+    {
+        "name": "Tendon Wraps (Black)",
+        "id": "tendon-wraps-black",
+        "category": "Wraps",
+        "level": 10,
+        "faction": "Alderwood Equestrians",
+        "cost": 2000,
+        "currency": "Silver Sols",
+        "shop": "Thomas' Shop",
+        "imagePath": "/icon/256/horse/wraps/tendon-wraps-black.webp"
+    }
+]
