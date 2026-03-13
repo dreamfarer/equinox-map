@@ -52,7 +52,7 @@ export function DatabaseProvider({
             return item.name
                 .toLowerCase()
                 .includes(
-                    urlParameters.get('query') ?? ''.trim().toLowerCase()
+                    urlParameters.get('query')?.toLowerCase() ?? ''.trim().toLowerCase()
                 );
         });
     }, [allDatabaseItems, filter, urlParameters]);
