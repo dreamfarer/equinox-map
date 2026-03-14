@@ -31,5 +31,41 @@
         "currency": "Silver Sols",
         "shop": "Thomas' Shop",
         "imagePath": "/icon/256/horse/wraps/tendon-wraps-black.webp"
+    },
+    {
+        "name": "Polo Legwraps (Navy)",
+        "id": "polo-legwraps-navy",
+        "category": "Wraps",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/horse/wraps/polo-legwraps-navy.webp"
+    },
+    {
+        "name": "Polo Legwraps (Green)",
+        "id": "polo-legwraps-green",
+        "category": "Wraps",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/horse/wraps/polo-legwraps-green.webp"
+    },
+    {
+        "name": "Polo Legwraps (Black)",
+        "id": "polo-legwraps-black",
+        "category": "Wraps",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/horse/wraps/polo-legwraps-black.webp"
+    },
+    {
+        "name": "Polo Legwraps",
+        "id": "polo-legwraps",
+        "category": "Wraps",
+        "cost": 20,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/horse/wraps/polo-legwraps.webp"
     }
 ]

@@ -388,5 +388,70 @@
         "upgradeAmount": 10,
         "upgradeItem": "Sulfur Self Mushrooms",
         "imagePath": "/icon/256/character/lower-body/work-jeans.webp"
+    },
+    {
+        "name": "Chinos (Tan)",
+        "id": "chinos-tan",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Fitness",
+        "cost": 50,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "upgradeAmount": 10,
+        "upgradeItem": "Activity Tokens",
+        "imagePath": "/icon/256/character/lower-body/chinos-tan.webp"
+    },
+    {
+        "name": "Chinos (Navy)",
+        "id": "chinos-navy",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Fitness",
+        "cost": 50,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "upgradeAmount": 10,
+        "upgradeItem": "Activity Tokens",
+        "imagePath": "/icon/256/character/lower-body/chinos-navy.webp"
+    },
+    {
+        "name": "Chinos (Black)",
+        "id": "chinos-black",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Fitness",
+        "cost": 50,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "upgradeAmount": 10,
+        "upgradeItem": "Activity Tokens",
+        "imagePath": "/icon/256/character/lower-body/chinos-black.webp"
+    },
+    {
+        "name": "Chinos",
+        "id": "chinos",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Fitness",
+        "cost": 50,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "upgradeAmount": 10,
+        "upgradeItem": "Activity Tokens",
+        "imagePath": "/icon/256/character/lower-body/chinos.webp"
+    },
+    {
+        "name": "Bootcut Slacks (White)",
+        "id": "bootcut-slacks-white",
+        "category": "Lower Body",
+        "statsAmount": 40,
+        "statsType": "Control",
+        "cost": 50,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "upgradeAmount": 10,
+        "upgradeItem": "Activity Tokens",
+        "imagePath": "/icon/256/character/lower-body/chinos.webp"
     }
 ]

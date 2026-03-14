@@ -251,5 +251,50 @@
         "currency": "Silver Sols",
         "shop": "Robert's Shop",
         "imagePath": "/icon/256/character/headwear/beanie-pink.webp"
+    },
+    {
+        "name": "Toque",
+        "id": "toque",
+        "category": "Headwear",
+        "cost": 20,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/character/headwear/toque.webp"
+    },
+    {
+        "name": "Toque (White)",
+        "id": "toque-white",
+        "category": "Headwear",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/character/headwear/toque-white.webp"
+    },
+    {
+        "name": "Toque (Navy)",
+        "id": "toque-navy",
+        "category": "Headwear",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/character/headwear/toque-navy.webp"
+    },
+    {
+        "name": "Toque (Grey)",
+        "id": "toque-grey",
+        "category": "Headwear",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/character/headwear/toque-grey.webp"
+    },
+    {
+        "name": "Toque (Burgundy)",
+        "id": "toque-burgundy",
+        "category": "Headwear",
+        "cost": 100,
+        "currency": "Activity Tokens",
+        "shop": "Danny's Token Trade",
+        "imagePath": "/icon/256/character/headwear/toque-burgundy.webp"
     }
 ]
