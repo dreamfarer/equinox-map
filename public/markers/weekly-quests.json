@@ -15,7 +15,7 @@
     },
     {
         "title": "Thinning the Shots",
-        "subtitle": "Ride to Landor's farm, remove 8 excess grape clusters, and return to Danny at the bar.",
+        "subtitle": "Ride to Landor's farm. Remove 8 excess grape clusters and return to Danny at the bar.",
         "foreignId": "danny",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
@@ -57,7 +57,7 @@
     },
     {
         "title": "Horse Brushing",
-        "subtitle": "Go to the Equestrian Center, take a brush, and brush 3 horses.",
+        "subtitle": "Go to the Equestrian Center. Take a brush and brush 3 horses.",
         "foreignId": "thomas",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
@@ -363,5 +363,13 @@
         "foreignId": "robert",
         "map": "greenisland",
         "reputation": [{ "type": "Hook's End", "amount": 10 }]
+    },
+    {
+        "title": "Clean and Happy",
+        "subtitle": "Go to Mike's stable. Muck out 12 manure piles, calm the 4 horses, treat them, then talk to Mike.",
+        "map": "greenisland",
+        "x": -190,
+        "y": -682,
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
     }
 ]
