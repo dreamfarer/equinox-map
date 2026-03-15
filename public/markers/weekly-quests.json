@@ -359,7 +359,7 @@
     },
     {
         "title": "Fishing With Friends",
-        "subtitle": "Talk to Robert, find the fishing rod near the the railroad bridge, then return to Robert.",
+        "subtitle": "Talk to Robert, investigate near the railroad bridge to find the fishing rod, then return it to Robert.",
         "foreignId": "robert",
         "map": "greenisland",
         "reputation": [{ "type": "Hook's End", "amount": 10 }]
@@ -384,6 +384,20 @@
         "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kurt at the general store.",
         "foreignId": "mrs-wilson",
         "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Downtown", "amount": 10 }]
+    },
+    {
+        "title": "Drinking and Fishing",
+        "subtitle": "Investigate near the tavern to find the fishing rod, then return it to Robert.",
+        "foreignId": "danny",
+        "map": "greenisland",
         "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "The Longest of Ropes",
+        "subtitle": "Go to Hook's End. Collect 8 ropes and put them in a crate.",
+        "foreignId": "robert",
+        "map": "greenisland",
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     }
 ]
