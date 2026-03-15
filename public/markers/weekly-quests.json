@@ -404,5 +404,12 @@
         "foreignId": "thomas",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Crayfish Cravings",
+        "subtitle": "Go to the lake, catch 10 crayfish and deliver them to Nina.",
+        "foreignId": "nina",
+        "map": "greenisland",
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     }
 ]
