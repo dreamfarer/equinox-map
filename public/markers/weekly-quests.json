@@ -184,7 +184,7 @@
         "subtitle": "Get gas from Charles at the gas station and deliver it to Robert.",
         "foreignId": "charles",
         "map": "greenisland",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     },
     {
         "title": "Bake a Leg",
@@ -206,7 +206,7 @@
         "map": "greenisland",
         "x": -649.0297213055671,
         "y": -429.33297372364996,
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     },
     {
         "title": "Boat Fixer",
@@ -214,7 +214,7 @@
         "map": "greenisland",
         "x": -516.370537526459,
         "y": 362.77992276033547,
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     },
     {
         "title": "Post Delivery",
@@ -271,7 +271,7 @@
         "map": "greenisland",
         "x": -539.8858370076881,
         "y": -647.247148444871,
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     },
     {
         "title": "Baking Challenge",
@@ -348,7 +348,7 @@
         "subtitle": "Talk to Harry, paint the boat, and then return to Harry.",
         "foreignId": "harry",
         "map": "greenisland",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 10 }]
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     },
     {
         "title": "Missing Horsie",
@@ -356,5 +356,12 @@
         "foreignId": "philip",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Fishing With Friends",
+        "subtitle": "Talk to Robert, find the fishing rod near the the railroad bridge, then return to Robert.",
+        "foreignId": "robert",
+        "map": "greenisland",
+        "reputation": [{ "type": "Hook's End", "amount": 10 }]
     }
 ]
