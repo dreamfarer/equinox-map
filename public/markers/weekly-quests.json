@@ -371,5 +371,12 @@
         "x": -190,
         "y": -682,
         "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
+    },
+    {
+        "title": "Brush and Drink, Drink and Brush",
+        "subtitle": "Go to the Equestrian Center. Take a brush, brush 3 horses and give them water.",
+        "foreignId": "thomas",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
     }
 ]
