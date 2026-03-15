@@ -17,7 +17,7 @@
     {
         "subtitle": "Daily Deliveries: 5 Blackberries",
         "foreignId": "ben",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 5 }]
+        "reputation": [{ "type": "Hook's End", "amount": 5 }]
     },
     {
         "subtitle": "Daily Deliveries: 5 Dandelions",
@@ -37,7 +37,7 @@
     {
         "subtitle": "Daily Deliveries: 5 Antlers",
         "foreignId": "nina",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 5 }]
+        "reputation": [{ "type": "Hook's End", "amount": 5 }]
     },
     {
         "subtitle": "Daily Deliveries: 5 Delphinium",
@@ -77,12 +77,12 @@
     {
         "subtitle": "Daily Deliveries: 5 King Boletus Mushrooms",
         "foreignId": "robert",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 5 }]
+        "reputation": [{ "type": "Hook's End", "amount": 5 }]
     },
     {
         "subtitle": "Daily Deliveries: 5 Moss",
         "foreignId": "harry",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 5 }]
+        "reputation": [{ "type": "Hook's End", "amount": 5 }]
     },
     {
         "subtitle": "Daily Deliveries: 5 Moss",
@@ -117,7 +117,7 @@
     {
         "subtitle": "Daily Deliveries: 5 Raspberries",
         "foreignId": "misty",
-        "reputation": [{ "type": "Alderwood Fishing Village", "amount": 5 }]
+        "reputation": [{ "type": "Hook's End", "amount": 5 }]
     },
     {
         "subtitle": "Daily Deliveries: 5 Seagull Feathers",

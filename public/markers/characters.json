@@ -190,7 +190,7 @@
     },
     {
         "title": "Harry Bell",
-        "subtitle": "Is a member of Alderwood Fishing Village.",
+        "subtitle": "Is a member of Hook's End.",
         "id": "harry",
         "icon": "harry",
         "map": "greenisland",
@@ -199,7 +199,7 @@
     },
     {
         "title": "Misty Doe",
-        "subtitle": "Is a member of Alderwood Fishing Village.",
+        "subtitle": "Is a member of Hook's End.",
         "id": "misty",
         "icon": "misty",
         "map": "greenisland",
@@ -208,7 +208,7 @@
     },
     {
         "title": "Robert Quint",
-        "subtitle": "Is a member of Alderwood Fishing Village.",
+        "subtitle": "Is a member of Hook's End.",
         "id": "robert",
         "icon": "robert",
         "map": "greenisland",
@@ -306,7 +306,7 @@
     },
     {
         "title": "Nina Corbin",
-        "subtitle": "Is a member of Alderwood Fishing Village.",
+        "subtitle": "Is a member of Hook's End.",
         "id": "nina",
         "icon": "nina",
         "map": "greenisland",
@@ -332,7 +332,7 @@
     },
     {
         "title": "Ben Willis",
-        "subtitle": "Is a member of Alderwood Fishing Village.",
+        "subtitle": "Is a member of Hook's End.",
         "id": "ben",
         "icon": "ben",
         "map": "greenisland",
