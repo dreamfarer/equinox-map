@@ -378,5 +378,12 @@
         "foreignId": "thomas",
         "map": "greenisland",
         "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "We Need More Eggs!",
+        "subtitle": "Talk to Mrs. Wilson, collect 10 eggs and deliver them to Kurt at the general store.",
+        "foreignId": "mrs-wilson",
+        "map": "greenisland",
+        "reputation": [{ "type": "Alderwood Farms", "amount": 10 }]
     }
 ]
