@@ -2,7 +2,7 @@
     {
         "name": "Riding Pants",
         "id": "riding-pants",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 1,
@@ -17,7 +17,7 @@
     {
         "name": "Riding Pants (Black)",
         "id": "riding-pants-black",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 2,
@@ -32,7 +32,7 @@
     {
         "name": "Plated Skirt",
         "id": "plated-skirt",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 4,
@@ -47,7 +47,7 @@
     {
         "name": "Riding Pants (Brown)",
         "id": "riding-pants-brown",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 4,
@@ -62,7 +62,7 @@
     {
         "name": "High Riding Pants",
         "id": "high-riding-pants",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 5,
@@ -77,7 +77,7 @@
     {
         "name": "Skinny Jeans (Acid Wash)",
         "id": "skinny-jeans-acid-wash",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -92,7 +92,7 @@
     {
         "name": "Riding Pants (Navy)",
         "id": "riding-pants-navy",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 6,
@@ -107,7 +107,7 @@
     {
         "name": "Skinny Jeans (Black)",
         "id": "skinny-jeans-black",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -122,7 +122,7 @@
     {
         "name": "Riding Pants (White)",
         "id": "riding-pants-white",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 8,
@@ -137,7 +137,7 @@
     {
         "name": "Skinny Jeans (Grey)",
         "id": "skinny-jeans-grey",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 9,
@@ -152,7 +152,7 @@
     {
         "name": "Bootcut Jeans",
         "id": "bootcut-jeans",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 1,
@@ -167,7 +167,7 @@
     {
         "name": "Rolled Up Jeans",
         "id": "rolled-up-jeans",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 2,
@@ -182,7 +182,7 @@
     {
         "name": "Bootcut Jeans (Tan)",
         "id": "bootcut-jeans-tan",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 3,
@@ -197,7 +197,7 @@
     {
         "name": "Bootcut Jeans (Indigo)",
         "id": "bootcut-jeans-indigo",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 6,
@@ -212,7 +212,7 @@
     {
         "name": "Bootcut Slacks",
         "id": "bootcut-slacks",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 8,
@@ -227,7 +227,7 @@
     {
         "name": "Tucked Cargo Pants",
         "id": "tucked-cargo-pants",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 10,
@@ -242,7 +242,7 @@
     {
         "name": "Breeches (Light Grey)",
         "id": "breeches-light-grey",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -257,7 +257,7 @@
     {
         "name": "Breeches (Burgundy)",
         "id": "breeches-burgundy",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -272,7 +272,7 @@
     {
         "name": "Breeches (Navy)",
         "id": "breeches-navy",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -287,7 +287,7 @@
     {
         "name": "Jean Shorts (Black)",
         "id": "jean-shorts-black",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -302,7 +302,7 @@
     {
         "name": "Jean Shorts (White)",
         "id": "jean-shorts-white",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -317,7 +317,7 @@
     {
         "name": "Jean Shorts (Indigo)",
         "id": "jean-shorts-indigo",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -332,7 +332,7 @@
     {
         "name": "Breeches",
         "id": "breeches",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 3,
@@ -347,7 +347,7 @@
     {
         "name": "Cargo Breeches",
         "id": "cargo-breeches",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 5,
@@ -362,7 +362,7 @@
     {
         "name": "Jean Shorts",
         "id": "jean-shorts",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -377,7 +377,7 @@
     {
         "name": "Work Jeans",
         "id": "work-jeans",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 9,
@@ -386,13 +386,13 @@
         "currency": "Silver Sols",
         "shop": "Robert's Shop",
         "upgradeAmount": 10,
-        "upgradeItem": "Sulfur Self Mushrooms",
+        "upgradeItem": "Sulfur Shelf Mushrooms",
         "imagePath": "/icon/256/character/lower-body/work-jeans.webp"
     },
     {
         "name": "Chinos (Tan)",
         "id": "chinos-tan",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "cost": 50,
@@ -405,7 +405,7 @@
     {
         "name": "Chinos (Navy)",
         "id": "chinos-navy",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "cost": 50,
@@ -418,7 +418,7 @@
     {
         "name": "Chinos (Black)",
         "id": "chinos-black",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "cost": 50,
@@ -431,7 +431,7 @@
     {
         "name": "Chinos",
         "id": "chinos",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "cost": 50,
@@ -444,7 +444,7 @@
     {
         "name": "Bootcut Slacks (White)",
         "id": "bootcut-slacks-white",
-        "category": "Lower Body",
+        "type": "Lower Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,

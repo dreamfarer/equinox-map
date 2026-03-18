@@ -2,7 +2,7 @@
     {
         "name": "Western Bridle",
         "id": "western-bridle",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 6,
@@ -15,7 +15,7 @@
     {
         "name": "Basic Bridle (Red)",
         "id": "basic-bridle-red",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 7,
@@ -30,7 +30,7 @@
     {
         "name": "Basic Bridle (Pink)",
         "id": "basic-bridle-pink",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 3,
@@ -45,7 +45,7 @@
     {
         "name": "Basic Bridle (White)",
         "id": "basic-bridle-white",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 9,
@@ -60,7 +60,7 @@
     {
         "name": "Basic Bridle (Black)",
         "id": "basic-bridle-black",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 5,
@@ -75,7 +75,7 @@
     {
         "name": "Basic Bridle (Lightbrown)",
         "id": "basic-bridle-lightbrown",
-        "category": "Bridles",
+        "type": "Bridles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 1,

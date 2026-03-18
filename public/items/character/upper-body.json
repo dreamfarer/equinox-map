@@ -2,7 +2,7 @@
     {
         "name": "Polo Tee (Black)",
         "id": "polo-tee-black",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 2,
@@ -17,7 +17,7 @@
     {
         "name": "Polo Tee (Navy)",
         "id": "polo-tee-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 3,
@@ -32,7 +32,7 @@
     {
         "name": "Polo Tee (Postal)",
         "id": "polo-tee-postal",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 4,
@@ -47,7 +47,7 @@
     {
         "name": "Polo Tee (Salmon)",
         "id": "polo-tee-salmon",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 5,
@@ -62,7 +62,7 @@
     {
         "name": "Polo Tee (White)",
         "id": "polo-tee-white",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 6,
@@ -77,7 +77,7 @@
     {
         "name": "Button Down Shirt",
         "id": "button-down-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -92,7 +92,7 @@
     {
         "name": "Mesh Shirt",
         "id": "mesh-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 8,
@@ -107,7 +107,7 @@
     {
         "name": "Neoprene Shirt",
         "id": "neoprene-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 9,
@@ -122,7 +122,7 @@
     {
         "name": "Polo Tee",
         "id": "polo-tee",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 10,
@@ -137,7 +137,7 @@
     {
         "name": "Plaid Shirt",
         "id": "plaid-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 1,
@@ -152,7 +152,7 @@
     {
         "name": "Canvas Jacket",
         "id": "canvas-jacket",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 4,
@@ -167,7 +167,7 @@
     {
         "name": "Show Jacket",
         "id": "show-jacket",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -182,7 +182,7 @@
     {
         "name": "Open Button Shirt",
         "id": "open-button-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 7,
@@ -197,7 +197,7 @@
     {
         "name": "Tight T-Shirt",
         "id": "tight-t-shirt",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 9,
@@ -212,7 +212,7 @@
     {
         "name": "Vneck Rolled",
         "id": "vneck-rolled",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 1,
@@ -227,7 +227,7 @@
     {
         "name": "Button Down Shirt (Black)",
         "id": "button-down-shirt-black",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 3,
@@ -242,7 +242,7 @@
     {
         "name": "Button Down Shirt (Navy)",
         "id": "button-down-shirt-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 3,
@@ -257,7 +257,7 @@
     {
         "name": "Show Jacket (Navy)",
         "id": "show-jacket-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -272,7 +272,7 @@
     {
         "name": "Show Jacket (Tan)",
         "id": "show-jacket-tan",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -287,7 +287,7 @@
     {
         "name": "Show Jacket (Grey)",
         "id": "show-jacket-grey",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -302,7 +302,7 @@
     {
         "name": "Show Jacket (White)",
         "id": "show-jacket-white",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 5,
@@ -317,7 +317,7 @@
     {
         "name": "Tight T-Shirt (Pink)",
         "id": "tight-t-shirt-pink",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 1,
@@ -332,7 +332,7 @@
     {
         "name": "Zipper Hoodie",
         "id": "zipper-hoodie",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 1,
@@ -347,7 +347,7 @@
     {
         "name": "Zipper Hoodie (Beige)",
         "id": "zipper-hoodie-beige",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 2,
@@ -362,7 +362,7 @@
     {
         "name": "Zipper Hoodie (Tan)",
         "id": "zipper-hoodie-tan",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 2,
@@ -377,7 +377,7 @@
     {
         "name": "Zipper Hoodie (Black)",
         "id": "zipper-hoodie-black",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 3,
@@ -392,7 +392,7 @@
     {
         "name": "Zipper Hoodie (White)",
         "id": "zipper-hoodie-white",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 3,
@@ -407,7 +407,7 @@
     {
         "name": "Zipper Hoodie (Blue)",
         "id": "zipper-hoodie-blue",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -422,7 +422,7 @@
     {
         "name": "Zipper Hoodie (Yellow)",
         "id": "zipper-hoodie-yellow",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -437,7 +437,7 @@
     {
         "name": "Zipper Hoodie (Green)",
         "id": "zipper-hoodie-green",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 5,
@@ -452,7 +452,7 @@
     {
         "name": "Zipper Hoodie (Grey)",
         "id": "zipper-hoodie-grey",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 6,
@@ -467,7 +467,7 @@
     {
         "name": "Zipper Hoodie (Navy)",
         "id": "zipper-hoodie-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 7,
@@ -482,7 +482,7 @@
     {
         "name": "Zipper Hoodie (Orange)",
         "id": "zipper-hoodie-orange",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 8,
@@ -497,7 +497,7 @@
     {
         "name": "Zipper Hoodie (Purple)",
         "id": "zipper-hoodie-purple",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 9,
@@ -512,7 +512,7 @@
     {
         "name": "Puffer Jacket",
         "id": "puffer-jacket",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 9,
@@ -527,7 +527,7 @@
     {
         "name": "Zipper Hoodie (Red)",
         "id": "zipper-hoodie-red",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 10,
@@ -542,7 +542,7 @@
     {
         "name": "Long T-Shirt (Orange)",
         "id": "long-t-shirt-orange",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 1,
@@ -557,7 +557,7 @@
     {
         "name": "Long T-Shirt (Beige)",
         "id": "long-t-shirt-beige",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 2,
@@ -572,7 +572,7 @@
     {
         "name": "Long T-Shirt (Purple)",
         "id": "long-t-shirt-purple",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 2,
@@ -587,7 +587,7 @@
     {
         "name": "Long T-Shirt (Black)",
         "id": "long-t-shirt-black",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 3,
@@ -602,7 +602,7 @@
     {
         "name": "Long T-Shirt (Red)",
         "id": "long-t-shirt-red",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 3,
@@ -617,7 +617,7 @@
     {
         "name": "Slouchy Sweater",
         "id": "slouchy-sweater",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 4,
@@ -632,7 +632,7 @@
     {
         "name": "Long T-Shirt (Blue)",
         "id": "long-t-shirt-blue",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 5,
@@ -647,7 +647,7 @@
     {
         "name": "Long T-Shirt (Ride)",
         "id": "long-t-shirt-ride",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 5,
@@ -662,7 +662,7 @@
     {
         "name": "Long T-Shirt (Cow Skull)",
         "id": "long-t-shirt-cow-skull",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 6,
@@ -677,7 +677,7 @@
     {
         "name": "Long T-Shirt (South Shore)",
         "id": "long-t-shirt-south-shore",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 6,
@@ -692,7 +692,7 @@
     {
         "name": "Long T-Shirt (Green)",
         "id": "long-t-shirt-green",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 7,
@@ -707,7 +707,7 @@
     {
         "name": "Long T-Shirt (Tan)",
         "id": "long-t-shirt-tan",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 7,
@@ -722,7 +722,7 @@
     {
         "name": "Long T-Shirt (Grey)",
         "id": "long-t-shirt-grey",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 8,
@@ -737,7 +737,7 @@
     {
         "name": "Long T-Shirt (White)",
         "id": "long-t-shirt-white",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 8,
@@ -752,7 +752,7 @@
     {
         "name": "Long T-Shirt (Island Life)",
         "id": "long-t-shirt-island-life",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 9,
@@ -767,7 +767,7 @@
     {
         "name": "Long T-Shirt (Yellow)",
         "id": "long-t-shirt-yellow",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 9,
@@ -782,7 +782,7 @@
     {
         "name": "Long T-Shirt (Navy)",
         "id": "long-t-shirt-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 10,
@@ -797,7 +797,7 @@
     {
         "name": "Varsity Jacket",
         "id": "varsity-jacket",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 10,
@@ -812,7 +812,7 @@
     {
         "name": "Turtleneck (Yellow)",
         "id": "turtleneck-yellow",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -825,7 +825,7 @@
     {
         "name": "Turtleneck (White)",
         "id": "turtleneck-white",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -838,7 +838,7 @@
     {
         "name": "Turtleneck (Tan)",
         "id": "turtleneck-tan",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -851,7 +851,7 @@
     {
         "name": "Turtleneck (Red)",
         "id": "turtleneck-red",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -864,7 +864,7 @@
     {
         "name": "Turtleneck (Purple)",
         "id": "turtleneck-purple",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -877,7 +877,7 @@
     {
         "name": "Turtleneck (Pink)",
         "id": "turtleneck-pink",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -890,7 +890,7 @@
     {
         "name": "Turtleneck (Navy)",
         "id": "turtleneck-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -903,7 +903,7 @@
     {
         "name": "Turtleneck (Grey)",
         "id": "turtleneck-grey",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -916,7 +916,7 @@
     {
         "name": "Turtleneck (Green)",
         "id": "turtleneck-green",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -929,7 +929,7 @@
     {
         "name": "Turtleneck (Brown)",
         "id": "turtleneck-brown",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -942,7 +942,7 @@
     {
         "name": "Turtleneck (Black)",
         "id": "turtleneck-black",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -955,7 +955,7 @@
     {
         "name": "Turtleneck",
         "id": "turtleneck",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -968,20 +968,20 @@
     {
         "name": "Puffer Jacket (Green)",
         "id": "puffer-jacket-green",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "cost": 10,
-        "currency": "Activity Token",
+        "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
         "upgradeAmount": 10,
-        "upgradeItem": "Activity Token",
+        "upgradeItem": "Activity Tokens",
         "imagePath": "/icon/256/character/upper-body/puffer-jacket-green.webp"
     },
     {
         "name": "Layer Sweater (Pink)",
         "id": "layer-sweater-pink",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "cost": 50,
@@ -994,7 +994,7 @@
     {
         "name": "Layer Sweater (Navy)",
         "id": "layer-sweater-navy",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "cost": 50,
@@ -1007,7 +1007,7 @@
     {
         "name": "Layer Sweater (Grey)",
         "id": "layer-sweater-grey",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "cost": 50,
@@ -1020,7 +1020,7 @@
     {
         "name": "Layer Sweater",
         "id": "layer-sweater",
-        "category": "Upper Body",
+        "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Jumping",
         "cost": 50,

@@ -2,7 +2,7 @@
     {
         "name": "Tendon Wraps",
         "id": "tendon-wraps",
-        "category": "Wraps",
+        "type": "Wraps",
         "level": 5,
         "faction": "Alderwood Equestrians",
         "cost": 1000,
@@ -13,7 +13,7 @@
     {
         "name": "Tendon Wraps (White)",
         "id": "tendon-wraps-white",
-        "category": "Wraps",
+        "type": "Wraps",
         "level": 10,
         "faction": "Alderwood Equestrians",
         "cost": 2000,
@@ -24,7 +24,7 @@
     {
         "name": "Tendon Wraps (Black)",
         "id": "tendon-wraps-black",
-        "category": "Wraps",
+        "type": "Wraps",
         "level": 10,
         "faction": "Alderwood Equestrians",
         "cost": 2000,
@@ -35,7 +35,7 @@
     {
         "name": "Polo Legwraps (Navy)",
         "id": "polo-legwraps-navy",
-        "category": "Wraps",
+        "type": "Wraps",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -44,7 +44,7 @@
     {
         "name": "Polo Legwraps (Green)",
         "id": "polo-legwraps-green",
-        "category": "Wraps",
+        "type": "Wraps",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -53,7 +53,7 @@
     {
         "name": "Polo Legwraps (Black)",
         "id": "polo-legwraps-black",
-        "category": "Wraps",
+        "type": "Wraps",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -62,7 +62,7 @@
     {
         "name": "Polo Legwraps",
         "id": "polo-legwraps",
-        "category": "Wraps",
+        "type": "Wraps",
         "cost": 20,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",

@@ -2,7 +2,7 @@
     {
         "name": "Blanket Babypad (Black)",
         "id": "baby-pad-black",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Speed",
         "level": 2,
@@ -17,7 +17,7 @@
     {
         "name": "Blanket Babypad (Green)",
         "id": "baby-pad-green",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Speed",
         "level": 5,
@@ -32,7 +32,7 @@
     {
         "name": "Blanket Babypad (White)",
         "id": "baby-pad-white",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Speed",
         "level": 10,
@@ -47,7 +47,7 @@
     {
         "name": "Dressage Pad",
         "id": "dressage-pad",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 5,
@@ -62,7 +62,7 @@
     {
         "name": "Western Pad",
         "id": "western-pad",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 2,
@@ -77,7 +77,7 @@
     {
         "name": "Western Pad (Beige)",
         "id": "western-pad-beige",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 5,
@@ -92,7 +92,7 @@
     {
         "name": "Western Pad (Pink)",
         "id": "western-pad-pink",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 6,
@@ -107,7 +107,7 @@
     {
         "name": "Western Pad (Teal)",
         "id": "western-pad-teal",
-        "category": "Blankets",
+        "type": "Blankets",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 9,

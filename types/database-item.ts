@@ -1,7 +1,7 @@
 export type DatabaseItem = {
     name: string;
     id: string;
-    category: string;
+    type: string;
     statsAmount?: number;
     statsType?: string;
     level?: number;
