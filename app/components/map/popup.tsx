@@ -51,9 +51,7 @@ export default function Popup() {
                     effectiveCategories.length === 1 ? styles.noDropdown : ''
                 }`}
             >
-                <div
-                    className={styles.scroll}
-                >
+                <div className={styles.scroll}>
                     {Object.entries(itemsById).map(([itemId, item]) => (
                         <div key={itemId} className={styles.item}>
                             <div className={styles.header}>
