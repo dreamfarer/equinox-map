@@ -2,13 +2,18 @@
     "name": "equinox-map",
     "version": "0.1.0",
     "private": true,
+    "config": {
+        "databaseItemsDir": "public/items",
+        "exportDir": "app/data/"
+    },
     "scripts": {
         "dev": "next dev --turbopack",
         "build:convert": "ts-node --project tsconfig.scripts.json --transpile-only scripts/convert-markers.ts",
         "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
         "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
-        "build:compress": "ts-node --project tsconfig.scripts.json --transpile-only scripts/compress-database.ts",
-        "build": "npm run build:convert && npm run build:compress && next build",
+        "database:compress": "ts-node --project tsconfig.scripts.json --transpile-only scripts/compress-database.ts $npm_package_config_databaseItemsDir $npm_package_config_exportDir",
+        "database:validate": "ts-node --project tsconfig.scripts.json --transpile-only scripts/validate-database.ts $npm_package_config_databaseItemsDir",
+        "build": "npm run build:convert && npm run database:validate && npm run database:compress && next build",
         "start": "next start",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
@@ -31,7 +36,6 @@
         "prettier": "3.8.1",
         "sharp": "0.34.5",
         "ts-node": "10.9.2",
-        "typescript": "5.9.3",
-        "zod": "^4.3.6"
+        "typescript": "5.9.3"
     }
 }
