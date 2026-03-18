@@ -9,7 +9,27 @@ export type DatabaseItem = {
     cost?: number;
     currency?: string;
     shop?: string;
+    colours?: string[];
     upgradeAmount?: number;
     upgradeItem?: string;
     imagePath: string;
 };
+
+export type DatabaseItemFields = keyof DatabaseItem;
+
+export const databaseItemFields = [
+    'name',
+    'id',
+    'type',
+    'statsAmount',
+    'statsType',
+    'level',
+    'faction',
+    'cost',
+    'currency',
+    'shop',
+    'colours',
+    'upgradeAmount',
+    'upgradeItem',
+    'imagePath',
+] as const;

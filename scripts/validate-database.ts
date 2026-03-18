@@ -1,5 +1,10 @@
 import path from 'node:path';
-import { DatabaseItem } from '@/types/database-item';
+import {
+    DatabaseItem,
+    DatabaseItemFields,
+    databaseItemFields,
+} from '../types/database-item';
+import { colourOptions } from '../types/colours';
 import { access, readdir, readFile } from 'node:fs/promises';
 
 const allowedItems = [
@@ -62,6 +67,12 @@ export async function validateDatabaseItem(
 ): Promise<string[]> {
     const errors: string[] = [];
     const itemLabel = item.id || item.name || '<unknown item>';
+
+    for (const key of Object.keys(item)) {
+        if (!databaseItemFields.includes(key as DatabaseItemFields)) {
+            errors.push(`Invalid field ${key} for ${itemLabel} in ${filePath}`);
+        }
+    }
 
     if (!item.id)
         errors.push(
@@ -130,6 +141,15 @@ export async function validateDatabaseItem(
         );
     }
 
+    if (
+        item.colours &&
+        !item.colours.every((colour) => colourOptions.includes(colour))
+    ) {
+        errors.push(
+            `Invalid colours for ${itemLabel} in ${filePath}: ${item.colours.join(', ')}`
+        );
+    }
+
     if (xor('upgradeAmount' in item, 'upgradeItem' in item)) {
         errors.push(
             `Missing upgradeAmount or upgradeItem for ${itemLabel} in ${filePath}`
@@ -172,6 +192,7 @@ async function collectDataFiles(dir: string) {
 
 async function validateDatabase() {
     const allErrors: string[] = [];
+    let fileCount: number = 0;
     const [, , databaseItemsDir] = process.argv;
     const filePaths = await collectDataFiles(
         path.resolve(__dirname, '../' + databaseItemsDir)
@@ -179,7 +200,6 @@ async function validateDatabase() {
 
     for (const filePath of filePaths) {
         let file: DatabaseItem[];
-
         try {
             file = JSON.parse(await readFile(filePath, 'utf8'));
         } catch (err) {
@@ -190,7 +210,7 @@ async function validateDatabase() {
             );
             continue;
         }
-
+        fileCount += file.length;
         for (const item of file) {
             const itemErrors = await validateDatabaseItem(filePath, item);
             allErrors.push(...itemErrors);
@@ -199,14 +219,14 @@ async function validateDatabase() {
 
     if (allErrors.length > 0) {
         console.error(
-            `Database validation failed with ${allErrors.length} error(s):\n`
+            `Database validation for ${fileCount} item(s) in ${databaseItemsDir} failed with ${allErrors.length} error(s):\n`
         );
         for (const error of allErrors) {
             console.error(`- ${error}`);
         }
         process.exit(1);
     }
-    console.log('Database validation passed.');
+    console.log(`Database validation passed for ${fileCount} item(s) in ${databaseItemsDir}.`);
 }
 
 validateDatabase().catch((err) => {
