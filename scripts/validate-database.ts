@@ -59,102 +59,108 @@ function xor(a: boolean, b: boolean): boolean {
 export async function validateDatabaseItem(
     filePath: string,
     item: DatabaseItem
-) {
-    if (!item.id) throw new Error(`Missing id for ${item.name} in ${filePath}`);
-    if (!item.name)
-        throw new Error(`Missing name for ${item.id} in ${filePath}`);
-    if (!item.type)
-        throw new Error(`Missing type for ${item.id} in ${filePath}`);
-    if (xor('statsAmount' in item, 'statsType' in item))
-        throw new Error(
-            `Missing statsAmount or statsType for ${item.id} in ${filePath}`
+): Promise<string[]> {
+    const errors: string[] = [];
+    const itemLabel = item.id || item.name || '<unknown item>';
+
+    if (!item.id)
+        errors.push(
+            `Missing id for ${item.name ?? '<unknown>'} in ${filePath}`
         );
-    if (item.statsAmount) {
-        if (item.statsAmount == 0) {
-            throw new Error(
-                `Invalid statsAmount for ${item.id} in ${filePath}: ${item.statsAmount}`
-            );
-        }
-    }
-    if (item.statsType) {
-        if (!allowedStatsTypes.includes(item.statsType)) {
-            throw new Error(
-                `Invalid statsType for ${item.id} in ${filePath}: ${item.statsType}`
-            );
-        }
-    }
-    if (xor('level' in item, 'faction' in item))
-        throw new Error(
-            `Missing level or faction for ${item.id} in ${filePath}`
+    if (!item.name) errors.push(`Missing name for ${itemLabel} in ${filePath}`);
+    if (!item.type) errors.push(`Missing type for ${itemLabel} in ${filePath}`);
+
+    if (xor('statsAmount' in item, 'statsType' in item)) {
+        errors.push(
+            `Missing statsAmount or statsType for ${itemLabel} in ${filePath}`
         );
-    if (item.level) {
+    }
+
+    if ('statsAmount' in item && item.statsAmount === 0) {
+        errors.push(
+            `Invalid statsAmount for ${itemLabel} in ${filePath}: ${item.statsAmount}`
+        );
+    }
+
+    if (item.statsType && !allowedStatsTypes.includes(item.statsType)) {
+        errors.push(
+            `Invalid statsType for ${itemLabel} in ${filePath}: ${item.statsType}`
+        );
+    }
+
+    if (xor('level' in item, 'faction' in item)) {
+        errors.push(`Missing level or faction for ${itemLabel} in ${filePath}`);
+    }
+
+    if ('level' in item && item.level !== undefined) {
         if (item.level < 1 || item.level > 10) {
-            throw new Error(
-                `Invalid level for ${item.id} in ${filePath}: ${item.level}`
+            errors.push(
+                `Invalid level for ${itemLabel} in ${filePath}: ${item.level}`
             );
         }
     }
-    if (item.faction) {
-        if (!allowedFaction.includes(item.faction)) {
-            throw new Error(
-                `Invalid faction for ${item.id} in ${filePath}: ${item.faction}`
-            );
-        }
+
+    if (item.faction && !allowedFaction.includes(item.faction)) {
+        errors.push(
+            `Invalid faction for ${itemLabel} in ${filePath}: ${item.faction}`
+        );
     }
+
     if (xor('cost' in item, 'currency' in item)) {
-        throw new Error(
-            `Missing cost or currency for ${item.id} in ${filePath}`
-        );
+        errors.push(`Missing cost or currency for ${itemLabel} in ${filePath}`);
     }
-    if (item.cost) {
+
+    if ('cost' in item && item.cost !== undefined) {
         if (item.cost < 0) {
-            throw new Error(
-                `Invalid cost for ${item.id} in ${filePath}: ${item.cost}`
+            errors.push(
+                `Invalid cost for ${itemLabel} in ${filePath}: ${item.cost}`
             );
         }
     }
-    if (item.currency) {
-        if (!allowedCurrencies.includes(item.currency)) {
-            throw new Error(
-                `Invalid currency for ${item.id} in ${filePath}: ${item.currency}`
-            );
-        }
-    }
-    if (item.shop) {
-        if (!allowedShop.includes(item.shop)) {
-            throw new Error(
-                `Invalid shop for ${item.id} in ${filePath}: ${item.shop}`
-            );
-        }
-    }
-    if (xor('upgradeAmount' in item, 'upgradeItem' in item)) {
-        throw new Error(
-            `Missing upgradeAmount or upgradeItem for ${item.id} in ${filePath}`
+
+    if (item.currency && !allowedCurrencies.includes(item.currency)) {
+        errors.push(
+            `Invalid currency for ${itemLabel} in ${filePath}: ${item.currency}`
         );
     }
-    if (item.upgradeAmount) {
+
+    if (item.shop && !allowedShop.includes(item.shop)) {
+        errors.push(
+            `Invalid shop for ${itemLabel} in ${filePath}: ${item.shop}`
+        );
+    }
+
+    if (xor('upgradeAmount' in item, 'upgradeItem' in item)) {
+        errors.push(
+            `Missing upgradeAmount or upgradeItem for ${itemLabel} in ${filePath}`
+        );
+    }
+
+    if ('upgradeAmount' in item && item.upgradeAmount !== undefined) {
         if (item.upgradeAmount < 0) {
-            throw new Error(
-                `Invalid upgradeAmount for ${item.id} in ${filePath}: ${item.upgradeAmount}`
+            errors.push(
+                `Invalid upgradeAmount for ${itemLabel} in ${filePath}: ${item.upgradeAmount}`
             );
         }
     }
-    if (item.upgradeItem) {
-        if (!allowedItems.includes(item.upgradeItem)) {
-            throw new Error(
-                `Invalid upgradeItem for ${item.id} in ${filePath}: ${item.upgradeItem}`
-            );
-        }
+
+    if (item.upgradeItem && !allowedItems.includes(item.upgradeItem)) {
+        errors.push(
+            `Invalid upgradeItem for ${itemLabel} in ${filePath}: ${item.upgradeItem}`
+        );
     }
+
     if (item.imagePath) {
         try {
             await access(
                 path.join(path.resolve(__dirname, '../public/'), item.imagePath)
             );
         } catch {
-            throw new Error(`Missing image for ${item.id} in ${filePath}`);
+            errors.push(`Missing image for ${itemLabel} in ${filePath}`);
         }
     }
+
+    return errors;
 }
 
 async function collectDataFiles(dir: string) {
@@ -165,21 +171,45 @@ async function collectDataFiles(dir: string) {
 }
 
 async function validateDatabase() {
+    const allErrors: string[] = [];
     const [, , databaseItemsDir] = process.argv;
     const filePaths = await collectDataFiles(
         path.resolve(__dirname, '../' + databaseItemsDir)
     );
+
     for (const filePath of filePaths) {
-        const file: DatabaseItem[] = JSON.parse(
-            await readFile(filePath, 'utf8')
-        );
+        let file: DatabaseItem[];
+
+        try {
+            file = JSON.parse(await readFile(filePath, 'utf8'));
+        } catch (err) {
+            allErrors.push(
+                `Failed to parse JSON in ${filePath}: ${
+                    err instanceof Error ? err.message : String(err)
+                }`
+            );
+            continue;
+        }
+
         for (const item of file) {
-            await validateDatabaseItem(filePath, item);
+            const itemErrors = await validateDatabaseItem(filePath, item);
+            allErrors.push(...itemErrors);
         }
     }
+
+    if (allErrors.length > 0) {
+        console.error(
+            `Database validation failed with ${allErrors.length} error(s):\n`
+        );
+        for (const error of allErrors) {
+            console.error(`- ${error}`);
+        }
+        process.exit(1);
+    }
+    console.log('Database validation passed.');
 }
 
 validateDatabase().catch((err) => {
-    console.error(err);
+    console.error('Unexpected validation failure:', err);
     process.exit(1);
 });
