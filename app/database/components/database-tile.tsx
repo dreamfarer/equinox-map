@@ -3,7 +3,7 @@ import styles from '@/app/database/components/database-tile.module.css';
 
 type Props = {
     name: string;
-    category: string;
+    type: string;
     statsAmount?: number;
     statsType?: string;
     level?: number;
@@ -18,7 +18,7 @@ type Props = {
 
 export default function DatabaseTile({
     name,
-    category,
+    type,
     statsAmount,
     statsType,
     level,
@@ -34,7 +34,7 @@ export default function DatabaseTile({
         <div className={styles.item}>
             <div className={styles.header}>
                 <h1 className={styles.title}>{name}</h1>
-                <h2 className={`${styles.text} ${styles.light}`}>{category}</h2>
+                <h2 className={`${styles.text} ${styles.light}`}>{type}</h2>
             </div>
 
             <div className={styles.image}>
