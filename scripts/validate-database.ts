@@ -4,58 +4,13 @@ import {
     DatabaseItemFields,
     databaseItemFields,
 } from '../types/database-item';
-import { colourOptions } from '../types/colours';
 import { access, readdir, readFile } from 'node:fs/promises';
-
-const allowedItems = [
-    'Dandelions',
-    'Deer Antlers',
-    'Apples',
-    'Blackberries',
-    'Wild Carrots',
-    'Delphinium',
-    "Dryad's Saddle Mushrooms",
-    'Eagle Feathers',
-    'Fossils',
-    'Old Horseshoes',
-    'King Boletus Mushrooms',
-    'Moss',
-    'Poppies',
-    'Raspberries',
-    'Raven Feathers',
-    'Seagull Feathers',
-    'Sulfur Shelf Mushrooms',
-    'Sunflowers',
-    'Violets',
-    'Water Lilies',
-    'Activity Tokens',
-];
-const allowedShop = [
-    "March's Tack Shop (Wendy)",
-    "Kathy's Shop",
-    "Samuel's Shop",
-    "Thomas' Shop",
-    "Robert's Shop",
-    "Danny's Token Trade",
-];
-const allowedFaction = [
-    'Alderwood Downtown',
-    'Alderwood Farms',
-    'Alderwood Wilds',
-    'Alderwood Equestrians',
-    "Hook's End",
-];
-const allowedCurrencies = ['Silver Sols', 'Activity Tokens', 'Gold Alders'];
-const allowedStatsTypes = [
-    'Speed',
-    'Agility',
-    'Strength',
-    'Endurance',
-    'Jumping',
-    'Riding',
-    'Fitness',
-    'Control',
-];
+import { colours } from '../schema/database/colours';
+import { statTypes } from '../schema/database/stat-types';
+import { factions } from '../schema/database/factions';
+import { currencies } from '../schema/database/currencies';
+import { shops } from '../schema/database/shops';
+import { upgradeItems } from '../schema/database/upgrade-items';
 
 function xor(a: boolean, b: boolean): boolean {
     return (a && !b) || (!a && b);
@@ -93,7 +48,7 @@ export async function validateDatabaseItem(
         );
     }
 
-    if (item.statsType && !allowedStatsTypes.includes(item.statsType)) {
+    if (item.statsType && !statTypes.includes(item.statsType)) {
         errors.push(
             `Invalid statsType for ${itemLabel} in ${filePath}: ${item.statsType}`
         );
@@ -111,7 +66,7 @@ export async function validateDatabaseItem(
         }
     }
 
-    if (item.faction && !allowedFaction.includes(item.faction)) {
+    if (item.faction && !factions.includes(item.faction)) {
         errors.push(
             `Invalid faction for ${itemLabel} in ${filePath}: ${item.faction}`
         );
@@ -129,13 +84,13 @@ export async function validateDatabaseItem(
         }
     }
 
-    if (item.currency && !allowedCurrencies.includes(item.currency)) {
+    if (item.currency && !currencies.includes(item.currency)) {
         errors.push(
             `Invalid currency for ${itemLabel} in ${filePath}: ${item.currency}`
         );
     }
 
-    if (item.shop && !allowedShop.includes(item.shop)) {
+    if (item.shop && !shops.includes(item.shop)) {
         errors.push(
             `Invalid shop for ${itemLabel} in ${filePath}: ${item.shop}`
         );
@@ -143,7 +98,7 @@ export async function validateDatabaseItem(
 
     if (
         item.colours &&
-        !item.colours.every((colour) => colourOptions.includes(colour))
+        !item.colours.every((colour) => colours.includes(colour))
     ) {
         errors.push(
             `Invalid colours for ${itemLabel} in ${filePath}: ${item.colours.join(', ')}`
@@ -164,7 +119,7 @@ export async function validateDatabaseItem(
         }
     }
 
-    if (item.upgradeItem && !allowedItems.includes(item.upgradeItem)) {
+    if (item.upgradeItem && !upgradeItems.includes(item.upgradeItem)) {
         errors.push(
             `Invalid upgradeItem for ${itemLabel} in ${filePath}: ${item.upgradeItem}`
         );
@@ -226,7 +181,9 @@ async function validateDatabase() {
         }
         process.exit(1);
     }
-    console.log(`Database validation passed for ${fileCount} item(s) in ${databaseItemsDir}.`);
+    console.log(
+        `Database validation passed for ${fileCount} item(s) in ${databaseItemsDir}.`
+    );
 }
 
 validateDatabase().catch((err) => {
