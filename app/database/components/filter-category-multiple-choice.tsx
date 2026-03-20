@@ -7,41 +7,50 @@ import { camelToTitle } from '@/lib/miscellaneous';
 type Props = {
     category: string;
     onBack: () => void;
+    title?: string;
+    optionsOverride?: string[];
+    optionLabelFormatter?: (option: string) => string;
 };
 
 export default function FilterCategoryMultipleChoice({
     category,
     onBack,
+    title,
+    optionsOverride,
+    optionLabelFormatter,
 }: Props) {
     const { filter, writeFilter, getClonedFilter } = useDatabaseContext();
-    const options = filter.get(category);
+    const categoryMap = filter.get(category);
 
-    if (!options) {
-        return <div>Category not found.</div>;
-    }
+    if (!categoryMap) return <div>Category not found.</div>;
+
+    const options = optionsOverride ?? Array.from(categoryMap.keys());
 
     const toggleOption = (option: string) => {
         const nextFilter = getClonedFilter();
-        const categoryMap = nextFilter.get(category);
-        if (!categoryMap) return;
-        const currentValue = categoryMap.get(option) ?? false;
-        categoryMap.set(option, !currentValue);
+        const nextCategoryMap = nextFilter.get(category);
+        if (!nextCategoryMap) return;
+        const currentValue = nextCategoryMap.get(option) ?? false;
+        nextCategoryMap.set(option, !currentValue);
         writeFilter(nextFilter);
     };
 
     const resetCategory = () => {
         const nextFilter = getClonedFilter();
-        const categoryMap = nextFilter.get(category);
-        if (!categoryMap) return;
-        categoryMap.forEach((_, option) => {
-            categoryMap.set(option, false);
+        const nextCategoryMap = nextFilter.get(category);
+        if (!nextCategoryMap) return;
+        const targetOptions = new Set(options);
+        nextCategoryMap.forEach((_, option) => {
+            if (targetOptions.has(option)) {
+                nextCategoryMap.set(option, false);
+            }
         });
         writeFilter(nextFilter);
     };
 
     return (
         <div className={filterStyles.filterMenu}>
-            <h1>{camelToTitle(category)}</h1>
+            <h1>{title ?? camelToTitle(category)}</h1>
 
             <button
                 className={filterStyles.resetButtonTop}
@@ -50,17 +59,24 @@ export default function FilterCategoryMultipleChoice({
                 Reset all
             </button>
 
-            {Array.from(options.entries()).map(([option, checked]) => (
-                <label key={option} className={styles.container}>
-                    <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => toggleOption(option)}
-                    />
-                    <span className={styles.checkmark}></span>
-                    {option}
-                </label>
-            ))}
+            {options.map((option) => {
+                const checked = categoryMap.get(option) ?? false;
+                const label = optionLabelFormatter
+                    ? optionLabelFormatter(option)
+                    : option;
+
+                return (
+                    <label key={option} className={styles.container}>
+                        <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => toggleOption(option)}
+                        />
+                        <span className={styles.checkmark}></span>
+                        {label}
+                    </label>
+                );
+            })}
 
             <div>
                 <button
