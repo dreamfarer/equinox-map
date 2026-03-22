@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "config": {
-        "databaseItemsDir": "public/test-items",
+        "databaseItemsDir": "public/items",
         "exportDir": "app/data/"
     },
     "scripts": {
