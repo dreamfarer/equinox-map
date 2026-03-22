@@ -33,12 +33,18 @@ async function compressDatabase() {
     );
     const databaseItems = (
         await Promise.all(
-            filePaths.map(
-                async (filePath) =>
-                    JSON.parse(
-                        await readFile(filePath, 'utf8')
-                    ) as DatabaseItem[]
-            )
+            filePaths.map(async (filePath) => {
+                const items = JSON.parse(
+                    await readFile(filePath, 'utf8')
+                ) as DatabaseItem[];
+                return items.map((item) => {
+                    if (item.colour) {
+                        item.colours = [item.colour];
+                        delete item.colour;
+                    }
+                    return item;
+                });
+            })
         )
     ).flat();
     await mkdir(path.resolve(__dirname, '..', exportDir), {

@@ -63,14 +63,33 @@ export default function DatabaseClientPage({
     const filter = useMemo(() => {
         const filter: Filter = new Map();
         const params = new URLSearchParams(urlParameters.toString());
+
         filterOptions.forEach((options, category) => {
             const selected = new Set(params.getAll(category));
-            const optionMap = new Map<string, boolean>();
+            const optionMap = new Map<string, string | boolean>();
             options.forEach((option) => {
                 optionMap.set(option, selected.has(option));
             });
             filter.set(category, optionMap);
         });
+
+        /* Special handling for reputation and cost */
+        ['reputation', 'cost'].forEach((category) => {
+            const optionMap = new Map<string, string | boolean>();
+            const options =
+                filterOptions.get(
+                    category === 'reputation' ? 'faction' : 'currency'
+                ) ?? [];
+            options.forEach((option) => optionMap.set(option, ''));
+            params.getAll(category).forEach((val) => {
+                const [key, amount] = val.split(':');
+                if (key && amount !== undefined) {
+                    optionMap.set(key, amount);
+                }
+            });
+            filter.set(category, optionMap);
+        });
+
         return filter;
     }, [urlParameters, filterOptions]);
 

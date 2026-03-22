@@ -60,7 +60,8 @@ export default function FilterCategoryMultipleChoice({
             </button>
 
             {options.map((option) => {
-                const checked = categoryMap.get(option) ?? false;
+                const value = categoryMap.get(option);
+                const checked = value === true;
                 const label = optionLabelFormatter
                     ? optionLabelFormatter(option)
                     : option;

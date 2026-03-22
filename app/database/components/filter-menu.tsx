@@ -2,6 +2,7 @@ import styles from '@/app/database/components/filter-menu.module.css';
 import { CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
 import { useMemo, useState } from 'react';
 import FilterCategoryMultipleChoice from '@/app/database/components/filter-category-multiple-choice';
+import FilterCategoryMaxInput from '@/app/database/components/filter-category-max-input';
 import { useDatabaseContext } from '@/app/context/database-context';
 import {
     buildFilterTree,
@@ -120,9 +121,12 @@ export default function FilterMenu() {
                         category={activeEntry.field}
                         title={currentNode.label}
                         optionsOverride={collectLeafValues(currentNode)}
-                        optionLabelFormatter={(option) =>
-                            option.split('/').at(-1) ?? option
-                        }
+                        optionLabelFormatter={(option) => {
+                            const label = option.split('/').at(-1) ?? option;
+                            return activeEntry.optionPrefix
+                                ? `${activeEntry.optionPrefix}${label}`
+                                : label;
+                        }}
                         onBack={handleBack}
                     />
                 );
@@ -162,11 +166,26 @@ export default function FilterMenu() {
             );
         }
 
+        if (activeEntry.isMaxInput && activeEntry.field) {
+            return (
+                <FilterCategoryMaxInput
+                    category={activeEntry.field}
+                    title={activeEntry.label}
+                    onBack={handleBack}
+                />
+            );
+        }
+
         return (
             <FilterCategoryMultipleChoice
                 category={activeEntry.field}
                 title={activeEntry.label}
                 onBack={handleBack}
+                optionLabelFormatter={
+                    activeEntry.optionPrefix
+                        ? (option) => `${activeEntry.optionPrefix}${option}`
+                        : undefined
+                }
             />
         );
     }

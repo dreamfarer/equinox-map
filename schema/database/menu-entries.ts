@@ -1,40 +1,29 @@
 export interface MenuEntry {
     label: string;
     field?: string;
+    optionsField?: string;
     isHierarchical?: boolean;
+    isMaxInput?: boolean;
+    optionPrefix?: string;
     children?: MenuEntry[];
 }
 
 export const menuEntries: MenuEntry[] = [
     { label: 'Type', field: 'type', isHierarchical: true },
-    {
-        label: 'Stats',
-        children: [
-            { label: 'Amount', field: 'statsAmount' },
-            { label: 'Type', field: 'statsType' },
-        ],
-    },
+    { label: 'Stats', field: 'statsType', optionPrefix: '+40 ' },
     {
         label: 'Reputation',
-        children: [
-            { label: 'Level', field: 'level' },
-            { label: 'Faction', field: 'faction' },
-        ],
+        field: 'reputation',
+        optionsField: 'faction',
+        isMaxInput: true,
     },
     {
         label: 'Cost',
-        children: [
-            { label: 'Amount', field: 'cost' },
-            { label: 'Currency', field: 'currency' },
-        ],
+        field: 'cost',
+        optionsField: 'currency',
+        isMaxInput: true,
     },
     { label: 'Shop', field: 'shop' },
     { label: 'Colours', field: 'colours' },
-    {
-        label: 'Upgrade',
-        children: [
-            { label: 'Amount', field: 'upgradeAmount' },
-            { label: 'Item', field: 'upgradeItem' },
-        ],
-    },
+    { label: 'Upgrade', field: 'upgradeItem', optionPrefix: '10 ' },
 ];
