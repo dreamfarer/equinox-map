@@ -10,6 +10,7 @@
         "cost": 200,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/horse/blankets/baby-pad-black.webp"
@@ -70,6 +71,7 @@
         "cost": 200,
         "currency": "Silver Sols",
         "shop": "Samuel's Shop",
+        "colours": ["White", "Red", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Raspberries",
         "imagePath": "/icon/256/horse/blankets/western-pad.webp"
