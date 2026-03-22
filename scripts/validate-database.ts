@@ -128,7 +128,10 @@ export async function validateDatabaseItem(
     if (item.imagePath) {
         try {
             await access(
-                path.join(path.resolve(__dirname, '../public/'), item.imagePath)
+                path.join(
+                    path.resolve(__dirname, '..', 'public'),
+                    item.imagePath
+                )
             );
         } catch {
             errors.push(`Missing image for ${itemLabel} in ${filePath}`);
@@ -148,9 +151,20 @@ async function collectDataFiles(dir: string) {
 async function validateDatabase() {
     const allErrors: string[] = [];
     let fileCount: number = 0;
-    const [, , databaseItemsDir] = process.argv;
+    const databaseItemsDirRaw = process.argv[2];
+    const databaseItemsDir =
+        databaseItemsDirRaw && !databaseItemsDirRaw.startsWith('$')
+            ? databaseItemsDirRaw
+            : (process.env.npm_package_config_databaseItemsDir ??
+              'public/test-items');
+
+    if (!databaseItemsDir) {
+        console.error('Error: databaseItemsDir is not specified.');
+        process.exit(1);
+    }
+
     const filePaths = await collectDataFiles(
-        path.resolve(__dirname, '../' + databaseItemsDir)
+        path.resolve(__dirname, '..', databaseItemsDir)
     );
 
     for (const filePath of filePaths) {

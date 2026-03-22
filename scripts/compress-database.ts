@@ -10,9 +10,26 @@ async function collectDataFiles(dir: string) {
 }
 
 async function compressDatabase() {
-    const [, , databaseItemsDir, exportDir] = process.argv;
+    const databaseItemsDirRaw = process.argv[2];
+    const databaseItemsDir =
+        databaseItemsDirRaw && !databaseItemsDirRaw.startsWith('$')
+            ? databaseItemsDirRaw
+            : (process.env.npm_package_config_databaseItemsDir ??
+              'public/test-items');
+
+    const exportDirRaw = process.argv[3];
+    const exportDir =
+        exportDirRaw && !exportDirRaw.startsWith('$')
+            ? exportDirRaw
+            : (process.env.npm_package_config_exportDir ?? 'app/data/');
+
+    if (!databaseItemsDir || !exportDir) {
+        console.error('Error: databaseItemsDir or exportDir not specified.');
+        process.exit(1);
+    }
+
     const filePaths = await collectDataFiles(
-        path.resolve(__dirname, '../' + databaseItemsDir)
+        path.resolve(__dirname, '..', databaseItemsDir)
     );
     const databaseItems = (
         await Promise.all(
@@ -24,11 +41,11 @@ async function compressDatabase() {
             )
         )
     ).flat();
-    await mkdir(path.resolve(__dirname, '../' + exportDir), {
+    await mkdir(path.resolve(__dirname, '..', exportDir), {
         recursive: true,
     });
     await writeFile(
-        path.join(path.resolve(__dirname, '../' + exportDir), 'database.json'),
+        path.join(path.resolve(__dirname, '..', exportDir), 'database.json'),
         JSON.stringify(databaseItems)
     );
     console.log('database.json written.');
