@@ -190,6 +190,8 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "Thomas' Shop",
+        "upgradeAmount": 10,
+        "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/footwear/skate-shoes.webp"
     },
     {
