@@ -2,7 +2,7 @@
     {
         "name": "Slip-Ons",
         "id": "slip-ons",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 2,
@@ -17,7 +17,7 @@
     {
         "name": "Suede Boots",
         "id": "suede-boots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 7,
@@ -32,7 +32,7 @@
     {
         "name": "Cozy Casual",
         "id": "cozy-casual",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 3,
@@ -47,7 +47,7 @@
     {
         "name": "High Tops",
         "id": "high-tops",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -62,7 +62,7 @@
     {
         "name": "Ranger Boots",
         "id": "ranger-boots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 7,
@@ -77,7 +77,7 @@
     {
         "name": "Riding Boots",
         "id": "riding-boots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 8,
@@ -92,7 +92,7 @@
     {
         "name": "Riding Boots (Black)",
         "id": "riding-boots-black",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 9,
@@ -107,7 +107,7 @@
     {
         "name": "Riding Boots (Warm Leather)",
         "id": "riding-boots-warm-leather",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 10,
@@ -122,7 +122,7 @@
     {
         "name": "Slip-Ons (White)",
         "id": "slip-ons-white",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 2,
@@ -137,7 +137,7 @@
     {
         "name": "Slip-Ons (Grey Stripe)",
         "id": "slip-ons-grey-stripe",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 2,
@@ -152,7 +152,7 @@
     {
         "name": "Slip-Ons (Tan)",
         "id": "slip-ons-tan",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 2,
@@ -167,7 +167,7 @@
     {
         "name": "Slip-Ons (Black)",
         "id": "slip-ons-black",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Jumping",
         "level": 2,
@@ -182,7 +182,7 @@
     {
         "name": "Skate Shoes",
         "id": "skate-shoes",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "level": 6,
@@ -195,7 +195,7 @@
     {
         "name": "Rubberboots",
         "id": "rubberboots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 9,
@@ -208,7 +208,7 @@
     {
         "name": "Heavy Boots",
         "id": "heavy-boots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 3,
@@ -223,7 +223,7 @@
     {
         "name": "Heavy Boots (Tan)",
         "id": "heavy-boots-tan",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 5,
@@ -238,7 +238,7 @@
     {
         "name": "Hiking Shoes",
         "id": "hiking-shoes",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 8,
@@ -253,7 +253,7 @@
     {
         "name": "Hikers",
         "id": "hikers",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 2,
@@ -268,7 +268,7 @@
     {
         "name": "Hikers (Green)",
         "id": "hikers-green",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 6,
@@ -283,7 +283,7 @@
     {
         "name": "Hikers (Blue)",
         "id": "hikers-blue",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Fitness",
         "level": 4,
@@ -298,7 +298,7 @@
     {
         "name": "Work Boots",
         "id": "work-boots",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "level": 8,
@@ -313,7 +313,7 @@
     {
         "name": "Low Heel Sneakers",
         "id": "low-heel-sneakers",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Control",
         "cost": 50,
@@ -326,7 +326,7 @@
     {
         "name": "Cozy Casual (Green)",
         "id": "cozy-casual-green",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "cost": 50,
@@ -339,7 +339,7 @@
     {
         "name": "Cozy Casual (Black)",
         "id": "cozy-casual-black",
-        "category": "Footwear",
+        "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Riding",
         "cost": 50,

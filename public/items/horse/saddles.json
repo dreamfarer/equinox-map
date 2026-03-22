@@ -2,7 +2,7 @@
     {
         "name": "English Saddle (Black)",
         "id": "english-saddle-black",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 3,
@@ -17,7 +17,7 @@
     {
         "name": "English Saddle",
         "id": "english-saddle",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 6,
@@ -32,7 +32,7 @@
     {
         "name": "English Saddle (Pink)",
         "id": "english-saddle-pink",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 9,
@@ -47,7 +47,7 @@
     {
         "name": "Modern Western (Tan)",
         "id": "modern-western-tan",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 2,
@@ -62,7 +62,7 @@
     {
         "name": "Modern Western (Black)",
         "id": "modern-western-black",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 4,
@@ -77,7 +77,7 @@
     {
         "name": "Modern Western (Dark Brown)",
         "id": "modern-western-dark-brown",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 6,
@@ -92,7 +92,7 @@
     {
         "name": "Modern Western (Light Brown)",
         "id": "modern-western-light-brown",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 8,
@@ -107,7 +107,7 @@
     {
         "name": "Modern Western (White)",
         "id": "modern-western-white",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 10,
@@ -122,7 +122,7 @@
     {
         "name": "Western Saddle",
         "id": "western-saddle",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Strength",
         "level": 2,
@@ -137,7 +137,7 @@
     {
         "name": "Western Saddle (Black)",
         "id": "western-saddle-black",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Strength",
         "level": 4,
@@ -152,7 +152,7 @@
     {
         "name": "Western Saddle (Brown)",
         "id": "western-saddle-brown",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Strength",
         "level": 7,
@@ -167,7 +167,7 @@
     {
         "name": "Western Saddle (White)",
         "id": "western-saddle-white",
-        "category": "Saddles",
+        "type": "Saddles",
         "statsAmount": 40,
         "statsType": "Strength",
         "level": 10,

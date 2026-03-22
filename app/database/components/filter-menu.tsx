@@ -1,45 +1,194 @@
 import styles from '@/app/database/components/filter-menu.module.css';
-import { CaretRightIcon } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
+import { useMemo, useState } from 'react';
 import FilterCategoryMultipleChoice from '@/app/database/components/filter-category-multiple-choice';
+import FilterCategoryMaxInput from '@/app/database/components/filter-category-max-input';
 import { useDatabaseContext } from '@/app/context/database-context';
-import { camelToTitle } from '@/lib/miscellaneous';
+import {
+    buildFilterTree,
+    getNodeByPath,
+    collectLeafValues,
+} from '@/lib/filter-tree';
+import { menuEntries, MenuEntry } from '@/schema/database/menu-entries';
 
 export default function FilterMenu() {
-    const { filter, resetFilters } = useDatabaseContext();
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(
-        null
-    );
+    const { resetFilters, filter } = useDatabaseContext();
+    const [menuPath, setMenuPath] = useState<string[]>([]);
 
-    if (selectedCategory) {
+    const { activeEntry, remainingPath } = useMemo(() => {
+        let current: MenuEntry | null = null;
+        let pathIdx = 0;
+        let levelItems = menuEntries;
+
+        while (pathIdx < menuPath.length) {
+            const segment = menuPath[pathIdx];
+            const found = levelItems.find((e) => e.label === segment);
+            if (!found) break;
+            current = found;
+            pathIdx++;
+            if (found.children) {
+                levelItems = found.children;
+            } else {
+                break;
+            }
+        }
+
+        return {
+            activeEntry: current,
+            remainingPath: menuPath.slice(pathIdx),
+        };
+    }, [menuPath]);
+
+    const handleBack = () => {
+        setMenuPath((prev) => prev.slice(0, -1));
+    };
+
+    /* Root Menu */
+    if (!activeEntry) {
+        return (
+            <div className={styles.filterMenu}>
+                <h1>Filter</h1>
+                <button
+                    className={styles.resetButtonTop}
+                    onClick={resetFilters}
+                >
+                    Reset all
+                </button>
+                {menuEntries.map((entry) => (
+                    <button
+                        key={entry.label}
+                        className={styles.category}
+                        onClick={() => setMenuPath([entry.label])}
+                    >
+                        <h2 className={styles.buttonLabel}>{entry.label}</h2>
+                        <CaretRightIcon size="1.5em" />
+                    </button>
+                ))}
+            </div>
+        );
+    }
+
+    /* Static Submenu */
+    if (activeEntry.children && remainingPath.length === 0) {
+        return (
+            <div className={styles.filterMenu}>
+                <h1>{activeEntry.label}</h1>
+                <button
+                    className={styles.resetButtonTop}
+                    onClick={resetFilters}
+                >
+                    Reset all
+                </button>
+                {activeEntry.children.map((child) => (
+                    <button
+                        key={child.label}
+                        className={styles.category}
+                        onClick={() => setMenuPath([...menuPath, child.label])}
+                    >
+                        <h2 className={styles.buttonLabel}>{child.label}</h2>
+                        <CaretRightIcon size="1.5em" />
+                    </button>
+                ))}
+                <button
+                    className={styles.resetButtonBottom}
+                    onClick={handleBack}
+                >
+                    <CaretLeftIcon size="1em" />
+                    Return
+                </button>
+            </div>
+        );
+    }
+
+    /* Selection List (Flat or Hierarchical) */
+    if (activeEntry.field) {
+        if (activeEntry.isHierarchical) {
+            const tree = buildFilterTree(
+                activeEntry.label,
+                Array.from(filter.get(activeEntry.field)?.keys() ?? [])
+            );
+            const currentNode = getNodeByPath(tree, remainingPath);
+
+            if (!currentNode) return <div>Category not found.</div>;
+
+            const hasOnlyLeafChildren = Array.from(
+                currentNode.children.values()
+            ).every((child) => child.children.size === 0);
+
+            if (hasOnlyLeafChildren && currentNode.children.size > 0) {
+                return (
+                    <FilterCategoryMultipleChoice
+                        category={activeEntry.field}
+                        title={currentNode.label}
+                        optionsOverride={collectLeafValues(currentNode)}
+                        optionLabelFormatter={(option) => {
+                            const label = option.split('/').at(-1) ?? option;
+                            return activeEntry.optionPrefix
+                                ? `${activeEntry.optionPrefix}${label}`
+                                : label;
+                        }}
+                        onBack={handleBack}
+                    />
+                );
+            }
+
+            return (
+                <div className={styles.filterMenu}>
+                    <h1>{currentNode.label}</h1>
+                    <button
+                        className={styles.resetButtonTop}
+                        onClick={resetFilters}
+                    >
+                        Reset all
+                    </button>
+                    {Array.from(currentNode.children.values()).map((child) => (
+                        <button
+                            key={child.fullPath}
+                            className={styles.category}
+                            onClick={() =>
+                                setMenuPath([...menuPath, child.label])
+                            }
+                        >
+                            <h2 className={styles.buttonLabel}>
+                                {child.label}
+                            </h2>
+                            <CaretRightIcon size="1.5em" />
+                        </button>
+                    ))}
+                    <button
+                        className={styles.resetButtonBottom}
+                        onClick={handleBack}
+                    >
+                        <CaretLeftIcon size="1em" />
+                        Return
+                    </button>
+                </div>
+            );
+        }
+
+        if (activeEntry.isMaxInput && activeEntry.field) {
+            return (
+                <FilterCategoryMaxInput
+                    category={activeEntry.field}
+                    title={activeEntry.label}
+                    onBack={handleBack}
+                />
+            );
+        }
+
         return (
             <FilterCategoryMultipleChoice
-                category={selectedCategory}
-                onBack={() => setSelectedCategory(null)}
+                category={activeEntry.field}
+                title={activeEntry.label}
+                onBack={handleBack}
+                optionLabelFormatter={
+                    activeEntry.optionPrefix
+                        ? (option) => `${activeEntry.optionPrefix}${option}`
+                        : undefined
+                }
             />
         );
     }
 
-    return (
-        <div className={styles.filterMenu}>
-            <h1>Filter</h1>
-
-            <button className={styles.resetButtonTop} onClick={resetFilters}>
-                Reset all
-            </button>
-
-            {Array.from(filter.keys()).map((category) => (
-                <button
-                    key={category}
-                    className={styles.category}
-                    onClick={() => setSelectedCategory(category)}
-                >
-                    <h2 className={styles.buttonLabel}>
-                        {camelToTitle(category)}
-                    </h2>
-                    <CaretRightIcon size="1.5em" />
-                </button>
-            ))}
-        </div>
-    );
+    return <div>Category not found.</div>;
 }

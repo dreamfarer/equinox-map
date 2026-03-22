@@ -2,7 +2,7 @@
     {
         "name": "Aluminium Horse Shoes",
         "id": "aluminium-horse-shoes",
-        "category": "Horseshoes",
+        "type": "Horseshoes",
         "statsAmount": 40,
         "statsType": "Speed",
         "level": 2,
@@ -17,7 +17,7 @@
     {
         "name": "Blued Steel Horse Shoes",
         "id": "blued-steel-horse-shoes",
-        "category": "Horseshoes",
+        "type": "Horseshoes",
         "statsAmount": 40,
         "statsType": "Agility",
         "level": 3,
@@ -32,7 +32,7 @@
     {
         "name": "Brass Horse Shoes",
         "id": "brass-horse-shoes",
-        "category": "Horseshoes",
+        "type": "Horseshoes",
         "statsAmount": 40,
         "statsType": "Endurance",
         "level": 6,
@@ -47,7 +47,7 @@
     {
         "name": "Wrought Iron Horse Shoes",
         "id": "wrought-iron-horse-shoes",
-        "category": "Horseshoes",
+        "type": "Horseshoes",
         "statsAmount": 40,
         "statsType": "Strength",
         "level": 8,

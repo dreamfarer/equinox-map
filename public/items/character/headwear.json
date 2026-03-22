@@ -2,7 +2,7 @@
     {
         "name": "English Horse Helmet",
         "id": "english-horse-helmet",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 5,
         "faction": "Alderwood Downtown",
         "cost": 1000,
@@ -13,7 +13,7 @@
     {
         "name": "English Horse Helmet (Carbon)",
         "id": "english-horse-helmet-carbon",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Downtown",
         "cost": 2000,
@@ -24,7 +24,7 @@
     {
         "name": "English Horse Helmet (Pink)",
         "id": "english-horse-helmet-pink",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Downtown",
         "cost": 2000,
@@ -35,7 +35,7 @@
     {
         "name": "English Horse Helmet (Racing)",
         "id": "english-horse-helmet-racing",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Downtown",
         "cost": 2000,
@@ -46,7 +46,7 @@
     {
         "name": "Ball Cap",
         "id": "ball-cap",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 5,
         "faction": "Alderwood Farms",
         "cost": 1000,
@@ -57,7 +57,7 @@
     {
         "name": "Ball Cap (White)",
         "id": "ball-cap-white",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Farms",
         "cost": 2000,
@@ -68,7 +68,7 @@
     {
         "name": "Ball Cap (Pink)",
         "id": "ball-cap-pink",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Farms",
         "cost": 2000,
@@ -79,7 +79,7 @@
     {
         "name": "Ball Cap (Navy)",
         "id": "ball-cap-navy",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Farms",
         "cost": 2000,
@@ -90,7 +90,7 @@
     {
         "name": "Ball Cap (Grey)",
         "id": "ball-cap-grey",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Farms",
         "cost": 2000,
@@ -101,7 +101,7 @@
     {
         "name": "Ball Cap (Brown)",
         "id": "ball-cap-brown",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Farms",
         "cost": 2000,
@@ -112,7 +112,7 @@
     {
         "name": "Fleece Headband",
         "id": "fleece-headband",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 8,
         "faction": "Alderwood Equestrians",
         "cost": 1600,
@@ -123,7 +123,7 @@
     {
         "name": "Cowboy Hat",
         "id": "cowboy-hat",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 5,
         "faction": "Alderwood Wilds",
         "cost": 1000,
@@ -134,7 +134,7 @@
     {
         "name": "Cowboy Hat (Brown)",
         "id": "cowboy-hat-brown",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Wilds",
         "cost": 2000,
@@ -145,7 +145,7 @@
     {
         "name": "Cowboy Hat (Tan)",
         "id": "cowboy-hat-tan",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Wilds",
         "cost": 2000,
@@ -156,7 +156,7 @@
     {
         "name": "Cowboy Hat (Pink)",
         "id": "cowboy-hat-pink",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Wilds",
         "cost": 2000,
@@ -167,7 +167,7 @@
     {
         "name": "Cowboy Hat (Navy)",
         "id": "cowboy-hat-navy",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Wilds",
         "cost": 2000,
@@ -178,7 +178,7 @@
     {
         "name": "Cowboy Hat (White)",
         "id": "cowboy-hat-white",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Alderwood Wilds",
         "cost": 2000,
@@ -189,7 +189,7 @@
     {
         "name": "Beanie",
         "id": "beanie",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 5,
         "faction": "Hook's End",
         "cost": 1000,
@@ -200,7 +200,7 @@
     {
         "name": "Beanie (Black)",
         "id": "beanie-black",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Hook's End",
         "cost": 2000,
@@ -211,7 +211,7 @@
     {
         "name": "Beanie (Grey)",
         "id": "beanie-grey",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Hook's End",
         "cost": 2000,
@@ -222,7 +222,7 @@
     {
         "name": "Beanie (Navy)",
         "id": "beanie-navy",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Hook's End",
         "cost": 2000,
@@ -233,7 +233,7 @@
     {
         "name": "Beanie (Green)",
         "id": "beanie-green",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Hook's End",
         "cost": 2000,
@@ -244,7 +244,7 @@
     {
         "name": "Beanie (Pink)",
         "id": "beanie-pink",
-        "category": "Headwear",
+        "type": "Headwear",
         "level": 10,
         "faction": "Hook's End",
         "cost": 2000,
@@ -255,7 +255,7 @@
     {
         "name": "Toque",
         "id": "toque",
-        "category": "Headwear",
+        "type": "Headwear",
         "cost": 20,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -264,7 +264,7 @@
     {
         "name": "Toque (White)",
         "id": "toque-white",
-        "category": "Headwear",
+        "type": "Headwear",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -273,7 +273,7 @@
     {
         "name": "Toque (Navy)",
         "id": "toque-navy",
-        "category": "Headwear",
+        "type": "Headwear",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -282,7 +282,7 @@
     {
         "name": "Toque (Grey)",
         "id": "toque-grey",
-        "category": "Headwear",
+        "type": "Headwear",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",
@@ -291,7 +291,7 @@
     {
         "name": "Toque (Burgundy)",
         "id": "toque-burgundy",
-        "category": "Headwear",
+        "type": "Headwear",
         "cost": 100,
         "currency": "Activity Tokens",
         "shop": "Danny's Token Trade",

@@ -41,18 +41,63 @@ export function DatabaseProvider({
     const filteredDatabaseItems = useMemo(() => {
         return allDatabaseItems.filter((item) => {
             for (const [category, optionMap] of filter.entries()) {
-                const selectedOptions = Array.from(optionMap.entries())
-                    .filter(([, isSelected]) => isSelected)
-                    .map(([option]) => option);
-                if (selectedOptions.length === 0) continue;
+                const isMaxInput =
+                    category === 'reputation' || category === 'cost';
+                const selectedValues = Array.from(optionMap.entries())
+                    .filter(([, value]) => value !== false && value !== '')
+                    .map(([option, value]) => ({ option, value }));
+
+                if (selectedValues.length === 0) continue;
+
+                if (isMaxInput) {
+                    if (category === 'reputation') {
+                        const factionValue = item.faction;
+                        const levelValue = item.level;
+                        if (factionValue && levelValue !== undefined) {
+                            const maxLevel = optionMap.get(factionValue);
+                            if (
+                                typeof maxLevel === 'string' &&
+                                maxLevel !== ''
+                            ) {
+                                if (levelValue > Number(maxLevel)) return false;
+                            }
+                        }
+                    } else if (category === 'cost') {
+                        const currencyValue = item.currency;
+                        const costValue = item.cost;
+                        if (currencyValue && costValue !== undefined) {
+                            const maxAmount = optionMap.get(currencyValue);
+                            if (
+                                typeof maxAmount === 'string' &&
+                                maxAmount !== ''
+                            ) {
+                                if (costValue > Number(maxAmount)) return false;
+                            }
+                        }
+                    }
+                    continue;
+                }
+
+                const selectedOptions = selectedValues.map((sv) => sv.option);
                 const itemValue = item[category as keyof DatabaseItem];
                 if (itemValue === undefined || itemValue === null) return false;
-                if (!selectedOptions.includes(String(itemValue))) return false;
+                if (Array.isArray(itemValue)) {
+                    if (
+                        !itemValue.some((val) =>
+                            selectedOptions.includes(String(val))
+                        )
+                    )
+                        return false;
+                } else {
+                    if (!selectedOptions.includes(String(itemValue)))
+                        return false;
+                }
             }
             return item.name
                 .toLowerCase()
                 .includes(
-                    urlParameters.get('query')?.toLowerCase() ?? ''.trim().toLowerCase()
+                    urlParameters.get('query')?.toLowerCase() ??
+                        ''.trim().toLowerCase()
                 );
         });
     }, [allDatabaseItems, filter, urlParameters]);
@@ -87,9 +132,11 @@ export function DatabaseProvider({
                 params.delete(category);
             }
             for (const [category, optionMap] of filter.entries()) {
-                for (const [option, selected] of optionMap.entries()) {
-                    if (selected) {
+                for (const [option, value] of optionMap.entries()) {
+                    if (value === true) {
                         params.append(category, option);
+                    } else if (typeof value === 'string' && value !== '') {
+                        params.append(category, `${option}:${value}`);
                     }
                 }
             }

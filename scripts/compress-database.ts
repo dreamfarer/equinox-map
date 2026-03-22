@@ -1,55 +1,57 @@
 import path from 'node:path';
-import { readdir, readFile, writeFile, mkdir, access } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
-import { z } from 'zod';
 
-export const DatabaseItemSchema = z.object({
-    name: z.string(),
-    id: z.string(),
-    category: z.string(),
-    statsAmount: z.number().optional(),
-    statsType: z.string().optional(),
-    level: z.number().optional(),
-    faction: z.string().optional(),
-    cost: z.number().optional(),
-    currency: z.string().optional(),
-    shop: z.string().optional(),
-    upgradeAmount: z.number().optional(),
-    upgradeItem: z.string().optional(),
-    imagePath: z.string(),
-});
-
-const itemsDir = path.resolve(__dirname, '../public/items');
-const exportDir = path.resolve(__dirname, '../app/data/');
-const publicDir = path.resolve(__dirname, '../public');
-
-async function getDataFiles() {
-    const files = await readdir(itemsDir, { recursive: true });
+async function collectDataFiles(dir: string) {
+    const files = await readdir(dir, { recursive: true });
     return files.flatMap((file) =>
-        file.endsWith('.json') ? [path.join(itemsDir, file)] : []
+        file.endsWith('.json') ? [path.join(dir, file)] : []
     );
 }
 
 async function compressDatabase() {
-    const databaseItems: DatabaseItem[] = [];
-    const files = await getDataFiles();
-    for (const file of files) {
-        const parsed = JSON.parse(await readFile(file, 'utf8'));
-        const validatedItems = z.array(DatabaseItemSchema).parse(parsed);
-        for (const item of validatedItems) {
-            if (item.imagePath) {
-                try {
-                    await access(path.join(publicDir, item.imagePath));
-                } catch {
-                    console.log(item.id);
-                }
-            }
-        }
-        databaseItems.push(...validatedItems);
+    const databaseItemsDirRaw = process.argv[2];
+    const databaseItemsDir =
+        databaseItemsDirRaw && !databaseItemsDirRaw.startsWith('$')
+            ? databaseItemsDirRaw
+            : (process.env.npm_package_config_databaseItemsDir ??
+              'public/test-items');
+
+    const exportDirRaw = process.argv[3];
+    const exportDir =
+        exportDirRaw && !exportDirRaw.startsWith('$')
+            ? exportDirRaw
+            : (process.env.npm_package_config_exportDir ?? 'app/data/');
+
+    if (!databaseItemsDir || !exportDir) {
+        console.error('Error: databaseItemsDir or exportDir not specified.');
+        process.exit(1);
     }
-    await mkdir(exportDir, { recursive: true });
+
+    const filePaths = await collectDataFiles(
+        path.resolve(__dirname, '..', databaseItemsDir)
+    );
+    const databaseItems = (
+        await Promise.all(
+            filePaths.map(async (filePath) => {
+                const items = JSON.parse(
+                    await readFile(filePath, 'utf8')
+                ) as DatabaseItem[];
+                return items.map((item) => {
+                    if (item.colour) {
+                        item.colours = [item.colour];
+                        delete item.colour;
+                    }
+                    return item;
+                });
+            })
+        )
+    ).flat();
+    await mkdir(path.resolve(__dirname, '..', exportDir), {
+        recursive: true,
+    });
     await writeFile(
-        path.join(exportDir, 'database.json'),
+        path.join(path.resolve(__dirname, '..', exportDir), 'database.json'),
         JSON.stringify(databaseItems)
     );
     console.log('database.json written.');

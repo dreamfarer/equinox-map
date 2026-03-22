@@ -1,5 +1,5 @@
 import { CaretLeftIcon } from '@phosphor-icons/react';
-import styles from '@/app/database/components/filter-category-multiple-choice.module.css';
+import styles from '@/app/database/components/filter-category-max-input.module.css';
 import filterStyles from '@/app/database/components/filter-menu.module.css';
 import { useDatabaseContext } from '@/app/context/database-context';
 import { camelToTitle } from '@/lib/miscellaneous';
@@ -8,30 +8,25 @@ type Props = {
     category: string;
     onBack: () => void;
     title?: string;
-    optionsOverride?: string[];
-    optionLabelFormatter?: (option: string) => string;
 };
 
-export default function FilterCategoryMultipleChoice({
+export default function FilterCategoryMaxInput({
     category,
     onBack,
     title,
-    optionsOverride,
-    optionLabelFormatter,
 }: Props) {
     const { filter, writeFilter, getClonedFilter } = useDatabaseContext();
     const categoryMap = filter.get(category);
 
     if (!categoryMap) return <div>Category not found.</div>;
 
-    const options = optionsOverride ?? Array.from(categoryMap.keys());
+    const options = Array.from(categoryMap.keys());
 
-    const toggleOption = (option: string) => {
+    const setOptionValue = (option: string, value: string) => {
         const nextFilter = getClonedFilter();
         const nextCategoryMap = nextFilter.get(category);
         if (!nextCategoryMap) return;
-        const currentValue = nextCategoryMap.get(option) ?? false;
-        nextCategoryMap.set(option, !currentValue);
+        nextCategoryMap.set(option, value);
         writeFilter(nextFilter);
     };
 
@@ -39,11 +34,8 @@ export default function FilterCategoryMultipleChoice({
         const nextFilter = getClonedFilter();
         const nextCategoryMap = nextFilter.get(category);
         if (!nextCategoryMap) return;
-        const targetOptions = new Set(options);
         nextCategoryMap.forEach((_, option) => {
-            if (targetOptions.has(option)) {
-                nextCategoryMap.set(option, false);
-            }
+            nextCategoryMap.set(option, '');
         });
         writeFilter(nextFilter);
     };
@@ -59,31 +51,27 @@ export default function FilterCategoryMultipleChoice({
                 Reset all
             </button>
 
-            {options.map((option) => {
-                const value = categoryMap.get(option);
-                const checked = value === true;
-                const label = optionLabelFormatter
-                    ? optionLabelFormatter(option)
-                    : option;
-
-                return (
-                    <label key={option} className={styles.container}>
-                        <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => toggleOption(option)}
-                        />
-                        <span className={styles.checkmark}></span>
-                        {label}
-                    </label>
-                );
-            })}
-
-            {category === 'colours' && (
-                <i className={filterStyles.resetButtonBottom}>
-                    WIP: We are currently assigning colours to all items.
-                </i>
-            )}
+            <div className={styles.container}>
+                {options.map((option) => {
+                    const value = categoryMap.get(option);
+                    const displayValue = typeof value === 'string' ? value : '';
+                    return (
+                        <div key={option} className={styles.entry}>
+                            <label className={styles.label}>{option}</label>
+                            <input
+                                type="number"
+                                className={styles.input}
+                                value={displayValue}
+                                onChange={(e) =>
+                                    setOptionValue(option, e.target.value)
+                                }
+                                placeholder="Max"
+                                min="0"
+                            />
+                        </div>
+                    );
+                })}
+            </div>
 
             <div>
                 <button
