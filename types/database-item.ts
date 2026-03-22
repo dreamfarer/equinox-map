@@ -9,6 +9,7 @@ export type DatabaseItem = {
     cost?: number;
     currency?: string;
     shop?: string;
+    colour?: string;
     colours?: string[];
     upgradeAmount?: number;
     upgradeItem?: string;
@@ -28,6 +29,7 @@ export const databaseItemFields = [
     'cost',
     'currency',
     'shop',
+    'colour',
     'colours',
     'upgradeAmount',
     'upgradeItem',

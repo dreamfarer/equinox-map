@@ -96,6 +96,18 @@ export async function validateDatabaseItem(
         );
     }
 
+    if (item.colour && !colours.includes(item.colour)) {
+        errors.push(
+            `Invalid colour for ${itemLabel} in ${filePath}: ${item.colour}`
+        );
+    }
+
+    if (item.colour && item.colours) {
+        errors.push(
+            `Both colour and colours specified for ${itemLabel} in ${filePath}`
+        );
+    }
+
     if (
         item.colours &&
         !item.colours.every((colour) => colours.includes(colour))
