@@ -1,20 +1,19 @@
-export type TypeFilterNode = {
+export type FilterNode = {
     label: string;
     fullPath: string;
-    children: Map<string, TypeFilterNode>;
+    children: Map<string, FilterNode>;
 };
 
-function createNode(label: string, fullPath: string): TypeFilterNode {
-    return {
-        label,
-        fullPath,
+export function buildFilterTree(
+    rootLabel: string,
+    values: string[]
+): FilterNode {
+    const root: FilterNode = {
+        label: rootLabel,
+        fullPath: '',
         children: new Map(),
     };
-}
-
-export function buildTypeFilterTree(typeValues: string[]): TypeFilterNode {
-    const root = createNode('type', '');
-    for (const rawValue of typeValues) {
+    for (const rawValue of values) {
         const parts = rawValue.split('/').filter(Boolean);
         let current = root;
         const accumulated: string[] = [];
@@ -22,7 +21,11 @@ export function buildTypeFilterTree(typeValues: string[]): TypeFilterNode {
             accumulated.push(part);
             const currentPath = accumulated.join('/');
             if (!current.children.has(part)) {
-                current.children.set(part, createNode(part, currentPath));
+                current.children.set(part, {
+                    label: part,
+                    fullPath: currentPath,
+                    children: new Map(),
+                });
             }
             current = current.children.get(part)!;
         }
@@ -30,10 +33,10 @@ export function buildTypeFilterTree(typeValues: string[]): TypeFilterNode {
     return root;
 }
 
-export function getTypeNodeByPath(
-    root: TypeFilterNode,
+export function getNodeByPath(
+    root: FilterNode,
     path: string[]
-): TypeFilterNode | null {
+): FilterNode | null {
     let current = root;
     for (const segment of path) {
         const next = current.children.get(segment);
@@ -43,13 +46,13 @@ export function getTypeNodeByPath(
     return current;
 }
 
-export function collectLeafPaths(node: TypeFilterNode): string[] {
+export function collectLeafValues(node: FilterNode): string[] {
     if (node.children.size === 0) {
         return node.fullPath ? [node.fullPath] : [];
     }
     const result: string[] = [];
     for (const child of node.children.values()) {
-        result.push(...collectLeafPaths(child));
+        result.push(...collectLeafValues(child));
     }
     return result;
 }

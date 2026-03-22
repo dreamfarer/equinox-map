@@ -47,7 +47,17 @@ export function DatabaseProvider({
                 if (selectedOptions.length === 0) continue;
                 const itemValue = item[category as keyof DatabaseItem];
                 if (itemValue === undefined || itemValue === null) return false;
-                if (!selectedOptions.includes(String(itemValue))) return false;
+                if (Array.isArray(itemValue)) {
+                    if (
+                        !itemValue.some((val) =>
+                            selectedOptions.includes(String(val))
+                        )
+                    )
+                        return false;
+                } else {
+                    if (!selectedOptions.includes(String(itemValue)))
+                        return false;
+                }
             }
             return item.name
                 .toLowerCase()
