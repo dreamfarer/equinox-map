@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0.5em 0;
+}
+
+.entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.label {
+    font-size: var(--font-size-base);
+    color: var(--text-dark);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.input {
+    width: 4rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    border: 1px solid var(--text-disabled-dark-transparent);
+    background-color: var(--background-dark-transparent);
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: var(--theme);
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input[type='number'] {
+    -moz-appearance: textfield;
+}
