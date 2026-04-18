@@ -12,6 +12,7 @@ export const colourMap = new Map<string, number>([
     ['Green', 0x00ff00],
     ['Turquoise', 0x00ffff],
     ['Blue', 0x0000ff],
+    ['Navy', 0x192338],
     ['Purple', 0x6600ff],
     ['Pink', 0xff00ff],
 ]);
