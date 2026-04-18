@@ -11,6 +11,7 @@
         "build:convert": "ts-node --project tsconfig.scripts.json --transpile-only scripts/convert-markers.ts",
         "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
         "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
+        "database:sort": "ts-node --project tsconfig.scripts.json --transpile-only scripts/sort-database.ts",
         "database:compress": "ts-node --project tsconfig.scripts.json --transpile-only scripts/compress-database.ts",
         "database:validate": "ts-node --project tsconfig.scripts.json --transpile-only scripts/validate-database.ts",
         "build": "npm run build:convert && npm run database:validate && npm run database:compress && next build",

@@ -15,7 +15,7 @@ async function compressDatabase() {
         databaseItemsDirRaw && !databaseItemsDirRaw.startsWith('$')
             ? databaseItemsDirRaw
             : (process.env.npm_package_config_databaseItemsDir ??
-              'public/test-items');
+              'public/items');
 
     const exportDirRaw = process.argv[3];
     const exportDir =
