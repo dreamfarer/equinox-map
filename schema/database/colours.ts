@@ -4,6 +4,7 @@ export const colourMap = new Map<string, number>([
     ['Silver', 0x999999],
     ['White', 0xffffff],
     ['Brown', 0x664422],
+    ['Tan', 0xd2b48c],
     ['Red', 0xff0000],
     ['Orange', 0xff6600],
     ['Yellow', 0xffff00],
