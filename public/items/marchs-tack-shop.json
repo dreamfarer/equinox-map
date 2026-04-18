@@ -10,6 +10,7 @@
         "cost": 100,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Tan",
         "upgradeAmount": 10,
         "upgradeItem": "Dandelions",
         "imagePath": "/icon/256/character/lower-body/riding-pants.webp"
@@ -25,6 +26,7 @@
         "cost": 200,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Tan", "Orange"],
         "upgradeAmount": 10,
         "upgradeItem": "Fossils",
         "imagePath": "/icon/256/character/footwear/slip-ons.webp"
@@ -40,6 +42,7 @@
         "cost": 200,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/lower-body/riding-pants-black.webp"
@@ -55,6 +58,7 @@
         "cost": 200,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/upper-body/polo-tee-black.webp"
@@ -86,6 +90,7 @@
         "cost": 300,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Raspberries",
         "imagePath": "/icon/256/character/upper-body/polo-tee-navy.webp"
@@ -101,6 +106,7 @@
         "cost": 300,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/horse/saddles/english-saddle-black.webp"
@@ -116,6 +122,7 @@
         "cost": 400,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Sunflowers",
         "imagePath": "/icon/256/character/lower-body/riding-pants-brown.webp"
@@ -131,6 +138,7 @@
         "cost": 400,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Blue",
         "upgradeAmount": 10,
         "upgradeItem": "Delphinium",
         "imagePath": "/icon/256/character/upper-body/polo-tee-postal.webp"
@@ -146,6 +154,7 @@
         "cost": 400,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Red", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Apples",
         "imagePath": "/icon/256/character/lower-body/pleated-skirt.webp"
@@ -161,6 +170,7 @@
         "cost": 500,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Blue",
         "upgradeAmount": 10,
         "upgradeItem": "Fossils",
         "imagePath": "/icon/256/character/lower-body/skinny-jeans-acid-wash.webp"
@@ -176,6 +186,7 @@
         "cost": 500,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Red", "Pink"],
         "upgradeAmount": 10,
         "upgradeItem": "Raspberries",
         "imagePath": "/icon/256/character/upper-body/polo-tee-salmon.webp"
@@ -191,6 +202,7 @@
         "cost": 500,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Sulfur Shelf Mushrooms",
         "imagePath": "/icon/256/character/lower-body/high-riding-pants.webp"
@@ -204,6 +216,7 @@
         "cost": 1000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "imagePath": "/icon/256/character/headwear/english-horse-helmet.webp"
     },
     {
@@ -217,6 +230,7 @@
         "cost": 500,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Green", "Gold"],
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/horse/blankets/baby-pad-green.webp"
@@ -232,6 +246,7 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Blackberries",
         "imagePath": "/icon/256/character/lower-body/riding-pants-navy.webp"
@@ -247,6 +262,7 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/character/upper-body/polo-tee-white.webp"
@@ -262,6 +278,7 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Orange", "Brown"],
         "upgradeAmount": 10,
         "upgradeItem": "Apples",
         "imagePath": "/icon/256/horse/saddles/english-saddle.webp"
@@ -277,6 +294,7 @@
         "cost": 700,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/footwear/suede-boots.webp"
@@ -292,6 +310,7 @@
         "cost": 700,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/lower-body/skinny-jeans-black.webp"
@@ -307,6 +326,7 @@
         "cost": 700,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "King Boletus Mushrooms",
         "imagePath": "/icon/256/character/upper-body/button-down-shirt.webp"
@@ -322,6 +342,7 @@
         "cost": 700,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Red",
         "upgradeAmount": 10,
         "upgradeItem": "Poppies",
         "imagePath": "/icon/256/horse/bridles/basic-bridle-red.webp"
@@ -337,6 +358,7 @@
         "cost": 800,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/character/lower-body/riding-pants-white.webp"
@@ -352,6 +374,7 @@
         "cost": 800,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Dryad's Saddle Mushrooms",
         "imagePath": "/icon/256/character/upper-body/mesh-shirt.webp"
@@ -367,6 +390,7 @@
         "cost": 900,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Grey",
         "upgradeAmount": 10,
         "upgradeItem": "King Boletus Mushrooms",
         "imagePath": "/icon/256/character/lower-body/skinny-jeans-grey.webp"
@@ -382,6 +406,7 @@
         "cost": 900,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Black", "Red"],
         "upgradeAmount": 10,
         "upgradeItem": "Sulfur Shelf Mushrooms",
         "imagePath": "/icon/256/character/upper-body/neoprene-shirt.webp"
@@ -397,6 +422,7 @@
         "cost": 900,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Black", "Pink"],
         "upgradeAmount": 10,
         "upgradeItem": "Water Lilies",
         "imagePath": "/icon/256/horse/saddles/english-saddle-pink.webp"
@@ -412,6 +438,7 @@
         "cost": 1000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Grey", "Blue"],
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/character/upper-body/polo-tee.webp"
@@ -425,6 +452,7 @@
         "cost": 2000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Purple",
         "imagePath": "/icon/256/character/headwear/english-horse-helmet-racing.webp"
     },
     {
@@ -436,6 +464,7 @@
         "cost": 2000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colours": ["Pink", "White"],
         "imagePath": "/icon/256/character/headwear/english-horse-helmet-pink.webp"
     },
     {
@@ -447,6 +476,7 @@
         "cost": 2000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "Black",
         "imagePath": "/icon/256/character/headwear/english-horse-helmet-carbon.webp"
     },
     {
@@ -460,6 +490,7 @@
         "cost": 1000,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Water Lilies",
         "imagePath": "/icon/256/horse/blankets/baby-pad-white.webp"
