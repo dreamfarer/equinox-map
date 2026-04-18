@@ -1,5 +1,19 @@
 [
     {
+        "name": "Basic Bridle (Purple)",
+        "id": "basic-bridle-purple",
+        "type": "Bridles",
+        "statsAmount": 40,
+        "statsType": "Agility",
+        "level": 8,
+        "faction": "Alderwood Equestrians",
+        "cost": 800,
+        "currency": "Silver Sols",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Purple",
+        "imagePath": "/icon/256/horse/bridles/basic-bridle-red.webp"
+    },
+    {
         "name": "Breeches (Burgundy)",
         "id": "breeches-burgundy",
         "type": "Lower Body",
@@ -9,7 +23,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Red",
         "upgradeAmount": 10,
         "upgradeItem": "Raspberries",
         "imagePath": "/icon/256/character/lower-body/breeches-burgundy.webp"
@@ -24,7 +39,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Grey",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/lower-body/breeches-light-grey.webp"
@@ -39,7 +55,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Blackberries",
         "imagePath": "/icon/256/character/lower-body/breeches-navy.webp"
@@ -54,7 +71,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Eagle Feathers",
         "imagePath": "/icon/256/character/upper-body/button-down-shirt-black.webp"
@@ -69,7 +87,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Blackberries",
         "imagePath": "/icon/256/character/upper-body/button-down-shirt-navy.webp"
@@ -82,7 +101,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 1600,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Orange",
         "imagePath": "/icon/256/character/headwear/fleece-headband.webp"
     },
     {
@@ -95,7 +115,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 700,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/lower-body/jean-shorts-black.webp"
@@ -110,7 +131,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 700,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Delphinium",
         "imagePath": "/icon/256/character/lower-body/jean-shorts-indigo.webp"
@@ -125,13 +147,14 @@
         "faction": "Alderwood Equestrians",
         "cost": 700,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/lower-body/jean-shorts-white.webp"
     },
     {
-        "name": "Rubberboots",
+        "name": "RubberBoots",
         "id": "rubberboots",
         "type": "Footwear",
         "statsAmount": 40,
@@ -140,8 +163,23 @@
         "faction": "Alderwood Equestrians",
         "cost": 900,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Black",
         "imagePath": "/icon/256/character/footwear/heavy-boots.webp"
+    },
+    {
+        "name": "Short T-Shirt",
+        "id": "short-t-shirt",
+        "type": "Upper Body",
+        "statsAmount": 40,
+        "statsType": "Riding",
+        "level": 1,
+        "faction": "Alderwood Equestrians",
+        "cost": 100,
+        "currency": "Silver Sols",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Yellow", "White"],
+        "imagePath": "/icon/256/character/upper-body/short-t-shirt.webp"
     },
     {
         "name": "Show Jacket (Grey)",
@@ -153,7 +191,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Grey",
         "upgradeAmount": 10,
         "upgradeItem": "King Boletus Mushrooms",
         "imagePath": "/icon/256/character/upper-body/show-jacket-grey.webp"
@@ -168,7 +207,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Blackberries",
         "imagePath": "/icon/256/character/upper-body/show-jacket-navy.webp"
@@ -183,7 +223,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Tan",
         "upgradeAmount": 10,
         "upgradeItem": "Dryad's Saddle Mushrooms",
         "imagePath": "/icon/256/character/upper-body/show-jacket-tan.webp"
@@ -198,7 +239,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Sulfur Shelf Mushrooms",
         "imagePath": "/icon/256/character/upper-body/show-jacket-white.webp"
@@ -213,7 +255,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 600,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/footwear/skate-shoes.webp"
@@ -228,7 +271,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Black", "White"],
         "upgradeAmount": 10,
         "upgradeItem": "Eagle Feathers",
         "imagePath": "/icon/256/character/footwear/slip-ons-black.webp"
@@ -243,7 +287,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Grey", "White"],
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/footwear/slip-ons-grey-stripe.webp"
@@ -258,7 +303,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Tan", "Orange"],
         "upgradeAmount": 10,
         "upgradeItem": "Dandelions",
         "imagePath": "/icon/256/character/footwear/slip-ons.webp"
@@ -273,7 +319,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Apples",
         "imagePath": "/icon/256/character/footwear/slip-ons-white.webp"
@@ -286,7 +333,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 1000,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Black", "Blue"],
         "imagePath": "/icon/256/horse/wraps/tendon-wraps.webp"
     },
     {
@@ -297,7 +345,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Black",
         "imagePath": "/icon/256/horse/wraps/tendon-wraps-black.webp"
     },
     {
@@ -308,7 +357,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colours": ["Black", "White"],
         "imagePath": "/icon/256/horse/wraps/tendon-wraps-white.webp"
     },
     {
@@ -321,7 +371,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 100,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/character/upper-body/vneck-rolled.webp"
@@ -336,7 +387,8 @@
         "faction": "Alderwood Equestrians",
         "cost": 600,
         "currency": "Silver Sols",
-        "shop": "Thomas' Shop",
+        "shop": "Thomas Pratt's Store",
+        "colour": "Brown",
         "imagePath": "/icon/256/horse/bridles/western-bridle.webp"
     }
 ]
