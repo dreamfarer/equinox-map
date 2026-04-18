@@ -11,7 +11,7 @@ type UEVector = { X: number; Y: number; Z?: number };
 type UEJsonObject = {
     Type?: string;
     Name?: string;
-    Outer?: string;
+    Outer?: { ObjectName?: string };
     Template?: { ObjectName?: string };
     Properties?: { RelativeLocation?: UEVector };
 };
@@ -56,7 +56,13 @@ function asUEJsonObject(v: unknown): UEJsonObject | null {
 
     if (typeof v.Type === 'string') obj.Type = v.Type;
     if (typeof v.Name === 'string') obj.Name = v.Name;
-    if (typeof v.Outer === 'string') obj.Outer = v.Outer;
+
+    if (isRecord(v.Outer)) {
+        const outer: UEJsonObject['Outer'] = {};
+        if (typeof v.Outer.ObjectName === 'string')
+            outer.ObjectName = v.Outer.ObjectName;
+        obj.Outer = outer;
+    }
 
     if (isRecord(v.Template)) {
         const tpl: UEJsonObject['Template'] = {};
@@ -117,8 +123,8 @@ const strategies: Strategy[] = [
         type: 'SceneComponent',
         name: 'Scene',
         matches: (obj) =>
-            typeof obj.Outer === 'string'
-                ? /BP_Artifact[0-9]{2}_C/.test(obj.Outer)
+            typeof obj.Outer?.ObjectName === 'string'
+                ? /BP_Artifact[0-9]{2}_C/.test(obj.Outer.ObjectName)
                 : false,
         getKeyName: () => 'artifact',
     },
