@@ -50,7 +50,7 @@
         "cost": 10,
         "currency": "Red Ribbons",
         "shop": "Riding Club's Shop",
-        "colour": "Blue",
+        "colour": "Navy",
         "imagePath": "/icon/256/horse/wraps/quick-wraps-navy.webp"
     },
     {
@@ -60,7 +60,7 @@
         "cost": 10,
         "currency": "Red Ribbons",
         "shop": "Riding Club's Shop",
-        "colour": "Blue",
+        "colour": "Navy",
         "imagePath": "/icon/256/horse/wraps/quick-wraps-navy-black.webp"
     },
     {
