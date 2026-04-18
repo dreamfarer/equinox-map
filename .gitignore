@@ -44,3 +44,4 @@ next-env.d.ts
 .idea
 tiles/
 app/data/*
+/fmodel
