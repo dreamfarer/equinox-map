@@ -138,7 +138,7 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
-        "colours": ["Orange", "Brown"],
+        "colours": ["Orange", "Brown", "Silver"],
         "upgradeAmount": 10,
         "upgradeItem": "Apples",
         "imagePath": "/icon/256/horse/saddles/english-saddle.webp"
@@ -154,7 +154,7 @@
         "cost": 300,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
-        "colour": "Black",
+        "colours": ["Black", "Silver"],
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/horse/saddles/english-saddle-black.webp"
@@ -170,7 +170,7 @@
         "cost": 900,
         "currency": "Silver Sols",
         "shop": "March's Tack Shop (Wendy)",
-        "colours": ["Black", "Pink"],
+        "colours": ["Black", "Pink", "Silver"],
         "upgradeAmount": 10,
         "upgradeItem": "Water Lilies",
         "imagePath": "/icon/256/horse/saddles/english-saddle-pink.webp"

@@ -112,7 +112,7 @@
         "cost": 1800,
         "currency": "Gold Alders",
         "shop": "Premium",
-        "colours": ["Black", "Gold"],
+        "colours": ["Black", "Gold", "Silver"],
         "imagePath": "/icon/256/horse/saddles/english-saddle-black-gold.webp"
     },
     {
