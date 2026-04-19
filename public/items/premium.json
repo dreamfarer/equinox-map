@@ -1,0 +1,533 @@
+[
+    {
+        "name": "Basic Bridle (Black and Gold)",
+        "id": "basic-bridle-black-and-gold",
+        "type": "Bridles",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/horse/bridles/basic-bridle-black-gold.webp"
+    },
+    {
+        "name": "Basic Bridle (Black and Silver)",
+        "id": "basic-bridle-black-and-silver",
+        "type": "Bridles",
+        "cost": 400,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Silver"],
+        "imagePath": "/icon/256/horse/bridles/basic-bridle-black-silver.webp"
+    },
+    {
+        "name": "Basic Bridle (Burgundy)",
+        "id": "basic-bridle-burgundy",
+        "type": "Bridles",
+        "cost": 400,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Red", "Gold"],
+        "imagePath": "/icon/256/horse/bridles/basic-bridle-burgundy.webp"
+    },
+    {
+        "name": "Blanket Babypad (Blackgold)",
+        "id": "blanket-babypad-blackgold",
+        "type": "Blankets",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/horse/blankets/baby-pad-black-gold.webp"
+    },
+    {
+        "name": "Blanket Babypad (Christmas)",
+        "id": "blanket-babypad-christmas",
+        "type": "Blankets",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Red", "White"],
+        "imagePath": "/icon/256/horse/blankets/baby-pad-christmas.webp"
+    },
+    {
+        "name": "Bow Tie (Black)",
+        "id": "bow-tie-black",
+        "type": "Mane Accessory",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/horse/accessories/bow-tie-black.webp"
+    },
+    {
+        "name": "Dressage Pad (Black and Gold)",
+        "id": "dressage-pad-black-and-gold",
+        "type": "Blankets",
+        "cost": 300,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/horse/blankets/dressage-pad-black-gold.webp"
+    },
+    {
+        "name": "Dressage Pad (Black and Silver)",
+        "id": "dressage-pad-black-and-silver",
+        "type": "Blankets",
+        "cost": 300,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Silver"],
+        "imagePath": "/icon/256/horse/blankets/dressage-pad-black-silver.webp"
+    },
+    {
+        "name": "Dressage Pad (Burgundy)",
+        "id": "dressage-pad-burgundy",
+        "type": "Blankets",
+        "cost": 300,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Red", "Black"],
+        "imagePath": "/icon/256/horse/blankets/dressage-pad-burgundy.webp"
+    },
+    {
+        "name": "Dressage Pad (Silver)",
+        "id": "dressage-pad-silver",
+        "type": "Blankets",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Silver",
+        "imagePath": "/icon/256/horse/blankets/dressage-pad.webp"
+    },
+    {
+        "name": "English Saddle (Black and Gold)",
+        "id": "english-saddle-black-and-gold",
+        "type": "Saddles",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/horse/saddles/english-saddle-black-gold.webp"
+    },
+    {
+        "name": "Feathers",
+        "id": "feathers-tail",
+        "type": "Tail Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Blue",
+        "imagePath": "/icon/256/horse/accessories/feathers.webp"
+    },
+    {
+        "name": "Feathers",
+        "id": "feathers-mane",
+        "type": "Mane Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Blue",
+        "imagePath": "/icon/256/horse/accessories/feathers.webp"
+    },
+    {
+        "name": "Felt Coat",
+        "id": "felt-coat",
+        "type": "Upper-Body",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Tan", "Orange", "Green"],
+        "imagePath": "/icon/256/character/upper-body/felt-coat.webp"
+    },
+    {
+        "name": "Felt Coat (Black and Silver)",
+        "id": "felt-coat-black-and-silver",
+        "type": "Upper-Body",
+        "cost": 500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Silver"],
+        "imagePath": "/icon/256/character/upper-body/felt-coat-black-silver.webp"
+    },
+    {
+        "name": "Felt Coat (Black)",
+        "id": "felt-coat-black",
+        "type": "Upper-Body",
+        "cost": 500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/character/upper-body/felt-coat-black.webp"
+    },
+    {
+        "name": "Felt Coat (Burgundy)",
+        "id": "felt-coat-burgundy",
+        "type": "Upper-Body",
+        "cost": 500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Red", "Black", "Gold"],
+        "imagePath": "/icon/256/character/upper-body/felt-coat-burgundy.webp"
+    },
+    {
+        "name": "Jingle Bells",
+        "id": "jingle-bells",
+        "type": "Tail Accessory",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Red", "Gold"],
+        "imagePath": "/icon/256/horse/accessories/jingle-bells.webp"
+    },
+    {
+        "name": "Jodhpurs",
+        "id": "jodhpurs",
+        "type": "Lower-Body",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Green", "Orange"],
+        "imagePath": "/icon/256/character/lower-body/jodhpur.webp"
+    },
+    {
+        "name": "Jodhpurs (Black)",
+        "id": "jodhpurs-black",
+        "type": "Lower-Body",
+        "cost": 400,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/character/lower-body/jodhpur-black.webp"
+    },
+    {
+        "name": "Jodhpurs (Burgundy)",
+        "id": "jodhpurs-burgundy",
+        "type": "Lower-Body",
+        "cost": 400,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Red",
+        "imagePath": "/icon/256/character/lower-body/jodhpur-burgundy.webp"
+    },
+    {
+        "name": "Leather Riding Gloves (Flowers)",
+        "id": "leather-riding-gloves-flowers",
+        "type": "Gloves",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Green",
+        "imagePath": "/icon/256/character/gloves/leather-riding-gloves-flowers.webp"
+    },
+    {
+        "name": "Loose Ribbon",
+        "id": "loose-ribbon-tail",
+        "type": "Tail Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Pink",
+        "imagePath": "/icon/256/horse/accessories/loose-ribbon.webp"
+    },
+    {
+        "name": "Loose Ribbon",
+        "id": "loose-ribbon-mane",
+        "type": "Mane Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Pink",
+        "imagePath": "/icon/256/horse/accessories/loose-ribbon.webp"
+    },
+    {
+        "name": "Loose Tie",
+        "id": "loose-tie-tail",
+        "type": "Tail Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Blue",
+        "imagePath": "/icon/256/horse/accessories/loose-tie.webp"
+    },
+    {
+        "name": "Loose Tie",
+        "id": "loose-tie-mane",
+        "type": "Mane Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Blue",
+        "imagePath": "/icon/256/horse/accessories/loose-tie.webp"
+    },
+    {
+        "name": "Pastel Roses (White, Purple and Pink)",
+        "id": "pastel-roses-white-purple-and-pink",
+        "type": "Tail Accessory",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["White", "Purple", "Pink"],
+        "imagePath": "/icon/256/horse/accessories/roses-white-purple-pink.webp"
+    },
+    {
+        "name": "Pastel Roses (Yellow, Green and Pink)",
+        "id": "pastel-roses-yellow-green-and-pink",
+        "type": "Tail Accessory",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Yellow", "Green", "Pink"],
+        "imagePath": "/icon/256/horse/accessories/roses-yellow-green-pink.webp"
+    },
+    {
+        "name": "Red Roses",
+        "id": "red-roses-tail",
+        "type": "Tail Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Red", "Green"],
+        "imagePath": "/icon/256/horse/accessories/roses-red.webp"
+    },
+    {
+        "name": "Red Roses",
+        "id": "red-roses-mane",
+        "type": "Mane Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Red", "Green"],
+        "imagePath": "/icon/256/horse/accessories/roses-red.webp"
+    },
+    {
+        "name": "Reindeer Antlers",
+        "id": "reindeer-antlers",
+        "type": "Mane Accessory",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Tan", "Red"],
+        "imagePath": "/icon/256/horse/accessories/reindeer-antlers.webp"
+    },
+    {
+        "name": "Ribbon Bow",
+        "id": "ribbon-bow-tail",
+        "type": "Tail Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Yellow",
+        "imagePath": "/icon/256/horse/accessories/ribbon-bow.webp"
+    },
+    {
+        "name": "Ribbon Bow",
+        "id": "ribbon-bow-mane",
+        "type": "Mane Accessory",
+        "cost": 180,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Yellow",
+        "imagePath": "/icon/256/horse/accessories/ribbon-bow.webp"
+    },
+    {
+        "name": "Riding Pants (Gold Stripe)",
+        "id": "riding-pants-gold-stripe",
+        "type": "Lower-Body",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/character/lower-body/riding-pants-black-gold.webp"
+    },
+    {
+        "name": "Show Jacket (Black and Gold)",
+        "id": "show-jacket-black-and-gold",
+        "type": "Upper-Body",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["Black", "Gold"],
+        "imagePath": "/icon/256/character/upper-body/show-jacket-black-gold.webp"
+    },
+    {
+        "name": "Simple Bow (Black)",
+        "id": "simple-bow-black",
+        "type": "Tail Accessory",
+        "bundle": "Deluxe Riders",
+        "cost": 1800,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/horse/accessories/simple-bow-black.webp"
+    },
+    {
+        "name": "Slouchy Sweater (Black)",
+        "id": "slouchy-sweater-black",
+        "type": "Upper-Body",
+        "cost": 500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/character/upper-body/slouchy-sweater-black.webp"
+    },
+    {
+        "name": "Slouchy Sweater (Green Flower Pattern)",
+        "id": "slouchy-sweater-green-flower-pattern",
+        "type": "Upper-Body",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Green",
+        "imagePath": "/icon/256/character/upper-body/slouchy-sweater-green-flower-pattern.webp"
+    },
+    {
+        "name": "Slouchy Sweater (Pastel Green)",
+        "id": "slouchy-sweater-pastel-green",
+        "type": "Upper-Body",
+        "cost": 500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Green",
+        "imagePath": "/icon/256/character/upper-body/slouchy-sweater-green.webp"
+    },
+    {
+        "name": "Tendon Wraps (Christmas)",
+        "id": "tendon-wraps-christmas",
+        "type": "Wraps",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Red", "White"],
+        "imagePath": "/icon/256/horse/wraps/tendon-wraps-christmas.webp"
+    },
+    {
+        "name": "Tight T-Shirt (Pink with Flowers)",
+        "id": "tight-t-shirt-pink-with-flowers",
+        "type": "Upper-Body",
+        "bundle": "Nature Riders",
+        "cost": 1500,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Pink",
+        "imagePath": "/icon/256/character/upper-body/tight-t-shirt-flowers-pink.webp"
+    },
+    {
+        "name": "Western Bridle (Black)",
+        "id": "western-bridle-black",
+        "type": "Bridles",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Black",
+        "imagePath": "/icon/256/horse/bridles/western-bridle-black.webp"
+    },
+    {
+        "name": "Western Bridle (Christmas)",
+        "id": "western-bridle-christmas",
+        "type": "Bridles",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Red", "Gold"],
+        "imagePath": "/icon/256/horse/bridles/western-bridle-christmas.webp"
+    },
+    {
+        "name": "Western Bridle (Dark Brown)",
+        "id": "western-bridle-dark-brown",
+        "type": "Bridles",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Brown",
+        "imagePath": "/icon/256/horse/bridles/western-bridle-dark-brown.webp"
+    },
+    {
+        "name": "Western Bridle (Tan)",
+        "id": "western-bridle-tan",
+        "type": "Bridles",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "Tan",
+        "imagePath": "/icon/256/horse/bridles/western-bridle-tan.webp"
+    },
+    {
+        "name": "Western Bridle (White)",
+        "id": "western-bridle-white",
+        "type": "Bridles",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colour": "White",
+        "imagePath": "/icon/256/horse/bridles/western-bridle-white.webp"
+    },
+    {
+        "name": "Western Pad (Green)",
+        "id": "western-pad-green",
+        "type": "Blankets",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["White", "Green", "Black"],
+        "imagePath": "/icon/256/horse/blankets/western-pad-green.webp"
+    },
+    {
+        "name": "Western Pad (Orange)",
+        "id": "western-pad-orange",
+        "type": "Blankets",
+        "cost": 200,
+        "currency": "Gold Alders",
+        "shop": "Premium",
+        "colours": ["White", "Orange", "Black"],
+        "imagePath": "/icon/256/horse/blankets/western-pad-orange.webp"
+    },
+    {
+        "name": "Western Saddle (Christmas)",
+        "id": "western-saddle-christmas",
+        "type": "Saddles",
+        "bundle": "Winter Cheer",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["Red", "Gold"],
+        "imagePath": "/icon/256/horse/saddles/western-saddle-christmas.webp"
+    },
+    {
+        "name": "White Roses",
+        "id": "white-roses-tail",
+        "type": "Tail Accessory",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["White", "Green"],
+        "imagePath": "/icon/256/horse/accessories/roses-white.webp"
+    },
+    {
+        "name": "White Roses",
+        "id": "white-roses-mane",
+        "type": "Mane Accessory",
+        "cost": 1,
+        "currency": "Early Access Coins",
+        "shop": "Premium",
+        "colours": ["White", "Green"],
+        "imagePath": "/icon/256/horse/accessories/roses-white.webp"
+    }
+]
