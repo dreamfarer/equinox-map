@@ -1,8 +1,10 @@
 export const shops = [
     "March's Tack Shop (Wendy)",
-    "Kathy's Shop",
+    "Kathy's Trendy Threads",
     "Samuel's Shop",
-    "Thomas' Shop",
+    "Thomas Pratt's Store",
     "Robert's Shop",
     "Danny's Token Trade",
+    "Riding Club's Shop",
+    'Premium',
 ];
