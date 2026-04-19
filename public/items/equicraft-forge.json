@@ -9,7 +9,7 @@
         "faction": "Alderwood Wilds",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
         "upgradeAmount": 10,
         "upgradeItem": "Old Horseshoes",
         "imagePath": "/icon/256/horse/horseshoes/aluminium-horse-shoes.webp"
@@ -24,7 +24,8 @@
         "faction": "Alderwood Wilds",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Fossils",
         "imagePath": "/icon/256/horse/bridles/basic-bridle-black.webp"
@@ -39,7 +40,7 @@
         "faction": "Alderwood Wilds",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
         "upgradeAmount": 10,
         "upgradeItem": "Old Horseshoes",
         "imagePath": "/icon/256/horse/horseshoes/blued-steel-horse-shoes.webp"
@@ -54,7 +55,7 @@
         "faction": "Alderwood Wilds",
         "cost": 600,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
         "upgradeAmount": 10,
         "upgradeItem": "Old Horseshoes",
         "imagePath": "/icon/256/horse/horseshoes/brass-horse-shoes.webp"
@@ -67,7 +68,8 @@
         "faction": "Alderwood Wilds",
         "cost": 1000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Black",
         "imagePath": "/icon/256/character/headwear/cowboy-hat.webp"
     },
     {
@@ -78,7 +80,8 @@
         "faction": "Alderwood Wilds",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Brown",
         "imagePath": "/icon/256/character/headwear/cowboy-hat-brown.webp"
     },
     {
@@ -89,7 +92,8 @@
         "faction": "Alderwood Wilds",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Navy",
         "imagePath": "/icon/256/character/headwear/cowboy-hat-navy.webp"
     },
     {
@@ -100,7 +104,8 @@
         "faction": "Alderwood Wilds",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Pink",
         "imagePath": "/icon/256/character/headwear/cowboy-hat-pink.webp"
     },
     {
@@ -111,7 +116,8 @@
         "faction": "Alderwood Wilds",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Tan",
         "imagePath": "/icon/256/character/headwear/cowboy-hat-tan.webp"
     },
     {
@@ -122,7 +128,8 @@
         "faction": "Alderwood Wilds",
         "cost": 2000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "White",
         "imagePath": "/icon/256/character/headwear/cowboy-hat-tan.webp"
     },
     {
@@ -135,7 +142,8 @@
         "faction": "Alderwood Wilds",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colours": ["White", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Deer Antlers",
         "imagePath": "/icon/256/character/footwear/heavy-boots.webp"
@@ -150,7 +158,8 @@
         "faction": "Alderwood Wilds",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colours": ["White", "Brown"],
         "upgradeAmount": 10,
         "upgradeItem": "Sunflowers",
         "imagePath": "/icon/256/character/footwear/heavy-boots-tan.webp"
@@ -165,7 +174,8 @@
         "faction": "Alderwood Wilds",
         "cost": 800,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Eagle Feathers",
         "imagePath": "/icon/256/character/footwear/hiking-shoes.webp"
@@ -180,7 +190,8 @@
         "faction": "Alderwood Wilds",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Fossils",
         "imagePath": "/icon/256/character/gloves/leather-riding-gloves.webp"
@@ -195,7 +206,8 @@
         "faction": "Alderwood Wilds",
         "cost": 900,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Tan",
         "upgradeAmount": 10,
         "upgradeItem": "Moss",
         "imagePath": "/icon/256/character/gloves/leather-riding-gloves-tan.webp"
@@ -210,7 +222,8 @@
         "faction": "Alderwood Wilds",
         "cost": 900,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Gold",
         "upgradeAmount": 10,
         "upgradeItem": "Deer Antlers",
         "imagePath": "/icon/256/character/upper-body/puffer-jacket.webp"
@@ -225,7 +238,8 @@
         "faction": "Alderwood Wilds",
         "cost": 100,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Pink",
         "upgradeAmount": 10,
         "upgradeItem": "Water Lilies",
         "imagePath": "/icon/256/character/upper-body/tight-t-shirt-pink.webp"
@@ -240,7 +254,7 @@
         "faction": "Alderwood Wilds",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
         "colours": ["White", "Red", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Raspberries",
@@ -256,7 +270,8 @@
         "faction": "Alderwood Wilds",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colours": ["White", "Beige", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "King Boletus Mushrooms",
         "imagePath": "/icon/256/horse/blankets/western-pad-beige.webp"
@@ -271,7 +286,8 @@
         "faction": "Alderwood Wilds",
         "cost": 600,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colours": ["White", "Pink", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Water Lilies",
         "imagePath": "/icon/256/horse/blankets/western-pad-pink.webp"
@@ -286,7 +302,8 @@
         "faction": "Alderwood Wilds",
         "cost": 900,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colours": ["White", "Blue", "Black"],
         "upgradeAmount": 10,
         "upgradeItem": "Delphinium",
         "imagePath": "/icon/256/horse/blankets/western-pad-teal.webp"
@@ -301,7 +318,8 @@
         "faction": "Alderwood Wilds",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Old Horseshoes",
         "imagePath": "/icon/256/horse/saddles/western-saddle.webp"
@@ -316,7 +334,8 @@
         "faction": "Alderwood Wilds",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/horse/saddles/western-saddle-black.webp"
@@ -331,7 +350,8 @@
         "faction": "Alderwood Wilds",
         "cost": 700,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Brown",
         "upgradeAmount": 10,
         "upgradeItem": "Deer Antlers",
         "imagePath": "/icon/256/horse/saddles/western-saddle-brown.webp"
@@ -346,7 +366,8 @@
         "faction": "Alderwood Wilds",
         "cost": 1000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/horse/saddles/western-saddle-white.webp"
@@ -361,7 +382,7 @@
         "faction": "Alderwood Wilds",
         "cost": 800,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
         "upgradeAmount": 10,
         "upgradeItem": "Old Horseshoes",
         "imagePath": "/icon/256/horse/horseshoes/wrought-iron-horse-shoes.webp"
@@ -376,7 +397,8 @@
         "faction": "Alderwood Wilds",
         "cost": 100,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Grey",
         "upgradeAmount": 10,
         "upgradeItem": "Eagle Feathers",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie.webp"
@@ -391,7 +413,8 @@
         "faction": "Alderwood Wilds",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Beige",
         "upgradeAmount": 10,
         "upgradeItem": "Sunflowers",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-beige.webp"
@@ -406,7 +429,8 @@
         "faction": "Alderwood Wilds",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Black",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-black.webp"
@@ -421,7 +445,8 @@
         "faction": "Alderwood Wilds",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Blue",
         "upgradeAmount": 10,
         "upgradeItem": "Delphinium",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-blue.webp"
@@ -436,7 +461,8 @@
         "faction": "Alderwood Wilds",
         "cost": 500,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Green",
         "upgradeAmount": 10,
         "upgradeItem": "Moss",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-green.webp"
@@ -451,7 +477,8 @@
         "faction": "Alderwood Wilds",
         "cost": 600,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Grey",
         "upgradeAmount": 10,
         "upgradeItem": "Seagull Feathers",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-grey.webp"
@@ -466,7 +493,8 @@
         "faction": "Alderwood Wilds",
         "cost": 700,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Navy",
         "upgradeAmount": 10,
         "upgradeItem": "Delphinium",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-navy.webp"
@@ -481,7 +509,8 @@
         "faction": "Alderwood Wilds",
         "cost": 800,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Orange",
         "upgradeAmount": 10,
         "upgradeItem": "Wild Carrots",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-orange.webp"
@@ -496,7 +525,8 @@
         "faction": "Alderwood Wilds",
         "cost": 900,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Purple",
         "upgradeAmount": 10,
         "upgradeItem": "Poppies",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-purple.webp"
@@ -511,7 +541,8 @@
         "faction": "Alderwood Wilds",
         "cost": 1000,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Red",
         "upgradeAmount": 10,
         "upgradeItem": "Poppies",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-red.webp"
@@ -526,7 +557,8 @@
         "faction": "Alderwood Wilds",
         "cost": 200,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Tan",
         "upgradeAmount": 10,
         "upgradeItem": "Sunflowers",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-tan.webp"
@@ -541,7 +573,8 @@
         "faction": "Alderwood Wilds",
         "cost": 300,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "White",
         "upgradeAmount": 10,
         "upgradeItem": "Violets",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-white.webp"
@@ -556,7 +589,8 @@
         "faction": "Alderwood Wilds",
         "cost": 400,
         "currency": "Silver Sols",
-        "shop": "Samuel's Shop",
+        "shop": "Equicraft Forge",
+        "colour": "Yellow",
         "upgradeAmount": 10,
         "upgradeItem": "Dandelions",
         "imagePath": "/icon/256/character/upper-body/zipper-hoodie-yellow.webp"

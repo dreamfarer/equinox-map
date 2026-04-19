@@ -15,6 +15,7 @@ export const colourMap = new Map<string, number>([
     ['Navy', 0x192338],
     ['Purple', 0x6600ff],
     ['Pink', 0xff00ff],
+    ['Beige', 0xffe4c4],
 ]);
 
 export const colours = Array.from(colourMap.keys());
