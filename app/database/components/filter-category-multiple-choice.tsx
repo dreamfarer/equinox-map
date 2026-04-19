@@ -79,12 +79,6 @@ export default function FilterCategoryMultipleChoice({
                 );
             })}
 
-            {category === 'colours' && (
-                <i className={filterStyles.resetButtonBottom}>
-                    WIP: We are currently assigning colours to all items.
-                </i>
-            )}
-
             <div>
                 <button
                     className={filterStyles.resetButtonBottom}

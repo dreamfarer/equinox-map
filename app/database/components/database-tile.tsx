@@ -1,20 +1,6 @@
 import Image from 'next/image';
 import styles from '@/app/database/components/database-tile.module.css';
-
-type Props = {
-    name: string;
-    type: string;
-    statsAmount?: number;
-    statsType?: string;
-    level?: number;
-    faction?: string;
-    cost?: number;
-    currency?: string;
-    shop?: string;
-    upgradeAmount?: number;
-    upgradeItem?: string;
-    imagePath: string;
-};
+import { DatabaseItem } from '@/types/database-item';
 
 export default function DatabaseTile({
     name,
@@ -26,10 +12,11 @@ export default function DatabaseTile({
     cost,
     currency,
     shop,
+    bundle,
     upgradeAmount,
     upgradeItem,
     imagePath,
-}: Props) {
+}: DatabaseItem) {
     return (
         <div className={styles.item}>
             <div className={styles.header}>
@@ -78,9 +65,20 @@ export default function DatabaseTile({
 
                 {(cost !== undefined || currency) && (
                     <div className={styles.entry}>
-                        <h2 className={styles.text}>Cost:</h2>
+                        <h2 className={styles.text}>
+                            {bundle !== undefined ? 'Bundle Cost:' : 'Cost:'}
+                        </h2>
                         <p className={`${styles.text} ${styles.rightAlign}`}>
                             {cost} {currency}
+                        </p>
+                    </div>
+                )}
+
+                {bundle && (
+                    <div className={styles.entry}>
+                        <h2 className={styles.text}>Bundle:</h2>
+                        <p className={`${styles.text} ${styles.rightAlign}`}>
+                            {bundle}
                         </p>
                     </div>
                 )}

@@ -24,6 +24,7 @@ export const menuEntries: MenuEntry[] = [
         isMaxInput: true,
     },
     { label: 'Shop', field: 'shop' },
+    { label: 'Bundle', field: 'bundle' },
     { label: 'Colours', field: 'colours' },
     { label: 'Upgrade', field: 'upgradeItem', optionPrefix: '10 ' },
 ];
