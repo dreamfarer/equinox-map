@@ -138,7 +138,7 @@
     {
         "name": "Felt Coat",
         "id": "felt-coat",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "bundle": "Nature Riders",
         "cost": 1500,
         "currency": "Gold Alders",
@@ -149,7 +149,7 @@
     {
         "name": "Felt Coat (Black and Silver)",
         "id": "felt-coat-black-and-silver",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "cost": 500,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -159,7 +159,7 @@
     {
         "name": "Felt Coat (Black)",
         "id": "felt-coat-black",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "cost": 500,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -169,7 +169,7 @@
     {
         "name": "Felt Coat (Burgundy)",
         "id": "felt-coat-burgundy",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "cost": 500,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -190,7 +190,7 @@
     {
         "name": "Jodhpurs",
         "id": "jodhpurs",
-        "type": "Lower-Body",
+        "type": "Lower Body",
         "bundle": "Nature Riders",
         "cost": 1500,
         "currency": "Gold Alders",
@@ -201,7 +201,7 @@
     {
         "name": "Jodhpurs (Black)",
         "id": "jodhpurs-black",
-        "type": "Lower-Body",
+        "type": "Lower Body",
         "cost": 400,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -211,7 +211,7 @@
     {
         "name": "Jodhpurs (Burgundy)",
         "id": "jodhpurs-burgundy",
-        "type": "Lower-Body",
+        "type": "Lower Body",
         "cost": 400,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -345,7 +345,7 @@
     {
         "name": "Riding Pants (Gold Stripe)",
         "id": "riding-pants-gold-stripe",
-        "type": "Lower-Body",
+        "type": "Lower Body",
         "bundle": "Deluxe Riders",
         "cost": 1800,
         "currency": "Gold Alders",
@@ -356,7 +356,7 @@
     {
         "name": "Show Jacket (Black and Gold)",
         "id": "show-jacket-black-and-gold",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "bundle": "Deluxe Riders",
         "cost": 1800,
         "currency": "Gold Alders",
@@ -378,7 +378,7 @@
     {
         "name": "Slouchy Sweater (Black)",
         "id": "slouchy-sweater-black",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "cost": 500,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -388,7 +388,7 @@
     {
         "name": "Slouchy Sweater (Green Flower Pattern)",
         "id": "slouchy-sweater-green-flower-pattern",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "bundle": "Nature Riders",
         "cost": 1500,
         "currency": "Gold Alders",
@@ -399,7 +399,7 @@
     {
         "name": "Slouchy Sweater (Pastel Green)",
         "id": "slouchy-sweater-pastel-green",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "cost": 500,
         "currency": "Gold Alders",
         "shop": "Premium",
@@ -420,7 +420,7 @@
     {
         "name": "Tight T-Shirt (Pink with Flowers)",
         "id": "tight-t-shirt-pink-with-flowers",
-        "type": "Upper-Body",
+        "type": "Upper Body",
         "bundle": "Nature Riders",
         "cost": 1500,
         "currency": "Gold Alders",
