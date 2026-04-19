@@ -7,4 +7,5 @@ export const shops = [
     "Danny's Token Trade",
     "Riding Club's Shop",
     'Premium',
+    'DLC'
 ];

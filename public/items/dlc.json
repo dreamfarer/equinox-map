@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Dressage Pad (Equinox Light)",
+        "id": "dressage-pad-equinox-light",
+        "type": "Blankets",
+        "bundle": "Premium Cosmetics Pack",
+        "cost": 10.0,
+        "currency": "$",
+        "shop": "DLC",
+        "colours": ["Purple", "Pink"],
+        "imagePath": "/icon/256/horse/blankets/dressage-pad-premium-pack-light.webp"
+    },
+    {
+        "name": "Dressage Pad (Equinox Dark)",
+        "id": "dressage-pad-equinox-dark",
+        "type": "Blankets",
+        "bundle": "Premium Cosmetics Pack",
+        "cost": 10.0,
+        "currency": "$",
+        "shop": "DLC",
+        "colours": ["Black", "Purple", "Pink"],
+        "imagePath": "/icon/256/horse/blankets/dressage-pad-premium-pack-dark.webp"
+    },
+    {
+        "name": "English Saddle (Equinox)",
+        "id": "english-saddle-equinox",
+        "type": "Saddles",
+        "bundle": "Premium Cosmetics Pack",
+        "cost": 10.0,
+        "currency": "$",
+        "shop": "DLC",
+        "colours": ["Pink", "Silver"],
+        "imagePath": "/icon/256/horse/saddles/english-saddle-premium-pack.webp"
+    },
+    {
+        "name": "Floral Antlers",
+        "id": "floral-antlers",
+        "type": "Mane Accessory",
+        "bundle": "Premium Cosmetics Pack",
+        "cost": 10.0,
+        "currency": "$",
+        "shop": "DLC",
+        "colours": ["White", "Pink"],
+        "imagePath": "/icon/256/horse/accessories/floral-antlers.webp"
+    }
+]
