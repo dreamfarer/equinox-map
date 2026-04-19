@@ -11,7 +11,7 @@
         "currency": "Silver Sols",
         "shop": "Thomas Pratt's Store",
         "colour": "Purple",
-        "imagePath": "/icon/256/horse/bridles/basic-bridle-red.webp"
+        "imagePath": "/icon/256/horse/bridles/basic-bridle-purple.webp"
     },
     {
         "name": "Breeches (Burgundy)",
@@ -256,7 +256,7 @@
         "cost": 600,
         "currency": "Silver Sols",
         "shop": "Thomas Pratt's Store",
-        "colour": "Black",
+        "colour": "Blue",
         "upgradeAmount": 10,
         "upgradeItem": "Raven Feathers",
         "imagePath": "/icon/256/character/footwear/skate-shoes.webp"

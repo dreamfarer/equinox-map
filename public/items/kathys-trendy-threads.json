@@ -194,7 +194,7 @@
         "cost": 300,
         "currency": "Silver Sols",
         "shop": "Kathy's Trendy Threads",
-        "colours": ["Black", "Blue", "White", "Red"],
+        "colours": ["Blue", "White", "Orange"],
         "upgradeAmount": 10,
         "upgradeItem": "Wild Carrots",
         "imagePath": "/icon/256/character/footwear/cozy-casual.webp"

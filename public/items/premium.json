@@ -486,7 +486,7 @@
         "cost": 200,
         "currency": "Gold Alders",
         "shop": "Premium",
-        "colours": ["White", "Green", "Black"],
+        "colours": ["White", "Green"],
         "imagePath": "/icon/256/horse/blankets/western-pad-green.webp"
     },
     {
@@ -496,7 +496,7 @@
         "cost": 200,
         "currency": "Gold Alders",
         "shop": "Premium",
-        "colours": ["White", "Orange", "Black"],
+        "colours": ["White", "Orange"],
         "imagePath": "/icon/256/horse/blankets/western-pad-orange.webp"
     },
     {
