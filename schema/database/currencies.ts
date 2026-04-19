@@ -5,5 +5,5 @@ export const currencies = [
     'Red Ribbons',
     'Yellow Ribbons',
     'Early Access Coins',
-    '$'
+    '$',
 ];
