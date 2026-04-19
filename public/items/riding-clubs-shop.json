@@ -85,7 +85,7 @@
     },
     {
         "name": "Hoodie (Tan)",
-        "id": "hoodie-white",
+        "id": "hoodie-tan",
         "type": "Upper Body",
         "statsAmount": 40,
         "statsType": "Fitness",
@@ -179,15 +179,15 @@
     },
     {
         "name": "Sneaker (Black)",
-        "id": "sneakers-dark-brown",
+        "id": "sneakers-black",
         "type": "Footwear",
         "statsAmount": 40,
         "statsType": "Fitness",
         "cost": 10,
         "currency": "Red Ribbons",
         "shop": "Riding Club's Shop",
-        "colour": "Brown",
-        "imagePath": "/icon/256/character/footwear/sneakers-brown.webp"
+        "colour": "Black",
+        "imagePath": "/icon/256/character/footwear/sneakers-black.webp"
     },
     {
         "name": "Sneaker (Dark Brown)",
