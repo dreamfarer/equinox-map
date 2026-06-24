@@ -17,8 +17,11 @@ type UEJsonObject = {
 };
 
 const DATA_DIR = path.resolve(__dirname, 'data'); // input directory of raw Unreal Engine data
-const OUTPUT_DIR = path.resolve(__dirname, '../public/markers/resources'); // output directory for the map
-const MAP_NAME = 'greenisland'; // map name
+const OUTPUT_DIR = path.resolve(
+    __dirname,
+    '../public/markers/alderwood/resources'
+); // output directory for the map
+const MAP_NAME = 'alderwood'; // map name
 
 /** Convert internal names to a more human-readable format. */
 const nameOverrides: Record<string, string> = {
