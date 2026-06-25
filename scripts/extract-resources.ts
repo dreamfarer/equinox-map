@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import config from './extract-resources.json';
 
 type Marker = {
     x: number;
@@ -15,13 +16,8 @@ type UEJsonObject = {
     Template?: { ObjectName?: string };
     Properties?: { RelativeLocation?: UEVector };
 };
-
-const DATA_DIR = path.resolve(__dirname, 'data'); // input directory of raw Unreal Engine data
-const OUTPUT_DIR = path.resolve(
-    __dirname,
-    '../public/markers/alderwood/resources'
-); // output directory for the map
-const MAP_NAME = 'alderwood'; // map name
+type Source = { mapName: string; dir: string };
+type File = { mapName: string; path: string };
 
 /** Convert internal names to a more human-readable format. */
 const nameOverrides: Record<string, string> = {
@@ -133,33 +129,43 @@ const strategies: Strategy[] = [
     },
 ];
 
-/** Collect all file paths recursively from the data directory. */
-function getFiles(dir: string): string[] {
-    let results: string[] = [];
-    const list = fs.readdirSync(dir);
-    list.forEach((file) => {
-        const fullPath = path.join(dir, file);
-        const fileInfo = fs.statSync(fullPath);
-        if (fileInfo.isDirectory()) {
-            results = results.concat(getFiles(fullPath));
-        } else if (file.endsWith('.json')) {
-            results.push(fullPath);
-        }
-    });
-
+/** Collect all file paths from all Sources. */
+function getAllFiles(sources: Source[]): File[] {
+    let results: File[] = [];
+    for (const source of sources) {
+        results = results.concat(getFilesFromSource(source));
+    }
     return results;
 }
 
-/** Go through each file, collect the location and add it to the corresponding dictionary key. */
-function extractMarkers(filePath: string): Markers {
+/** Collect all file paths recursively from one Source. */
+function getFilesFromSource(source: Source): File[] {
+    let results: File[] = [];
+    const list = fs.readdirSync(source.dir);
+    list.forEach((file) => {
+        const fullPath = path.join(source.dir, file);
+        const fileInfo = fs.statSync(fullPath);
+        if (fileInfo.isDirectory()) {
+            results = results.concat(
+                getFilesFromSource({ mapName: source.mapName, dir: fullPath })
+            );
+        } else if (file.endsWith('.json')) {
+            results.push({ mapName: source.mapName, path: fullPath });
+        }
+    });
+    return results;
+}
+
+/** Go through each file, collect the location, and add it to the corresponding dictionary key. */
+function extractMarkers(file: File): Markers {
     const markers: Markers = {};
-    const rawFile = fs.readFileSync(filePath, 'utf-8');
+    const rawFile = fs.readFileSync(file.path, 'utf-8');
 
     let parsed: unknown;
     try {
         parsed = JSON.parse(rawFile) as unknown;
     } catch {
-        console.warn(`Invalid JSON in ${filePath}`);
+        console.warn(`Invalid JSON in ${file.path}`);
         return markers;
     }
 
@@ -178,7 +184,7 @@ function extractMarkers(filePath: string): Markers {
             if (!rawKey) continue;
             const name = nameOverrides[rawKey] ?? rawKey;
             markers[name] ??= [];
-            markers[name].push({ map: MAP_NAME, x: xy.x, y: xy.y });
+            markers[name].push({ map: file.mapName, x: xy.x, y: xy.y });
             break;
         }
     }
@@ -188,11 +194,11 @@ function extractMarkers(filePath: string): Markers {
 
 /** Orchestrate and write output. */
 function extract() {
-    if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+    if (!fs.existsSync(config.outputDir)) {
+        fs.mkdirSync(config.outputDir, { recursive: true });
     }
 
-    const allFiles = getFiles(DATA_DIR);
+    const allFiles = getAllFiles(config.sources);
     const grouped: Record<string, Marker[]> = {};
     for (const file of allFiles) {
         const markers = extractMarkers(file);
@@ -203,7 +209,7 @@ function extract() {
     }
 
     for (const [name, entries] of Object.entries(grouped)) {
-        const filePath = path.join(OUTPUT_DIR, `${name}.json`);
+        const filePath = path.join(config.outputDir, `${name}.json`);
         const formatted =
             '[\n' +
             entries

@@ -1,0 +1,25 @@
+{
+    "outputDir": "../public/markers/resources/",
+    "sources": [
+        {
+            "mapName": "alderwood",
+            "dir": "../fmodel/alderwood"
+        },
+        {
+            "mapName": "five-sisters-isle",
+            "dir": "../fmodel/five-sisters-isle"
+        },
+        {
+            "mapName": "high-coast-trail",
+            "dir": "../fmodel/high-coast-trail"
+        },
+        {
+            "mapName": "low-coast-trail",
+            "dir": "../fmodel/low-coast-trail"
+        },
+        {
+            "mapName": "sunset-lake",
+            "dir": "../fmodel/sunset-lake"
+        }
+    ]
+}
