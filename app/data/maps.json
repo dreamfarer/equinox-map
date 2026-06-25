@@ -1,5 +1,57 @@
 {
-    "greenisland": {
+    "alderwood": {
+        "tileSize": 256,
+        "size": [32768, 32768],
+        "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/greenisland/v3/{z}/{y}/{x}.png",
+        "boundsImage": [12636, 11652, 20132, 21116],
+        "boundsData": [-976, -1313, 1125, 1337],
+        "minZoom": 1,
+        "maxZoom": 7,
+        "maxOverscaledZoom": 7,
+        "initZoom": 2,
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "five-sisters-isle": {
+        "tileSize": 256,
+        "size": [32768, 32768],
+        "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/greenisland/v3/{z}/{y}/{x}.png",
+        "boundsImage": [12636, 11652, 20132, 21116],
+        "boundsData": [-976, -1313, 1125, 1337],
+        "minZoom": 1,
+        "maxZoom": 7,
+        "maxOverscaledZoom": 7,
+        "initZoom": 2,
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "low-coast-trail": {
+        "tileSize": 256,
+        "size": [32768, 32768],
+        "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/greenisland/v3/{z}/{y}/{x}.png",
+        "boundsImage": [12636, 11652, 20132, 21116],
+        "boundsData": [-976, -1313, 1125, 1337],
+        "minZoom": 1,
+        "maxZoom": 7,
+        "maxOverscaledZoom": 7,
+        "initZoom": 2,
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "high-coast-trail": {
+        "tileSize": 256,
+        "size": [32768, 32768],
+        "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/greenisland/v3/{z}/{y}/{x}.png",
+        "boundsImage": [12636, 11652, 20132, 21116],
+        "boundsData": [-976, -1313, 1125, 1337],
+        "minZoom": 1,
+        "maxZoom": 7,
+        "maxOverscaledZoom": 7,
+        "initZoom": 2,
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "sunset-lake": {
         "tileSize": 256,
         "size": [32768, 32768],
         "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",

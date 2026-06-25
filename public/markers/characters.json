@@ -4,7 +4,7 @@
         "id": "agnes",
         "subtitle": "Is a member of Alderwood Downtown.",
         "icon": "agnes",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -427.9526601412636,
         "y": 252.16276649784913
     },
@@ -13,7 +13,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "celina",
         "icon": "celina",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -403.658528631448,
         "y": 202.19926678970455
     },
@@ -22,7 +22,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "kurt",
         "icon": "kurt",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -453.3857405971062,
         "y": 126.77866074561325
     },
@@ -31,7 +31,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "danny",
         "icon": "danny",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -491.6899879573528,
         "y": 100.66704467090244
     },
@@ -40,7 +40,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "maia",
         "icon": "maia",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -499.0204879573535,
         "y": 95.50809453153602
     },
@@ -49,7 +49,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "kathy",
         "icon": "kathy",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -394.64898973700116,
         "y": 116.6410019454695
     },
@@ -58,7 +58,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "paige",
         "icon": "paige",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -399.3549897370012,
         "y": 120.44233362710156
     },
@@ -67,7 +67,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "wendy",
         "icon": "wendy",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -369.41363915517366,
         "y": 219.01073745382587
     },
@@ -76,7 +76,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "lucas",
         "icon": "lucas",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -356.67710012748535,
         "y": 251.64173802151572
     },
@@ -85,7 +85,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "heather",
         "icon": "heather",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -309.23889893500206,
         "y": 117.7859464215851
     },
@@ -94,7 +94,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "thomas",
         "icon": "thomas",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -304.6190459087903,
         "y": 178.71330421107086
     },
@@ -103,7 +103,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "malcolm",
         "icon": "malcolm",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -475.9804424553474,
         "y": 231.3158309806215
     },
@@ -112,7 +112,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "valeria",
         "icon": "valeria",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -350.5347298336225,
         "y": 163.07594176697307
     },
@@ -121,7 +121,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "carmen",
         "icon": "carmen",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -344.65222983362133,
         "y": 158.55054690789234
     },
@@ -130,7 +130,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "bill",
         "icon": "bill",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -423.03008767676147,
         "y": 361.269514176749
     },
@@ -139,7 +139,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "lucy",
         "icon": "lucy",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -370.0577860689807,
         "y": -30.66846816202201
     },
@@ -148,7 +148,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "kai",
         "icon": "kai",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -382.0997161107444,
         "y": -32.570944174669194
     },
@@ -157,7 +157,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "emily",
         "icon": "emily",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -324.2141797124081,
         "y": -125.6702374374679
     },
@@ -166,7 +166,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "lewis",
         "icon": "lewis",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -320.72624893453445,
         "y": -144.53442188647182
     },
@@ -175,7 +175,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "mrs-wilson",
         "icon": "mrs-weasley",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -341.1259414817855,
         "y": -250.45996460452898
     },
@@ -184,7 +184,7 @@
         "subtitle": "Is a member of Alderwood Wilds.",
         "id": "samuel",
         "icon": "samuel",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -421.32989238253344,
         "y": -302.1763421561434
     },
@@ -193,7 +193,7 @@
         "subtitle": "Is a member of Hook's End.",
         "id": "harry",
         "icon": "harry",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -628.9808852739525,
         "y": -516.9891933970628
     },
@@ -202,7 +202,7 @@
         "subtitle": "Is a member of Hook's End.",
         "id": "misty",
         "icon": "misty",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -578.7289651939068,
         "y": -535.7122906529446
     },
@@ -211,7 +211,7 @@
         "subtitle": "Is a member of Hook's End.",
         "id": "robert",
         "icon": "robert",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -625.5684319946454,
         "y": -578.959023389952
     },
@@ -220,7 +220,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "mike",
         "icon": "mike",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -204.70972680994453,
         "y": -752.9382706841768
     },
@@ -228,7 +228,7 @@
         "title": "Derek Whitlock",
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "derek",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 471.0893413095671,
         "y": -777.943712120016
     },
@@ -237,7 +237,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "old-williams",
         "icon": "old-williams",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 667.1305367096754,
         "y": -552.5491794304721
     },
@@ -246,7 +246,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "meredith",
         "icon": "meredith",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 681.9334922103512,
         "y": -221.7690988828973
     },
@@ -255,7 +255,7 @@
         "subtitle": "Is a member of Alderwood Equestrians.",
         "id": "philip",
         "icon": "philip",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 312.55153075471276,
         "y": 994.9787275212934
     },
@@ -264,7 +264,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "anika",
         "icon": "anika",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -691.9746733324243,
         "y": 283.8835979759285
     },
@@ -273,7 +273,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "bobby",
         "icon": "bobby",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -568.0411114507845,
         "y": 369.94595000009053
     },
@@ -282,7 +282,7 @@
         "subtitle": "Is a member of Alderwood Wilds.",
         "id": "jett",
         "icon": "jett",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -422.5937468513842,
         "y": -113.07822500905468
     },
@@ -291,7 +291,7 @@
         "subtitle": "Is a member of Alderwood Wilds.",
         "id": "kyle",
         "icon": "kyle",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 248.13080018973528,
         "y": -539.6107550274902
     },
@@ -300,7 +300,7 @@
         "subtitle": "Is a member of Alderwood Farms.",
         "id": "dwight",
         "icon": "dwight",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 581.9911063840289,
         "y": 573.5169522901049
     },
@@ -309,7 +309,7 @@
         "subtitle": "Is a member of Hook's End.",
         "id": "nina",
         "icon": "nina",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -586.6086360417318,
         "y": -541.4818461477452
     },
@@ -317,7 +317,7 @@
         "title": "Charles",
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "charles",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -368.914839274307,
         "y": 136.11733726079933
     },
@@ -326,7 +326,7 @@
         "subtitle": "Is a member of Alderwood Wilds.",
         "id": "alfred",
         "icon": "alfred",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 84.46290799392614,
         "y": -985.4796531026016
     },
@@ -335,7 +335,7 @@
         "subtitle": "Is a member of Hook's End.",
         "id": "ben",
         "icon": "ben",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -644.0147584462907,
         "y": -622.1763722249909
     },
@@ -344,7 +344,7 @@
         "subtitle": "Is a member of Alderwood Downtown.",
         "id": "sarah",
         "icon": "sarah",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -396.57758616636124,
         "y": 182.0648651186507
     },
@@ -353,7 +353,7 @@
         "subtitle": "Only present during quests.",
         "id": "amanda",
         "icon": "amanda",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 728.9170301636893,
         "y": 234.0585508474387
     },
@@ -361,7 +361,7 @@
         "title": "Florence Abbott",
         "id": "florence",
         "icon": "florence",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": 717.6021131963726,
         "y": 354.5571143293405
     },
@@ -370,7 +370,7 @@
         "subtitle": "Stylist",
         "id": "theresa",
         "icon": "theresa",
-        "map": "greenisland",
+        "map": "alderwood",
         "x": -442.12235076957836,
         "y": 155.87710178670022
     }
