@@ -1,16 +1,17 @@
 import path from 'node:path';
 import { TMarkerFeatureProperties } from '@/types/marker-feature';
 import { convertToLngLat } from '../lib/convert';
-import { MapMetadata, MapMetadataRecord } from '@/types/map-metadata';
+import { MapMetadataRecord } from '@/types/map-metadata';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { MarkerSource } from '@/types/marker-source';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { Popups } from '@/types/popup';
+import mapsJson from '../app/data/maps.json';
 
+const mapMetadata = mapsJson as MapMetadataRecord;
 const publicDir = path.resolve(__dirname, '../public');
 const dataDir = path.resolve(__dirname, '../app/data');
 const markerMetadataPath = path.resolve(__dirname, '../public/meta.json');
-const mapMetadataPath = path.resolve(__dirname, '../app/data/maps.json');
 
 type DeferredMarkers = {
     marker: MarkerSource;
@@ -29,19 +30,6 @@ type MetaEntry = {
     subtitle?: string;
 };
 
-/** Retrieve (cached) metdata for each map. */
-let cachedMapJson: MapMetadataRecord | null = null;
-async function getMapMetadata(map: string): Promise<MapMetadata> {
-    if (!cachedMapJson) {
-        const raw = await readFile(mapMetadataPath, 'utf8');
-        cachedMapJson = JSON.parse(raw);
-        if (!cachedMapJson) {
-            throw new Error(`Missing maps.json in /app/data`);
-        }
-    }
-    return cachedMapJson[map];
-}
-
 /** Write markers and popups for markers with explicit ID.*/
 export async function processDirectMarkers(
     markerSource: MarkerSource[],
@@ -57,8 +45,18 @@ export async function processDirectMarkers(
             !marker.map
         )
             continue;
-        const mapMetadata = await getMapMetadata(marker.map);
-        const [lng, lat] = convertToLngLat(mapMetadata, marker.x, marker.y);
+
+        if (!mapMetadata[marker.map]) {
+            throw new Error(
+                `Metadata for ${marker.map} map has not been defined in '../app/data/maps.json'`
+            );
+        }
+
+        const [lng, lat] = convertToLngLat(
+            mapMetadata[marker.map],
+            marker.x,
+            marker.y
+        );
         const id = marker.id?.trim() || `${entry.category}-${index}`;
         const icon = marker.icon?.trim() || entry.icon || 'default-marker';
         const anchor = entry.anchor ? entry.anchor : 'bottom';
