@@ -24,14 +24,19 @@ type MapContextValue = {
 type MapProviderProps = {
     children: ReactNode;
     mapMetadata: MapMetadataRecord;
+    initialMap: string;
 };
 
 const MapContext = createContext<MapContextValue | undefined>(undefined);
 
-export function MapProvider({ children, mapMetadata }: MapProviderProps) {
+export function MapProvider({
+    children,
+    mapMetadata,
+    initialMap,
+}: MapProviderProps) {
     const mapContainer = useRef<HTMLDivElement>(null);
     const [mapInstance, setMapInstance] = useState<Map | null>(null);
-    const [activeMap, setActiveMap] = useState<string>('greenisland');
+    const [activeMap, setActiveMap] = useState<string>(initialMap);
 
     const contextValue = useMemo<MapContextValue>(
         () => ({
