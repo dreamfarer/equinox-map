@@ -14,7 +14,7 @@ export function useMapLibreMap() {
     const mapRef = useRef<MapLibreMap | null>(null);
 
     useEffect(() => {
-        const el = mapContainer.current;
+        const el = mapContainer;
         if (!el || !mapMetadata || !activeMap) return;
 
         const meta = mapMetadata[activeMap];

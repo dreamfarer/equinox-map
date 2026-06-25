@@ -13,7 +13,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from '@/app/components/map.module.css';
 
 export default function Map() {
-    const { mapInstance, mapContainer } = useMapContext();
+    const { mapInstance, setMapContainer } = useMapContext();
     const { activePopup } = useMarkerContext();
 
     useMapLibreMap();
@@ -24,7 +24,7 @@ export default function Map() {
 
     return (
         <div className={styles.mapWrapper}>
-            <div ref={mapContainer} className={styles.map} id="map" />
+            <div ref={setMapContainer} className={styles.map} id="map" />
 
             {mapInstance && activePopup && (
                 <ReactPopup>

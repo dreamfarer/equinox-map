@@ -3,10 +3,8 @@
 import {
     createContext,
     ReactNode,
-    RefObject,
     useContext,
     useMemo,
-    useRef,
     useState,
 } from 'react';
 import type { Map } from 'maplibre-gl';
@@ -14,7 +12,8 @@ import type { MapMetadataRecord } from '@/types/map-metadata';
 
 type MapContextValue = {
     mapInstance: Map | null;
-    mapContainer: RefObject<HTMLDivElement | null>;
+    mapContainer: HTMLDivElement | null;
+    setMapContainer: (el: HTMLDivElement | null) => void;
     mapMetadata: MapMetadataRecord;
     activeMap: string;
     setMapInstance: (map: Map | null) => void;
@@ -34,7 +33,9 @@ export function MapProvider({
     mapMetadata,
     initialMap,
 }: MapProviderProps) {
-    const mapContainer = useRef<HTMLDivElement>(null);
+    const [mapContainer, setMapContainer] = useState<HTMLDivElement | null>(
+        null
+    );
     const [mapInstance, setMapInstance] = useState<Map | null>(null);
     const [activeMap, setActiveMap] = useState<string>(initialMap);
 
@@ -42,12 +43,13 @@ export function MapProvider({
         () => ({
             mapInstance,
             mapContainer,
+            setMapContainer,
             mapMetadata,
             activeMap,
             setMapInstance,
             setActiveMap,
         }),
-        [mapInstance, mapMetadata, activeMap]
+        [mapInstance, mapContainer, setMapContainer, mapMetadata, activeMap]
     );
 
     return <MapContext value={contextValue}>{children}</MapContext>;
