@@ -66,6 +66,10 @@
     { "map": "alderwood", "x": -13.0771, "y": -244.744 },
     { "map": "alderwood", "x": 29.4635, "y": 299.9633 },
     { "map": "alderwood", "x": 54.8498, "y": 398.5004 },
+    { "map": "low-coast-trail", "x": -360.0313, "y": -58.4767 },
+    { "map": "low-coast-trail", "x": -332.0064, "y": -10.2827 },
+    { "map": "low-coast-trail", "x": -326.0758, "y": -17.6952 },
+    { "map": "low-coast-trail", "x": -338.8714, "y": -33.5532 },
     { "map": "high-coast-trail", "x": 16.3395, "y": -181.7544 },
     { "map": "high-coast-trail", "x": 24.8689, "y": -171.4163 },
     { "map": "high-coast-trail", "x": 42.8954, "y": -186.1863 },
@@ -77,9 +81,5 @@
     { "map": "sunset-lake", "x": -59.1687, "y": 762.8959 },
     { "map": "sunset-lake", "x": -61.9365, "y": 738.0021 },
     { "map": "sunset-lake", "x": -418.2008, "y": 332.5229 },
-    { "map": "sunset-lake", "x": -424.2952, "y": 377.7639 },
-    { "map": "low-coast-trail", "x": -360.0313, "y": -58.4767 },
-    { "map": "low-coast-trail", "x": -332.0064, "y": -10.2827 },
-    { "map": "low-coast-trail", "x": -326.0758, "y": -17.6952 },
-    { "map": "low-coast-trail", "x": -338.8714, "y": -33.5532 }
+    { "map": "sunset-lake", "x": -424.2952, "y": 377.7639 }
 ]
