@@ -64,5 +64,15 @@
     { "map": "sunset-lake", "x": -325.4601, "y": 834.0003 },
     { "map": "sunset-lake", "x": -316.2419, "y": 866.4151 },
     { "map": "sunset-lake", "x": -301.0948, "y": 859.0092 },
-    { "map": "sunset-lake", "x": -300.1193, "y": 865.6745 }
+    { "map": "sunset-lake", "x": -300.1193, "y": 865.6745 },
+    { "map": "low-coast-trail", "x": -420.4571, "y": 199.6053 },
+    { "map": "low-coast-trail", "x": -422.2891, "y": 272.4838 },
+    { "map": "low-coast-trail", "x": -398.2408, "y": 302.8735 },
+    { "map": "low-coast-trail", "x": -396.617, "y": 305.294 },
+    { "map": "low-coast-trail", "x": -399.4833, "y": 302.8779 },
+    { "map": "low-coast-trail", "x": -384.5932, "y": 292.1325 },
+    { "map": "low-coast-trail", "x": -398.2179, "y": 223.5103 },
+    { "map": "low-coast-trail", "x": -380.3863, "y": 272.2764 },
+    { "map": "low-coast-trail", "x": -397.1593, "y": 252.0008 },
+    { "map": "low-coast-trail", "x": -374.9482, "y": 252.5379 }
 ]
