@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { CaretUpIcon } from '@phosphor-icons/react';
 import styles from '@/app/(map)/components/sidebar/menu/filter/category/category.module.css';
-import Entry from '@/app/(map)/components/sidebar/menu/filter/category/entry';
 
 type EntryType = {
     label: string;
@@ -28,7 +27,6 @@ export default function Category({
         <div>
             <div className={styles.header}>
                 <button
-                    style={{ background: 'none' }}
                     onClick={onToggle}
                     className={`${!isActive && 'inactive'}`}
                     aria-label="Toggle Category"
@@ -36,12 +34,11 @@ export default function Category({
                     <h1>{title}</h1>
                 </button>
                 <button
-                    style={{ background: 'none' }}
                     onClick={() => setCollapsed((prev) => !prev)}
                     className={`${styles.caret} ${collapsed ? styles.collapsed : ''} ${!isActive && 'inactive'}`}
                     aria-label="Collapse Category"
                 >
-                    <CaretUpIcon size="1rem" />
+                    <CaretUpIcon size="1.5rem" />
                 </button>
             </div>
             <div
@@ -49,13 +46,14 @@ export default function Category({
             >
                 <div className={styles.entries}>
                     {entries.map((entry, i) => (
-                        <Entry
+                        <button
                             key={i}
-                            label={entry.label}
-                            isActive={entry.isActive}
-                            columnIndex={i % 2}
-                            onToggle={entry.onToggle}
-                        />
+                            onClick={entry.onToggle}
+                            className={`${!entry.isActive && 'inactive'}`}
+                            aria-label="Toggle Category"
+                        >
+                            <p>{entry.label}</p>
+                        </button>
                     ))}
                 </div>
             </div>

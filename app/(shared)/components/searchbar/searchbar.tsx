@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, ChangeEvent } from 'react';
-import styles from '@/app/(shared)/components/searchbar.module.css';
 import { XCircleIcon } from '@phosphor-icons/react';
 
 type Props = {
@@ -23,9 +22,9 @@ export default function Searchbar({ onSearchAction }: Props) {
     };
 
     return (
-        <div className={styles.searchBar} id="searchBar">
+        <div id="searchBar" className="outline" style={{ gap: '0.5rem' }}>
             <input
-                className={styles.input}
+                style={{ width: '100%' }}
                 placeholder="Search …"
                 value={query}
                 onChange={handleChange}
@@ -35,7 +34,6 @@ export default function Searchbar({ onSearchAction }: Props) {
                 <button
                     type="button"
                     onClick={clearSearch}
-                    className={styles.clearButton}
                     aria-label="Clear search"
                 >
                     <XCircleIcon size={20} weight="regular" />

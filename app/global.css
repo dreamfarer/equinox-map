@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap');
 
+/* Global Variables */
 :root {
     --font-family: Jost;
 
@@ -14,13 +15,9 @@
     --spacer-mini: 0.75rem;
     --padding-xl: 1.25rem;
 
-    /* Border radi */
-    --br-3xs: 10px;
-
     /* Color Variables */
     --accent-dark: rgba(10, 10, 10, 0.9);
     --accent-dark-transparent: rgba(10, 10, 10, 0.4);
-    --accent-light: #d6d6d6;
     --background-dark: rgb(10, 10, 10);
     --background-dark-transparent: rgba(10, 10, 10, 0.65);
     --text-dark: #d5d5d5;
@@ -30,13 +27,12 @@
     --tile-background: #18252e;
 }
 
+/* Reset default element styles */
 html,
 body {
     overflow: hidden;
-    display: flex;
     width: 100%;
     height: 100%;
-    align-items: stretch;
     margin: 0;
     font-family: var(--font-family), sans-serif;
     background: var(--tile-background);
@@ -57,15 +53,20 @@ ul {
     padding: 0;
     margin: 0;
     border: 0;
+    background: none;
+    outline: none;
     vertical-align: baseline;
     list-style-position: inside;
     -webkit-tap-highlight-color: transparent;
     color: var(--text-dark);
 }
 
-button,
-a {
-    transition: color 0.3s ease;
+/* Set custom reusable styles */
+input {
+    font-size: 1.25rem;
+}
+input::placeholder {
+    color: var(--text-disabled-dark-transparent);
 }
 
 h1 {
@@ -78,21 +79,55 @@ h2 {
     font-weight: 600;
 }
 
-h3 {
+p,
+h3,
+button {
     font-size: 1rem;
-    color: var(--text-disabled-dark);
     font-weight: 400;
 }
 
+p {
+    text-align: left;
+}
+
+h3 {
+    color: var(--text-disabled-dark);
+}
+
+button {
+    display: flex;
+    align-items: center;
+}
+
+button,
+button :is(h1, h2, p, h3),
+a {
+    transition: color 0.3s ease;
+}
+
+button.inactive,
+button.inactive :is(h1, h2, p, h3) {
+    color: var(--text-disabled-dark);
+    text-decoration: line-through;
+}
+
+/* Used as background for buttons and input*/
+.outline {
+    gap: var(--padding-6xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-dark-transparent);
+    border-radius: 0.5rem;
+    padding: var(--padding-6xs) var(--spacer-mini);
+}
+
 @media (hover: hover) {
+    a:hover,
     button:hover,
-    a:hover {
+    button:hover :is(h1, h2, p, h3) {
         color: var(--theme);
         cursor: pointer;
-    }
-    button:hover h2,
-    button:hover h3 {
-        color: var(--theme);
     }
 }
 

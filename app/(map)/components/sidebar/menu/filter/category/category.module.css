@@ -2,7 +2,6 @@
     display: grid;
     grid-template-rows: 1fr;
     margin-top: var(--gap-3xs);
-    align-self: stretch;
     transition:
         grid-template-rows 0.4s ease,
         margin-top 0.4s ease;
@@ -17,29 +16,17 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gap-3xs) var(--gap-xl);
-    overflow: hidden;
 }
 
 .header {
     display: flex;
-    align-items: center;
-    align-self: stretch;
     gap: var(--gap-6xs);
-    font-weight: 600;
 }
 
 .caret {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: transform 0.4s ease;
 }
 
 .caret.collapsed {
     transform: scale(1, -1);
-}
-
-.button.active {
-    color: inherit;
-    text-decoration: none;
 }

@@ -1,5 +1,5 @@
-import Result from '@/app/(map)/components/sidebar/menu/filter/result';
 import { useFlyToMarker } from '@/app/(map)/hooks/use-fly-to-marker';
+import styles from '@/app/(map)/components/sidebar/menu/filter/search-results/results.module.css';
 
 type MarkerSearchResult = {
     markerId: string;
@@ -41,20 +41,26 @@ export default function Results({ results }: Props) {
     }
 
     return (
-        <>
+        <div className={styles.results}>
             {Array.from(grouped.values()).map(
                 ({ title, category, entries }) => {
                     return (
-                        <Result
+                        <button
                             key={`${title}::${category}`}
-                            title={title}
-                            category={category}
-                            count={entries.length}
-                            onSelect={() => flyToMarker(entries[0].markerId)}
-                        />
+                            className={styles.result}
+                            onClick={() => flyToMarker(entries[0].markerId)}
+                        >
+                            <p>
+                                {title}{' '}
+                                {entries.length && entries.length > 1 && (
+                                    <span>({entries.length})</span>
+                                )}
+                            </p>
+                            <h3>{category}</h3>
+                        </button>
                     );
                 }
             )}
-        </>
+        </div>
     );
 }

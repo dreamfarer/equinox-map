@@ -1,12 +1,12 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import Category from '@/app/(map)/components/sidebar/menu/filter/category';
-import Searchbar from '@/app/(shared)/components/searchbar';
+import Category from '@/app/(map)/components/sidebar/menu/filter/category/category';
+import Searchbar from '@/app/(shared)/components/searchbar/searchbar';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 import { categoryGroups } from '@/app/(map)/components/sidebar/menu/filter/config';
-import Results from '@/app/(map)/components/sidebar/menu/filter/results';
-import MarkerCollectionDisplay from '@/app/(map)/components/sidebar/menu/filter/marker-collection-display';
+import Results from '@/app/(map)/components/sidebar/menu/filter/search-results/results';
+import MarkerCollectionDisplay from '@/app/(map)/components/sidebar/menu/filter/marker-collection-display/marker-collection-display';
 import { useFilterContext } from '@/app/(map)/context/filter-context';
 import styles from '@/app/(map)/components/sidebar/menu/filter/filter.module.css';
 import { useUpdateActiveMarkerCount } from '@/app/(map)/hooks/use-update-active-marker-count';
@@ -85,32 +85,24 @@ export default function Filter() {
         <>
             <Searchbar onSearchAction={setQuery} />
             <MarkerCollectionDisplay></MarkerCollectionDisplay>
-
             <div
-                className={`${styles.buttonGroupHorizontal} ${
-                    showResetCollectionButton ? styles.gap : styles.noGap
-                }`}
+                className={`${styles.buttonGroupHorizontal} ${!showResetCollectionButton && styles.noGap}`}
                 id="buttonGroupHorizontal"
             >
                 <button
-                    className={styles.button}
+                    className={`outline ${styles.button}`}
                     onClick={toggleAllCategories}
                     id="toggleAllCategories"
                 >
                     {toggleAllCategoriesText}
                 </button>
                 <button
-                    className={`${styles.button} ${
-                        showResetCollectionButton
-                            ? styles.visible
-                            : styles.hidden
-                    }`}
+                    className={`outline ${styles.button} ${!showResetCollectionButton && styles.hidden}`}
                     onClick={resetCollection}
                 >
                     Reset Collection
                 </button>
             </div>
-
             {!query.trim() &&
                 categoryGroups.map((group) => {
                     const anyActive = group.entries.some(
@@ -147,13 +139,12 @@ export default function Filter() {
                         />
                     );
                 })}
-
-            <div className={styles.results}>
-                <Results results={results} />
-                {query && results.length === 0 && (
-                    <div className={styles.noResult}>No matches. (´•︵•`)</div>
-                )}
-            </div>
+            {query &&
+                (results.length === 0 ? (
+                    <p>No matches. (´•︵•`)</p>
+                ) : (
+                    <Results results={results} />
+                ))}
         </>
     );
 }
