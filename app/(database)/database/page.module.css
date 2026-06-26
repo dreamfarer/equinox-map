@@ -1,0 +1,117 @@
+.page {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--tile-background);
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-dark) transparent;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    gap: var(--gap-xl);
+    padding: var(--gap-xl);
+    background-color: var(--tile-background);
+    z-index: 1000;
+    min-width: 0;
+}
+
+.button {
+    position: absolute;
+    background-color: var(--background-dark-transparent);
+    border: none;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dark);
+    border-radius: 0.5rem;
+    height: 2.5rem;
+}
+
+.buttonLeft {
+    composes: button;
+    left: var(--gap-xl);
+}
+
+.buttonRight {
+    composes: button;
+    right: var(--gap-xl);
+}
+
+.grid {
+    display: grid;
+    padding: 0 var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    row-gap: var(--gap-xl);
+    column-gap: var(--gap-xl);
+    flex: 1 0 0;
+    align-self: stretch;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-auto-rows: 30rem;
+}
+
+.buttonSkeletonLeft {
+    left: var(--gap-xl);
+    position: absolute;
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    composes: skeleton from '../../global.module.css';
+}
+
+.buttonSkeletonRight {
+    right: var(--gap-xl);
+    position: absolute;
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    composes: skeleton from '../../global.module.css';
+}
+
+.searchbarSkeleton {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 0.5rem;
+    min-width: 0;
+    min-height: 2.5rem;
+    composes: skeleton from '../../global.module.css';
+}
+
+.tileSkeleton {
+    display: flex;
+    justify-self: stretch;
+    border-radius: 0.5rem;
+    composes: skeleton from '../../global.module.css';
+}
+
+@media (max-width: 768px) {
+    .button,
+    .buttonSkeleton,
+    .buttonSkeletonLeft,
+    .buttonSkeletonRight {
+        position: static;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-auto-rows: 30rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .searchbarSkeleton {
+        max-width: 30rem;
+    }
+}
