@@ -1,4 +1,4 @@
-import styles from '@/app/(map)/components/sidebar/menu/information/information.module.css';
+import styles from '@/app/(map)/components/sidebar/menu/menu.module.css';
 import { useMenuState } from '@/app/(map)/context/menu-state-context';
 
 function link(name: string, href: string) {
