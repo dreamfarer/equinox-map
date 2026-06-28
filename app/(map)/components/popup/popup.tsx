@@ -1,4 +1,4 @@
-import Dropdown from '@/app/(map)/components/popup/dropdown';
+import Dropdown from '@/app/(shared)/components/dropdown/dropdown';
 import styles from '@/app/(map)/components/popup/popup.module.css';
 import { useFilterContext } from '@/app/(map)/context/filter-context';
 import { useMemo, useState } from 'react';
@@ -9,7 +9,7 @@ export default function Popup() {
     const { activeCategoryList } = useFilterContext();
     const { allPopups, activePopup } = useMarkerContext();
     const [selectedCategory, setSelectedCategory] = useState<
-        TCategory | undefined
+        string | undefined
     >(undefined);
 
     const effectiveCategories = useMemo(() => {
@@ -21,7 +21,7 @@ export default function Popup() {
     const shownCategory = useMemo(() => {
         if (
             selectedCategory &&
-            effectiveCategories.includes(selectedCategory)
+            effectiveCategories.includes(selectedCategory as TCategory)
         ) {
             return selectedCategory;
         }
