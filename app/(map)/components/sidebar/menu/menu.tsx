@@ -109,7 +109,7 @@ export default function Menu() {
                 <>
                     <Filter />
                     <button
-                        className={styles.button}
+                        className='outline'
                         onClick={() => router.push('/database')}
                         aria-label="Navigate to the database"
                     >
