@@ -1,10 +1,8 @@
-import styles from '@/app/(map)/components/sidebar/menu/menu.module.css';
 import { useMenuState } from '@/app/(map)/context/menu-state-context';
 
 function link(name: string, href: string) {
     return (
         <a
-            className={styles.link}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -29,7 +27,7 @@ export default function Information() {
                 reports and contributions are always warmly welcome!
             </p>
             <button
-                className={styles.button}
+                className='outline'
                 onClick={() =>
                     window.open(
                         'https://github.com/dreamfarer/equinox-map/issues/new',
@@ -102,7 +100,7 @@ export default function Information() {
                 for further details.
             </p>
             <button
-                className={styles.button}
+                className='outline'
                 onClick={() => setIsTutorialDone(undefined)}
             >
                 Restart Tutorial
