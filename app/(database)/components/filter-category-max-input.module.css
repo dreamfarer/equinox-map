@@ -13,7 +13,6 @@
 }
 
 .label {
-    font-size: var(--font-size-base);
     color: var(--text-dark);
     flex: 1;
     overflow: hidden;
@@ -28,7 +27,6 @@
     border: 1px solid var(--text-disabled-dark-transparent);
     background-color: var(--background-dark-transparent);
     color: var(--text-dark);
-    font-size: var(--font-size-base);
     outline: none;
     transition: border-color 0.2s;
 }

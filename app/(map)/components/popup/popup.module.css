@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-family), sans-serif;
 }
 
 .content {
@@ -67,14 +67,12 @@
 }
 
 .title {
-    font-size: var(--font-size-title);
     font-weight: 600;
     color: var(--text-dark);
     overflow: clip;
 }
 
 .subtitle {
-    font-size: var(--font-size-mini);
     color: var(--text-dark);
     align-self: stretch;
     line-height: 1;
