@@ -50,6 +50,7 @@ export default function Category({
                             key={i}
                             onClick={entry.onToggle}
                             className={`${!entry.isActive && 'inactive'}`}
+                            style={{ alignItems: 'start' }}
                             aria-label="Toggle Category"
                         >
                             <p>{entry.label}</p>
