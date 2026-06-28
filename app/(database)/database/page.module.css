@@ -59,6 +59,7 @@
     align-self: stretch;
     grid-template-columns: repeat(auto-fit, 20rem);
     grid-auto-rows: 30rem;
+    overflow: auto;
 }
 
 .buttonSkeletonLeft {
