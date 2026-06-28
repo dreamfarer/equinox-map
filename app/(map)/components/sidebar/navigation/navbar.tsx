@@ -19,16 +19,16 @@ export default function Navbar() {
         setIsMenuOpen((prev) => !prev);
     };
 
+    const isFilterOpen = activeMenuName === 'filter' && isMenuOpen;
+    const isInformationOpen = activeMenuName === 'information' && isMenuOpen;
+
     return (
         <div className={styles.navbar}>
             <button
                 id="filterButton"
                 onClick={() => toggleMenu('filter')}
-                className={`${styles.button} ${
-                    activeMenuName === 'filter' && isMenuOpen
-                        ? styles.inactive
-                        : styles.active
-                }`}
+                className={`outline ${isFilterOpen ? '' : styles.inactive}`}
+                style={{ aspectRatio: 1 }}
                 aria-label="Show filter"
             >
                 <ListDashesIcon size="2em" />
@@ -36,11 +36,8 @@ export default function Navbar() {
             <button
                 id="informationButton"
                 onClick={() => toggleMenu('information')}
-                className={`${styles.button} ${
-                    activeMenuName === 'information' && isMenuOpen
-                        ? styles.inactive
-                        : styles.active
-                }`}
+                className={`outline ${isInformationOpen ? '' : styles.inactive}`}
+                style={{ aspectRatio: 1 }}
                 aria-label="Show info"
             >
                 <InfoIcon size="2em" />
@@ -48,7 +45,8 @@ export default function Navbar() {
             <button
                 id="navigateToDatabaseButton"
                 onClick={() => router.push('/database')}
-                className={`${styles.button} ${styles.active}`}
+                className={`outline ${styles.inactive}`}
+                style={{ aspectRatio: 1 }}
                 aria-label="Navigate to the database"
             >
                 <TShirtIcon size="2em" />
