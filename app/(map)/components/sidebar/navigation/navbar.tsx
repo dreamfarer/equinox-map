@@ -28,7 +28,7 @@ export default function Navbar() {
                 id="filterButton"
                 onClick={() => toggleMenu('filter')}
                 className={`outline ${isFilterOpen ? '' : styles.inactive}`}
-                style={{ aspectRatio: 1 }}
+                style={{ aspectRatio: 1, backdropFilter: 'blur(0.5rem)' }}
                 aria-label="Show filter"
             >
                 <ListDashesIcon size="2em" />
@@ -37,7 +37,7 @@ export default function Navbar() {
                 id="informationButton"
                 onClick={() => toggleMenu('information')}
                 className={`outline ${isInformationOpen ? '' : styles.inactive}`}
-                style={{ aspectRatio: 1 }}
+                style={{ aspectRatio: 1, backdropFilter: 'blur(0.5rem)' }}
                 aria-label="Show info"
             >
                 <InfoIcon size="2em" />
@@ -46,7 +46,7 @@ export default function Navbar() {
                 id="navigateToDatabaseButton"
                 onClick={() => router.push('/database')}
                 className={`outline ${styles.inactive}`}
-                style={{ aspectRatio: 1 }}
+                style={{ aspectRatio: 1, backdropFilter: 'blur(0.5rem)' }}
                 aria-label="Navigate to the database"
             >
                 <TShirtIcon size="2em" />

@@ -1,0 +1,18 @@
+.button {
+    margin: var(--spacer-mini);
+    position: absolute;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: var(--background-dark-transparent);
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    color: var(--text-dark);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(0.5rem);
+    padding-left: var(--padding-3xs);
+    padding-right: var(--padding-3xs);
+}
