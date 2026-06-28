@@ -2,11 +2,7 @@ import { useMenuState } from '@/app/(map)/context/menu-state-context';
 
 function link(name: string, href: string) {
     return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer">
             {name}
         </a>
     );
@@ -27,7 +23,7 @@ export default function Information() {
                 reports and contributions are always warmly welcome!
             </p>
             <button
-                className='outline'
+                className="outline"
                 onClick={() =>
                     window.open(
                         'https://github.com/dreamfarer/equinox-map/issues/new',
@@ -100,7 +96,7 @@ export default function Information() {
                 for further details.
             </p>
             <button
-                className='outline'
+                className="outline"
                 onClick={() => setIsTutorialDone(undefined)}
             >
                 Restart Tutorial
