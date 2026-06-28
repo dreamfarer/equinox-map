@@ -32,8 +32,8 @@ export default function Map({ initialMap }: Props) {
     useMarkerHover();
 
     return (
-        <div className={styles.mapWrapper}>
-            <div ref={setMapContainer} className={styles.map} id="map" />
+        <div className={styles.fullScreen}>
+            <div id="map" ref={setMapContainer} className={styles.fullScreen} />
 
             {mapInstance && activePopup && (
                 <ReactPopup>
