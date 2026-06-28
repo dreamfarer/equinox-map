@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import styles from '@/app/(database)/database/page.module.css';
-import Searchbar from '@/app/(shared)/components/searchbar';
+import Searchbar from '@/app/(shared)/components/searchbar/searchbar';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FunnelIcon, MapTrifoldIcon } from '@phosphor-icons/react';
 import DatabaseTile from '@/app/(database)/components/database-tile';
