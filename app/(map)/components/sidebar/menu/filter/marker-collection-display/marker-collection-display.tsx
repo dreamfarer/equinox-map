@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '@/app/(map)/components/sidebar/menu/filter/marker-collection-display.module.css';
+import styles from '@/app/(map)/components/sidebar/menu/filter/marker-collection-display/marker-collection-display.module.css';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 
 export default function MarkerCollectionDisplay() {
@@ -14,13 +14,11 @@ export default function MarkerCollectionDisplay() {
     return (
         <div className={styles.markerCollectionDisplay}>
             <div className={styles.description}>
-                <div className={styles.title}>Collected Markers</div>
+                <p>Collected Markers</p>
                 <div className={styles.progressBox}>
-                    <div className={styles.current}>
-                        {activeCollectedMarkerCount}
-                    </div>
-                    <div className={styles.of}>of</div>
-                    <div className={styles.total}>{activeMarkerCount}</div>
+                    <p>{activeCollectedMarkerCount}</p>
+                    <p>of</p>
+                    <p>{activeMarkerCount}</p>
                 </div>
             </div>
             <div className={styles.progressBar}>
