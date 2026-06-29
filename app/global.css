@@ -15,6 +15,9 @@
     --spacer-mini: 0.75rem;
     --padding-xl: 1.25rem;
 
+    /* Border Radius */
+    --border-radius: 0.5rem;
+
     /* Color Variables */
     --accent-dark: rgba(10, 10, 10, 0.9);
     --accent-dark-transparent: rgba(10, 10, 10, 0.4);
