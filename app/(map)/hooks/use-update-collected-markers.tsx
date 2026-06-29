@@ -6,7 +6,11 @@ import { saveCollectedMarkerIdsToLocalStorage } from '@/lib/storage-utility';
 
 function dim(mapInstance: Map | null, id: Set<string>, state: boolean) {
     if (!mapInstance) return;
-    if (!mapInstance.getSource?.('markers')) return;
+    try {
+        if (!mapInstance.getSource('markers')) return;
+    } catch {
+        return;
+    }
     id.forEach((markerId) => {
         mapInstance.setFeatureState(
             { source: 'markers', id: markerId },

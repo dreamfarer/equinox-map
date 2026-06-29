@@ -121,14 +121,21 @@ export function useMapLibreMapLayerRegister() {
             }
         };
 
+        if (!mapInstance.style) return;
         if (mapInstance.isStyleLoaded()) init().then();
         else mapInstance.once('load', init);
+
+        return () => {
+            mapInstance.off('load', init);
+        };
     }, [mapInstance, allMarkers]);
 
     useEffect(() => {
         if (!mapInstance) return;
         const applyFilterIfReady = () => {
             if (
+                mapInstance.style &&
+                mapInstance.isStyleLoaded() &&
                 mapInstance.getLayer('markers-layer') &&
                 mapInstance.getLayer('markers-hover-layer')
             ) {
