@@ -35,7 +35,8 @@ export async function processDirectMarkers(
     markerSource: MarkerSource[],
     entry: MetaEntry,
     features: Record<string, TMarkerFeatureProperties>,
-    popups: Popups
+    popups: Popups,
+    mapCategories: Record<string, Set<string>>
 ) {
     for (const [index, marker] of markerSource.entries()) {
         if (
@@ -69,6 +70,8 @@ export async function processDirectMarkers(
             anchor,
             categories: [entry.category],
         };
+        if (!mapCategories[marker.map]) mapCategories[marker.map] = new Set();
+        mapCategories[marker.map].add(entry.category);
         if (!popups[id]) popups[id] = {};
         if (!popups[id][entry.category]) popups[id][entry.category] = [];
         const title = marker.title?.trim() || entry.title || '';
@@ -86,7 +89,8 @@ function processDeferredMarkers(
         meta: MetaEntry;
     }[],
     popups: Popups,
-    features: Record<string, TMarkerFeatureProperties>
+    features: Record<string, TMarkerFeatureProperties>,
+    mapCategories: Record<string, Set<string>>
 ) {
     for (const { marker, category, meta } of deferredMarkers) {
         const targetId = marker.foreignId!.toLowerCase();
@@ -99,6 +103,9 @@ function processDeferredMarkers(
         const subtitle = marker.subtitle || meta.subtitle || '';
         if (!popups[targetId][category]) popups[targetId][category] = [];
         features[targetId].categories.push(category);
+        const mapId = features[targetId].map;
+        if (!mapCategories[mapId]) mapCategories[mapId] = new Set();
+        mapCategories[mapId].add(category);
         popups[targetId][category].push({ title, subtitle });
     }
 }
@@ -121,16 +128,28 @@ function buildFeatureCollection(
 async function writeOutput(
     dataDir: string,
     featureCollection: TMarkerFeatureCollection,
-    popups: Popups
+    popups: Popups,
+    mapCategories: Record<string, Set<string>>
 ) {
+    const serializedMapCategories: Record<string, string[]> =
+        Object.fromEntries(
+            Object.entries(mapCategories).map(([mapId, cats]) => [
+                mapId,
+                [...cats].sort(),
+            ])
+        );
     await mkdir(dataDir, { recursive: true });
     await writeFile(
         path.join(dataDir, 'markers.json'),
         JSON.stringify(featureCollection)
     );
     await writeFile(path.join(dataDir, 'popups.json'), JSON.stringify(popups));
+    await writeFile(
+        path.join(dataDir, 'map-categories.json'),
+        JSON.stringify(serializedMapCategories, null, 4)
+    );
     console.log(
-        `markers.json (${featureCollection.features.length}) and popups.json (${Object.keys(popups).length}) written.`
+        `markers.json (${featureCollection.features.length}), popups.json (${Object.keys(popups).length}), and map-categories.json (${Object.keys(serializedMapCategories).length} maps) written.`
     );
 }
 
@@ -139,6 +158,7 @@ async function build() {
     const features: Record<string, TMarkerFeatureProperties> = {};
     const primaryMarkers: PrimaryMarkers = {};
     const deferredMarkers: DeferredMarkers = [];
+    const mapCategories: Record<string, Set<string>> = {};
     const markerMetadata = JSON.parse(
         await readFile(markerMetadataPath, 'utf8')
     );
@@ -154,11 +174,23 @@ async function build() {
                 });
             else primaryMarkers[marker.id!] = marker;
         }
-        await processDirectMarkers(markers, metadataEntry, features, popups);
+        await processDirectMarkers(
+            markers,
+            metadataEntry,
+            features,
+            popups,
+            mapCategories
+        );
     }
-    processDeferredMarkers(primaryMarkers, deferredMarkers, popups, features);
+    processDeferredMarkers(
+        primaryMarkers,
+        deferredMarkers,
+        popups,
+        features,
+        mapCategories
+    );
     const featureCollection = buildFeatureCollection(features);
-    await writeOutput(dataDir, featureCollection, popups);
+    await writeOutput(dataDir, featureCollection, popups, mapCategories);
 }
 
 build().catch((err) => {

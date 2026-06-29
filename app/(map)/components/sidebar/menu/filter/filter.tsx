@@ -10,6 +10,7 @@ import MarkerCollectionDisplay from '@/app/(map)/components/sidebar/menu/filter/
 import { useFilterContext } from '@/app/(map)/context/filter-context';
 import styles from '@/app/(map)/components/sidebar/menu/filter/filter.module.css';
 import { useUpdateActiveMarkerCount } from '@/app/(map)/hooks/use-update-active-marker-count';
+import { useMapContext } from '@/app/(map)/context/map-context';
 
 type MarkerSearchResult = {
     markerId: string;
@@ -25,14 +26,20 @@ export default function Filter() {
     const {
         activeCategories,
         activeCategoryList,
-        allCategories,
         setActiveCategories,
         toggleActiveCategory,
         setAllCategories,
+        getCategoriesForMap,
     } = useFilterContext();
+    const { activeMapId } = useMapContext();
     const [query, setQuery] = useState('');
 
     useUpdateActiveMarkerCount();
+
+    const mapCategorySet = useMemo(
+        () => new Set(getCategoriesForMap(activeMapId ?? '')),
+        [activeMapId, getCategoriesForMap]
+    );
 
     const results = useMemo((): MarkerSearchResult[] => {
         if (!query.trim()) return [];
@@ -61,17 +68,23 @@ export default function Filter() {
         return matches;
     }, [query, allPopups]);
 
+    const mapActiveCategoryCount = useMemo(
+        () =>
+            activeCategoryList.filter((cat) => mapCategorySet.has(cat)).length,
+        [activeCategoryList, mapCategorySet]
+    );
+
     const toggleAllCategories = useCallback(() => {
-        if (activeCategoryList.length < allCategories.length)
+        if (mapActiveCategoryCount < mapCategorySet.size)
             return setAllCategories(true);
         return setAllCategories(false);
-    }, [activeCategoryList.length, allCategories.length, setAllCategories]);
+    }, [mapActiveCategoryCount, mapCategorySet.size, setAllCategories]);
 
     const toggleAllCategoriesText = useMemo(() => {
-        return activeCategoryList.length < allCategories.length
+        return mapActiveCategoryCount < mapCategorySet.size
             ? 'Show All Markers'
             : 'Hide All Markers';
-    }, [activeCategoryList.length, allCategories.length]);
+    }, [mapActiveCategoryCount, mapCategorySet.size]);
 
     const showResetCollectionButton = useMemo(() => {
         return collectedMarkerIds.size > 0;
@@ -105,10 +118,15 @@ export default function Filter() {
             </div>
             {!query.trim() &&
                 categoryGroups.map((group) => {
-                    const anyActive = group.entries.some(
+                    const filteredEntries = group.entries.filter(({ id }) =>
+                        mapCategorySet.has(id)
+                    );
+                    if (filteredEntries.length === 0) return null;
+
+                    const anyActive = filteredEntries.some(
                         ({ id }) => activeCategories[id]
                     );
-                    const allActive = group.entries.every(
+                    const allActive = filteredEntries.every(
                         ({ id }) => activeCategories[id]
                     );
 
@@ -123,7 +141,7 @@ export default function Filter() {
                         });
                     };
 
-                    const entries = group.entries.map(({ label, id }) => ({
+                    const entries = filteredEntries.map(({ label, id }) => ({
                         label,
                         isActive: !!activeCategories[id],
                         onToggle: () => toggleActiveCategory(id),

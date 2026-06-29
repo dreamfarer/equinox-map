@@ -17,6 +17,7 @@ import {
     loadActiveCategoriesFromLocalStorage,
     saveActiveCategoriesToLocalStorage,
 } from '@/lib/storage-utility';
+import mapCategories from '@/app/data/map-categories.json';
 
 type FilterContextValue = {
     activeCategories: Partial<Record<TCategory, boolean>>;
@@ -28,6 +29,7 @@ type FilterContextValue = {
     mapLibreFilterExpression: ExpressionSpecification;
     setAllCategories: (show: boolean) => void;
     allCategories: typeof categories;
+    getCategoriesForMap: (mapId: string) => TCategory[];
 };
 
 type FilterProviderProps = {
@@ -67,6 +69,11 @@ export function FilterProvider({
             ...prev,
             [category]: !prev[category],
         }));
+    }, []);
+
+    const getCategoriesForMap = useCallback((mapId: string): TCategory[] => {
+        return ((mapCategories as Record<string, string[]>)[mapId] ??
+            []) as TCategory[];
     }, []);
 
     useEffect(() => {
@@ -119,6 +126,7 @@ export function FilterProvider({
             mapLibreFilterExpression: categoryExpression,
             setAllCategories,
             allCategories,
+            getCategoriesForMap,
         }),
         [
             activeCategories,
@@ -127,6 +135,7 @@ export function FilterProvider({
             categoryExpression,
             setAllCategories,
             allCategories,
+            getCategoriesForMap,
         ]
     );
 
