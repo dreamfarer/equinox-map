@@ -37,6 +37,8 @@ type MarkerContextValue = {
     allMarkers: TMarkerFeatureCollection;
     allFeatures: Record<string, TMarkerFeature>;
     allMarkerIdsByCategory: Record<string, Set<string>>;
+    allMarkerIdsByCategoryAndMap: Record<string, Record<string, Set<string>>>;
+    allMarkerCountByMap: Record<string, number>;
 };
 
 type MarkerProviderProps = {
@@ -80,6 +82,28 @@ export function MarkerProvider({
         return map;
     }, [allMarkers]);
 
+    const allMarkerIdsByCategoryAndMap = useMemo(() => {
+        const result = {} as Record<string, Record<string, Set<string>>>;
+        for (const feature of allMarkers.features) {
+            const { id, map: mapId, categories } = feature.properties;
+            if (!result[mapId]) result[mapId] = {};
+            for (const cat of categories ?? []) {
+                if (!result[mapId][cat]) result[mapId][cat] = new Set<string>();
+                result[mapId][cat].add(id);
+            }
+        }
+        return result;
+    }, [allMarkers]);
+
+    const allMarkerCountByMap = useMemo(() => {
+        const result = {} as Record<string, number>;
+        for (const feature of allMarkers.features) {
+            const mapId = feature.properties.map;
+            result[mapId] = (result[mapId] ?? 0) + 1;
+        }
+        return result;
+    }, [allMarkers]);
+
     useEffect(() => {
         setCollectedMarkerIds(
             loadCollectedMarkerIdsFromLocalStorage(allMarkers)
@@ -117,6 +141,8 @@ export function MarkerProvider({
             allMarkers,
             allFeatures,
             allMarkerIdsByCategory,
+            allMarkerIdsByCategoryAndMap,
+            allMarkerCountByMap,
         }),
         [
             activePopup,
@@ -128,6 +154,8 @@ export function MarkerProvider({
             allMarkers,
             allFeatures,
             allMarkerIdsByCategory,
+            allMarkerIdsByCategoryAndMap,
+            allMarkerCountByMap,
         ]
     );
 

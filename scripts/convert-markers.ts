@@ -36,7 +36,7 @@ export async function processDirectMarkers(
     entry: MetaEntry,
     features: Record<string, TMarkerFeatureProperties>,
     popups: Popups,
-    mapCategories: Record<string, Set<string>>
+    mapCategories: Record<string, Record<string, number>>
 ) {
     for (const [index, marker] of markerSource.entries()) {
         if (
@@ -70,8 +70,9 @@ export async function processDirectMarkers(
             anchor,
             categories: [entry.category],
         };
-        if (!mapCategories[marker.map]) mapCategories[marker.map] = new Set();
-        mapCategories[marker.map].add(entry.category);
+        if (!mapCategories[marker.map]) mapCategories[marker.map] = {};
+        mapCategories[marker.map][entry.category] =
+            (mapCategories[marker.map][entry.category] ?? 0) + 1;
         if (!popups[id]) popups[id] = {};
         if (!popups[id][entry.category]) popups[id][entry.category] = [];
         const title = marker.title?.trim() || entry.title || '';
@@ -90,7 +91,7 @@ function processDeferredMarkers(
     }[],
     popups: Popups,
     features: Record<string, TMarkerFeatureProperties>,
-    mapCategories: Record<string, Set<string>>
+    mapCategories: Record<string, Record<string, number>>
 ) {
     for (const { marker, category, meta } of deferredMarkers) {
         const targetId = marker.foreignId!.toLowerCase();
@@ -104,8 +105,9 @@ function processDeferredMarkers(
         if (!popups[targetId][category]) popups[targetId][category] = [];
         features[targetId].categories.push(category);
         const mapId = features[targetId].map;
-        if (!mapCategories[mapId]) mapCategories[mapId] = new Set();
-        mapCategories[mapId].add(category);
+        if (!mapCategories[mapId]) mapCategories[mapId] = {};
+        mapCategories[mapId][category] =
+            (mapCategories[mapId][category] ?? 0) + 1;
         popups[targetId][category].push({ title, subtitle });
     }
 }
@@ -129,15 +131,19 @@ async function writeOutput(
     dataDir: string,
     featureCollection: TMarkerFeatureCollection,
     popups: Popups,
-    mapCategories: Record<string, Set<string>>
+    mapCategories: Record<string, Record<string, number>>
 ) {
-    const serializedMapCategories: Record<string, string[]> =
-        Object.fromEntries(
-            Object.entries(mapCategories).map(([mapId, cats]) => [
-                mapId,
-                [...cats].sort(),
-            ])
-        );
+    const serializedMapCategories: Record<
+        string,
+        Record<string, number>
+    > = Object.fromEntries(
+        Object.entries(mapCategories).map(([mapId, cats]) => [
+            mapId,
+            Object.fromEntries(
+                Object.entries(cats).sort(([a], [b]) => a.localeCompare(b))
+            ),
+        ])
+    );
     await mkdir(dataDir, { recursive: true });
     await writeFile(
         path.join(dataDir, 'markers.json'),
@@ -158,7 +164,7 @@ async function build() {
     const features: Record<string, TMarkerFeatureProperties> = {};
     const primaryMarkers: PrimaryMarkers = {};
     const deferredMarkers: DeferredMarkers = [];
-    const mapCategories: Record<string, Set<string>> = {};
+    const mapCategories: Record<string, Record<string, number>> = {};
     const markerMetadata = JSON.parse(
         await readFile(markerMetadataPath, 'utf8')
     );

@@ -12,7 +12,6 @@ import {
     useEffect,
 } from 'react';
 import { categories, TCategory } from '@/types/category';
-import { ExpressionSpecification } from 'maplibre-gl';
 import {
     loadActiveCategoriesFromLocalStorage,
     saveActiveCategoriesToLocalStorage,
@@ -26,7 +25,6 @@ type FilterContextValue = {
     >;
     toggleActiveCategory: (category: TCategory) => void;
     activeCategoryList: TCategory[];
-    mapLibreFilterExpression: ExpressionSpecification;
     setAllCategories: (show: boolean) => void;
     allCategories: typeof categories;
     getCategoriesForMap: (mapId: string) => TCategory[];
@@ -72,8 +70,10 @@ export function FilterProvider({
     }, []);
 
     const getCategoriesForMap = useCallback((mapId: string): TCategory[] => {
-        return ((mapCategories as Record<string, string[]>)[mapId] ??
-            []) as TCategory[];
+        return Object.keys(
+            (mapCategories as Record<string, Record<string, number>>)[mapId] ??
+                {}
+        ) as TCategory[];
     }, []);
 
     useEffect(() => {
@@ -97,33 +97,12 @@ export function FilterProvider({
             .map(([cat]) => cat);
     }, [activeCategories]);
 
-    const categoryExpression = useMemo<ExpressionSpecification>(() => {
-        if (activeCategoryList.length === 0) {
-            return ['boolean', false];
-        }
-        if (activeCategoryList.length === categories.length) {
-            return ['boolean', true];
-        }
-        return [
-            'any',
-            ...activeCategoryList.map(
-                (cat) =>
-                    [
-                        'in',
-                        cat,
-                        ['get', 'categories'],
-                    ] as ExpressionSpecification
-            ),
-        ];
-    }, [activeCategoryList]);
-
     const contextValue = useMemo<FilterContextValue>(
         () => ({
             activeCategories,
             setActiveCategories,
             toggleActiveCategory,
             activeCategoryList,
-            mapLibreFilterExpression: categoryExpression,
             setAllCategories,
             allCategories,
             getCategoriesForMap,
@@ -132,7 +111,6 @@ export function FilterProvider({
             activeCategories,
             toggleActiveCategory,
             activeCategoryList,
-            categoryExpression,
             setAllCategories,
             allCategories,
             getCategoriesForMap,

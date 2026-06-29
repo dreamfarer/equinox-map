@@ -1,5 +1,8 @@
+'use client';
+
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 import { useFilterContext } from '@/app/(map)/context/filter-context';
+import { useMapContext } from '@/app/(map)/context/map-context';
 import { categories, TCategory } from '@/types/category';
 import { useEffect } from 'react';
 
@@ -8,48 +11,52 @@ export function useUpdateActiveMarkerCount() {
         setActiveMarkerCount,
         setActiveCollectedMarkerCount,
         collectedMarkerIds,
-        allMarkers,
         allFeatures,
-        allMarkerIdsByCategory,
+        allMarkerIdsByCategoryAndMap,
+        allMarkerCountByMap,
     } = useMarkerContext();
     const { activeCategoryList } = useFilterContext();
+    const { activeMapId } = useMapContext();
 
     useEffect(() => {
-        if (activeCategoryList.length === 0) {
+        if (!activeMapId || activeCategoryList.length === 0) {
             setActiveMarkerCount(0);
             return;
         }
         if (activeCategoryList.length === categories.length) {
-            setActiveMarkerCount(allMarkers.features.length);
+            setActiveMarkerCount(allMarkerCountByMap[activeMapId] ?? 0);
             return;
         }
+        const mapCategoryIds = allMarkerIdsByCategoryAndMap[activeMapId] ?? {};
         const union = new Set<string>();
         for (const cat of activeCategoryList) {
-            const set = allMarkerIdsByCategory[cat];
-            if (!set) continue;
-            for (const id of set) union.add(id);
+            for (const id of mapCategoryIds[cat] ?? []) union.add(id);
         }
         setActiveMarkerCount(union.size);
     }, [
+        activeMapId,
         activeCategoryList,
         setActiveMarkerCount,
-        allMarkers,
-        allMarkerIdsByCategory,
+        allMarkerIdsByCategoryAndMap,
+        allMarkerCountByMap,
     ]);
 
     useEffect(() => {
-        if (activeCategoryList.length === 0) {
+        if (!activeMapId || activeCategoryList.length === 0) {
             setActiveCollectedMarkerCount(0);
             return;
         }
         let count = 0;
         const activeSet = new Set(activeCategoryList);
         collectedMarkerIds.forEach((id) => {
-            const cats = allFeatures[id]?.properties?.categories ?? [];
+            const props = allFeatures[id]?.properties;
+            if (!props || props.map !== activeMapId) return;
+            const cats = props.categories ?? [];
             if (cats.some((c) => activeSet.has(c as TCategory))) count += 1;
         });
         setActiveCollectedMarkerCount(count);
     }, [
+        activeMapId,
         collectedMarkerIds,
         activeCategoryList,
         allFeatures,

@@ -1,17 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { GeoJSON } from 'geojson';
+import { ExpressionSpecification } from 'maplibre-gl';
 import { loadIcon } from '@/lib/marker-utility';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { useMapContext } from '@/app/(map)/context/map-context';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
-import { useFilterContext } from '@/app/(map)/context/filter-context';
+import { useMarkerFilter } from '@/app/(map)/hooks/use-marker-filter';
 
 export function useMapLibreMapLayerRegister() {
     const { mapInstance } = useMapContext();
     const { allMarkers } = useMarkerContext();
-    const { mapLibreFilterExpression } = useFilterContext();
+    const mapLibreFilterExpression = useMarkerFilter();
+
+    const filterRef = useRef<ExpressionSpecification>(mapLibreFilterExpression);
+    filterRef.current = mapLibreFilterExpression;
 
     useEffect(() => {
         if (!mapInstance || !allMarkers) return;
@@ -119,6 +123,9 @@ export function useMapLibreMapLayerRegister() {
                     },
                 });
             }
+
+            mapInstance.setFilter('markers-layer', filterRef.current);
+            mapInstance.setFilter('markers-hover-layer', filterRef.current);
         };
 
         if (!mapInstance.style) return;
