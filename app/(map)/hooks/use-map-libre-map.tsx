@@ -7,7 +7,7 @@ import { useMapContext } from '@/app/(map)/context/map-context';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 
 export function useMapLibreMap() {
-    const { mapContainer, mapMetadata, activeMap, setMapInstance } =
+    const { mapContainer, mapMetadata, activeMapId, setMapInstance } =
         useMapContext();
     const { setActivePopupByFeature } = useMarkerContext();
 
@@ -15,9 +15,9 @@ export function useMapLibreMap() {
 
     useEffect(() => {
         const el = mapContainer;
-        if (!el || !mapMetadata || !activeMap) return;
+        if (!el || !mapMetadata || !activeMapId) return;
 
-        const meta = mapMetadata[activeMap];
+        const meta = mapMetadata[activeMapId];
         if (!meta) return;
 
         const isDev = process.env.NODE_ENV === 'development';
@@ -98,7 +98,7 @@ export function useMapLibreMap() {
     }, [
         mapContainer,
         mapMetadata,
-        activeMap,
+        activeMapId,
         setMapInstance,
         setActivePopupByFeature,
     ]);

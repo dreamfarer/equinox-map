@@ -43,6 +43,7 @@ export default function Popup() {
                     options={effectiveCategories}
                     selected={shownCategory}
                     onSelect={setSelectedCategory}
+                    menuPosition={'top'}
                 />
             )}
 

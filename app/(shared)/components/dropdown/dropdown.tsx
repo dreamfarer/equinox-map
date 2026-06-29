@@ -2,36 +2,47 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CaretDownIcon } from '@phosphor-icons/react';
 import styles from '@/app/(shared)/components/dropdown/dropdown.module.css';
 
-type MenuPosition = 'top' | 'bottom' | 'left' | 'right';
+type MenuPosition = 'top' | 'bottom';
 
 type Props = {
     options: string[];
-    selected: string | undefined;
+    selected: string | null;
     onSelect: (value: string) => void;
     size?: string;
     menuPosition?: MenuPosition;
+    menuOverflowDirection?: 'left' | 'right';
+    className?: string;
+    buttonClassName?: string;
 };
 
 const positionClass: Record<MenuPosition, string> = {
     top: styles.contentTop,
     bottom: styles.contentBottom,
-    left: styles.contentLeft,
-    right: styles.contentRight,
 };
 
 const caretRotation: Record<MenuPosition, { closed: string; open: string }> = {
     top: { closed: '0deg', open: '180deg' },
     bottom: { closed: '180deg', open: '0deg' },
-    left: { closed: '90deg', open: '-90deg' },
-    right: { closed: '-90deg', open: '90deg' },
 };
+
+function getMenuOverflowStyle(
+    menuOverflowDirection: 'left' | 'right'
+): React.CSSProperties {
+    if (menuOverflowDirection === 'left') {
+        return { right: '0' };
+    }
+    return { left: '0' };
+}
 
 export default function Dropdown({
     options,
     selected,
     onSelect,
     size,
-    menuPosition = 'top',
+    menuPosition = 'bottom',
+    menuOverflowDirection = 'right',
+    className = '',
+    buttonClassName = '',
 }: Props) {
     const [open, setOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -50,9 +61,9 @@ export default function Dropdown({
     const rotation = caretRotation[menuPosition][open ? 'open' : 'closed'];
 
     return (
-        <div className={styles.dropdown} ref={ref}>
+        <div className={`${className}`} ref={ref}>
             <button
-                className={styles.button}
+                className={`${buttonClassName}`}
                 style={{
                     ...(size && { fontSize: size }),
                 }}
@@ -66,7 +77,8 @@ export default function Dropdown({
                 />
             </button>
             <div
-                className={`${styles.content} ${positionClass[menuPosition]} ${open ? '' : styles.hidden}`}
+                className={`outline ${styles.content} ${positionClass[menuPosition]} ${open ? '' : styles.hidden}`}
+                style={getMenuOverflowStyle(menuOverflowDirection)}
             >
                 {options
                     .filter((option) => option !== selected)

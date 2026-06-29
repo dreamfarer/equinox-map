@@ -18,12 +18,12 @@ type Props = {
 };
 
 export default function Map({ initialMap }: Props) {
-    const { mapInstance, setMapContainer, setActiveMap } = useMapContext();
+    const { mapInstance, setMapContainer, setActiveMapId } = useMapContext();
     const { activePopup } = useMarkerContext();
 
     useEffect(() => {
-        setActiveMap(initialMap);
-    }, [initialMap, setActiveMap]);
+        setActiveMapId(initialMap);
+    }, [initialMap, setActiveMapId]);
 
     useMapLibreMap();
     useMapLibreMapLayerRegister();

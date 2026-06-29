@@ -1,4 +1,5 @@
 export type MapMetadata = {
+    name: string;
     tileSize: number;
     size: number[];
     devUrl: string;
