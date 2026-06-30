@@ -66,15 +66,12 @@
     align-self: stretch;
 }
 
-.title {
-    font-weight: 600;
-    color: var(--text-dark);
+.subtitle {
+    line-height: 1;
     overflow: clip;
 }
 
-.subtitle {
-    color: var(--text-dark);
-    align-self: stretch;
-    line-height: 1;
-    overflow: clip;
+.button {
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0.5rem 0.5rem 0 0;
 }

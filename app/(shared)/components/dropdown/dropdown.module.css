@@ -12,12 +12,14 @@
 }
 
 .contentTop {
-    bottom: 150%;
+    bottom: 100%;
+    margin-bottom: 0.5rem;
     transform-origin: bottom;
 }
 
 .contentBottom {
-    top: 150%;
+    top: 100%;
+    margin-top: 0.5rem;
     transform-origin: top;
 }
 
@@ -36,6 +38,6 @@
     background: transparent;
 }
 
-.icon {
-    transition: transform 150ms ease-in-out;
+.caret {
+    transition: transform 0.2s ease;
 }

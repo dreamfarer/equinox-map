@@ -44,6 +44,8 @@ export default function Popup() {
                     selected={shownCategory}
                     onSelect={setSelectedCategory}
                     menuPosition={'top'}
+                    menuOverflowDirection={'right'}
+                    buttonClassName={'outline' + ' ' + styles.button}
                 />
             )}
 
@@ -56,16 +58,12 @@ export default function Popup() {
                     {Object.entries(itemsById).map(([itemId, item]) => (
                         <div key={itemId} className={styles.item}>
                             <div className={styles.header}>
-                                {item.title && (
-                                    <div className={styles.title}>
-                                        {item.title}
-                                    </div>
-                                )}
+                                {item.title && <h2>{item.title}</h2>}
                             </div>
                             {item.subtitle && (
-                                <div className={styles.subtitle}>
+                                <p className={styles.subtitle}>
                                     {item.subtitle}
-                                </div>
+                                </p>
                             )}
                         </div>
                     ))}

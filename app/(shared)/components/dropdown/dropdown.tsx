@@ -19,11 +19,13 @@ const positionClass: Record<MenuPosition, string> = {
     top: styles.contentTop,
     bottom: styles.contentBottom,
 };
-
-const caretRotation: Record<MenuPosition, { closed: string; open: string }> = {
-    top: { closed: '0deg', open: '180deg' },
-    bottom: { closed: '180deg', open: '0deg' },
-};
+function getCaretOrientation(
+    open: boolean,
+    menuPosition: MenuPosition
+): React.CSSProperties {
+    const flipped = open !== (menuPosition === 'top');
+    return flipped ? { transform: 'scale(1, -1)' } : {};
+}
 
 function getMenuOverflowStyle(
     menuOverflowDirection: 'left' | 'right'
@@ -58,8 +60,6 @@ export default function Dropdown({
             document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    const rotation = caretRotation[menuPosition][open ? 'open' : 'closed'];
-
     return (
         <div className={`${className}`} ref={ref}>
             <button
@@ -72,8 +72,8 @@ export default function Dropdown({
                 {selected}
                 <CaretDownIcon
                     size="1em"
-                    className={styles.icon}
-                    style={{ transform: `rotate(${rotation})` }}
+                    className={styles.caret}
+                    style={getCaretOrientation(open, menuPosition)}
                 />
             </button>
             <div
