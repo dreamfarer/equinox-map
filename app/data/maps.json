@@ -36,7 +36,7 @@
         "devUrl": "/tiles/low-coast-trail/v1/{z}/{y}/{x}.png",
         "prodUrl": "https://cdn.equinoxmap.app/low-coast-trail/v1/{z}/{y}/{x}.png",
         "boundsImage": [4234, 4492, 12149, 11892],
-        "boundsData": [10, 10, 100, 100],
+        "boundsData": [-768, -488, 921, 1092],
         "minZoom": 1,
         "maxZoom": 6,
         "maxOverscaledZoom": 6,
