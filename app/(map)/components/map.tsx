@@ -1,0 +1,49 @@
+'use client';
+
+import ReactPopup from '@/app/(map)/components/popup/react-popup';
+import Popup from '@/app/(map)/components/popup/popup';
+import { useMapContext } from '@/app/(map)/context/map-context';
+import { useMapLibreMap } from '@/app/(map)/hooks/use-map-libre-map';
+import { useMapLibreMapEventRegister } from '@/app/(map)/hooks/use-map-libre-map-event-register';
+import { useMapLibreMapLayerRegister } from '@/app/(map)/hooks/use-map-libre-map-layer-register';
+import { useMarkerContext } from '@/app/(map)/context/marker-context';
+import { useUpdateCollectedMarkers } from '@/app/(map)/hooks/use-update-collected-markers';
+import { useMarkerHover } from '@/app/(map)/hooks/use-marker-hover';
+import { useTileBackground } from '@/app/(map)/hooks/use-tile-background';
+import { usePendingFlyTo } from '@/app/(map)/hooks/use-pending-fly-to';
+import 'maplibre-gl/dist/maplibre-gl.css';
+import styles from '@/app/(map)/components/map.module.css';
+import { useEffect } from 'react';
+
+type Props = {
+    initialMap: string;
+};
+
+export default function Map({ initialMap }: Props) {
+    const { mapInstance, setMapContainer, setActiveMapId } = useMapContext();
+    const { activePopup } = useMarkerContext();
+
+    useEffect(() => {
+        setActiveMapId(initialMap);
+    }, [initialMap, setActiveMapId]);
+
+    useMapLibreMap();
+    useMapLibreMapLayerRegister();
+    useMapLibreMapEventRegister();
+    useUpdateCollectedMarkers();
+    useMarkerHover();
+    useTileBackground();
+    usePendingFlyTo();
+
+    return (
+        <div className={styles.fullScreen}>
+            <div id="map" ref={setMapContainer} className={styles.fullScreen} />
+
+            {mapInstance && activePopup && (
+                <ReactPopup>
+                    <Popup />
+                </ReactPopup>
+            )}
+        </div>
+    );
+}

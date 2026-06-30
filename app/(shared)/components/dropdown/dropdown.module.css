@@ -1,0 +1,43 @@
+.content {
+    position: absolute;
+    flex-direction: column;
+    background-color: var(--background-dark-transparent);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    text-wrap: nowrap;
+    transition:
+        opacity 150ms ease-in-out,
+        transform 150ms ease-in-out;
+}
+
+.contentTop {
+    bottom: 100%;
+    margin-bottom: 0.5rem;
+    transform-origin: bottom;
+}
+
+.contentBottom {
+    top: 100%;
+    margin-top: 0.5rem;
+    transform-origin: top;
+}
+
+.content.hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+.contentLeft.hidden,
+.contentRight.hidden {
+    transform: scaleX(0);
+}
+
+.item {
+    background: transparent;
+}
+
+.caret {
+    transition: transform 0.2s ease;
+}

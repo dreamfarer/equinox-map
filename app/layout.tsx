@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://equinoxmap.app'),
     title: 'Equinox: Homecoming Interactive Map',
     description:
-        'An interactive map for Equinox Homecoming. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
+        'Explore the Equinox: Homecoming map. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
     alternates: {
         canonical: 'https://equinoxmap.app/',
     },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         siteName: 'Equinox: Homecoming Interactive Map',
         title: 'Equinox: Homecoming Interactive Map',
         description:
-            'An interactive map for Equinox Homecoming. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
+            'Explore the Equinox: Homecoming map. Filter, search, collect and track all collectible resources, quests, races, characters, shops and more.',
         images: [
             {
                 url: 'https://equinoxmap.app/og-image.jpg',

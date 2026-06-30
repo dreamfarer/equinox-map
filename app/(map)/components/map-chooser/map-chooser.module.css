@@ -1,0 +1,10 @@
+.dropdownWrapper {
+    margin: var(--spacer-mini);
+    position: absolute;
+    right: 0;
+    z-index: 2;
+}
+
+.button {
+    backdrop-filter: blur(0.5rem);
+}

@@ -1,0 +1,14 @@
+.result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--padding-6xs);
+    width: 100%;
+}

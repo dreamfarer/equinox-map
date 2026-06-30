@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700&display=swap');
 
+/* Global Variables */
 :root {
-    /* Fonts */
-    --font-inter: Jost;
-
-    /* font sizes */
-    --font-size-mini: 0.75rem;
-    --font-size-base: 1rem;
-    --font-size-title: 1.25rem;
+    --font-family: Jost;
 
     /* Gaps */
     --gap-6xs: 0.3125rem;
@@ -20,13 +15,12 @@
     --spacer-mini: 0.75rem;
     --padding-xl: 1.25rem;
 
-    /* Border radi */
-    --br-3xs: 10px;
+    /* Border Radius */
+    --border-radius: 0.5rem;
 
     /* Color Variables */
     --accent-dark: rgba(10, 10, 10, 0.9);
     --accent-dark-transparent: rgba(10, 10, 10, 0.4);
-    --accent-light: #d6d6d6;
     --background-dark: rgb(10, 10, 10);
     --background-dark-transparent: rgba(10, 10, 10, 0.65);
     --text-dark: #d5d5d5;
@@ -36,77 +30,111 @@
     --tile-background: #18252e;
 }
 
+/* Reset default element styles */
 html,
 body {
     overflow: hidden;
-    display: flex;
     width: 100%;
     height: 100%;
-    align-items: stretch;
     margin: 0;
-    font-family: var(--font-inter), sans-serif;
-    background: var(--tile-background);
+    font-family: var(--font-family), sans-serif;
+    background-color: var(--tile-background);
+    transition: background-color 0.6s ease;
 }
 
 input,
 textarea,
 button,
 select,
-a {
-    font-family: var(--font-inter), sans-serif;
+a,
+h1,
+h2,
+h3,
+p,
+li,
+ul {
+    font-family: inherit;
     padding: 0;
     margin: 0;
     border: 0;
+    background: none;
+    outline: none;
     vertical-align: baseline;
+    list-style-position: inside;
     -webkit-tap-highlight-color: transparent;
+    color: var(--text-dark);
+}
+
+/* Set custom reusable styles */
+input {
+    font-size: 1.25rem;
+}
+input::placeholder {
+    color: var(--text-disabled-dark-transparent);
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+p,
+h3,
+button {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+p {
+    text-align: left;
+}
+
+h3 {
+    color: var(--text-disabled-dark);
+}
+
+button {
+    display: flex;
+    align-items: center;
 }
 
 button,
+button :is(h1, h2, p, h3),
 a {
     transition: color 0.3s ease;
 }
 
+button.inactive,
+button.inactive :is(h1, h2, p, h3) {
+    color: var(--text-disabled-dark);
+    text-decoration: line-through;
+}
+
+/* Used as background for buttons and input*/
+.outline {
+    gap: var(--padding-6xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-dark-transparent);
+    border-radius: 0.5rem;
+    padding: var(--padding-6xs) var(--spacer-mini);
+}
+
 @media (hover: hover) {
+    a:hover,
     button:hover,
-    a:hover {
-        color: var(--theme) !important;
+    button:hover :is(h1, h2, p, h3) {
+        color: var(--theme);
+        cursor: pointer;
     }
 }
 
-h1 {
-    color: var(--text-dark);
-    font-size: var(--font-size-title);
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-
-h2 {
-    color: var(--text-dark);
-    font-size: var(--font-size-base);
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-}
-
-p,
-li {
-    color: var(--text-dark);
-    font-size: var(--font-size-base);
-    margin: 0;
-}
-
-ul {
-    padding: 0;
-    list-style-position: inside;
-    margin: 0;
-}
-
-/* Mobile Layout*/
 @media (max-width: 768px) {
     body {
         flex-direction: column-reverse;
@@ -122,16 +150,4 @@ ul {
 
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
     border-top-color: var(--background-dark-transparent) !important;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
 }

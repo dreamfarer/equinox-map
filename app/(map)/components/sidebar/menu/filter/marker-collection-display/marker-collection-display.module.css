@@ -1,0 +1,29 @@
+.markerCollectionDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-3xs);
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressBox {
+    display: flex;
+    gap: var(--padding-6xs);
+}
+
+.progressBar {
+    height: 0.6rem;
+    border-radius: var(--border-radius);
+    background: var(--background-dark-transparent);
+    overflow: hidden;
+}
+
+.filler {
+    height: 100%;
+    background: var(--theme);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}

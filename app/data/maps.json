@@ -1,5 +1,6 @@
 {
-    "greenisland": {
+    "alderwood": {
+        "name": "Alderwood",
         "tileSize": 256,
         "size": [32768, 32768],
         "devUrl": "/tiles/greenisland/v3/{z}/{y}/{x}.png",
@@ -10,6 +11,67 @@
         "maxZoom": 7,
         "maxOverscaledZoom": 7,
         "initZoom": 2,
+        "backgroundColor": "#18252e",
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "five-sisters-isle": {
+        "name": "Five Sisters' Isle",
+        "tileSize": 256,
+        "size": [8192, 8192],
+        "devUrl": "/tiles/five-sisters-isle/v1/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/five-sisters-isle/v1/{z}/{y}/{x}.png",
+        "boundsImage": [2610, 2730, 5582, 5462],
+        "boundsData": [-915, -717, 954, 1001],
+        "minZoom": 1,
+        "maxZoom": 5,
+        "maxOverscaledZoom": 6,
+        "initZoom": 2,
+        "backgroundColor": "#1c2b35",
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "low-coast-trail": {
+        "name": "Low Coast Trail",
+        "tileSize": 256,
+        "size": [16384, 16384],
+        "devUrl": "/tiles/low-coast-trail/v1/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/low-coast-trail/v1/{z}/{y}/{x}.png",
+        "boundsImage": [4234, 4492, 12149, 11892],
+        "boundsData": [-768, -488, 921, 1092],
+        "minZoom": 1,
+        "maxZoom": 6,
+        "maxOverscaledZoom": 6,
+        "initZoom": 2,
+        "backgroundColor": "#192630",
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "high-coast-trail": {
+        "name": "High Coast Trail",
+        "tileSize": 256,
+        "size": [16384, 16384],
+        "devUrl": "/tiles/high-coast-trail/v1/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/high-coast-trail/v1/{z}/{y}/{x}.png",
+        "boundsImage": [4673, 5492, 11711, 10892],
+        "boundsData": [-817, -548, 754, 658],
+        "minZoom": 1,
+        "maxZoom": 6,
+        "maxOverscaledZoom": 6,
+        "initZoom": 2,
+        "backgroundColor": "#18252e",
+        "attribution": "Blue Scarab Entertainment"
+    },
+    "sunset-lake": {
+        "name": "Sunset Lake",
+        "tileSize": 256,
+        "size": [32768, 32768],
+        "devUrl": "/tiles/sunset-lake/v1/{z}/{y}/{x}.png",
+        "prodUrl": "https://cdn.equinoxmap.app/sunset-lake/v1/{z}/{y}/{x}.png",
+        "boundsImage": [11209, 11684, 21559, 21084],
+        "boundsData": [-1080, -638, 1096, 1333],
+        "minZoom": 1,
+        "maxZoom": 7,
+        "maxOverscaledZoom": 7,
+        "initZoom": 2,
+        "backgroundColor": "#1b2832",
         "attribution": "Blue Scarab Entertainment"
     }
 }

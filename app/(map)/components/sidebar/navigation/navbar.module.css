@@ -1,0 +1,19 @@
+.navbar {
+    width: calc(4 * var(--spacer-mini));
+    margin: var(--spacer-mini);
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    gap: var(--gap-3xs);
+}
+
+button.inactive {
+    background-color: var(--accent-dark-transparent);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}

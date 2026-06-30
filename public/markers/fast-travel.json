@@ -3,7 +3,7 @@
         "title": "Player Barn",
         "subtitle": "Teleports you to your home stable.",
         "id": "player-barn",
-        "map": "greenisland",
+        "map": "alderwood",
         "icon": "player-barn",
         "x": -268.28728145866467,
         "y": 568.82357547228

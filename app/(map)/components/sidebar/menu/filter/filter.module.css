@@ -1,0 +1,25 @@
+.buttonGroupHorizontal {
+    display: flex;
+    transition: gap 250ms ease;
+    gap: var(--gap-xl);
+}
+
+.noGap {
+    gap: 0;
+}
+
+.button {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    transition:
+        padding 250ms ease,
+        width 250ms ease,
+        opacity 250ms ease;
+}
+
+.hidden {
+    padding: 0;
+    opacity: 0;
+    width: 0;
+}

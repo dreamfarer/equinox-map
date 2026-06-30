@@ -1,4 +1,5 @@
 export type MapMetadata = {
+    name: string;
     tileSize: number;
     size: number[];
     devUrl: string;
@@ -9,6 +10,7 @@ export type MapMetadata = {
     maxZoom: number;
     maxOverscaledZoom: number;
     initZoom: number;
+    backgroundColor: string;
     attribution: string;
 };
 
