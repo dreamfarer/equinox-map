@@ -51,7 +51,7 @@
         "devUrl": "/tiles/high-coast-trail/v1/{z}/{y}/{x}.png",
         "prodUrl": "https://cdn.equinoxmap.app/high-coast-trail/v1/{z}/{y}/{x}.png",
         "boundsImage": [4673, 5492, 11711, 10892],
-        "boundsData": [10, 10, 100, 100],
+        "boundsData": [-817, -548, 754, 658],
         "minZoom": 1,
         "maxZoom": 6,
         "maxOverscaledZoom": 6,
