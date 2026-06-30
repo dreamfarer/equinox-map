@@ -21,7 +21,7 @@ type MarkerSearchResult = {
 };
 
 export default function Filter() {
-    const { allPopups, collectedMarkerIds, setCollectedMarkerIds } =
+    const { allPopups, setCollectedMarkerIds, activeCollectedMarkerCount } =
         useMarkerContext();
     const {
         activeCategories,
@@ -87,8 +87,8 @@ export default function Filter() {
     }, [mapActiveCategoryCount, mapCategorySet.size]);
 
     const showResetCollectionButton = useMemo(() => {
-        return collectedMarkerIds.size > 0;
-    }, [collectedMarkerIds]);
+        return activeCollectedMarkerCount > 0;
+    }, [activeCollectedMarkerCount]);
 
     const resetCollection = useCallback(() => {
         setCollectedMarkerIds(new Set([]));
