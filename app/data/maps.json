@@ -21,7 +21,7 @@
         "devUrl": "/tiles/five-sisters-isle/v1/{z}/{y}/{x}.png",
         "prodUrl": "https://cdn.equinoxmap.app/five-sisters-isle/v1/{z}/{y}/{x}.png",
         "boundsImage": [2610, 2730, 5582, 5462],
-        "boundsData": [10, 10, 100, 100],
+        "boundsData": [-915, -717, 954, 1001],
         "minZoom": 1,
         "maxZoom": 5,
         "maxOverscaledZoom": 6,
