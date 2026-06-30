@@ -9,6 +9,7 @@ import { useMapLibreMapLayerRegister } from '@/app/(map)/hooks/use-map-libre-map
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 import { useUpdateCollectedMarkers } from '@/app/(map)/hooks/use-update-collected-markers';
 import { useMarkerHover } from '@/app/(map)/hooks/use-marker-hover';
+import { useTileBackground } from '@/app/(map)/hooks/use-tile-background';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from '@/app/(map)/components/map.module.css';
 import { useEffect } from 'react';
@@ -30,6 +31,7 @@ export default function Map({ initialMap }: Props) {
     useMapLibreMapEventRegister();
     useUpdateCollectedMarkers();
     useMarkerHover();
+    useTileBackground();
 
     return (
         <div className={styles.fullScreen}>
