@@ -8,6 +8,7 @@ type Props = {
     options: string[];
     selected: string | null;
     onSelect: (value: string) => void;
+    id?: string;
     size?: string;
     menuPosition?: MenuPosition;
     menuOverflowDirection?: 'left' | 'right';
@@ -40,6 +41,7 @@ export default function Dropdown({
     options,
     selected,
     onSelect,
+    id,
     size,
     menuPosition = 'bottom',
     menuOverflowDirection = 'right',
@@ -63,6 +65,7 @@ export default function Dropdown({
     return (
         <div className={`${className}`} ref={ref}>
             <button
+                id={id}
                 className={`${buttonClassName}`}
                 style={{
                     ...(size && { fontSize: size }),

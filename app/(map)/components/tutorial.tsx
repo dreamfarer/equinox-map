@@ -6,11 +6,13 @@ import { useMenuState } from '@/app/(map)/context/menu-state-context';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 import { useFlyToMarker } from '@/app/(map)/hooks/use-fly-to-marker';
 import { flushSync } from 'react-dom';
+import { shouldShowTutorial } from '@/app/(map)/config/tour-config';
 
 export default function Tutorial() {
     const {
-        isTutorialDone,
-        setIsTutorialDone,
+        tutorialDoneAt,
+        setTutorialDoneAt,
+        setWhatsNewSeenAt,
         isLocalStorageReady,
         setActiveMenuName,
         setIsMenuOpen,
@@ -21,7 +23,7 @@ export default function Tutorial() {
 
     useEffect(() => {
         if (!isLocalStorageReady) return;
-        if (isTutorialDone) return;
+        if (!shouldShowTutorial(tutorialDoneAt)) return;
 
         (async () => {
             const { driver } = await import('driver.js');
@@ -29,7 +31,9 @@ export default function Tutorial() {
                 showProgress: true,
                 overlayClickBehavior: () => {},
                 onDestroyed: () => {
-                    setIsTutorialDone(true);
+                    const now = new Date().toISOString();
+                    setTutorialDoneAt(now);
+                    setWhatsNewSeenAt(now);
                 },
                 steps: [
                     {
@@ -53,7 +57,7 @@ export default function Tutorial() {
                         },
                     },
                     {
-                        element: '.category',
+                        element: '#category',
                         popover: {
                             title: 'Toggle Categories',
                             description:
@@ -114,11 +118,29 @@ export default function Tutorial() {
                         },
                     },
                     {
+                        disableActiveInteraction: true,
+                        element: '#mapChooser',
+                        popover: {
+                            title: 'Switch Maps',
+                            description:
+                                'Use the dropdown to switch between the main island, Alderwood, and all ride islands.',
+                        },
+                    },
+                    {
                         element: '#informationButton',
                         popover: {
                             title: 'Information',
                             description:
                                 'Open the info page. Find help, report bugs, view credits, or restart this tour.',
+                        },
+                    },
+                    {
+                        disableActiveInteraction: true,
+                        element: '#navigateToDatabaseButton',
+                        popover: {
+                            title: 'Database',
+                            description:
+                                'Visit the comprehensive database of character clothes, gear, and horse tack. View stats, costs, level requirements, and item details.',
                         },
                     },
                     {
@@ -140,11 +162,12 @@ export default function Tutorial() {
         flyToMarker,
         isLocalStorageReady,
         isMobile,
-        isTutorialDone,
+        tutorialDoneAt,
         setActiveMenuName,
         setCollectedMarkerIds,
         setIsMenuOpen,
-        setIsTutorialDone,
+        setTutorialDoneAt,
+        setWhatsNewSeenAt,
     ]);
 
     return null;

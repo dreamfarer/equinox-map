@@ -16,6 +16,7 @@ export default function MapChooser() {
 
     return (
         <Dropdown
+            id="mapChooser"
             options={allMapNames}
             selected={activeMapName ?? 'Alderwood'}
             onSelect={onSelect}

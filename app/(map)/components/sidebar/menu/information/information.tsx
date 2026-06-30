@@ -9,7 +9,7 @@ function link(name: string, href: string) {
 }
 
 export default function Information() {
-    const { setIsTutorialDone } = useMenuState();
+    const { setTutorialDoneAt } = useMenuState();
     return (
         <>
             <h1>Need Help, found a bug or want to contribute?</h1>
@@ -97,7 +97,7 @@ export default function Information() {
             </p>
             <button
                 className="outline"
-                onClick={() => setIsTutorialDone(undefined)}
+                onClick={() => setTutorialDoneAt(undefined)}
             >
                 Restart Tutorial
             </button>

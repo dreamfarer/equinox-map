@@ -11,13 +11,29 @@ import {
 } from 'react';
 import { useLocalStorage } from '@/app/(map)/hooks/use-local-storage';
 
+// Migrate users who have the old boolean flag set.
+if (typeof window !== 'undefined') {
+    const old = localStorage.getItem('isTutorialDone');
+    if (old !== null) {
+        localStorage.removeItem('isTutorialDone');
+        if (old === 'true') {
+            localStorage.setItem(
+                'tutorialDoneAt',
+                JSON.stringify(new Date().toISOString())
+            );
+        }
+    }
+}
+
 type MenuStateContextValue = {
     isMenuOpen: boolean;
     setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
     activeMenuName: string;
     setActiveMenuName: Dispatch<SetStateAction<string>>;
-    isTutorialDone: boolean | undefined;
-    setIsTutorialDone: (next: boolean | undefined) => void;
+    tutorialDoneAt: string | undefined;
+    setTutorialDoneAt: (next: string | undefined) => void;
+    whatsNewSeenAt: string | undefined;
+    setWhatsNewSeenAt: (next: string | undefined) => void;
     isLocalStorageReady: boolean;
     isMobile: boolean;
     setIsMobile: Dispatch<SetStateAction<boolean>>;
@@ -31,8 +47,10 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
     const [activeMenuName, setActiveMenuName] = useState('filter');
     const [isMobile, setIsMobile] = useState(false);
-    const [isTutorialDone, setIsTutorialDone, isLocalStorageReady] =
-        useLocalStorage<boolean>('isTutorialDone', false);
+    const [tutorialDoneAt, setTutorialDoneAt, isLocalStorageReady] =
+        useLocalStorage<string>('tutorialDoneAt');
+    const [whatsNewSeenAt, setWhatsNewSeenAt] =
+        useLocalStorage<string>('whatsNewSeenAt');
 
     const contextValue = useMemo<MenuStateContextValue>(
         () => ({
@@ -40,8 +58,10 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
             setIsMenuOpen,
             activeMenuName,
             setActiveMenuName,
-            isTutorialDone,
-            setIsTutorialDone,
+            tutorialDoneAt,
+            setTutorialDoneAt,
+            whatsNewSeenAt,
+            setWhatsNewSeenAt,
             isLocalStorageReady,
             isMobile,
             setIsMobile,
@@ -49,8 +69,10 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
         [
             isMenuOpen,
             activeMenuName,
-            isTutorialDone,
-            setIsTutorialDone,
+            tutorialDoneAt,
+            setTutorialDoneAt,
+            whatsNewSeenAt,
+            setWhatsNewSeenAt,
             isLocalStorageReady,
             isMobile,
         ]
@@ -58,6 +80,7 @@ export function MenuStateProvider({ children }: { children: ReactNode }) {
 
     return <MenuStateContext value={contextValue}>{children}</MenuStateContext>;
 }
+
 export function useMenuState() {
     const context = useContext(MenuStateContext);
     if (!context)

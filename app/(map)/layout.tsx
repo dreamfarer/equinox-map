@@ -5,6 +5,7 @@ import { FilterProvider } from '@/app/(map)/context/filter-context';
 import { MenuStateProvider } from '@/app/(map)/context/menu-state-context';
 import Navbar from '@/app/(map)/components/sidebar/navigation/navbar';
 import Tutorial from '@/app/(map)/components/tutorial';
+import WhatsNew from '@/app/(map)/components/whats-new';
 import Menu from '@/app/(map)/components/sidebar/menu/menu';
 import popups from '@/app/data/popups.json';
 import markers from '@/app/data/markers.json';
@@ -22,6 +23,7 @@ export default function MapLayout({ children }: { children: ReactNode }) {
                         {children}
                         <Menu />
                         <Tutorial />
+                        <WhatsNew />
                     </MarkerProvider>
                 </MapProvider>
             </FilterProvider>

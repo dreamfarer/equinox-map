@@ -24,7 +24,7 @@ export default function Category({
     const [collapsed, setCollapsed] = useState(false);
 
     return (
-        <div>
+        <div id={'category'}>
             <div className={styles.header}>
                 <button
                     onClick={onToggle}
