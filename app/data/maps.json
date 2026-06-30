@@ -66,7 +66,7 @@
         "devUrl": "/tiles/sunset-lake/v1/{z}/{y}/{x}.png",
         "prodUrl": "https://cdn.equinoxmap.app/sunset-lake/v1/{z}/{y}/{x}.png",
         "boundsImage": [11209, 11684, 21559, 21084],
-        "boundsData": [10, 10, 100, 100],
+        "boundsData": [-1080, -638, 1096, 1333],
         "minZoom": 1,
         "maxZoom": 7,
         "maxOverscaledZoom": 7,
