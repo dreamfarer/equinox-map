@@ -17,6 +17,8 @@ type MapContextValue = {
     getMapIdByName: (name: string) => string | undefined;
     setMapInstance: (map: Map | null) => void;
     setActiveMapId: (mapName: string) => void;
+    pendingFlyToMarkerId: string | null;
+    setPendingFlyToMarkerId: (id: string | null) => void;
 };
 
 type MapProviderProps = {
@@ -38,6 +40,9 @@ export function MapProvider({ children }: MapProviderProps) {
     );
     const [mapInstance, setMapInstance] = useState<Map | null>(null);
     const [activeMapId, setActiveMapId] = useState<string | null>(null);
+    const [pendingFlyToMarkerId, setPendingFlyToMarkerId] = useState<
+        string | null
+    >(null);
 
     const contextValue = useMemo<MapContextValue>(
         () => ({
@@ -54,8 +59,10 @@ export function MapProvider({ children }: MapProviderProps) {
             getMapIdByName,
             setMapInstance,
             setActiveMapId,
+            pendingFlyToMarkerId,
+            setPendingFlyToMarkerId,
         }),
-        [mapInstance, mapContainer, activeMapId]
+        [mapInstance, mapContainer, activeMapId, pendingFlyToMarkerId]
     );
 
     return <MapContext value={contextValue}>{children}</MapContext>;
