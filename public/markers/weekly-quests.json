@@ -411,5 +411,19 @@
         "foreignId": "nina",
         "map": "alderwood",
         "reputation": [{ "type": "Hook's End", "amount": 10 }]
+    },
+    {
+        "title": "Quick Hoofs",
+        "subtitle": "Go to Valeria, pick up, clean, and stain-repellent-treat the dirty leg wraps at the arena, then return to her.",
+        "foreignId": "valeria",
+        "map": "alderwood",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
+    },
+    {
+        "title": "Messy Center",
+        "subtitle": "Pick up the pitch fork and clean the Equestrian Center, then return to Thomas.",
+        "foreignId": "thomas",
+        "map": "alderwood",
+        "reputation": [{ "type": "Alderwood Equestrians", "amount": 10 }]
     }
 ]
