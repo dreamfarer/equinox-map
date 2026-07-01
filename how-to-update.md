@@ -3,7 +3,7 @@
 In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic from [LootLocker](https://lootlocker.com/). LootLocker is Equinox: Homecoming's backend which hosts the item catalogues and prices.
 
 > [!CAUTION]
-> **ALWAYS** revoke the root CA certificate after exporting, as explained below, since anyone who knows Fiddler's private key could use it to decrypt your encrypted traffic. After cleanup, it will ask you to trust the root certificate again, so make sure to revoke it.
+> **ALWAYS** revoke the root CA certificate after exporting, as explained below, since anyone who knows Fiddler's private key could use it to decrypt **ALL** your encrypted traffic. After cleanup, it will ask you to trust the root certificate again, so make sure to revoke it.
 
 > [!WARNING]
 > Close all unnecessary applications to not interfere with their traffic and to avoid any potential issues.
