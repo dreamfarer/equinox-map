@@ -2,16 +2,16 @@
 
 The following guides explain how to update the map and database for a new game version. Although most steps are automated, some manual work is still required.
 
-* [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
-* [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
-* [Extract Resource Locations](#extract-resource-locations)
+- [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
+- [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
+- [Extract Resource Locations](#extract-resource-locations)
 
 ### Optional Steps
 
 These steps are optional and can be skipped if you don't need them.
 
-* [Export the FModel Mapping](#export-the-fmodel-mapping)
-* [Adding a New Map](#adding-a-new-map)
+- [Export the FModel Mapping](#export-the-fmodel-mapping)
+- [Adding a New Map](#adding-a-new-map)
 
 ## Export Resource Locations, Item Stats, and Image Paths using FModel
 
@@ -20,26 +20,29 @@ These steps are optional and can be skipped if you don't need them.
 1. Download [FModel](https://fmodel.app/download) and extract it to `fmodel/` in the project root.
 
 ### Setup FModel
-1. **Open** FModel. If Microsoft Defender SmartScreen blocks the executable, click **More info** and then **Run anyway**.
-2. On the first launch, the **Directory Selector** will open automatically. Under **Directory**, input the path to `ThunderHorseClient.exe` (*something like `C:\Program Files (x86)\Steam\steamapps\common\Project ThunderHorse`*) and click **OK**.
+
+1. Open FModel. If Microsoft Defender SmartScreen blocks the executable, click **More info** and then **Run anyway**.
+2. On the first launch, the **Directory Selector** will open automatically. Under **Directory**, input the path to `ThunderHorseClient.exe` (_something like `C:\Program Files (x86)\Steam\steamapps\common\Project ThunderHorse`_) and click **OK**.
 3. Go to **Settings** and toggle **Local Mapping File (drag & drop)**. Input the path to `5.5.4-0+UE5-ThunderHorse.usmap` (`dumper-7\5.5.4-0+UE5-ThunderHorse\Mappings` from the project root). FModel will now restart automatically.
 
 ### Export Data
+
 The following directories need to be exported to update the map and database. However, feel free to discover everything else on your own.
-1. Open the `ThunderHorse-WindowsClient.utoc` archive by **double-clicking** it.
-2. Navigate to `ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_`, right-click, and choose **Save Folder's Packages Properties (.json)**.
+
+1. **Double-Click** the `ThunderHorse-WindowsClient.utoc` archive to open it.
+2. Navigate to `ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_`, **Right-Click**, and choose **Save Folder's Packages Properties (.json)**.
 3. Repeat step 2 for the ride island maps `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_` and `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_`.
-4. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, right-click, and choose **Save Folder's Packages Textures**.
+4. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, **Right-Click**, and choose **Save Folder's Packages Textures**.
 5. Repeat step 4 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`.
 
-*If FModel throws errors during exporting, either [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub or try generating the mapping again yourself using the instructions in the [Export the FModel Mapping](#export-the-fmodel-mapping) section.*
+_If FModel throws errors during exporting, either [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub or try generating the mapping again yourself using the instructions in the [Export the FModel Mapping](#export-the-fmodel-mapping) section._
 
 ## Export Shop Product Catalogues and Prices using Fiddler Classic
 
 In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic from [LootLocker](https://lootlocker.com/). LootLocker is Equinox: Homecoming's backend which hosts the item catalogues and prices.
 
 > [!CAUTION]
-> **ALWAYS** revoke the root CA certificate after exporting, as explained below, since anyone who knows Fiddler's private key could use it to decrypt **ALL** your encrypted traffic. After cleanup, it will ask you to trust the root certificate again, so make sure to revoke it.
+> **ALWAYS** revoke the root CA certificate after exporting, as explained below, since anyone who knows Fiddler's private key could use it to decrypt **ALL** your encrypted traffic. After clean-up, it will ask you to trust the root certificate again, so make sure to revoke it.
 
 > [!WARNING]
 > Close all unnecessary applications to not interfere with their traffic and to avoid any potential issues.
@@ -80,32 +83,34 @@ The mapping for FModel is already provided. This guide shows you how to export i
 
 1. Download and install [System Informer](https://github.com/winsiderss/systeminformer/releases) (or any application that allows injecting DLLs).
 
-### Export the FModel Mapping
+### Export the Mapping
+
 1. Launch Equinox: Homecoming and enter the game world.
-2. Open **System Informer** and find the process called `ThunderHorseClient-Win64-Shipping.exe`.
+2. Open System Informer and find the process called `ThunderHorseClient-Win64-Shipping.exe`.
 3. **Double-Click** on the process → **Modules** → **Options** → **Load Module** → Confirm with **Load** → **Select** `dumper-7.dll` from `dumper-7/` in the project root.
-4. The Command Prompt will pop up. Wait until it says "**Press F6 to unload**", then **press F6**.
+4. The Command Prompt will pop up. Wait until it says **"Press F6 to unload"**, then press **F6**.
 5. You have successfully exported the FModel mapping to `C:\Dumper-7\<GameName>\Mappings\<GameName>.usmap`.
 
-*You can also build [Dumper-7](https://github.com/Encryqed/Dumper-7) from source and use it instead of the provided DLL.*
+_You can also build [Dumper-7](https://github.com/Encryqed/Dumper-7) from source and use it instead of the provided DLL._
 
 ## Adding a New Map
 
-Adding a new map involves manual work, multiple steps, and a deeper understanding of the app. Therefore, it's probably better to [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub. Generally, however, you will need to append the new map to `app\(map)\[map]\page.tsx`, register it in `app/data/maps.json`, tile it, and add its metadata in `scripts/extract-resources.json`.
+Adding a new map involves manual work, multiple steps, and a deeper understanding of the app. Therefore, it's probably better to [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub. In general, you will need to append the new map to `app/(map)/[map]/page.tsx`, register it in `app/data/maps.json`, tile it, and add its metadata in `scripts/extract-resources.json`.
 
 ### Map Tiling
 
-Interactive maps are usually split into multiple tiles on multiple zoom levels from a large source map for more efficient usage and lower performance requirements.
-1. Run the script `scripts/tile.sh`. This script adds transparent padding, centers and optionally crops the image and generates tiles. It also prints partial metadata (*for `maps.json`*) to the console:
+Interactive maps are usually split into multiple tiles across multiple zoom levels, generated from a large source map, for more efficient usage and lower performance requirements.
+
+1. Run the script `scripts/tile.sh`. This script adds transparent padding, centers and optionally crops the image, and generates tiles. It also prints partial metadata (_for `maps.json`_) to the console:
     ```sh
     sh tile.sh <source-image.png> [<cropX_px> <cropY_px>]
     ```
-   (*cropX and cropY are set to 300 in this project*)
+    (_cropX and cropY are set to 300 in this project_)
 2. Move the generated folders containing the tiles to `app/tiles/<map-id>/<version>/`.
 
 ### Map Metadata
 
-Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in the map metadata `maps.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future. While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection. 
+Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in the map metadata `maps.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future. While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection.
 
 This separation between raw marker data and runtime projection requires telling the runtime how to map the raw marker data into the final projection. This is currently done by visiting the resources with extreme positions in-game and editing the `boundsData` until the mapping is correct.
 
@@ -113,11 +118,11 @@ This separation between raw marker data and runtime projection requires telling 
 
 The exported resource locations from the section [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel) are spread across thousands of files and contain much information we don't need. Therefore, this step extracts the resource locations into a single JSON file per category and removes all unnecessary data.
 
-1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git` (*if not already done*)
-2. Install dependencies: `npm install` (*if not already done*)
-3. Extract the resource locations using: `build:extract`. This will populate the `public/markers/resources` directory.
+1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git` (_if not already done_)
+2. Install dependencies: `npm install` (_if not already done_)
+3. Extract the resource locations: `build:extract`. This will populate the `public/markers/resources` directory.
 
-*Many categories, such as characters and weekly quests, are not included in this automatic extraction and require manual addition and editing in `public/markers/`.*
+_Many categories, such as characters and weekly quests, are not included in this automatic extraction and require manual addition and editing in `public/markers/`._
 
 ## Appendix
 
