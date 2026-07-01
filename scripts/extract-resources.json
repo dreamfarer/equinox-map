@@ -3,23 +3,23 @@
     "sources": [
         {
             "mapName": "alderwood",
-            "dir": "fmodel/Exports/ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_"
+            "dir": "fmodel/Output/Exports/ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_"
         },
         {
             "mapName": "five-sisters-isle",
-            "dir": "fmodel/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_"
+            "dir": "fmodel/Output/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_"
         },
         {
             "mapName": "low-coast-trail",
-            "dir": "fmodel/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_"
+            "dir": "fmodel/Output/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_"
         },
         {
             "mapName": "high-coast-trail",
-            "dir": "fmodel/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_"
+            "dir": "fmodel/Output/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_"
         },
         {
             "mapName": "sunset-lake",
-            "dir": "fmodel/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_"
+            "dir": "fmodel/Output/Exports/ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_"
         }
     ]
 }
