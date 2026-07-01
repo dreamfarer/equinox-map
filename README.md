@@ -10,7 +10,7 @@ The interactive map includes:
 - Filter menu to toggle on/off marker categories.
 - Search bar to search for markers, titles, subtitles, and content. Click a search result to fly to that marker on the map.
 - Popup for each marker with additional information per category.
-- Marker Collection tracking via **Right-Click** (*long-press on mobile*).
+- Marker Collection tracking via **Right-Click** (_long-press on mobile_).
 - Interactive tutorial that guides users through all features.
 
 The database features:
@@ -63,6 +63,7 @@ Total Requests: **298'380**
 **December**\
 Unique Visitors: **2'200** \
 Total Requests: **296'770**
+
 </details>
 
 <details>
@@ -91,6 +92,7 @@ Total Requests: **1'340'000**
 **June**\
 Unique Visitors: **5'470** \
 Total Requests: **1'220'000**
+
 </details>
 
 ## Help, Feedback, Issues, Suggestions
@@ -103,7 +105,7 @@ Find the detailed guide to updating the map and database for a new game version 
 
 ## Acknowledgements
 
-This project wouldn’t be possible without the tireless efforts of the following individuals – and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind *Equinox: Homecoming*:
+This project wouldn’t be possible without the tireless efforts of the following individuals – and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind _Equinox: Homecoming_:
 
 - **CookieFox**: Reported missing and incorrect locations, helped gather clothing and tack data, and tracked reputation gains for weekly quests initially.
 - [**dreamfarer**](https://github.com/dreamfarer): Leads overall concept, planning, communications, software engineering, DevOps, and data processing.
