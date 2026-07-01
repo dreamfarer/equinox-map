@@ -4,6 +4,7 @@ The following guides explain how to update the map and database for a new game v
 
 * [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
 * [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
+* [Extract Resource Locations](#extract-resource-locations)
 
 ### Optional Steps
 
@@ -107,6 +108,16 @@ Interactive maps are usually split into multiple tiles on multiple zoom levels f
 Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in the map metadata `maps.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future. While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection. 
 
 This separation between raw marker data and runtime projection requires telling the runtime how to map the raw marker data into the final projection. This is currently done by visiting the resources with extreme positions in-game and editing the `boundsData` until the mapping is correct.
+
+## Extract Resource Locations
+
+The exported resource locations from the section [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel) are spread across thousands of files and contain much information we don't need. Therefore, this step extracts the resource locations into a single JSON file per category and removes all unnecessary data.
+
+1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git` (*if not already done*)
+2. Install dependencies: `npm install` (*if not already done*)
+3. Extract the resource locations using: `build:extract`. This will populate the `public/markers/resources` directory.
+
+*Many categories, such as characters and weekly quests, are not included in this automatic extraction and require manual addition and editing in `public/markers/`.*
 
 ## Appendix
 
