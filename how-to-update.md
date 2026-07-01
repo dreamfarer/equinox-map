@@ -1,3 +1,37 @@
+# How to Update the Map and Database for a New Game Version
+
+The following guides explain how to update the map and database for a new game version. Although most steps are automated, some manual work is still required.
+
+* [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
+* [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
+
+### Optional Steps
+
+These steps are optional and can be skipped if you don't need them.
+
+* [Export the FModel Mapping](#export-the-fmodel-mapping)
+
+## Export Resource Locations, Item Stats, and Image Paths using FModel
+
+### Prerequisites
+
+1. Download [FModel](https://fmodel.app/download) and extract it to `fmodel/` in the project root.
+
+### Setup FModel
+1. **Open** FModel. If Microsoft Defender SmartScreen blocks the executable, click **More info** and then **Run anyway**.
+2. On the first launch, the **Directory Selector** will open automatically. Under **Directory**, input the path to `ThunderHorseClient.exe` (*something like `C:\Program Files (x86)\Steam\steamapps\common\Project ThunderHorse`*) and click **OK**.
+3. Go to **Settings** and toggle **Local Mapping File (drag & drop)**. Input the path to `5.5.4-0+UE5-ThunderHorse.usmap` (`dumper-7\5.5.4-0+UE5-ThunderHorse\Mappings` from the project root). FModel will now restart automatically.
+
+### Export Data
+The following directories need to be exported to update the map and database. However, feel free to discover everything else on your own.
+1. Open the `ThunderHorse-WindowsClient.utoc` archive by **double-clicking** it.
+2. Navigate to `ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_`, right-click, and choose **Save Folder's Packages Properties (.json)**.
+3. Repeat step 2 for the ride island maps `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_` and `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_`.
+4. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, right-click, and choose **Save Folder's Packages Textures**.
+5. Repeat step 4 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`.
+
+*If FModel throws errors during exporting, either [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub or try generating the mapping again yourself using the instructions in the [Export the FModel Mapping](#export-the-fmodel-mapping) section.*
+
 ## Export Shop Product Catalogues and Prices using Fiddler Classic
 
 In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic from [LootLocker](https://lootlocker.com/). LootLocker is Equinox: Homecoming's backend which hosts the item catalogues and prices.
@@ -10,7 +44,7 @@ In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic
 
 ### Prerequisites
 
-1. Download and install [Fiddler Classic](https://www.telerik.com/fiddler/fiddler-classic) (free).
+1. Download and install [Fiddler Classic](https://www.telerik.com/fiddler/fiddler-classic).
 2. Make sure Equinox: Homecoming is installed and you can log in.
 3. Create the folder `fiddler-classic/Exports` in the project root, if it doesn't already exist. This is where the exported files go later on.
 
@@ -26,7 +60,7 @@ In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic
 1. Launch Equinox: Homecoming and log in. Keep Fiddler Classic running in the background the entire time.
 2. Visit each shop in-game and open its product catalogue. You have successfully visited a shop once a matching entry appears in Fiddler's response list. Remember to also visit the premium shops. See the [LootLocker Item Catalogue URLs](#lootlocker-item-catalogue-urls) appendix for the full list of URLs. Once every URL in that list has appeared in the response list, you have visited all shops.
 3. Go through each response in the list. If a yellow bar reading **"Response body is encoded. Click to decode."** appears above the response body, click it to decode the response.
-4. Select every response with **Shift+Click**, then **Right-Click** → **Save** → **Response** → **Response Body...**, and save them into `fiddler-classic/Exports`. You can keep the default file names Fiddler suggests. You have successfully exported all item catalogues.
+4. Select every response with **Shift+Click**, then **Right-Click** → **Save** → **Response** → **Response Body...**, and save them into `fiddler-classic/Output/Exports`. You can keep the default file names Fiddler suggests. You have successfully exported all item catalogues.
 
 ### Cleanup Fiddler Classic
 
