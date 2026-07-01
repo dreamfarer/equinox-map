@@ -36,6 +36,23 @@ In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic
 4. It will ask you to trust the root certificate again, so make sure to **revoke** it by pressing **No**.
 5. Uncheck **Decrypt HTTPS traffic** to disable decryption.
 
+## Export the FModel Mapping
+
+The mapping for FModel is already provided. This guide shows you how to export it again in case the provided mapping is outdated.
+
+### Prerequisites
+
+1. Download and install [System Informer](https://github.com/winsiderss/systeminformer/releases) (or any application that allows injecting DLLs).
+
+### Export the FModel Mapping
+1. Launch Equinox: Homecoming and enter the game world.
+2. Open **System Informer** and find the process called `ThunderHorseClient-Win64-Shipping.exe`.
+3. **Double-Click** on the process → **Modules** → **Options** → **Load Module** → Confirm with **Load** → **Select** `dumper-7.dll` from `dumper-7/` in the project root.
+4. The Command Prompt will pop up. Wait until it says "**Press F6 to unload**", then **press F6**.
+5. You have successfully exported the FModel mapping to `C:\Dumper-7\<GameName>\Mappings\<GameName>.usmap`.
+
+*You can also build [Dumper-7](https://github.com/Encryqed/Dumper-7) from source and use it instead of the provided DLL.*
+
 ## Appendix
 
 ### LootLocker Item Catalogue URLs
