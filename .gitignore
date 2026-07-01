@@ -44,4 +44,17 @@ next-env.d.ts
 .idea
 tiles/
 app/data/*
-/fmodel
+
+# FModel
+fmodel/*
+
+# Fiddler Classic
+fiddler-classic/*
+
+# Dumper-7
+dumper-7/*
+!dumper-7/5.5.4-0+UE5-ThunderHorse/
+dumper-7/5.5.4-0+UE5-ThunderHorse/*
+!dumper-7/5.5.4-0+UE5-ThunderHorse/Mappings/
+dumper-7/5.5.4-0+UE5-ThunderHorse/Mappings/*
+!dumper-7/5.5.4-0+UE5-ThunderHorse/Mappings/5.5.4-0+UE5-ThunderHorse.usmap
