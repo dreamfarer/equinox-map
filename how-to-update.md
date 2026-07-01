@@ -10,6 +10,7 @@ The following guides explain how to update the map and database for a new game v
 These steps are optional and can be skipped if you don't need them.
 
 * [Export the FModel Mapping](#export-the-fmodel-mapping)
+* [Adding a New Map](#adding-a-new-map)
 
 ## Export Resource Locations, Item Stats, and Image Paths using FModel
 
@@ -86,6 +87,26 @@ The mapping for FModel is already provided. This guide shows you how to export i
 5. You have successfully exported the FModel mapping to `C:\Dumper-7\<GameName>\Mappings\<GameName>.usmap`.
 
 *You can also build [Dumper-7](https://github.com/Encryqed/Dumper-7) from source and use it instead of the provided DLL.*
+
+## Adding a New Map
+
+Adding a new map involves manual work, multiple steps, and a deeper understanding of the app. Therefore, it's probably better to [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub. Generally, however, you will need to append the new map to `app\(map)\[map]\page.tsx`, register it in `app/data/maps.json`, tile it, and add its metadata in `scripts/extract-resources.json`.
+
+### Map Tiling
+
+Interactive maps are usually split into multiple tiles on multiple zoom levels from a large source map for more efficient usage and lower performance requirements.
+1. Run the script `scripts/tile.sh`. This script adds transparent padding, centers and optionally crops the image and generates tiles. It also prints partial metadata (*for `maps.json`*) to the console:
+    ```sh
+    sh tile.sh <source-image.png> [<cropX_px> <cropY_px>]
+    ```
+   (*cropX and cropY are set to 300 in this project*)
+2. Move the generated folders containing the tiles to `app/tiles/<map-id>/<version>/`.
+
+### Map Metadata
+
+Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in the map metadata `maps.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future. While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection. 
+
+This separation between raw marker data and runtime projection requires telling the runtime how to map the raw marker data into the final projection. This is currently done by visiting the resources with extreme positions in-game and editing the `boundsData` until the mapping is correct.
 
 ## Appendix
 
