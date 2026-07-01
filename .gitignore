@@ -52,7 +52,9 @@ fmodel/*
 fiddler-classic/*
 
 # Dumper-7
+!dumper-7/
 dumper-7/*
+!dumper-7/dumper-7.dll
 !dumper-7/5.5.4-0+UE5-ThunderHorse/
 dumper-7/5.5.4-0+UE5-ThunderHorse/*
 !dumper-7/5.5.4-0+UE5-ThunderHorse/Mappings/
