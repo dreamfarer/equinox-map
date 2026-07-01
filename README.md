@@ -1,173 +1,118 @@
 # Equinox: Homecoming Interactive Map
 
-This interactive map for [Equinox: Homecoming](https://store.steampowered.com/app/3258290/Equinox_Homecoming/) is a community-driven project – created and maintained by players, for players. Try it out [here](https://equinoxmap.app/)!
+This interactive map for [Equinox: Homecoming](https://store.steampowered.com/app/3258290/Equinox_Homecoming/) is a community-driven project created and maintained by players, for players. Try it out [here](https://equinoxmap.app/)!
 
-## Implemented Features
+## Features
 
-The following features are fully implemented and available in the live version:
+The interactive map includes:
 
-- Toggle marker categories on/off via click in the menu
-- Search markers, titles, subtitles, and content
-- Click a search result to fly to that marker on the map
-- Click a marker to open a popup with additional information
-- Collect markers via right-click (_long-press on mobile_)
-- Interactive tutorial that guides users through all features
+- Up-to-date markers for all locations in the game, including collectible resources, artefacts, characters, races, quests, and more.
+- Filter menu to toggle on/off marker categories.
+- Search bar to search for markers, titles, subtitles, and content. Click a search result to fly to that marker on the map.
+- Popup for each marker with additional information per category.
+- Marker Collection tracking via **Right-Click** (*long-press on mobile*).
+- Interactive tutorial that guides users through all features.
 
-## Help, Feedback, Issues, Suggestions
+The database features:
 
-Have feedback, found a bug, have a feature request, or need help? Open an [issue](https://github.com/dreamfarer/equinox-map/issues/new) on GitHub.
+- Up-to-date data for all clothing and tack.
+- Advanced filter menu for type, stats, reputation, cost, colours, upgrade item, and where to find.
+- Search bar to search for clothing and tack, including all filters.
+- URL update based on a search query and filters to share with friends.
 
-## Technical Overview
+## Usage
 
-### Deployment
+The deployed interactive map is freely available [here](https://equinoxmap.app/). If you want to run the map locally, follow these steps:
 
-The project is currently running on **free** plans. The serverless Next.js frontend is hosted on [Vercel](https://vercel.com/), and the map tiles are stored in a [Cloudflare R2](https://www.cloudflare.com/en-gb/developer-platform/products/r2/) bucket.
-
-### Data Sourcing & Processing
-
-This is a collaborative community effort, with data sourced by players exploring the game.
-
-All markers are first added to `/public/markers` in the `data` branch. They are then processed, if necessary, and ultimately merged into the `main` branch via a pull request. A GitHub workflow resets the `data` branch to match the current `main` state. At build time, a script merges, validates, and converts marker data to GeoJSON for use with MapLibre GL.
-
-Marker positions are stored in **Cartesian coordinates** (_in meters_), independent of any specific geographic projection. During the build process, these coordinates are converted to **Web Mercator** according to the transformation rules defined in `map.json`. This decouples the raw data from the runtime map projection, making it easier to adapt or scale in the future.
-
-While a purely Cartesian system would be ideal for a flat game map, MapLibre GL currently requires geographic coordinates in Web Mercator projection.
-
-### Icon Processing
-
-Icons are processed using a script prior to deployment. The script optionally crops the input image, resizes it, and exports it to WebP format at a specified quality setting.
-
-```bash
-npm run build:prepare -- <img> <quality> <cropX> <cropY> <size>
-```
-
-### Map Tiling
-
-To prepare a large map image for use with MapLibre GL, run the script `scripts/tile.sh`:
-
-```bash
-sh tile.sh <source-image.png> [<cropX_px> <cropY_px>]
-```
-
-This script adds transparent padding, centers and optionally crops the image, and generates tiles. It also prints a partial `map.json` configuration to the console.
-
-Thanks to the separation between raw marker data and the runtime projection, you won’t need to adjust marker coordinates or apply runtime shifts when padding, shifting, or scaling the map image, unless the source image itself changes. All coordinates are resolved at build time.
+1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git`
+2. Install dependencies: `npm install`
+3. Build: `npm run build`
+4. Run: `npm run start`
 
 ## Statistics
 
-Since launch, the project has seen **39'240** unique visitors and **9'000'130** total requests, aggregated across all months. These statistics are provided by Cloudflare.
+Since launch, the project has seen **50'450** unique visitors and **11'560'130** total requests, aggregated across all years and months. These statistics are provided by Cloudflare.
 
 <details>
-<summary>April 2026</summary>
-<br>
+<summary>2025</summary>
 
-Unique Visitors: **9'420** \
-Total Requests: **2'670'000**
-
-</details>
-
-<details>
-<summary>March 2026</summary>
-<br>
-
-Unique Visitors: **11'910** \
-Total Requests: **4'110'000**
-
-</details>
-
-<details>
-<summary>February 2026</summary>
-<br>
-
-Unique Visitors: **2'560** \
-Total Requests: **394'500**
-
-</details>
-
-<details>
-<summary>January 2026</summary>
-<br>
-
-Unique Visitors: **1'640** \
-Total Requests: **274'520**
-
-</details>
-
-<details>
-<summary>December 2025</summary>
-<br>
-
-Unique Visitors: **2'200** \
-Total Requests: **296'770**
-
-</details>
-
-<details>
-<summary>November 2025</summary>
-<br>
-
-Unique Visitors: **2'420** \
-Total Requests: **298'380**
-
-</details>
-
-<details>
-<summary>October 2025</summary>
-<br>
-
-Unique Visitors: **2'360** \
-Total Requests: **273'980**
-
-</details>
-
-<details>
-<summary>September 2025</summary>
-<br>
-
-Unique Visitors: **1'780** \
-Total Requests: **234'350**
-
-</details>
-
-<details>
-<summary>August 2025</summary>
-<br>
-
-Unique Visitors: **1'410** \
-Total Requests: **119'880**
-
-</details>
-
-<details>
-<summary>July 2025</summary>
-<br>
-
-Unique Visitors: **1'530** \
-Total Requests: **130'770**
-
-</details>
-
-<details>
-<summary>June 2025</summary>
-<br>
-
+**June**\
 Unique Visitors: **2'010** \
 Total Requests: **196'980**
 
+**July**\
+Unique Visitors: **1'530** \
+Total Requests: **130'770**
+
+**August**\
+Unique Visitors: **1'410** \
+Total Requests: **119'880**
+
+**September**\
+Unique Visitors: **1'780** \
+Total Requests: **234'350**
+
+**October**\
+Unique Visitors: **2'360** \
+Total Requests: **273'980**
+
+**November**\
+Unique Visitors: **2'420** \
+Total Requests: **298'380**
+
+**December**\
+Unique Visitors: **2'200** \
+Total Requests: **296'770**
 </details>
+
+<details>
+<summary>2026</summary>
+
+**January**\
+Unique Visitors: **1'640** \
+Total Requests: **274'520**
+
+**February**\
+Unique Visitors: **2'560** \
+Total Requests: **394'500**
+
+**March**\
+Unique Visitors: **11'910** \
+Total Requests: **4'110'000**
+
+**April**\
+Unique Visitors: **9'420** \
+Total Requests: **2'670'000**
+
+**May**\
+Unique Visitors: **5'740** \
+Total Requests: **1'340'000**
+
+**June**\
+Unique Visitors: **5'470** \
+Total Requests: **1'220'000**
+</details>
+
+## Help, Feedback, Issues, Suggestions
+
+Have feedback, found a bug, have a feature request, or need help? Open an [issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub.
+
+## How to Update the Map and Database
+
+Find the detailed guide to updating the map and database for a new game version [here](./how-to-update.md). Although most steps are automated, some manual work is still required.
 
 ## Acknowledgements
 
-This project wouldn’t be possible without the tireless efforts of the following individuals – and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind _Equinox: Homecoming_:
+This project wouldn’t be possible without the tireless efforts of the following individuals – and of course, [Blue Scarab Entertainment](https://www.bluescarab.se/), the studio behind *Equinox: Homecoming*:
 
-- [**CookieFox**](https://discordapp.com/users/631401395454476298): Reported missing and incorrect locations, helped gather clothing and tack data, and tracked reputation gains for weekly quests initially.
+- **CookieFox**: Reported missing and incorrect locations, helped gather clothing and tack data, and tracked reputation gains for weekly quests initially.
 - [**dreamfarer**](https://github.com/dreamfarer): Leads overall concept, planning, communications, software engineering, DevOps, and data processing.
-- [**Kalyss**](https://discordapp.com/users/395567680888897536): Submitted missing locations.
-- [**Laika**](https://discordapp.com/users/465185463226073109): Created the original resource map in image form.
-- [**lil big guy**](https://discordapp.com/users/323358848184221707): Submitted missing locations.
-- [**Onyx**](https://discordapp.com/users/403687942687686660): Provided the artefact locations.
-- [**Snowhawk**](https://discordapp.com/users/163581134209286144): Maintains a comprehensive [Google Sheet](https://docs.google.com/spreadsheets/d/1brrDNw7LZ8xx_Wryy8NNE05T4MEF4cvGN1b9SYE4jjE/edit?usp=sharing) tracking characters, quests, deliveries, clothing, tack, and more.
-- [**Sugertoxity**](https://discordapp.com/users/608320065439268864): Helped plan the overall concept, communications and early location data sourcing and processing.
-- [**Yumemi**](https://discordapp.com/users/260818698091102209): Submitted missing locations.
+- **𝔉𝔢𝔢𝔩𝔦**: Submitted a missing location.
+- [**Kalyss (Kalissya Foxx)**](https://github.com/Kalissya): Provided clothing and tack prices, availability, and stats for the database, submitted missing locations for the map, and maintains a comprehensive [Steam Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3479148661) listing everything from locations, clothing, tack, stats, and more useful information.
+- **korpikorppi**: Submitted missing locations.
+- [**Laika Crafts**](https://linktr.ee/Laika.Crafts): Created the initial resource map in image form.
+- **Onyx**: Provided the artefact locations.
+- [**Snowhawk**](https://delphin.social/): Maintains a comprehensive [Google Sheet](https://docs.google.com/spreadsheets/d/1Z8mtky3oH-yWAeqI5qNFBfqj2xNkHoHzNABxqmXiM7E) tracking characters, quests, deliveries, clothing, tack, and more.
+- [**Sugertoxity**](https://www.instagram.com/equinox.map/): Helped plan the overall concept, communications and early location data sourcing and processing.
+- **Yumemi**: Submitted missing locations.
 - [**zaaap!**](https://www.youtube.com/@zaaap): Produced a [video showcase](https://youtu.be/MgLdL8X9BY8?si=bUZRQiI6bdl6MCRE) of the interactive map.
-- [**☾ \* 𝔉𝔢𝔢𝔩𝔦 ༓ ☽**](https://discordapp.com/users/194775629244268545): Submitted a missing location.
