@@ -1,5 +1,4 @@
 type FiddlerEntry = {
-    name: string;
     level?: number;
     faction?: string;
     cost?: number;
