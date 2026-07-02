@@ -14,7 +14,7 @@
         "database:sort": "ts-node --project tsconfig.scripts.json --transpile-only scripts/sort-database.ts",
         "database:compress": "ts-node --project tsconfig.scripts.json --transpile-only scripts/compress-database.ts",
         "database:validate": "ts-node --project tsconfig.scripts.json --transpile-only scripts/validate-database.ts",
-        "database:build": "ts-node --project tsconfig.scripts.json --transpile-only scripts/build-database.ts",
+        "database:build": "ts-node --project tsconfig.scripts.json --transpile-only scripts/build-database/build-database.ts",
         "build": "npm run build:convert && npm run database:validate && npm run database:compress && next build",
         "start": "next start",
         "lint": "eslint",
