@@ -1,8 +1,7 @@
 export type DatabaseItem = {
     name: string;
-    id: string;
+    id: number;
     type: string;
-    statsAmount?: number;
     statsType?: string;
     level?: number;
     faction?: string;
@@ -12,7 +11,6 @@ export type DatabaseItem = {
     bundle?: string;
     colour?: string;
     colours?: string[];
-    upgradeAmount?: number;
     upgradeItem?: string;
     imagePath: string;
 };
@@ -23,7 +21,6 @@ export const databaseItemFields = [
     'name',
     'id',
     'type',
-    'statsAmount',
     'statsType',
     'level',
     'faction',
@@ -33,7 +30,6 @@ export const databaseItemFields = [
     'bundle',
     'colour',
     'colours',
-    'upgradeAmount',
     'upgradeItem',
     'imagePath',
 ] as const;

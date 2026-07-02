@@ -42,7 +42,7 @@ export function parseEntry(
     return {
         name: entry.entity_name,
         kind: entry.entity_kind,
-        cost: entry.prices[0].amount,
+        cost: Number(entry.prices[0].amount),
         currency: currencies[currencyCode],
         catalogueId: entry.catalog_listing_id,
     };

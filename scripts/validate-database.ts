@@ -36,18 +36,6 @@ export async function validateDatabaseItem(
     if (!item.name) errors.push(`Missing name for ${itemLabel} in ${filePath}`);
     if (!item.type) errors.push(`Missing type for ${itemLabel} in ${filePath}`);
 
-    if (xor('statsAmount' in item, 'statsType' in item)) {
-        errors.push(
-            `Missing statsAmount or statsType for ${itemLabel} in ${filePath}`
-        );
-    }
-
-    if ('statsAmount' in item && item.statsAmount === 0) {
-        errors.push(
-            `Invalid statsAmount for ${itemLabel} in ${filePath}: ${item.statsAmount}`
-        );
-    }
-
     if (item.statsType && !statTypes.includes(item.statsType)) {
         errors.push(
             `Invalid statsType for ${itemLabel} in ${filePath}: ${item.statsType}`
@@ -115,20 +103,6 @@ export async function validateDatabaseItem(
         errors.push(
             `Invalid colours for ${itemLabel} in ${filePath}: ${item.colours.join(', ')}`
         );
-    }
-
-    if (xor('upgradeAmount' in item, 'upgradeItem' in item)) {
-        errors.push(
-            `Missing upgradeAmount or upgradeItem for ${itemLabel} in ${filePath}`
-        );
-    }
-
-    if ('upgradeAmount' in item && item.upgradeAmount !== undefined) {
-        if (item.upgradeAmount < 0) {
-            errors.push(
-                `Invalid upgradeAmount for ${itemLabel} in ${filePath}: ${item.upgradeAmount}`
-            );
-        }
     }
 
     if (item.upgradeItem && !upgradeItems.includes(item.upgradeItem)) {
@@ -212,7 +186,9 @@ async function validateDatabase() {
     );
 }
 
-validateDatabase().catch((err) => {
-    console.error('Unexpected validation failure:', err);
-    process.exit(1);
-});
+if (require.main === module) {
+    validateDatabase().catch((err) => {
+        console.error('Unexpected validation failure:', err);
+        process.exit(1);
+    });
+}

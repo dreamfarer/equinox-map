@@ -1,10 +1,13 @@
 import { AssetDetail } from './types';
 
-export function parseBundle(
+export function parseAssets(
     catalogueId: string,
     assetDetails: AssetDetail[]
-): string[] {
+): { name: string; legacyId: number }[] {
     return assetDetails
         .filter((assetDetail) => assetDetail.catalog_listing_id === catalogueId)
-        .map((assetDetail) => assetDetail.name);
+        .map((assetDetail) => ({
+            name: assetDetail.name,
+            legacyId: assetDetail.legacy_id,
+        }));
 }

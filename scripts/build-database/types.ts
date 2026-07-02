@@ -5,6 +5,11 @@ type FiddlerEntry = {
     currency?: string;
     shop?: string;
     bundle?: string;
+    type?: string;
+    upgradeItem?: string;
+    statsType?: string;
+    name?: string;
+    imagePath?: string;
 };
 
 export type FiddlerExportParsed = Record<string, FiddlerEntry>;
@@ -22,6 +27,7 @@ export type Entry = {
 export type AssetDetail = {
     name: string;
     catalog_listing_id: string;
+    legacy_id: number;
 };
 
 export type FiddlerExport = {
