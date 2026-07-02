@@ -3,6 +3,7 @@ import path from 'node:path';
 import { parseCatalogKey } from './parse-catalog-key';
 import { parseEntry } from './parse-entry';
 import { FiddlerExport, FiddlerExportParsed } from './types';
+import { parseBundle } from './parse-bundle';
 
 const excludedKeys = new Set(['premium_currency', 'premium_riding_pass']);
 
@@ -28,16 +29,26 @@ async function buildDatabase() {
         );
 
         for (const entry of fiddlerExport.entries) {
-            const { name, kind, cost, currency } = parseEntry(entry, filePath);
+            const { name, kind, cost, currency, catalogueId } = parseEntry(
+                entry,
+                filePath
+            );
 
-            fiddlerExportParsed[entry.entity_name] = {
-                name,
-                level,
-                faction,
-                cost,
-                currency,
-                shop,
-            };
+            const base = { level, faction, cost, currency, shop };
+            if (kind === 'group') {
+                for (const assetName of parseBundle(
+                    catalogueId,
+                    fiddlerExport.assets_details
+                )) {
+                    fiddlerExportParsed[assetName] = {
+                        name: assetName,
+                        ...base,
+                        bundle: name,
+                    };
+                }
+            } else {
+                fiddlerExportParsed[entry.entity_name] = { name, ...base };
+            }
         }
     }
     console.log(fiddlerExportParsed);

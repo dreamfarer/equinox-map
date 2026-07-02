@@ -20,7 +20,13 @@ const currencies: Record<string, string> = {
 export function parseEntry(
     entry: Entry,
     filePath: string
-): { name: string; kind: string; cost: number; currency: string } {
+): {
+    name: string;
+    kind: string;
+    cost: number;
+    currency: string;
+    catalogueId: string;
+} {
     if (entry.prices.length > 1) {
         throw new Error(
             `Multiple price definitions (file: ${filePath}, entity: ${entry.entity_name})`
@@ -38,5 +44,6 @@ export function parseEntry(
         kind: entry.entity_kind,
         cost: entry.prices[0].amount,
         currency: currencies[currencyCode],
+        catalogueId: entry.catalog_listing_id,
     };
 }
