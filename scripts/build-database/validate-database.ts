@@ -5,12 +5,13 @@ import {
     databaseItemFields,
 } from '../../types/database-item';
 import { access, readdir, readFile } from 'node:fs/promises';
-import { colours } from '../../schema/database/colours';
-import { statTypes } from '../../schema/database/stat-types';
-import { factions } from '../../schema/database/factions';
-import { currencies } from '../../schema/database/currencies';
-import { shops } from '../../schema/database/shops';
-import { upgradeItems } from '../../schema/database/upgrade-items';
+import { colours } from './schema/colours';
+import { statTypes } from './schema/stat-types';
+import { factions } from './schema/factions';
+import { currencies } from './schema/currencies';
+import { shops } from './schema/shops';
+import { upgradeItems } from './schema/upgrade-items';
+import { types } from '@/scripts/build-database/schema/types';
 
 function xor(a: boolean, b: boolean): boolean {
     return (a && !b) || (!a && b);
@@ -35,6 +36,12 @@ export async function validateDatabaseItem(
         );
     if (!item.name) errors.push(`Missing name for ${itemLabel} in ${filePath}`);
     if (!item.type) errors.push(`Missing type for ${itemLabel} in ${filePath}`);
+
+    if (!types.includes(item.type)) {
+        errors.push(
+            `Invalid type for ${itemLabel} in ${filePath}: ${item.type}`
+        );
+    }
 
     if (item.statsType && !statTypes.includes(item.statsType)) {
         errors.push(

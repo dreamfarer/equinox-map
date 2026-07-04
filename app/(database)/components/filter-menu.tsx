@@ -9,7 +9,10 @@ import {
     getNodeByPath,
     collectLeafValues,
 } from '@/lib/filter-tree';
-import { menuEntries, MenuEntry } from '@/schema/database/menu-entries';
+import {
+    menuEntries,
+    MenuEntry,
+} from '@/scripts/build-database/schema/menu-entries';
 
 export default function FilterMenu() {
     const { resetFilters, filter } = useDatabaseContext();

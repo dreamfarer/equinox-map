@@ -1,19 +1,23 @@
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { FmodelItemExport, parseFmodelExport } from './parse-fmodel-export';
-import { prepareImages } from './prepare-images';
-import { AutomatedDatabaseItem } from '@/scripts/build-database/types';
+import { buildAsset } from './build-asset';
+import { AutomatedDatabaseItem } from './types';
 import { buildAssetPathIndex } from './build-asset-path-index';
 
-const itemsRoot = 'fmodel/Output/Exports/ThunderHorse/Content/Blueprints/Items';
+const assetsRoot =
+    'fmodel/Output/Exports/ThunderHorse/Content/Blueprints/Items';
 const contentRoot = 'fmodel/Output/Exports/ThunderHorse/Content/';
 
+/**
+ * Match the FModel export (*local data*) to the Fiddle export (*server data*)
+ * @param automatedDatabaseItems - The generated database based on the Fiddle export
+ * @param imageSources - The shared map to collect all thumbnail paths.
+ */
 export async function matchToLocalDataExport(
-    automatedDatabaseItems: Record<string, AutomatedDatabaseItem>
+    automatedDatabaseItems: Record<string, AutomatedDatabaseItem>,
+    imageSources: Map<string, string>
 ) {
-    const index = await buildAssetPathIndex(itemsRoot);
+    const index = await buildAssetPathIndex(assetsRoot, contentRoot);
     const unmatched: string[] = [];
-    const imageSources = new Map<string, string>();
 
     for (const [key, entry] of Object.entries(automatedDatabaseItems)) {
         const filePath = index.get(Number(key));
@@ -23,23 +27,14 @@ export async function matchToLocalDataExport(
             continue;
         }
 
-        const fModelExport = JSON.parse(
-            await readFile(filePath, 'utf8')
-        ) as FmodelItemExport;
-
         const itemDirectory = path
-            .relative(itemsRoot, path.dirname(filePath))
+            .relative(assetsRoot, path.dirname(filePath))
             .split(path.sep)
             .join('/');
 
         Object.assign(
             entry,
-            parseFmodelExport(
-                fModelExport,
-                itemDirectory,
-                contentRoot,
-                imageSources
-            )
+            buildAsset(filePath, itemDirectory, contentRoot, imageSources)
         );
     }
 
@@ -49,7 +44,4 @@ export async function matchToLocalDataExport(
             unmatched
         );
     }
-
-    // Leave disabled for the time being to save resources.
-    // await prepareImages(imageSources);
 }

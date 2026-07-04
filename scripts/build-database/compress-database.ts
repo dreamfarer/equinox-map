@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
 import { validateDatabaseItem } from './validate-database';
 
@@ -35,7 +35,8 @@ async function loadLegacyDatabaseItems(
     const filePaths = await collectDataFiles(
         path.resolve(__dirname, '..', databaseItemsDir)
     );
-    const databaseItems = (
+
+    return (
         await Promise.all(
             filePaths.map(async (filePath) => {
                 const items = JSON.parse(
@@ -45,7 +46,6 @@ async function loadLegacyDatabaseItems(
             })
         )
     ).flat();
-    return databaseItems;
 }
 
 async function loadOverriddenDatabaseItems(): Promise<DatabaseItem[]> {

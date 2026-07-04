@@ -13,17 +13,17 @@ interface ItemListDataTable {
     >;
 }
 
-const contentRoot = 'fmodel/Output/Exports/ThunderHorse/Content/';
-
 /**
  * Build an asset path index from every `DT_*ItemsList` in the FModel export.
- * @param root - The root directory to search for data tables.
- * @returns A map of asset ids to fmodel export paths.
+ * @param assetsRoot - The directory to search for assets.
+ * @param contentRoot - The game content directory.
+ * @returns A map of asset ids to FModel export paths.
  */
 export async function buildAssetPathIndex(
-    root: string
+    assetsRoot: string,
+    contentRoot: string
 ): Promise<Map<number, string>> {
-    const files = (await readdir(root, { recursive: true })) as string[];
+    const files = (await readdir(assetsRoot, { recursive: true })) as string[];
     const dataTablePaths = files.filter((file) =>
         path.basename(file).startsWith('DT_')
     );
@@ -31,7 +31,7 @@ export async function buildAssetPathIndex(
 
     for (const dataTablePath of dataTablePaths) {
         const dataTable = await readFile(
-            path.join(root, dataTablePath),
+            path.join(assetsRoot, dataTablePath),
             'utf8'
         );
         const [{ Rows: rows }] = JSON.parse(dataTable) as ItemListDataTable[];

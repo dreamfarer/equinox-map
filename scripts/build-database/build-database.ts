@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
 import { buildServerData } from './build-server-data';
 import { matchToLocalDataExport } from './match-to-local-data-export';
+import { prepareImages } from './prepare-images';
 
 const outputDir = path.resolve(__dirname, '..', '..', 'public/database');
 const outputPath = path.join(outputDir, 'automated-database.json');
@@ -13,7 +14,10 @@ const outputPath = path.join(outputDir, 'automated-database.json');
  */
 async function buildDatabase(): Promise<DatabaseItem[]> {
     const automatedDatabaseItems = await buildServerData();
-    await matchToLocalDataExport(automatedDatabaseItems);
+    const imageSources = new Map<string, string>();
+
+    await matchToLocalDataExport(automatedDatabaseItems, imageSources);
+    await prepareImages(imageSources);
 
     return Object.entries(automatedDatabaseItems).map(
         ([id, entry]) => ({ ...entry, id: Number(id) }) as DatabaseItem

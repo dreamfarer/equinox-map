@@ -5,10 +5,8 @@ import path from 'node:path';
 const outputDir = path.join('public', 'icon', '256');
 
 /**
- * Copy every referenced fmodel icon (keyed by output file name, valued by
- * source PNG path) into `public/icon/256/`, convert the whole batch to
- * cropped 256px webp via the existing `build:prepare` script, then discard
- * the intermediate PNGs.
+ * Prepare the reference icon by copying and converting the source icons.
+ * @param imageSources - The map of the collect thumbnail paths.
  */
 export async function prepareImages(imageSources: Map<string, string>) {
     if (imageSources.size === 0) return;
