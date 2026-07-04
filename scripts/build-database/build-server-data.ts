@@ -1,10 +1,17 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { parseCatalogKey } from './parse-catalog-key';
 import { parseEntry } from './parse-entry';
-import { FiddlerExport, FiddlerExportParsed } from './types';
-import { parseAssets } from './parse-assets';
+import { FiddlerExport, AutomatedDatabaseItem } from './types';
+import { getAssetProperties } from './get-asset-properties';
+import { getFilePaths } from '../../lib/get-file-paths';
 import path from 'node:path';
 
+const fiddlerExportDir = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    'fiddler-classic/Output/Exports'
+);
 const excludedKeys = new Set(['premium_currency', 'premium_riding_pass']);
 const excludedCatalogIds = new Set([
     '01KH1ENR3QAPFP1SJ6Y73RHJZ0',
@@ -19,15 +26,15 @@ const excludedCatalogIds = new Set([
     '01KTPN4MHGAJV6A99ZVFPJCZCN',
 ]);
 
-async function getFilePaths(dir: string): Promise<string[]> {
-    return (await readdir(dir, { recursive: true })).map((file) =>
-        path.join(dir, file)
-    );
-}
-
-export async function parseFiddlerExport() {
-    const fiddlerExportParsed: FiddlerExportParsed = {};
-    const filePaths = await getFilePaths('fiddler-classic/Output/Exports/');
+/**
+ * Parse the Fiddler export (*server data*) and compress it to flat/per entry structure.
+ * @returns Promise of the parsed Fiddler export.
+ */
+export async function buildServerData(): Promise<
+    Record<string, AutomatedDatabaseItem>
+> {
+    const fiddlerExportParsed: Record<string, AutomatedDatabaseItem> = {};
+    const filePaths = await getFilePaths(fiddlerExportDir);
 
     for (const filePath of filePaths) {
         const fiddlerExport = JSON.parse(
@@ -39,9 +46,8 @@ export async function parseFiddlerExport() {
         const { shop, faction, level } = parseCatalogKey(
             fiddlerExport.catalog.key
         );
-        const assetDetails = Array.isArray(fiddlerExport.assets_details)
-            ? fiddlerExport.assets_details
-            : [];
+
+        if (!fiddlerExport.assets_details) continue;
 
         for (const entry of fiddlerExport.entries) {
             const { name, kind, cost, currency, catalogueId } = parseEntry(
@@ -52,9 +58,12 @@ export async function parseFiddlerExport() {
             if (excludedCatalogIds.has(catalogueId)) continue;
 
             const base = { level, faction, cost, currency, shop };
-
-            for (const asset of parseAssets(catalogueId, assetDetails)) {
-                fiddlerExportParsed[asset.legacyId] = {
+            const assets = getAssetProperties(
+                catalogueId,
+                fiddlerExport.assets_details
+            );
+            for (const asset of assets) {
+                fiddlerExportParsed[asset.id] = {
                     ...base,
                     ...(kind === 'group' ? { bundle: name } : {}),
                 };

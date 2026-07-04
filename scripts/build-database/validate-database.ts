@@ -3,14 +3,14 @@ import {
     DatabaseItem,
     DatabaseItemFields,
     databaseItemFields,
-} from '../types/database-item';
+} from '../../types/database-item';
 import { access, readdir, readFile } from 'node:fs/promises';
-import { colours } from '../schema/database/colours';
-import { statTypes } from '../schema/database/stat-types';
-import { factions } from '../schema/database/factions';
-import { currencies } from '../schema/database/currencies';
-import { shops } from '../schema/database/shops';
-import { upgradeItems } from '../schema/database/upgrade-items';
+import { colours } from '../../schema/database/colours';
+import { statTypes } from '../../schema/database/stat-types';
+import { factions } from '../../schema/database/factions';
+import { currencies } from '../../schema/database/currencies';
+import { shops } from '../../schema/database/shops';
+import { upgradeItems } from '../../schema/database/upgrade-items';
 
 function xor(a: boolean, b: boolean): boolean {
     return (a && !b) || (!a && b);

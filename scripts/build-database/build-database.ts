@@ -1,30 +1,35 @@
 import path from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { DatabaseItem } from '@/types/database-item';
-import { parseFiddlerExport } from './parse-fiddler-export';
-import { matchFmodelExport } from './match-fmodel-export';
+import { buildServerData } from './build-server-data';
+import { matchToLocalDataExport } from './match-to-local-data-export';
 
 const outputDir = path.resolve(__dirname, '..', '..', 'public/database');
+const outputPath = path.join(outputDir, 'automated-database.json');
 
+/**
+ * Build the database by parsing the Fiddler export (server data) and matching it to the FModel export (local data).
+ * @returns The database items.
+ */
 async function buildDatabase(): Promise<DatabaseItem[]> {
-    const fiddlerExportParsed = await parseFiddlerExport();
-    const matched = await matchFmodelExport(fiddlerExportParsed);
+    const automatedDatabaseItems = await buildServerData();
+    await matchToLocalDataExport(automatedDatabaseItems);
 
-    return Object.entries(matched).map(
+    return Object.entries(automatedDatabaseItems).map(
         ([id, entry]) => ({ ...entry, id: Number(id) }) as DatabaseItem
     );
 }
 
+/**
+ * Build and write the database.
+ */
 async function main() {
     const database = await buildDatabase();
 
     await mkdir(outputDir, { recursive: true });
-    await writeFile(
-        path.join(outputDir, 'automated-database.json'),
-        JSON.stringify(database)
-    );
+    await writeFile(outputPath, JSON.stringify(database, null, 4));
     console.log(
-        `automated-database.json written with ${database.length} item(s).`
+        `Automated database written with ${database.length} item(s) written to ${outputPath}.`
     );
 }
 

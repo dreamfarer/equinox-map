@@ -1,18 +1,16 @@
-type FiddlerEntry = {
+export type AutomatedDatabaseItem = {
+    name?: string;
+    type?: string;
+    statsType?: string;
     level?: number;
     faction?: string;
     cost?: number;
     currency?: string;
     shop?: string;
     bundle?: string;
-    type?: string;
     upgradeItem?: string;
-    statsType?: string;
-    name?: string;
     imagePath?: string;
 };
-
-export type FiddlerExportParsed = Record<string, FiddlerEntry>;
 
 export type Entry = {
     entity_name: string;
