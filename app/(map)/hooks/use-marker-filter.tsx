@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { ExpressionSpecification } from 'maplibre-gl';
+import { ExpressionSpecification } from '@maplibre/maplibre-gl-style-spec';
 import { categories } from '@/types/category';
 import { useFilterContext } from '@/app/(map)/context/filter-context';
 import { useMapContext } from '@/app/(map)/context/map-context';

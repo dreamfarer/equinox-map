@@ -7,34 +7,37 @@
         "exportDir": "app/data/"
     },
     "scripts": {
+        "predev": "npm run build:worker",
         "dev": "next dev --turbopack",
         "build:convert": "ts-node --project tsconfig.scripts.json --transpile-only scripts/convert-markers.ts",
         "build:extract": "ts-node --project tsconfig.scripts.json --transpile-only scripts/extract-resources.ts",
         "build:prepare": "ts-node --project tsconfig.scripts.json --transpile-only scripts/prepare-icons.ts",
+        "build:worker": "ts-node --project tsconfig.scripts.json --transpile-only scripts/copy-maplibre-worker.ts",
         "database:sort": "ts-node --project tsconfig.scripts.json --transpile-only scripts/sort-database.ts",
         "database:compress": "ts-node --project tsconfig.scripts.json --transpile-only scripts/compress-database.ts",
         "database:validate": "ts-node --project tsconfig.scripts.json --transpile-only scripts/validate-database.ts",
-        "build": "npm run build:convert && npm run database:validate && npm run database:compress && next build",
+        "build": "npm run build:worker && npm run build:convert && npm run database:validate && npm run database:compress && next build",
         "start": "next start",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "format": "prettier --write ."
     },
     "dependencies": {
+        "@maplibre/maplibre-gl-style-spec": "26.4.2",
         "@phosphor-icons/react": "2.1.10",
-        "driver.js": "1.4.0",
-        "maplibre-gl": "5.24.0",
-        "next": "16.3.3",
-        "react": "19.2.6",
-        "react-dom": "19.2.6"
+        "driver.js": "1.8.0",
+        "maplibre-gl": "6.9.0",
+        "next": "16.3.4",
+        "react": "19.3.0",
+        "react-dom": "19.3.0"
     },
     "devDependencies": {
         "@types/node": "25.9.0",
-        "@types/react": "19.2.14",
-        "@types/react-dom": "19.2.3",
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0",
         "eslint": "9.39.3",
-        "eslint-config-next": "16.2.6",
-        "prettier": "3.8.3",
+        "eslint-config-next": "16.3.4",
+        "prettier": "3.9.6",
         "sharp": "^0.35.4",
         "ts-node": "10.9.2",
         "typescript": "6.0.3"

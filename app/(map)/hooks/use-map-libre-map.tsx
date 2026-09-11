@@ -1,10 +1,16 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Map as MapLibreMap } from 'maplibre-gl';
+import { Map as MapLibreMap, setWorkerUrl } from 'maplibre-gl';
 import { getMapBoundsLatLng, vhToPx, remToPx } from '@/lib/convert';
 import { useMapContext } from '@/app/(map)/context/map-context';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
+
+// Since v6 the worker has to be pointed at explicitly when bundled. Turbopack
+// does emit it, but under a content-hashed name, which breaks the relative
+// `./maplibre-gl-shared.mjs` import the worker starts with. `npm run build:worker`
+// copies both files to `public/maplibre/` instead, where they stay side by side.
+setWorkerUrl('/maplibre/maplibre-gl-worker.mjs');
 
 export function useMapLibreMap() {
     const { mapContainer, mapMetadata, activeMapId, setMapInstance } =
