@@ -2,6 +2,9 @@
 
 The following guides explain how to update the map and database for a new game version. Although most steps are automated, some manual work is still required.
 
+> [!NOTE]
+> Building the database from the FModel and Fiddler Classic exports is still work in progress. Export the data as described below, but keep updating the database items in `public/items/` by hand until the build is available.
+
 - [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
 - [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
 - [Extract Resource Locations](#extract-resource-locations)
@@ -32,8 +35,9 @@ The following directories need to be exported to update the map and database. Ho
 1. **Double-Click** the `ThunderHorse-WindowsClient.utoc` archive to open it.
 2. Navigate to `ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_`, **Right-Click**, and choose **Save Folder's Packages Properties (.json)**.
 3. Repeat step 2 for the ride island maps `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_` and `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_`.
-4. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, **Right-Click**, and choose **Save Folder's Packages Textures**.
-5. Repeat step 4 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`.
+4. Navigate to `ThunderHorse/Content/Blueprints/Items`, **Right-Click**, and choose **Save Folder's Packages Properties (.json)**. This is where the item stats, display names, upgrade items, and image paths come from.
+5. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, **Right-Click**, and choose **Save Folder's Packages Textures**.
+6. Repeat step 5 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`.
 
 _If FModel throws errors during exporting, either [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub or try generating the mapping again yourself using the instructions in the [Export the FModel Mapping](#export-the-fmodel-mapping) section._
 
@@ -51,7 +55,7 @@ In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic
 
 1. Download and install [Fiddler Classic](https://www.telerik.com/fiddler/fiddler-classic).
 2. Make sure Equinox: Homecoming is installed and you can log in.
-3. Create the folder `fiddler-classic/Exports` in the project root, if it doesn't already exist. This is where the exported files go later on.
+3. Create the folder `fiddler-classic/Output/Exports` in the project root, if it doesn't already exist. This is where the exported files go later on.
 
 ### Setup Fiddler Classic
 
@@ -120,7 +124,7 @@ The exported resource locations from the section [Export Resource Locations, Ite
 
 1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git` (_if not already done_)
 2. Install dependencies: `npm install` (_if not already done_)
-3. Extract the resource locations: `build:extract`. This will populate the `public/markers/resources` directory.
+3. Extract the resource locations: `npm run build:extract`. This will populate the `public/markers/resources` directory.
 
 _Many categories, such as characters and weekly quests, are not included in this automatic extraction and require manual addition and editing in `public/markers/`._
 
