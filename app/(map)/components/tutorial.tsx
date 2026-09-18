@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useEffectEvent } from 'react';
+import type { Driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
 import { useMenuState } from '@/app/(map)/context/menu-state-context';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
@@ -21,20 +22,28 @@ export default function Tutorial() {
     const { setCollectedMarkerIds } = useMarkerContext();
     const flyToMarker = useFlyToMarker();
 
-    useEffect(() => {
-        if (!isLocalStorageReady) return;
-        if (!shouldShowTutorial(tutorialDoneAt)) return;
+    const shouldShow =
+        isLocalStorageReady && shouldShowTutorial(tutorialDoneAt);
 
-        (async () => {
-            const { driver } = await import('driver.js');
+    const markDone = useEffectEvent(() => {
+        const now = new Date().toISOString();
+        setTutorialDoneAt(now);
+        setWhatsNewSeenAt(now);
+    });
+
+    // Effect events always see the latest render, so the tour can fly to the
+    // marker once the map is ready without restarting.
+    const flyToKathy = useEffectEvent(() => flyToMarker('kathy'));
+
+    const createTour = useEffectEvent(
+        (
+            driver: typeof import('driver.js').driver,
+            onDestroyed: () => void
+        ) => {
             const driverObj = driver({
                 showProgress: true,
                 overlayClickBehavior: () => {},
-                onDestroyed: () => {
-                    const now = new Date().toISOString();
-                    setTutorialDoneAt(now);
-                    setWhatsNewSeenAt(now);
-                },
+                onDestroyed,
                 steps: [
                     {
                         popover: {
@@ -71,7 +80,7 @@ export default function Tutorial() {
                             description:
                                 'Click a marker to view details. Use the dropdown to switch categories. Click again to close.',
                             onPopoverRender: () => {
-                                flyToMarker('kathy');
+                                flyToKathy();
                             },
                         },
                     },
@@ -154,21 +163,36 @@ export default function Tutorial() {
                 ],
             });
 
-            requestAnimationFrame(() => driverObj.drive());
+            return driverObj;
+        }
+    );
+
+    useEffect(() => {
+        if (!shouldShow) return;
+
+        // Strict Mode or a hot reload can run this effect again while a tour is
+        // still loading or open. driver.js 1.4 kept one global state, so a second
+        // instance restarted the same tour in place. Newer versions keep state per
+        // instance, so the previous one has to be torn down or two tours stack.
+        let isCancelled = false;
+        let driverObj: Driver | undefined;
+        let frame: number | undefined;
+
+        (async () => {
+            const { driver } = await import('driver.js');
+            if (isCancelled) return;
+            driverObj = createTour(driver, () => {
+                if (!isCancelled) markDone();
+            });
+            frame = requestAnimationFrame(() => driverObj?.drive());
         })();
 
-        return () => {};
-    }, [
-        flyToMarker,
-        isLocalStorageReady,
-        isMobile,
-        tutorialDoneAt,
-        setActiveMenuName,
-        setCollectedMarkerIds,
-        setIsMenuOpen,
-        setTutorialDoneAt,
-        setWhatsNewSeenAt,
-    ]);
+        return () => {
+            isCancelled = true;
+            if (frame !== undefined) cancelAnimationFrame(frame);
+            if (driverObj?.isActive()) driverObj.destroy();
+        };
+    }, [shouldShow]);
 
     return null;
 }
