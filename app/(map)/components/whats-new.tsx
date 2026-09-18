@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useEffectEvent } from 'react';
+import type { Driver } from 'driver.js';
 import 'driver.js/dist/driver.css';
 import { useMenuState } from '@/app/(map)/context/menu-state-context';
 import { shouldShowWhatsNew } from '@/app/(map)/config/tour-config';
@@ -13,17 +14,31 @@ export default function WhatsNew() {
         isLocalStorageReady,
     } = useMenuState();
 
+    const shouldShow =
+        isLocalStorageReady &&
+        shouldShowWhatsNew(tutorialDoneAt, whatsNewSeenAt);
+
+    const markSeen = useEffectEvent(() => {
+        setWhatsNewSeenAt(new Date().toISOString());
+    });
+
     useEffect(() => {
-        if (!isLocalStorageReady) return;
-        if (!shouldShowWhatsNew(tutorialDoneAt, whatsNewSeenAt)) return;
+        if (!shouldShow) return;
+
+        // See tutorial.tsx: tear down a tour that is still loading or open
+        // before this effect runs again, or two of them end up stacked.
+        let isCancelled = false;
+        let driverObj: Driver | undefined;
+        let frame: number | undefined;
 
         (async () => {
             const { driver } = await import('driver.js');
-            const driverObj = driver({
+            if (isCancelled) return;
+            driverObj = driver({
                 showProgress: true,
                 overlayClickBehavior: () => {},
                 onDestroyed: () => {
-                    setWhatsNewSeenAt(new Date().toISOString());
+                    if (!isCancelled) markSeen();
                 },
                 steps: [
                     {
@@ -45,16 +60,15 @@ export default function WhatsNew() {
                 ],
             });
 
-            requestAnimationFrame(() => driverObj.drive());
+            frame = requestAnimationFrame(() => driverObj?.drive());
         })();
 
-        return () => {};
-    }, [
-        isLocalStorageReady,
-        tutorialDoneAt,
-        whatsNewSeenAt,
-        setWhatsNewSeenAt,
-    ]);
+        return () => {
+            isCancelled = true;
+            if (frame !== undefined) cancelAnimationFrame(frame);
+            if (driverObj?.isActive()) driverObj.destroy();
+        };
+    }, [shouldShow]);
 
     return null;
 }
