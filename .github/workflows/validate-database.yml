@@ -1,9 +1,9 @@
 name: Validate database
 
 on:
-  push:
+  pull_request:
     branches:
-      - data
+      - main
 
 jobs:
   validate-data:

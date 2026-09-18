@@ -77,8 +77,9 @@ export default function Information() {
             <h1>Acknowledgements</h1>
             <p>
                 Thanks to all members of the discord, especially CookieFox,
-                𝔉𝔢𝔢𝔩𝔦, {link('Laika Crafts', 'https://linktr.ee/Laika.Crafts')},
-                Griff, korpikorppi, LupinchenBrause, Onyx,{' '}
+                𝔉𝔢𝔢𝔩𝔦, Kalyss, korpikorppi,{' '}
+                {link('Laika Crafts', 'https://linktr.ee/Laika.Crafts')},
+                LupinchenBrause, Onyx,{' '}
                 {link('Snowhawk', 'https://delphin.social/')},{' '}
                 {link('Sugertoxity', 'https://www.instagram.com/equinox.map/')},
                 Yumemi, {link('zaaap!', 'https://beacons.ai/zaaap')}, and, of
@@ -87,7 +88,7 @@ export default function Information() {
                     'Blue Scarab Entertainment',
                     'https://www.bluescarab.se/'
                 )}
-                , the studio behind Equinox: Homecoming
+                , the studio behind Equinox: Homecoming.
             </p>
             <p>
                 Without these wonderful people, this interactive map would not
