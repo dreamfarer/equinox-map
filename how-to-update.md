@@ -83,6 +83,9 @@ In this step we are going to set up Fiddler Classic to decrypt the HTTPS traffic
 
 The mapping for FModel is already provided. This guide shows you how to export it again in case the provided mapping is outdated.
 
+> [!CAUTION]
+> If Equinox: Homecoming ever gained an anti-cheat system, this procedure would probably get you banned.
+
 ### Prerequisites
 
 1. Download and install [System Informer](https://github.com/winsiderss/systeminformer/releases) (or any application that allows injecting DLLs).
@@ -132,7 +135,7 @@ _Many categories, such as characters and weekly quests, are not included in this
 
 ### LootLocker Item Catalogue URLs
 
-If each of these URLs appears in the response list, you have successfully visited all shops.
+If each of these 58 URLs appears in the response list, you have successfully visited all shops.
 
 ```
 https://api.lootlocker.com/game/catalog/key/faction_alderwood_farms_level_1/prices?per_page=40
