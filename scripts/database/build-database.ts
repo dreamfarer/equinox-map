@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { DatabaseItem } from '../../types/database-item';
+import { DatabaseItem } from '@/types/database-item';
 import { databasePath } from './paths';
 import { collectListings, placeholderColour, readSources } from './sources';
 

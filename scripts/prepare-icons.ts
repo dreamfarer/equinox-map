@@ -1,6 +1,6 @@
 /**
  * Usage:
- *   npm run build:prepare -- <img> <quality> <cropX|auto> <cropY|auto> <size>
+ *   npm run build:prepare -- <path> <quality> <cropX|auto> <cropY|auto> <size>
  * Examples:
  *   npm run build:prepare -- ./img.png 80 15 15 64
  *   npm run build:prepare -- ./img.png 80 auto 15 64
@@ -42,7 +42,7 @@ function parseArguments(): Arguments {
 
     if (!imgPathArg || !qualityArg || !cropXArg || !cropYArg || !sizeArg) {
         exitWithError(
-            'Usage: npm run build:prepare -- <img> <quality> <cropX|auto> <cropY|auto> <size>'
+            'Usage: npm run build:prepare -- <path> <quality> <cropX|auto> <cropY|auto> <size>'
         );
     }
 
@@ -76,6 +76,10 @@ async function collectPngFiles(dir: string): Promise<string[]> {
  * Crop an image to its content, resize it to a square, and compress it to WebP.
  * @param filePath - The path of the source image.
  * @param outPath - The path of the WebP to write.
+ * @param quality - The WebP quality, from 0 to 100.
+ * @param cropX - The pixels to crop from the left and right, or `auto` to crop to the content.
+ * @param cropY - The pixels to crop from the top and bottom, or `auto` to crop to the content.
+ * @param size - The width and height of the resulting square, in pixels.
  */
 export async function processImage(
     filePath: string,
