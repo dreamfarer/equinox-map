@@ -9,13 +9,12 @@ import {
     useCallback,
     Dispatch,
     SetStateAction,
-    useEffect,
 } from 'react';
 import { CategoryPayloads, Popups } from '@/types/popup';
 import { TMarkerFeatureCollection } from '@/types/marker-feature-collection';
 import { TMarkerFeature } from '@/types/marker-feature';
 import { calculatePopupOffset } from '@/lib/popup-utility';
-import { loadCollectedMarkerIdsFromLocalStorage } from '@/lib/storage-utility';
+import { useLocalStorage } from '@/app/(map)/hooks/use-local-storage';
 
 type ActivePopup = {
     featureId: string;
@@ -49,6 +48,15 @@ type MarkerProviderProps = {
 
 const MarkerContext = createContext<MarkerContextValue | null>(null);
 
+function resolveCollectedMarkerIds(
+    stored: string[] | undefined,
+    allFeatures: Record<string, TMarkerFeature>
+): Set<string> {
+    return new Set(
+        (stored ?? []).filter((id) => Object.hasOwn(allFeatures, id))
+    );
+}
+
 export function MarkerProvider({
     children,
     allPopups,
@@ -58,9 +66,8 @@ export function MarkerProvider({
     const [activeMarkerCount, setActiveMarkerCount] = useState(0);
     const [activeCollectedMarkerCount, setActiveCollectedMarkerCount] =
         useState(0);
-    const [collectedMarkerIds, setCollectedMarkerIds] = useState<Set<string>>(
-        new Set<string>()
-    );
+    const [storedCollectedMarkerIds, setStoredCollectedMarkerIds] =
+        useLocalStorage<string[]>('collected-marker-ids');
 
     const allFeatures = useMemo(() => {
         const map = {} as Record<string, TMarkerFeature>;
@@ -104,11 +111,23 @@ export function MarkerProvider({
         return result;
     }, [allMarkers]);
 
-    useEffect(() => {
-        setCollectedMarkerIds(
-            loadCollectedMarkerIdsFromLocalStorage(allMarkers)
-        );
-    }, [allMarkers]);
+    const collectedMarkerIds = useMemo(
+        () => resolveCollectedMarkerIds(storedCollectedMarkerIds, allFeatures),
+        [storedCollectedMarkerIds, allFeatures]
+    );
+
+    const setCollectedMarkerIds = useCallback<
+        Dispatch<SetStateAction<Set<string>>>
+    >(
+        (action) => {
+            setStoredCollectedMarkerIds((stored) => [
+                ...(action instanceof Function
+                    ? action(resolveCollectedMarkerIds(stored, allFeatures))
+                    : action),
+            ]);
+        },
+        [allFeatures, setStoredCollectedMarkerIds]
+    );
 
     const setActivePopupByFeature = useCallback(
         (feature: TMarkerFeature | null) => {
@@ -148,6 +167,7 @@ export function MarkerProvider({
             activePopup,
             setActivePopupByFeature,
             collectedMarkerIds,
+            setCollectedMarkerIds,
             activeMarkerCount,
             activeCollectedMarkerCount,
             allPopups,

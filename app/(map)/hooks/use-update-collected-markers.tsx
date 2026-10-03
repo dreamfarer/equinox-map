@@ -2,7 +2,6 @@ import type { Map } from 'maplibre-gl';
 import { useCallback, useEffect, useRef } from 'react';
 import { useMarkerContext } from '@/app/(map)/context/marker-context';
 import { useMapContext } from '@/app/(map)/context/map-context';
-import { saveCollectedMarkerIdsToLocalStorage } from '@/lib/storage-utility';
 
 function dim(mapInstance: Map | null, id: Set<string>, state: boolean) {
     if (!mapInstance) return;
@@ -39,7 +38,6 @@ export function useUpdateCollectedMarkers() {
         dim(mapInstance, removed, false);
         dim(mapInstance, added, true);
         prevRef.current = new Set(collectedMarkerIds);
-        saveCollectedMarkerIdsToLocalStorage(collectedMarkerIds);
     }, [mapInstance, collectedMarkerIds]);
 
     useEffect(() => {

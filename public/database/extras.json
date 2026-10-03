@@ -1,0 +1,14 @@
+[
+    {
+        "shop": "DLC",
+        "bundle": "Premium Cosmetics Pack",
+        "cost": 10,
+        "currency": "$",
+        "items": [
+            "Blanket_DressagePad_PremiumPack_Dark",
+            "Blanket_DressagePad_PremiumPack_Light",
+            "ManeAccessory_FloralAntlers",
+            "Saddle_EnglishSaddle_PremiumPack"
+        ]
+    }
+]

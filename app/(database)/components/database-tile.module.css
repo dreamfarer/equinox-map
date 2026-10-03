@@ -43,6 +43,38 @@
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
+    gap: var(--gap-3xs);
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3xs);
+    align-self: stretch;
+}
+
+.listing + .listing {
+    padding-top: var(--gap-3xs);
+    border-top: 1px solid var(--text-disabled-dark);
+}
+
+.badge {
+    margin-top: var(--gap-6xs);
+    padding: 0 var(--padding-3xs);
+    border-radius: var(--border-radius);
+    background-color: var(--text-disabled-dark);
+    color: var(--background-dark);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.unavailable .image,
+.unavailable .information {
+    opacity: 0.5;
+}
+
+.unavailable .image {
+    filter: grayscale(1);
 }
 
 .title {

@@ -72,8 +72,14 @@ async function collectPngFiles(dir: string): Promise<string[]> {
         .map((file) => path.join(dir, file));
 }
 
-async function processImage(
+/**
+ * Crop an image to its content, resize it to a square, and compress it to WebP.
+ * @param filePath - The path of the source image.
+ * @param outPath - The path of the WebP to write.
+ */
+export async function processImage(
     filePath: string,
+    outPath: string,
     quality: number,
     cropX: number | 'auto',
     cropY: number | 'auto',
@@ -100,8 +106,6 @@ async function processImage(
     const extractHeight = meta.height - top - bottom;
     if (extractWidth <= 0 || extractHeight <= 0) return;
 
-    const { dir, name } = path.parse(filePath);
-    const outPath = path.join(dir, `${name}.webp`);
     await sharp(filePath)
         .extract({
             left,
@@ -115,7 +119,6 @@ async function processImage(
         })
         .webp({ quality })
         .toFile(outPath);
-    console.log(`Wrote ${outPath}`);
 }
 
 async function convert(): Promise<void> {
@@ -131,11 +134,16 @@ async function convert(): Promise<void> {
 
     for (const file of files) {
         try {
-            await processImage(file, quality, cropX, cropY, size);
+            const { dir, name } = path.parse(file);
+            const outPath = path.join(dir, `${name}.webp`);
+            await processImage(file, outPath, quality, cropX, cropY, size);
+            console.log(`Wrote ${outPath}`);
         } catch (err) {
             console.error(`Failed: ${file}`, err);
         }
     }
 }
 
-convert().then(() => {});
+if (require.main === module) {
+    convert().then(() => {});
+}
