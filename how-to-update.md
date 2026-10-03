@@ -2,12 +2,11 @@
 
 The following guides explain how to update the map and database for a new game version. Although most steps are automated, some manual work is still required.
 
-> [!NOTE]
-> Building the database from the FModel and Fiddler Classic exports is still work in progress. Export the data as described below, but keep updating the database items in `public/items/` by hand until the build is available.
-
 - [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel)
 - [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic)
 - [Extract Resource Locations](#extract-resource-locations)
+- [Update the Database](#update-the-database)
+- [Upload the Icons](#upload-the-icons)
 
 ### Optional Steps
 
@@ -36,8 +35,9 @@ The following directories need to be exported to update the map and database. Ho
 2. Navigate to `ThunderHorse/Content/Maps/GreenIsland/GreenIsland/_Generated_`, **Right-Click**, and choose **Save Folder's Packages Properties (.json)**.
 3. Repeat step 2 for the ride island maps `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_1/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_2/_Generated_`, `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_3/_Generated_` and `ThunderHorse/Content/Maps/Ride_Maps/Ride_Map_4/_Generated_`.
 4. Navigate to `ThunderHorse/Content/Blueprints/Items`, **Right-Click**, and choose **Save Folder's Packages Properties (.json)**. This is where the item stats, display names, upgrade items, and image paths come from.
-5. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, **Right-Click**, and choose **Save Folder's Packages Textures**.
-6. Repeat step 5 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`.
+5. Repeat step 4 for `ThunderHorse/Content/Blueprints/Data`. This is where the names of the shops, bundles, factions, and currencies come from, as well as the reputation each shop requires.
+6. Navigate to `ThunderHorse/Content/UserInterface/Textures/Items/Character/Gear`, **Right-Click**, and choose **Save Folder's Packages Textures**.
+7. Repeat step 6 for `ThunderHorse/Content/UserInterface/Textures/Items/Horse/Gear`, `ThunderHorse/Content/UserInterface/Textures/Items/Collectables`, and `ThunderHorse/Content/UserInterface/Textures/Buttons`.
 
 _If FModel throws errors during exporting, either [open a new issue](https://github.com/dreamfarer/equinox-map/issues/new/choose) on GitHub or try generating the mapping again yourself using the instructions in the [Export the FModel Mapping](#export-the-fmodel-mapping) section._
 
@@ -131,6 +131,36 @@ The exported resource locations from the section [Export Resource Locations, Ite
 
 _Many categories, such as characters and weekly quests, are not included in this automatic extraction and require manual addition and editing in `public/markers/`._
 
+## Update the Database
+
+The database is built from the exports of the sections [Export Resource Locations, Item Stats, and Image Paths using FModel](#export-resource-locations-item-stats-and-image-paths-using-fmodel) and [Export Shop Product Catalogues and Prices using Fiddler Classic](#export-shop-product-catalogues-and-prices-using-fiddler-classic). The catalogues know what each shop sells at which price, the game files know everything else: names, types, stats, upgrade items, icons, and which shop, faction, and reputation level a catalogue belongs to.
+
+1. Import the exports: `npm run database:import`. This will regenerate `public/database/items.json` and the icons in `public/icon/256/item`. Both are fully generated, so never edit them by hand. The import stops with an explanation if the exports don't fit together, for example if a catalogue of a shop is missing.
+2. Review the changes with `git diff public/database/items.json`. Every new item, removed item, and changed price of the game version shows up here.
+3. Set the colours of the new items in `public/database/colours.json`. The import adds every new item at its sorted position with the placeholder `[""]` and prints the items it added. Replace the placeholder with the actual colours, which are defined in `schema/database/colours.ts`. Use an empty list for items that deliberately have no colour.
+4. Validate the database: `npm run database:validate`. It lists the items that still have the placeholder, they are displayed without colours until then.
+
+_Items that are not sold by any shop, like DLCs, are listed by hand in `public/database/extras.json`. Run the import again after adding an item there._
+
+_An item no longer offered by its shop is kept in the database and marked as unavailable._
+
+## Upload the Icons
+
+The icons are served from a [Cloudflare R2](https://developers.cloudflare.com/r2/) bucket. This step uploads the new and changed icons in `public/icon` to it.
+
+1. In the Cloudflare dashboard, go to **R2 Object Storage** → **API Tokens** and create a token with **Object Read & Write** permission for the bucket.
+2. Create the file `.env` in the project root with the values Cloudflare displays for the token and the bucket:
+    ```
+    R2_ENDPOINT=<S3 API of the bucket>
+    R2_BUCKET=<name of the bucket>
+    R2_ACCESS_KEY_ID=<Access Key ID of the token>
+    R2_SECRET_ACCESS_KEY=<Secret Access Key of the token>
+    ```
+3. Preview what would be uploaded: `npm run icons:upload -- --dry-run`
+4. Upload the icons: `npm run icons:upload`
+
+_Nothing is ever deleted from the bucket, since the live website still depends on the old icons until the new version is deployed. The dry run lists the icons in the bucket that are no longer part of `public/icon`._
+
 ## Appendix
 
 ### LootLocker Item Catalogue URLs
@@ -149,7 +179,7 @@ https://api.lootlocker.com/game/catalog/key/faction_alderwood_farms_level_5/pric
 https://api.lootlocker.com/game/catalog/key/faction_alderwood_farms_level_9/prices?per_page=40
 https://api.lootlocker.com/game/catalog/key/faction_alderwood_farms_level_2/prices?per_page=40
 https://api.lootlocker.com/game/catalog/key/premium_mounts_v1_0/prices?per_page=40
-https://api.lootlocker.com/game/catalog/key/premium_bundles_2/prices?per_page=40
+https://api.lootlocker.com/game/catalog/key/premium_bundles/prices?per_page=40
 https://api.lootlocker.com/game/catalog/key/premium_riding_pass/prices?per_page=40
 https://api.lootlocker.com/game/catalog/key/premium_early_access/prices?per_page=40
 https://api.lootlocker.com/game/catalog/key/premium_gear/prices?per_page=40
