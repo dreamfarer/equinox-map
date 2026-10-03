@@ -31,7 +31,7 @@ The deployed interactive map is freely available [here](https://equinoxmap.app/)
 
 ## Statistics
 
-Since launch, the project has seen **62'250** unique visitors and **14'480'130** total requests, aggregated across all years and months. These statistics are provided by Cloudflare.
+Since launch, the project has seen **67'770** unique visitors and **15'840'130** total requests, aggregated across all years and months. These statistics are provided by Cloudflare.
 
 <details>
 <summary>2025</summary>
@@ -100,6 +100,10 @@ Total Requests: **1'470'000**
 **August**\
 Unique Visitors: **6'170** \
 Total Requests: **1'450'000**
+
+**September**\
+Unique Visitors: **5'520** \
+Total Requests: **1'360'000**
 
 </details>
 
