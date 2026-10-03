@@ -27,4 +27,5 @@ export const menuEntries: MenuEntry[] = [
     { label: 'Bundle', field: 'bundle' },
     { label: 'Colours', field: 'colours' },
     { label: 'Upgrade', field: 'upgradeItem', optionPrefix: '10 ' },
+    { label: 'Availability', field: 'availability' },
 ];

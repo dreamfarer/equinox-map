@@ -7,32 +7,33 @@ export default function DatabaseTile({
     type,
     statsAmount,
     statsType,
-    level,
-    faction,
-    cost,
-    currency,
-    shop,
-    bundle,
     upgradeAmount,
     upgradeItem,
     imagePath,
+    listings,
+    available,
 }: DatabaseItem) {
     return (
-        <div className={styles.item}>
+        <div
+            className={`${styles.item} ${available ? '' : styles.unavailable}`}
+        >
             <div className={styles.header}>
                 <h1 className={styles.title}>{name}</h1>
                 <h2 className={`${styles.text} ${styles.light}`}>{type}</h2>
+                {!available && <p className={styles.badge}>Unavailable</p>}
             </div>
 
             <div className={styles.image}>
-                <Image
-                    src={`https://cdn.equinoxmap.app${imagePath}`}
-                    alt={name}
-                    fill
-                    sizes="256px"
-                    style={{ objectFit: 'contain' }}
-                    unoptimized
-                />
+                {imagePath && (
+                    <Image
+                        src={`https://cdn.equinoxmap.app${imagePath}`}
+                        alt={name}
+                        fill
+                        sizes="256px"
+                        style={{ objectFit: 'contain' }}
+                        unoptimized
+                    />
+                )}
             </div>
 
             <div className={styles.information}>
@@ -45,51 +46,68 @@ export default function DatabaseTile({
                     </div>
                 )}
 
-                {level !== undefined && (
-                    <div className={styles.entry}>
-                        <h2 className={styles.text}>Reputation:</h2>
-                        <p className={`${styles.text} ${styles.rightAlign}`}>
-                            {level}
-                        </p>
-                    </div>
-                )}
+                {listings.map(
+                    ({ shop, faction, level, bundle, cost, currency }) => (
+                        <div
+                            key={`${shop}-${bundle}-${level}-${currency}`}
+                            className={styles.listing}
+                        >
+                            {level !== undefined && (
+                                <div className={styles.entry}>
+                                    <h2 className={styles.text}>Reputation:</h2>
+                                    <p
+                                        className={`${styles.text} ${styles.rightAlign}`}
+                                    >
+                                        {level}
+                                    </p>
+                                </div>
+                            )}
 
-                {faction && (
-                    <div className={styles.entry}>
-                        <h2 className={styles.text}>Faction:</h2>
-                        <p className={`${styles.text} ${styles.rightAlign}`}>
-                            {faction}
-                        </p>
-                    </div>
-                )}
+                            {faction && (
+                                <div className={styles.entry}>
+                                    <h2 className={styles.text}>Faction:</h2>
+                                    <p
+                                        className={`${styles.text} ${styles.rightAlign}`}
+                                    >
+                                        {faction}
+                                    </p>
+                                </div>
+                            )}
 
-                {(cost !== undefined || currency) && (
-                    <div className={styles.entry}>
-                        <h2 className={styles.text}>
-                            {bundle !== undefined ? 'Bundle Cost:' : 'Cost:'}
-                        </h2>
-                        <p className={`${styles.text} ${styles.rightAlign}`}>
-                            {cost} {currency}
-                        </p>
-                    </div>
-                )}
+                            <div className={styles.entry}>
+                                <h2 className={styles.text}>
+                                    {bundle !== undefined
+                                        ? 'Bundle Cost:'
+                                        : 'Cost:'}
+                                </h2>
+                                <p
+                                    className={`${styles.text} ${styles.rightAlign}`}
+                                >
+                                    {cost} {currency}
+                                </p>
+                            </div>
 
-                {bundle && (
-                    <div className={styles.entry}>
-                        <h2 className={styles.text}>Bundle:</h2>
-                        <p className={`${styles.text} ${styles.rightAlign}`}>
-                            {bundle}
-                        </p>
-                    </div>
-                )}
+                            {bundle && (
+                                <div className={styles.entry}>
+                                    <h2 className={styles.text}>Bundle:</h2>
+                                    <p
+                                        className={`${styles.text} ${styles.rightAlign}`}
+                                    >
+                                        {bundle}
+                                    </p>
+                                </div>
+                            )}
 
-                {shop && (
-                    <div className={styles.entry}>
-                        <h2 className={styles.text}>Shop:</h2>
-                        <p className={`${styles.text} ${styles.rightAlign}`}>
-                            {shop}
-                        </p>
-                    </div>
+                            <div className={styles.entry}>
+                                <h2 className={styles.text}>Shop:</h2>
+                                <p
+                                    className={`${styles.text} ${styles.rightAlign}`}
+                                >
+                                    {shop}
+                                </p>
+                            </div>
+                        </div>
+                    )
                 )}
 
                 {(upgradeAmount !== undefined || upgradeItem) && (

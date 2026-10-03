@@ -7,6 +7,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FunnelIcon, MapTrifoldIcon } from '@phosphor-icons/react';
 import DatabaseTile from '@/app/(database)/components/database-tile';
 import FilterMenu from '@/app/(database)/components/filter-menu';
+import ActiveFilters from '@/app/(database)/components/active-filters';
 import { useDatabaseContext } from '@/app/(database)/context/database-context';
 import { DatabaseProvider } from '@/app/(database)/context/database-context';
 import { DatabaseItem } from '@/types/database-item';
@@ -44,6 +45,7 @@ function Content() {
                 </button>
                 {isFilterOpen && <FilterMenu />}
             </div>
+            <ActiveFilters />
             <div className={styles.grid}>
                 {filteredDatabaseItems.map((item) => (
                     <DatabaseTile key={item.id} {...item} />

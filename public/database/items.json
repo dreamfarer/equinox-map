@@ -1,0 +1,5918 @@
+[
+    {
+        "id": "HorseShoes_Aluminum",
+        "name": "Aluminum horse shoes",
+        "type": "Horseshoes",
+        "statsType": "Speed",
+        "upgradeItem": "Old Horseshoe",
+        "imagePath": "/icon/256/item/UI_Icon_Item_Collectable_WhiteSilverHorseshoe.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap",
+        "name": "Ball Cap",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 5,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap_Brown",
+        "name": "Ball Cap (Brown)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap_Grey",
+        "name": "Ball Cap (Grey)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_Grey_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap_Navy",
+        "name": "Ball Cap (Navy)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap_Pink",
+        "name": "Ball Cap (Pink)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_Pink_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_BallCap_White",
+        "name": "Ball Cap (White)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_BallCap_White_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_BareHands",
+        "name": "Bare Hands",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_NoGloves.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_BlackGold",
+        "name": "Basic Bridle (Black and Gold)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlewithBit_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_BlackSilver",
+        "name": "Basic Bridle (Black and Silver)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlewithBit_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 400,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_Black",
+        "name": "Basic Bridle (Black)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlenoBit_V4.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_Burgundy",
+        "name": "Basic Bridle (Burgundy)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlewithBit_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 400,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_LightBrown",
+        "name": "Basic Bridle (LightBrown)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0071.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_NeonYellowPink",
+        "name": "Basic Bridle (Neon Yellow & Pink)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlewithBit_V5_Neon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_Pink",
+        "name": "Basic Bridle (Pink)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0068.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_Purple",
+        "name": "Basic Bridle (Purple)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_BridlewithBit_V5_Purple.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_Red",
+        "name": "Basic Bridle (Red)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Poppy",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0070.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Basic_White",
+        "name": "Basic Bridle (White)",
+        "type": "Bridle",
+        "statsType": "Agility",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0069.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie",
+        "name": "Beanie",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Orange_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 5,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie_Black",
+        "name": "Beanie (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie_Green",
+        "name": "Beanie (Green)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Green_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie_Grey",
+        "name": "Beanie (Grey)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Grey_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie_Navy",
+        "name": "Beanie (Navy)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Beanie_Pink",
+        "name": "Beanie (Pink)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Beanie_Pink_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_Black",
+        "name": "Blanket Babypad (Black)",
+        "type": "Blanket",
+        "statsType": "Speed",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_BabyPad_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_BlackGold",
+        "name": "Blanket Babypad (BlackGold)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_Babypad_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_Christmas",
+        "name": "Blanket Babypad (Christmas)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/BabyPad_Xmas_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_Green",
+        "name": "Blanket Babypad (Green)",
+        "type": "Blanket",
+        "statsType": "Speed",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_BabyPad_Green_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_Navy",
+        "name": "Blanket Babypad (Navy)",
+        "type": "Blanket",
+        "statsType": "Speed",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_BabyPad_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Babypad_White",
+        "name": "Blanket Babypad (White)",
+        "type": "Blanket",
+        "statsType": "Speed",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_BabyPad_White_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "HorseShoes_BluedSteel",
+        "name": "Blued steel horse shoes",
+        "type": "Horseshoes",
+        "statsType": "Agility",
+        "upgradeItem": "Old Horseshoe",
+        "imagePath": "/icon/256/item/UI_Icon_Item_Collectable_BlueSteelHorseshoe.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_BootcutJeans",
+        "name": "Bootcut Jeans",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_BootCutJeans_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_BootcutJeans_Indigo",
+        "name": "Bootcut Jeans (Indigo)",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_BootCutJeans_Indigo_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_BootcutJeans_Tan",
+        "name": "Bootcut Jeans (Tan)",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_BootCutJeans_Tan_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_BootcutSlacks",
+        "name": "Bootcut Slacks",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_BootCutSlacks_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_BootcutSlacks_White",
+        "name": "Bootcut Slacks (White)",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_BootCutSlacks_White.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_BowTie_BlackWhite",
+        "name": "Bow Tie (Mane - Black & White)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_BowTie_BlackAndWhite.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_BowTie_Black",
+        "name": "Bow Tie (Mane - black)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tail_BowTie.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_BowTie_Blue",
+        "name": "Bow Tie (Mane - Blue)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_BowTie_Blue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "HorseShoes_Brass",
+        "name": "Brass horse shoes",
+        "type": "Horseshoes",
+        "statsType": "Endurance",
+        "upgradeItem": "Old Horseshoe",
+        "imagePath": "/icon/256/item/UI_Icon_Item_Collectable_RoseGoldHorseshoe.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Breeches",
+        "name": "Breeches",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Breeches_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Breeches_Burgundy",
+        "name": "Breeches (Burgundy)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Breeches_Female_Burgundy_128.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Breeches_LightGrey",
+        "name": "Breeches (Light Grey)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Breeches_Female_LightGrey_128.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Breeches_Navy",
+        "name": "Breeches (Navy)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Breeches_Female_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ButtonDownShirt",
+        "name": "Button Down Shirt",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/Shirt_ButtonDownShirt.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ButtonDownShirt_Black",
+        "name": "Button Down Shirt (Black)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/Shirt_ButtonDownShirt_Black.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ButtonDownShirt_Navy",
+        "name": "Button Down Shirt (Navy)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/Shirt_ButtonDownShirt_Navy.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_CanvasJacket",
+        "name": "Canvas Jacket",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_CargoJacket_Male_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_CanvasJacket_Black",
+        "name": "Canvas Jacket (Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_CanvasJacket_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_CanvasJacket_DarkGreen",
+        "name": "Canvas Jacket (Dark Green)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_CanvasJacket_Green.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_CargoBreeches",
+        "name": "Cargo Breeches",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_CargoBreeches_Male_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos",
+        "name": "Chinos",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_Grey.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_BlackCheckered",
+        "name": "Chinos (Black, Checkered)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_Black.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_BlackStriped",
+        "name": "Chinos (Black, Striped)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_BlackStriped.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Arachne Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_Black",
+        "name": "Chinos (Black)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_GothBlack.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Shadow Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_Burgundy",
+        "name": "Chinos (Burgundy)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Crimson Goth Bundle",
+                "cost": 200,
+                "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_ForestGreen",
+        "name": "Chinos (Forest Green)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_GothForestgreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Ivy Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_Navy",
+        "name": "Chinos (Navy)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_Navy.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Chinos_Tan",
+        "name": "Chinos (Tan)",
+        "type": "Pants",
+        "statsType": "Fitness",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Chinos_Tan.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat",
+        "name": "Cowboy Hat",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Black_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat_Brown",
+        "name": "Cowboy Hat (Brown)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Brown_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat_Navy",
+        "name": "Cowboy Hat (Navy)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat_Pink",
+        "name": "Cowboy Hat (Pink)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Pink_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat_Tan",
+        "name": "Cowboy Hat (Tan)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Tan_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_CowboyHat_White",
+        "name": "Cowboy Hat (White)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_CowboyHat_Tan_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_CozyCasual",
+        "name": "Cozy Casual",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Footwear_CozyCasual_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_CozyCasual_Black",
+        "name": "Cozy Casual (Black)",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Footwear_CozyCasual_Black.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_CozyCasual_Green",
+        "name": "Cozy Casual (Green)",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Footwear_CozyCasual_Blue.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Docs",
+        "name": "Docs",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0048.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Yellow Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad",
+        "name": "Dressage Pad",
+        "type": "Blanket",
+        "statsType": "Agility",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EnglishSaddlePad_White_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_BlackGold",
+        "name": "Dressage Pad (BlackGold)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 300,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_BlackSilver",
+        "name": "Dressage Pad (BlackSilver)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 300,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_Burgundy",
+        "name": "Dressage Pad (Burgundy)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 300,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_PremiumPack_Dark",
+        "name": "Dressage Pad (Equinox Dark)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_PremiumPackDark.webp",
+        "listings": []
+    },
+    {
+        "id": "Blanket_DressagePad_PremiumPack_Light",
+        "name": "Dressage Pad (Equinox Light)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_PremiumPackLight.webp",
+        "listings": []
+    },
+    {
+        "id": "Blanket_DressagePad_PaleBlue",
+        "name": "Dressage Pad (Pale Blue)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_Blue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 300,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_Silver",
+        "name": "Dressage Pad (Silver)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_Silver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_DressagePad_Yellow",
+        "name": "Dressage Pad (Yellow)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_DressagePad_Yellow.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 300,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_EnglishHorseHelmet",
+        "name": "English Horse Helmet",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Head_EnglishHorseHelmet_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_EnglishHorseHelmet_Carbon",
+        "name": "English Horse Helmet (Carbon)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Head_EnglishHorseHelmet_Carbon_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_EnglishHorseHelmet_Pink",
+        "name": "English Horse Helmet (Pink)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Head_EnglishHorseHelmet_Pink_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_EnglishHorseHelmet_Racing",
+        "name": "English Horse Helmet (Racing)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Head_EnglishHorseHelmet_Purple_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_EnglishSaddle",
+        "name": "English Saddle",
+        "type": "Saddle",
+        "statsType": "Agility",
+        "upgradeItem": "Apple",
+        "imagePath": "/icon/256/item/Shirts_Female_Spawnable_0074.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_EnglishSaddle_BlackGold",
+        "name": "English Saddle (Black and Gold)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EnglishSaddle_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_EnglishSaddle_Black",
+        "name": "English Saddle (Black)",
+        "type": "Saddle",
+        "statsType": "Agility",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/Shirts_Female_Spawnable_0076.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_EnglishSaddle_PremiumPack",
+        "name": "English Saddle (Equinox)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EnglishSaddle_PremiumPack.webp",
+        "listings": []
+    },
+    {
+        "id": "Saddle_EnglishSaddle_Pink",
+        "name": "English Saddle (Pink)",
+        "type": "Saddle",
+        "statsType": "Agility",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EnglishSaddle_Pink.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "FastTravel_AlderwoodWilds",
+        "name": "Fast Travel - Farrier",
+        "type": "Fast Travel",
+        "imagePath": "/icon/256/item/UI_Button_Phone_FastTravel.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 4,
+                "cost": 3000,
+                "currency": "Silver Sols",
+                "available": true
+            },
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 5000,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "FastTravel_AlderwoodFishermen",
+        "name": "Fast Travel - Hook's End",
+        "type": "Fast Travel",
+        "imagePath": "/icon/256/item/UI_Button_Phone_FastTravel.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 4,
+                "cost": 3000,
+                "currency": "Silver Sols",
+                "available": true
+            },
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 5,
+                "cost": 5000,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "FastTravel_AlderwoodEquestrian",
+        "name": "Fast Travel - Horse Rehabilitation Center",
+        "type": "Fast Travel",
+        "imagePath": "/icon/256/item/UI_Button_Phone_FastTravel.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 4,
+                "cost": 3000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "FastTravel_AlderwoodFarms",
+        "name": "Fast Travel - Old William’s Farm",
+        "type": "Fast Travel",
+        "imagePath": "/icon/256/item/UI_Button_Phone_FastTravel.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 4,
+                "cost": 3000,
+                "currency": "Silver Sols",
+                "available": true
+            },
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 5,
+                "cost": 5000,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "FastTravel_AlderwoodTown",
+        "name": "Fast Travel - Wendy's Tack Shop",
+        "type": "Fast Travel",
+        "imagePath": "/icon/256/item/UI_Button_Phone_FastTravel.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 4,
+                "cost": 3000,
+                "currency": "Silver Sols",
+                "available": true
+            },
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 5000,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_Feathers",
+        "name": "Feathers (Mane)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/Feather_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_Feathers",
+        "name": "Feathers (Tail)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/Feather_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_FeltCoat",
+        "name": "Felt Coat",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_FeltCoat.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_FeltCoat_BlackSilver",
+        "name": "Felt Coat (Black and Silver)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_FeltCoat_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_FeltCoat_Black",
+        "name": "Felt Coat (Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_FeltCoat_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_FeltCoat_Burgundy",
+        "name": "Felt Coat (Burgundy)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_FeltCoat_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_FleeceHeadband",
+        "name": "Fleece Headband",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Head_NeopreneHeadBand_128.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 8,
+                "cost": 1600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_FloralAntlers",
+        "name": "Floral Antlers",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_FloralAntlers.webp",
+        "listings": []
+    },
+    {
+        "id": "Shoes_GothBoots_BlackRed",
+        "name": "Goth Boots (Black and Red)",
+        "type": "Shoes",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Foot_GothBoot_BlackRed.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Crimson Goth Bundle",
+                "cost": 200,
+                "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_GothBoots_BlackSpiderweb",
+        "name": "Goth Boots (Black Spiderweb)",
+        "type": "Shoes",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Foot_GothBoot_BlackSpiderweb.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Arachne Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_GothBoots_Black",
+        "name": "Goth Boots (Black)",
+        "type": "Shoes",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Foot_GothBoot_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Shadow Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_GothBoots_ForestGreen",
+        "name": "Goth Boots (Forest Green)",
+        "type": "Shoes",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Foot_GothBoot_ForestGreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Ivy Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_GothBridle_BlackGold",
+        "name": "Goth Bridle (Black & Gold)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Goth_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Gold)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_GothBridle_BlackSilver",
+        "name": "Goth Bridle (Black & Silver)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Goth_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Silver)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_GothGloves_BlackFlowers",
+        "name": "Goth Gloves (Black Flowers)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_GothGloves_BlackFlowers.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Shadow Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_GothGloves_BlackSpiderweb",
+        "name": "Goth Gloves (Black Spiderweb)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_GothGloves_BlackSpiderweb.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Arachne Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_GothGloves_Black",
+        "name": "Goth Gloves (Black)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_GothGloves_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Crimson Goth Bundle",
+                "cost": 200,
+                "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_GothGloves_ForestGreen",
+        "name": "Goth Gloves (Forest Green)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_GothGloves_ForestGreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Ivy Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_GothHat_BlackGold",
+        "name": "Goth Hat (Black & Gold)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_Goth_HatBlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Gold)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_GothHat_Black",
+        "name": "Goth Hat (Black)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_Goth_HatBlack.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Silver)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_GothShorts_BlackSpiderweb",
+        "name": "Goth Shorts (Black Spiderweb)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_GothSHorts_BlackSpiderweb.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Arachne Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_GothShorts_BlackStripes",
+        "name": "Goth Shorts (Black Stripes)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_GothSHorts_BlackStriped.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Crimson Goth Bundle",
+                "cost": 200,
+                "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_GothShorts_Black",
+        "name": "Goth Shorts (Black)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_GothSHorts_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Shadow Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_GothShorts_ForestGreen",
+        "name": "Goth Shorts (Forest Green)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_GothSHorts_ForestGreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Ivy Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_GothVest_BlackRed",
+        "name": "Goth Vest (Black and Red)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_GothVest_BlackRed.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Shadow Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_GothVest_BlackSpiderweb",
+        "name": "Goth Vest (Black Spiderweb)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_GothVest_BlackSpiderweb.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Arachne Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_GothVest_ForestGreen",
+        "name": "Goth Vest (Forest Green)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_GothVest_ForestGreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Ivy Goth Bundle",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_GothVest_Red",
+        "name": "Goth Vest (Red)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_GothVest_Red.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Crimson Goth Bundle",
+                "cost": 200,
+                "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_HeavyBoots",
+        "name": "Heavy Boots",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0036.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_HeavyBoots_Tan",
+        "name": "Heavy Boots (Tan)",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0037.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_HighRidingPants",
+        "name": "High Riding Pants",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_HighRidingPants_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_HighTops",
+        "name": "High Tops",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0035.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Hikers",
+        "name": "Hikers",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Apple",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0038.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Hikers_Blue",
+        "name": "Hikers (Blue)",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0040.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Hikers_Green",
+        "name": "Hikers (Green)",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0039.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_HikingShoes",
+        "name": "Hiking Shoes",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0045.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie",
+        "name": "Hoodie",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Yellow Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Black",
+        "name": "Hoodie (Black)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Black.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Blue",
+        "name": "Hoodie (Blue)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Blue.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Brown",
+        "name": "Hoodie (Brown)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Brown.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Green",
+        "name": "Hoodie (Green)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Green.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Red",
+        "name": "Hoodie (Red)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Red.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_Tan",
+        "name": "Hoodie (Tan)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_Tan.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Hoodie_White",
+        "name": "Hoodie (White)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/HoodieIcon_White.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_HorseRacingGloves",
+        "name": "Horse Racing Gloves",
+        "type": "Gloves",
+        "statsType": "Riding",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hand_HorseRacingGloves_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_HorseRacingGloves_White",
+        "name": "Horse Racing Gloves (White)",
+        "type": "Gloves",
+        "statsType": "Control",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hand_HorseRacingGloves_White_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_JeanShorts",
+        "name": "Jean Shorts",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_JeanShorts_Original.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_JeanShorts_Black",
+        "name": "Jean Shorts (Black)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_JeanShorts_Black.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_JeanShorts_Indigo",
+        "name": "Jean Shorts (Indigo)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_JeanShorts_Indigo.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_JeanShorts_White",
+        "name": "Jean Shorts (White)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_JeanShorts_White.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_JingleBells",
+        "name": "Jingle Bells (Tail)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/JingleBell_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Pants_Jodhpurs",
+        "name": "Jodhpurs",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Jodhpur.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Jodhpurs_Black",
+        "name": "Jodhpurs (Black)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Jodhpur_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 400,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_Jodhpurs_Burgundy",
+        "name": "Jodhpurs (Burgundy)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_Jodhpur_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 400,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LayeredSweater",
+        "name": "Layered Sweater",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_LayeredSweater_Biege.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LayeredSweater_Grey",
+        "name": "Layered Sweater (Grey)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_LayeredSweater_Grey.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LayeredSweater_Navy",
+        "name": "Layered Sweater (Navy)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_LayeredSweater_Navy.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LayeredSweater_Pink",
+        "name": "Layered Sweater (Pink)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_LayeredSweater_Pink.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_LeatherRidingGloves",
+        "name": "Leather Riding Gloves",
+        "type": "Gloves",
+        "statsType": "Jumping",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hand_LeatherRidingGloves_Brown_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_LeatherRidingGloves_Flowers",
+        "name": "Leather Riding Gloves (Flowers)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_LeatherRidingGloves_Flowers.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_LeatherRidingGloves_Tan",
+        "name": "Leather Riding Gloves (Tan)",
+        "type": "Gloves",
+        "statsType": "Control",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hand_LeatherRidingGloves_Tan_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_HorseAlderwood_WhiteRed",
+        "name": "Long T-shirt (Alderwood, White)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_Alderwood.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 250,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Beige",
+        "name": "Long T-shirt (Beige)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Beige_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Black",
+        "name": "Long T-shirt (Black)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Black_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Blue",
+        "name": "Long T-shirt (Blue)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Blue_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_CowSkull",
+        "name": "Long T-shirt (Cow Skull)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_CowSkull_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Green",
+        "name": "Long T-shirt (Green)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Geen_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Grey",
+        "name": "Long T-shirt (Grey)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Gear_UpperBody_LongTShirt_Grey.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_IslandLife",
+        "name": "Long T-shirt (Island Life)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_IslandLife_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Navy",
+        "name": "Long T-shirt (Navy)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Navy_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Orange",
+        "name": "Long T-shirt (Orange)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Orange_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Purple",
+        "name": "Long T-shirt (Purple)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Pink_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Red",
+        "name": "Long T-shirt (Red)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Poppy",
+        "imagePath": "/icon/256/item/UI_Gear_UpperBody_LongTShirt_Red.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Ride",
+        "name": "Long T-shirt (Ride)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_ShutUpAndRIde_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_SouthShore_PaleBlue",
+        "name": "Long T-shirt (South Shore, Pale Blue)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_SouthShoreBlue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 250,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_SouthShore_Red",
+        "name": "Long T-shirt (South Shore, Red)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_SouthShoreRed.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 250,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_SouthShore",
+        "name": "Long T-shirt (South Shore)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_SouthShore_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Tan",
+        "name": "Long T-shirt (Tan)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Tan_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_White",
+        "name": "Long T-shirt (White)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_White_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_Yellow",
+        "name": "Long T-shirt (Yellow)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Yellow_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_LooseFitJeans_Black",
+        "name": "Loose Fit Jeans (Black)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_LoosefitJeans_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 350,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_LooseFitJeans_Indigo",
+        "name": "Loose Fit Jeans (Indigo)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_LoosefitJeans_Indigo.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_LooseFitJeans_LightBlue",
+        "name": "Loose Fit Jeans (Light Blue)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_LoosefitJeans_LightBlue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_LooseRibbons",
+        "name": "Loose Ribbon (Mane - Pink)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/LooseRibbon_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_LooseRibbons",
+        "name": "Loose Ribbon (Tail - Pink)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/LooseRibbon_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_LooseTie",
+        "name": "Loose Tie (Mane - Blue)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/LooseTie_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_LooseTie",
+        "name": "Loose Tie (Tail - Blue)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/LooseTie_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_LowHeelSneakers",
+        "name": "Low Heel Sneakers",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0049.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_MeshShirt",
+        "name": "Mesh Shirt",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/Shirt_MeshShirt_Female.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_MeshShirt_Green",
+        "name": "Mesh Shirt (Green)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/Shirt_MeshShirt_Female_Green.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Saddle_ModernWestern_Black",
+        "name": "Modern Western (Black)",
+        "type": "Saddle",
+        "statsType": "Endurance",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0063.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_ModernWestern_Brown",
+        "name": "Modern Western (Dark Brown)",
+        "type": "Saddle",
+        "statsType": "Endurance",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0064.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_ModernWestern_Burgundy",
+        "name": "Modern Western (Light Brown)",
+        "type": "Saddle",
+        "statsType": "Endurance",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0065.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_ModernWestern",
+        "name": "Modern Western (Tan)",
+        "type": "Saddle",
+        "statsType": "Endurance",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0062.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_ModernWestern_White",
+        "name": "Modern Western (White)",
+        "type": "Saddle",
+        "statsType": "Endurance",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0066.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_NeopreneShirt",
+        "name": "Neoprene Shirt",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_NeopreneShirt_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_OpenButtonShirt",
+        "name": "Open Button Shirt",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Apple",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_OpenButtonShirt.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_Roses_WhitePurplePink",
+        "name": "Pastel Roses (Tail - White, Purple and Pink)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tail_Roses_WhitePurplePink.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_Roses_YellowGreenPink",
+        "name": "Pastel Roses (Tail - Yellow, Green and Pink)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tail_Roses_YellowGreenPink.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PlaidShirt",
+        "name": "Plaid Shirt",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Poppy",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PlaidShirt_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_PleatedSkirt",
+        "name": "Pleated Skirt",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Apple",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0031.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo",
+        "name": "Polo Legwraps",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_White_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 20,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_BlackRed",
+        "name": "Polo Legwraps (Black & Red)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_BlackRed.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Black)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_Black",
+        "name": "Polo Legwraps (Black)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_Brown",
+        "name": "Polo Legwraps (Brown)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_Brown.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_Green",
+        "name": "Polo Legwraps (Green)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_Green_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_LemonChiffon",
+        "name": "Polo Legwraps (Lemon Chiffon)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_LemonChiffron.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_MintGreen",
+        "name": "Polo Legwraps (Mint Green)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_MintGreen.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_Navy",
+        "name": "Polo Legwraps (Navy)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_NeonPink",
+        "name": "Polo Legwraps (Neon Pink)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_NeonPink.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_NeonYellow",
+        "name": "Polo Legwraps (Neon Yellow)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_NeonYellow.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_PaleCyan",
+        "name": "Polo Legwraps (Pale Cyan)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_PaleCyan.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_RedTurquoise",
+        "name": "Polo Legwraps (Red & Turquoise)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_RedTurquiose.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_TanBrown",
+        "name": "Polo Legwraps (Tan & Brown)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_TanBrown.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_TurquoiseBlue",
+        "name": "Polo Legwraps (Turquoise & Blue)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_TurquioseBlue.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee",
+        "name": "Polo Tee",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PoloTee_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee_Black",
+        "name": "Polo Tee (Black)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PoloTee_Black_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee_Navy",
+        "name": "Polo Tee (Navy)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PoloTee_Navy_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee_Postal",
+        "name": "Polo Tee (Postal)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Gear_UpperBody_PoloTee_Postal.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee_Salmon",
+        "name": "Polo Tee (Salmon)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_LongTshirt_Salmon_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PoloTee_White",
+        "name": "Polo Tee (White)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PoloTee_White_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PufferJacket",
+        "name": "Puffer Jacket",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_PufferJacket_Male_128.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_PufferJacket_Green",
+        "name": "Puffer Jacket (Green)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_PufferJacket_Green.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 10,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick",
+        "name": "Quick Legwraps",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_GreenTrim",
+        "name": "Quick Legwraps (Green with Trim)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_GreenBlackRim_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_Green",
+        "name": "Quick Legwraps (Green)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_Green_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_NavyTrim",
+        "name": "Quick Legwraps (Navy with Trim)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_NavyBlackRim_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_Navy",
+        "name": "Quick Legwraps (Navy)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_WhiteTrim",
+        "name": "Quick Legwraps (White with Trim)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_White_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Quick_White",
+        "name": "Quick Legwraps (White)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_QuickWraps_White_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_RangerBoots",
+        "name": "Ranger Boots",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0047.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_RedRoses",
+        "name": "Red Roses (Mane - Red)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/RedRose_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_RedRoses",
+        "name": "Red Roses (Tail - Red)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/RedRose_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_Antlers",
+        "name": "Reindeer Antlers",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/Reindeer_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_RibbonBow",
+        "name": "Ribbon Bow (Mane - Yellow)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/RibbonBow_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_RibbonBow",
+        "name": "Ribbon Bow (Tail - Yellow)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/RibbonBow_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_RidingBoots",
+        "name": "Riding Boots",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Ridingboots.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_RidingBoots_Black",
+        "name": "Riding Boots (Black)",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Ridingboots_Black.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_RidingBoots_WarmLeather",
+        "name": "Riding Boots (Warm Leather)",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Ridingboots_Warm.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants",
+        "name": "Riding Pants",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0022.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants_Black",
+        "name": "Riding Pants (Black)",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0023.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants_Brown",
+        "name": "Riding Pants (Brown)",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0024.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants_BlackGold",
+        "name": "Riding Pants (Gold Stripe)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_RidingPants_BlackAndGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants_Navy",
+        "name": "Riding Pants (Navy)",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0027.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RidingPants_White",
+        "name": "Riding Pants (White)",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0026.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_RolledUpJeans",
+        "name": "Rolled Up Jeans",
+        "type": "Pants",
+        "statsType": "Riding",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0028.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_Roses_NeonPinkYellow",
+        "name": "Roses (Mane - Neon Pink & Yellow)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_Roses_NeonPinkYellow.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_Roses_PaleBlue",
+        "name": "Roses (Mane - Pale Blue)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_Roses_LightBlue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_Roses_Pink",
+        "name": "Roses (Mane - Pink)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_Roses_Pink.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPadRound_Pastel",
+        "name": "Round Western Pad (Pastel)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_RoundedRainbow.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_RubberBoots",
+        "name": "RubberBoots",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/RubberBoots_Green.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShortTShirt",
+        "name": "Short T-shirt",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_African_tshirt_128.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShortTShirt_HorsePeace_Day",
+        "name": "Short T-shirt (Peace, Day)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_HorsesNeon1.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShortTShirt_HorsePeace_Night",
+        "name": "Short T-shirt (Peace, Night)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_HorsesNeon2.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Neon Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_ShortWorkGloves_Burgundy",
+        "name": "Short Work Gloves (Dark Burgundy)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_WorkGloveNoCuff_DarkBurgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Gloves_ShortWorkGloves_LightBrown",
+        "name": "Short Work Gloves (Light Brown)",
+        "type": "Gloves",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hands_WorkGloveNoCuff_LightBrown.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket",
+        "name": "Show Jacket",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_ShowJacket_Male_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket_BlackGold",
+        "name": "Show Jacket (Black and Gold)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_ShowJacket_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket_Grey",
+        "name": "Show Jacket (Grey)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0017.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket_Navy",
+        "name": "Show Jacket (Navy)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0020.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket_Tan",
+        "name": "Show Jacket (Tan)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/Shirts_Female_Spawnable_0018.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShowJacket_White",
+        "name": "Show Jacket (White)",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0019.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_SimpleBow_BlackWhite",
+        "name": "Simple Bow (Tail - Black & White)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tial_Bow_BlackAndWhite.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_SimpleBow_Black",
+        "name": "Simple Bow (Tail - Black)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tail_Bow_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Deluxe Riders Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_SimpleBow_Blue",
+        "name": "Simple Bow (Tail - Blue)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Tial_Bow_Blue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SkateShoe",
+        "name": "Skate Shoes",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/SkateShoe_Icon.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_SkinnyJeans_AcidWash",
+        "name": "Skinny Jeans (Acid Wash)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_SkinnyJeans_AcidWash_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_SkinnyJeans_Black",
+        "name": "Skinny Jeans (Black)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_SkinnyJeans_Black_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_SkinnyJeans_Grey",
+        "name": "Skinny Jeans (Grey)",
+        "type": "Pants",
+        "statsType": "Jumping",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_SkinnyJeans_Grey_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SlipOns",
+        "name": "Slip-Ons",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Fossil",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0050.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SlipOns_Black",
+        "name": "Slip-Ons (Black)",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0053.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SlipOns_GreyStripes",
+        "name": "Slip-Ons (Grey Stripes)",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0054.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SlipOns_Tan",
+        "name": "Slip-Ons (Tan)",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0050.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SlipOns_White",
+        "name": "Slip-Ons (White)",
+        "type": "Shoes",
+        "statsType": "Jumping",
+        "upgradeItem": "Apple",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0051.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_SlouchySweater",
+        "name": "Slouchy Sweater",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_SlouchySweater.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_SlouchySweater_Black",
+        "name": "Slouchy Sweater (Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_SlouchySweater_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_SlouchySweater_GreenFlowerPattern",
+        "name": "Slouchy Sweater (Green Flower Pattern)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_SlouchySweater_GreenFlowerPattern.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_SlouchySweater_PastelGreen",
+        "name": "Slouchy Sweater (Pastel Green)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_SlouchySweater_Green.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Sneakers_Black",
+        "name": "Sneakers (Black)",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Footwear_Sneakers_Black_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_Sneakers_DarkBrown",
+        "name": "Sneakers (Dark Brown)",
+        "type": "Shoes",
+        "statsType": "Fitness",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Footwear_Sneakers_Brown_128.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 10,
+                "currency": "Club Red Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_SuedeBoots",
+        "name": "Suede Boots",
+        "type": "Shoes",
+        "statsType": "Riding",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/SuadeBoots.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Egyptian_Black",
+        "name": "Sunrise Blanket (Black)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EgyptianBlanket_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Black)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Egyptian_Red",
+        "name": "Sunrise Blanket (Red)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EgyptianBlanket_Red.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Egyptian_Tan",
+        "name": "Sunrise Blanket (Tan)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EgyptianBlanket_Tan.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_Egyptian_Turquoise",
+        "name": "Sunrise Blanket (Turquoise)",
+        "type": "Blanket",
+        "statsType": "Agility",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EgyptianBlanket_Turquiose.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Egyptian_Black",
+        "name": "Sunrise Bridle (Black)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Egyptian_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Black)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Egyptian_Red",
+        "name": "Sunrise Bridle (Red)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Egyptian_Red.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Egyptian_Tan",
+        "name": "Sunrise Bridle (Tan)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Egyptian_Tan.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Egyptian_Turquoise",
+        "name": "Sunrise Bridle (Turquoise)",
+        "type": "Bridle",
+        "statsType": "Speed",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Egyptian_Turquiose.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Egyptian_Black",
+        "name": "Sunrise Saddle (Black)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EgyptianSaddle_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Black)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Egyptian_Red",
+        "name": "Sunrise Saddle (Red)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EgyptianSaddle_Red.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Egyptian_Tan",
+        "name": "Sunrise Saddle (Tan)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EgyptianSaddle_Tan.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (Red & Tan)",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Egyptian_Turquoise",
+        "name": "Sunrise Saddle (Turquoise)",
+        "type": "Saddle",
+        "statsType": "Speed",
+        "upgradeItem": "Club Yellow Ribbon",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EgyptianSaddle_Tuirquiose.webp",
+        "listings": [
+            {
+                "shop": "Riding Club's Shop",
+                "cost": 5,
+                "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_TendonWraps",
+        "name": "Tendon Wraps",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWraps_TendonWarps.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 5,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_TendonWraps_BlackGold",
+        "name": "Tendon Wraps (Black & Gold)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWraps_TendonWarps_BlackGold.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Gold)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_TendonWraps_BlackSilver",
+        "name": "Tendon Wraps (Black & Silver)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWraps_TendonWarps_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Goth Bundle (Black & Silver)",
+                "cost": 500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_TendonWraps_Black",
+        "name": "Tendon Wraps (Black)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWraps_TendonWarps_Black.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Christmas",
+        "name": "Tendon Wraps (Christmas)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/ChristmasWraps_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_TendonWraps_White",
+        "name": "Tendon Wraps (White)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWraps_TendonWarps_White.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 10,
+                "cost": 2000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt",
+        "name": "Tight T-Shirt",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_Black.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_Midsummer",
+        "name": "Tight T-Shirt (Midsummer)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_Midsummer.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 1,
+                "currency": "Sunflower",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_FlowersPink",
+        "name": "Tight T-Shirt (Pink with Flowers)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_FlowersPink.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Nature Riders Bundle",
+                "cost": 1500,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_Pink",
+        "name": "Tight T-Shirt (Pink)",
+        "type": "Shirt",
+        "statsType": "Riding",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_Pink.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Toque",
+        "name": "Toque",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Toque_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 20,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Toque_Burgundy",
+        "name": "Toque (Burgundy)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Toque_Burgundy_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Toque_Grey",
+        "name": "Toque (Grey)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Toque_Grey_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Toque_Navy",
+        "name": "Toque (Navy)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Toque_Navy_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_Toque_White",
+        "name": "Toque (White)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Hat_Toque_White_128.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 100,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_TuckedCargoPants",
+        "name": "Tucked Cargo Pants",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Dryad's Saddle Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_CargoPants_Male_128.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck",
+        "name": "Turtleneck (Beige)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Beige.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Black",
+        "name": "Turtleneck (Black)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Black.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Brown",
+        "name": "Turtleneck (Brown)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Brown.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Green",
+        "name": "Turtleneck (Green)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Green.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Grey",
+        "name": "Turtleneck (Grey)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Grey.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Blue",
+        "name": "Turtleneck (Navy)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Blue.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Pink",
+        "name": "Turtleneck (Pink)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Pink.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Purple",
+        "name": "Turtleneck (Purple)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Purple.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Red",
+        "name": "Turtleneck (Red)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Red.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Tan",
+        "name": "Turtleneck (Tan)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Tan.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_White",
+        "name": "Turtleneck (White)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_White.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_Turtleneck_Yellow",
+        "name": "Turtleneck (Yellow)",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Activity Token",
+        "imagePath": "/icon/256/item/Shirt_TurtleNeck_Yellow.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_VarsityJacket",
+        "name": "Varsity Jacket",
+        "type": "Shirt",
+        "statsType": "Jumping",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/Shirt_VarsityJacket.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_VneckRolled",
+        "name": "Vneck Rolled",
+        "type": "Shirt",
+        "statsType": "Control",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/Shirt_VneckRolled.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western",
+        "name": "Western Bridle",
+        "type": "Bridle",
+        "statsType": "Endurance",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/WesternBridle_Icon.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_Black",
+        "name": "Western Bridle (Black)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Western_Black.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_Christmas",
+        "name": "Western Bridle (Christmas)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/ChristmasBridle_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_DarkBrown",
+        "name": "Western Bridle (DarkBrown)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Western_DarkBrown.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_LightBlue",
+        "name": "Western Bridle (Light Blue)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Western_LightBlue.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_Tan",
+        "name": "Western Bridle (Tan)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Western_Tan.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Bridle_Western_White",
+        "name": "Western Bridle (White)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Western_White.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WesternJacket_Brown",
+        "name": "Western Jacket (Brown)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_WesternJacket_Brown.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WesternJacket_Burgundy",
+        "name": "Western Jacket (Burgundy)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_UpperBody_WesternJacket_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Boho Western Bundle",
+                "cost": 1800,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_Beige",
+        "name": "Western Pad (Beige, Patterned)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/western_saddle_pad_patterned_Beige_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Beige",
+        "name": "Western Pad (Beige)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Beige.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Black",
+        "name": "Western Pad (Black)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Black.webp",
+        "listings": [
+            {
+                "shop": "Wendy's Wild Weaves",
+                "faction": "Alderwood Downtown",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Brown",
+        "name": "Western Pad (Brown)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Brown.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Burgundy",
+        "name": "Western Pad (Burgundy)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Burgundy.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_Green",
+        "name": "Western Pad (Green, Patterned)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Green.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Navy",
+        "name": "Western Pad (Navy)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Blue.webp",
+        "listings": [
+            {
+                "shop": "Thomas Pratt's store",
+                "faction": "Alderwood Equestrians",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_Orange",
+        "name": "Western Pad (Orange, Patterned)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Orange.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 200,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_PaleBlue",
+        "name": "Western Pad (Pale Blue)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_PaleBlue.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_Pink",
+        "name": "Western Pad (Pink, Patterned)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/western_saddle_pad_patterned_Pink_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Pink",
+        "name": "Western Pad (Pink)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Pink.webp",
+        "listings": [
+            {
+                "shop": "Kathy's Trendy Threads",
+                "faction": "Alderwood Farms",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad",
+        "name": "Western Pad (Red, Patterned)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Raspberries",
+        "imagePath": "/icon/256/item/western_saddle_pad_patterned_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_SolidColor_Red",
+        "name": "Western Pad (Red)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Poppy",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_Red.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Blanket_WesternPad_Teal",
+        "name": "Western Pad (Teal, Patterned)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/western_saddle_pad_patterned_Teal_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Western",
+        "name": "Western Saddle",
+        "type": "Saddle",
+        "statsType": "Strength",
+        "upgradeItem": "Old Horseshoe",
+        "imagePath": "/icon/256/item/Western_Saddle_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Western_Black",
+        "name": "Western Saddle (Black)",
+        "type": "Saddle",
+        "statsType": "Strength",
+        "upgradeItem": "Raven Feather",
+        "imagePath": "/icon/256/item/Western_Saddle_Black_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Western_Brown",
+        "name": "Western Saddle (Brown)",
+        "type": "Saddle",
+        "statsType": "Strength",
+        "upgradeItem": "Deer Antler",
+        "imagePath": "/icon/256/item/Western_Saddle_Brown_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Western_Christmas",
+        "name": "Western Saddle (Christmas)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/Western_Saddle_Christmas_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            },
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Winter Cheer Bundle",
+                "cost": 10,
+                "currency": "Silver Sols",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Western_White",
+        "name": "Western Saddle (White)",
+        "type": "Saddle",
+        "statsType": "Strength",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/Western_Saddle_White_Icon.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_WhiteRoses",
+        "name": "White Roses (Mane - White)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/WhiteRose_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "TailAccessory_WhiteRoses",
+        "name": "White Roses (Tail - White)",
+        "type": "Tail Accessory",
+        "imagePath": "/icon/256/item/WhiteRose_Icon.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Early Access Rewards",
+                "cost": 1,
+                "currency": "Early Access Coin",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shoes_WorkBoots",
+        "name": "Work Boots",
+        "type": "Shoes",
+        "statsType": "Control",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_0046.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_WorkJeans",
+        "name": "Work Jeans",
+        "type": "Pants",
+        "statsType": "Control",
+        "upgradeItem": "Sulfur Shelf Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_WorkJeans_Female_128.webp",
+        "listings": [
+            {
+                "shop": "Robert Quint's store",
+                "faction": "Hook's End",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "HorseShoes_WroughtIron",
+        "name": "Wrought iron horse shoes",
+        "type": "Horseshoes",
+        "statsType": "Strength",
+        "upgradeItem": "Old Horseshoe",
+        "imagePath": "/icon/256/item/UI_Icon_Item_Collectable_DarkIronHorseShoe.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie",
+        "name": "Zipper Hoodie",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Eagle Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 1,
+                "cost": 100,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Beige",
+        "name": "Zipper Hoodie (Beige)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Beige.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Black",
+        "name": "Zipper Hoodie (Black)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Black.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Blue",
+        "name": "Zipper Hoodie (Blue)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Blue.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Green",
+        "name": "Zipper Hoodie (Green)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Moss",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Green.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 5,
+                "cost": 500,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Grey",
+        "name": "Zipper Hoodie (Grey)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Seagull Feather",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Grey.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Navy",
+        "name": "Zipper Hoodie (Navy)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Delphinium",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Navy.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 7,
+                "cost": 700,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Orange",
+        "name": "Zipper Hoodie (Orange)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Wild Carrot",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Orange.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 8,
+                "cost": 800,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Purple",
+        "name": "Zipper Hoodie (Purple)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Blackberries",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Purple.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 9,
+                "cost": 900,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Red",
+        "name": "Zipper Hoodie (Red)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Poppy",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Red.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 10,
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Tan",
+        "name": "Zipper Hoodie (Tan)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Sunflower",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Tan.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 2,
+                "cost": 200,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_White",
+        "name": "Zipper Hoodie (White)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Violet",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_White.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 3,
+                "cost": 300,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ZipperHoodie_Yellow",
+        "name": "Zipper Hoodie (Yellow)",
+        "type": "Shirt",
+        "statsType": "Fitness",
+        "upgradeItem": "Dandelions",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Shirt_ZipperHoodie_Yellow.webp",
+        "listings": [
+            {
+                "shop": "EquiCraft Forge",
+                "faction": "Alderwood Wilds",
+                "level": 4,
+                "cost": 400,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    }
+]

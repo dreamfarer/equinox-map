@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { DatabaseItem } from '@/types/database-item';
 import { Filter } from '@/types/filter';
+import { matchesFilter } from '@/lib/database-filter';
 import { ReadonlyURLSearchParams } from 'next/dist/client/components/readonly-url-search-params';
 
 type DatabaseValue = {
@@ -40,59 +41,7 @@ export function DatabaseProvider({
 }: Readonly<DatabaseProviderProps>) {
     const filteredDatabaseItems = useMemo(() => {
         return allDatabaseItems.filter((item) => {
-            for (const [category, optionMap] of filter.entries()) {
-                const isMaxInput =
-                    category === 'reputation' || category === 'cost';
-                const selectedValues = Array.from(optionMap.entries())
-                    .filter(([, value]) => value !== false && value !== '')
-                    .map(([option, value]) => ({ option, value }));
-
-                if (selectedValues.length === 0) continue;
-
-                if (isMaxInput) {
-                    if (category === 'reputation') {
-                        const factionValue = item.faction;
-                        const levelValue = item.level;
-                        if (factionValue && levelValue !== undefined) {
-                            const maxLevel = optionMap.get(factionValue);
-                            if (
-                                typeof maxLevel === 'string' &&
-                                maxLevel !== ''
-                            ) {
-                                if (levelValue > Number(maxLevel)) return false;
-                            }
-                        }
-                    } else if (category === 'cost') {
-                        const currencyValue = item.currency;
-                        const costValue = item.cost;
-                        if (currencyValue && costValue !== undefined) {
-                            const maxAmount = optionMap.get(currencyValue);
-                            if (
-                                typeof maxAmount === 'string' &&
-                                maxAmount !== ''
-                            ) {
-                                if (costValue > Number(maxAmount)) return false;
-                            }
-                        }
-                    }
-                    continue;
-                }
-
-                const selectedOptions = selectedValues.map((sv) => sv.option);
-                const itemValue = item[category as keyof DatabaseItem];
-                if (itemValue === undefined || itemValue === null) return false;
-                if (Array.isArray(itemValue)) {
-                    if (
-                        !itemValue.some((val) =>
-                            selectedOptions.includes(String(val))
-                        )
-                    )
-                        return false;
-                } else {
-                    if (!selectedOptions.includes(String(itemValue)))
-                        return false;
-                }
-            }
+            if (!matchesFilter(item, filter)) return false;
             return item.name
                 .toLowerCase()
                 .includes(

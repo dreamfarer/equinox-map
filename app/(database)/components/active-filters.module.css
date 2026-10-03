@@ -1,0 +1,25 @@
+.activeFilters {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: stretch;
+    gap: var(--gap-3xs);
+    padding: 0 var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    max-height: 30vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-dark) transparent;
+}
+
+.filter {
+    max-width: 100%;
+    text-align: left;
+}
+
+.title {
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.icon {
+    flex-shrink: 0;
+}

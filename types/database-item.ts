@@ -1,39 +1,24 @@
+/** A way to obtain an item, as offered by one shop. */
+export type DatabaseListing = {
+    shop: string;
+    faction?: string;
+    level?: number;
+    bundle?: string;
+    cost: number;
+    currency: string;
+};
+
 export type DatabaseItem = {
-    name: string;
     id: string;
+    name: string;
     type: string;
     statsAmount?: number;
     statsType?: string;
-    level?: number;
-    faction?: string;
-    cost?: number;
-    currency?: string;
-    shop?: string;
-    bundle?: string;
-    colour?: string;
-    colours?: string[];
     upgradeAmount?: number;
     upgradeItem?: string;
-    imagePath: string;
+    colours?: string[];
+    imagePath?: string;
+    listings: DatabaseListing[];
+    /** Whether the item can currently be obtained through any of its listings. */
+    available: boolean;
 };
-
-export type DatabaseItemFields = keyof DatabaseItem;
-
-export const databaseItemFields = [
-    'name',
-    'id',
-    'type',
-    'statsAmount',
-    'statsType',
-    'level',
-    'faction',
-    'cost',
-    'currency',
-    'shop',
-    'bundle',
-    'colour',
-    'colours',
-    'upgradeAmount',
-    'upgradeItem',
-    'imagePath',
-] as const;

@@ -1,4 +1,9 @@
-import { useCallback, useSyncExternalStore } from 'react';
+import {
+    SetStateAction,
+    useCallback,
+    useMemo,
+    useSyncExternalStore,
+} from 'react';
 
 type UseLocalStorageOptions<T> = {
     removeOnUndefined?: boolean;
@@ -43,39 +48,49 @@ export function useLocalStorage<T>(
         [key]
     );
 
-    const getSnapshot = useCallback((): T | undefined => {
-        const raw = localStorage.getItem(key);
-        if (raw == null) return initialValue;
-        try {
-            return deserialize(raw);
-        } catch {
-            return initialValue;
-        }
-    }, [key, initialValue, deserialize]);
-
-    const getServerSnapshot = useCallback((): T | undefined => {
-        return undefined;
-    }, []);
-
-    const value = useSyncExternalStore(
-        subscribe,
-        getSnapshot,
-        getServerSnapshot
+    const parse = useCallback(
+        (raw: string | null): T | undefined => {
+            if (raw == null) return initialValue;
+            try {
+                return deserialize(raw);
+            } catch {
+                return initialValue;
+            }
+        },
+        [initialValue, deserialize]
     );
 
+    // The snapshot is the raw string, because a freshly parsed object or array
+    // would never compare equal and React would re-render forever.
+    const getSnapshot = useCallback((): string | null => {
+        return localStorage.getItem(key);
+    }, [key]);
+
+    const getServerSnapshot = useCallback((): string | null => {
+        return null;
+    }, []);
+
+    const raw = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+    const value = useMemo(() => parse(raw), [parse, raw]);
+
     const setValue = useCallback(
-        (next: T | undefined) => {
+        (next: SetStateAction<T | undefined>) => {
             if (typeof window === 'undefined') return;
-            if (next === undefined && removeOnUndefined) {
+            const resolved =
+                next instanceof Function
+                    ? next(parse(localStorage.getItem(key)))
+                    : next;
+            if (resolved === undefined && removeOnUndefined) {
                 localStorage.removeItem(key);
             } else {
-                localStorage.setItem(key, serialize(next as T));
+                localStorage.setItem(key, serialize(resolved as T));
             }
             window.dispatchEvent(
                 new CustomEvent('local-storage-change', { detail: { key } })
             );
         },
-        [key, removeOnUndefined, serialize]
+        [key, parse, removeOnUndefined, serialize]
     );
 
     const subscribeNoop = useCallback(() => {

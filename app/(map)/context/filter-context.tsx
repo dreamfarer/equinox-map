@@ -7,15 +7,10 @@ import {
     SetStateAction,
     useContext,
     useMemo,
-    useState,
     useCallback,
-    useEffect,
 } from 'react';
 import { categories, TCategory } from '@/types/category';
-import {
-    loadActiveCategoriesFromLocalStorage,
-    saveActiveCategoriesToLocalStorage,
-} from '@/lib/storage-utility';
+import { useLocalStorage } from '@/app/(map)/hooks/use-local-storage';
 import mapCategories from '@/app/data/map-categories.json';
 
 type FilterContextValue = {
@@ -47,27 +42,62 @@ function buildCategoryState(
     >;
 }
 
+// Categories without a stored choice are shown.
+function resolveCategoryState(
+    categories: readonly TCategory[],
+    stored: Partial<Record<TCategory, boolean>> | undefined
+): Record<TCategory, boolean> {
+    return Object.fromEntries(
+        categories.map((cat) => {
+            const value = stored?.[cat];
+            return [cat, typeof value === 'boolean' ? value : true];
+        })
+    ) as Record<TCategory, boolean>;
+}
+
 export function FilterProvider({
     children,
     allCategories,
 }: Readonly<FilterProviderProps>) {
-    const [activeCategories, setActiveCategories] = useState<
-        Partial<Record<TCategory, boolean>>
-    >(() => buildCategoryState(allCategories, true));
+    const [storedCategories, setStoredCategories] =
+        useLocalStorage<Partial<Record<TCategory, boolean>>>(
+            'active-categories'
+        );
+
+    const activeCategories = useMemo<Partial<Record<TCategory, boolean>>>(
+        () => resolveCategoryState(allCategories, storedCategories),
+        [allCategories, storedCategories]
+    );
+
+    const setActiveCategories = useCallback<
+        Dispatch<SetStateAction<Partial<Record<TCategory, boolean>>>>
+    >(
+        (action) => {
+            setStoredCategories((stored) =>
+                action instanceof Function
+                    ? action(resolveCategoryState(allCategories, stored))
+                    : action
+            );
+        },
+        [allCategories, setStoredCategories]
+    );
 
     const setAllCategories = useCallback(
         (show: boolean) => {
             setActiveCategories(buildCategoryState(allCategories, show));
         },
-        [allCategories]
+        [allCategories, setActiveCategories]
     );
 
-    const toggleActiveCategory = useCallback((category: TCategory) => {
-        setActiveCategories((prev) => ({
-            ...prev,
-            [category]: !prev[category],
-        }));
-    }, []);
+    const toggleActiveCategory = useCallback(
+        (category: TCategory) => {
+            setActiveCategories((prev) => ({
+                ...prev,
+                [category]: !prev[category],
+            }));
+        },
+        [setActiveCategories]
+    );
 
     const getCategoriesForMap = useCallback((mapId: string): TCategory[] => {
         return Object.keys(
@@ -75,16 +105,6 @@ export function FilterProvider({
                 {}
         ) as TCategory[];
     }, []);
-
-    useEffect(() => {
-        setActiveCategories(
-            loadActiveCategoriesFromLocalStorage(allCategories)
-        );
-    }, [allCategories]);
-
-    useEffect(() => {
-        saveActiveCategoriesToLocalStorage(activeCategories);
-    }, [activeCategories]);
 
     const activeCategoryList = useMemo<TCategory[]>(() => {
         return (
@@ -109,6 +129,7 @@ export function FilterProvider({
         }),
         [
             activeCategories,
+            setActiveCategories,
             toggleActiveCategory,
             activeCategoryList,
             setAllCategories,

@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# AI
+AGENTS.md
+CLAUDE.md
+
 # user-defined
 .idea
 tiles/
