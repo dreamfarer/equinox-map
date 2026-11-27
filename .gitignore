@@ -58,6 +58,14 @@ fmodel/*
 # Fiddler Classic
 fiddler-classic/*
 
+# LootLocker catalogues, downloaded by "npm run database:fetch"
+lootlocker/
+
+# Exporter of the game files
+tools/exporter/bin/
+tools/exporter/obj/
+tools/exporter/.data/
+
 # Dumper-7
 !dumper-7/
 dumper-7/*

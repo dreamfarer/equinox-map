@@ -2,14 +2,14 @@ import path from 'node:path';
 
 const root = path.resolve(__dirname, '..', '..');
 
-/** The FModel export of the game's `Content` directory (_local data_). */
+/** The export of the game's `Content` directory by `game:export` (_local data_). */
 export const contentDir = path.join(
     root,
     'fmodel/Output/Exports/ThunderHorse/Content'
 );
 
-/** The Fiddler Classic export of the LootLocker catalogues (_server data_). */
-export const cataloguesDir = path.join(root, 'fiddler-classic/Output/Exports');
+/** The LootLocker catalogues downloaded by `database:fetch` (_server data_). */
+export const cataloguesDir = path.join(root, 'lootlocker/catalogues');
 
 export const publicDir = path.join(root, 'public');
 

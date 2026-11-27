@@ -27,22 +27,22 @@ export type CatalogueExport = {
     catalog: { key: string };
     entries: Entry[];
     assets_details: AssetDetails[] | null;
-    pagination: { total: number; next_page: number | null };
+    pagination: { total: number; next_cursor?: string | null };
 };
 
 /**
- * Read the catalogues exported with Fiddler Classic.
+ * Read the catalogues downloaded by `database:fetch`.
  * @returns The catalogues by their LootLocker key.
  */
 export function readCatalogueExports(): Map<string, CatalogueExport> {
     if (!existsSync(cataloguesDir)) {
         throw new Error(
-            `${cataloguesDir} doesn't exist. Export the catalogues as described in how-to-update.md.`
+            `${cataloguesDir} doesn't exist. Run "npm run database:fetch" first.`
         );
     }
 
-    // Fiddler numbers the responses in the order they were captured, so the
-    // most recent capture of a catalogue comes last.
+    // A manual export with Fiddler Classic numbers the responses in the order
+    // they were captured, so the most recent capture of a catalogue comes last.
     const files = readdirSync(cataloguesDir)
         .filter((file) => file.endsWith('.json'))
         .sort(new Intl.Collator(undefined, { numeric: true }).compare);
@@ -56,7 +56,7 @@ export function readCatalogueExports(): Map<string, CatalogueExport> {
             );
         } catch {
             throw new Error(
-                `${file} isn't valid JSON. Decode the response in Fiddler Classic before saving it.`
+                `${file} isn't valid JSON. Run "npm run database:fetch" again.`
             );
         }
 
@@ -65,10 +65,7 @@ export function readCatalogueExports(): Map<string, CatalogueExport> {
             console.warn(`Skipped ${file} because it isn't a catalogue.`);
             continue;
         }
-        if (
-            catalogue.pagination.next_page !== null ||
-            catalogue.entries.length < catalogue.pagination.total
-        ) {
+        if (catalogue.entries.length < catalogue.pagination.total) {
             throw new Error(
                 `${file} only contains ${catalogue.entries.length} of the ${catalogue.pagination.total} entries of ${key}.`
             );

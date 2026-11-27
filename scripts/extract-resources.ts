@@ -30,6 +30,7 @@ const nameOverrides: Record<string, string> = {
     dryadsaddlemushroom: 'dryad-saddle-mushrooms',
     eaglefeather: 'eagle-feathers',
     fossil: 'fossils',
+    halloweenmushroom: 'luminous-mushrooms',
     oldhorseshoe: 'horseshoes',
     kingboletusmushroom: 'king-boletus-mushrooms',
     moss: 'moss',
@@ -97,6 +98,8 @@ function getXY(obj: UEJsonObject): { x: number; y: number } | null {
 type Strategy = {
     type: string;
     name: string;
+    /** A text every file with a match contains, to skip all other files quickly. */
+    hint: string;
     matches?: (obj: UEJsonObject) => boolean;
     getKeyName: (obj: UEJsonObject) => string | null;
 };
@@ -105,6 +108,7 @@ const strategies: Strategy[] = [
     {
         type: 'SceneComponent',
         name: 'DefaultSceneRoot',
+        hint: 'BP_CollectableItem_Currency_',
         matches: (obj) => typeof obj.Template?.ObjectName === 'string',
         getKeyName: (obj) => {
             const objectName = obj.Template?.ObjectName;
@@ -121,6 +125,7 @@ const strategies: Strategy[] = [
     {
         type: 'SceneComponent',
         name: 'Scene',
+        hint: 'BP_Artifact',
         matches: (obj) =>
             typeof obj.Outer?.ObjectName === 'string'
                 ? /BP_Artifact[0-9]{2}_C/.test(obj.Outer.ObjectName)
@@ -160,6 +165,11 @@ function getFilesFromSource(source: Source): File[] {
 function extractMarkers(file: File): Markers {
     const markers: Markers = {};
     const rawFile = fs.readFileSync(file.path, 'utf-8');
+
+    // Parsing is by far the slowest part and most files don't contain a resource.
+    if (!strategies.some((strategy) => rawFile.includes(strategy.hint))) {
+        return markers;
+    }
 
     let parsed: unknown;
     try {
