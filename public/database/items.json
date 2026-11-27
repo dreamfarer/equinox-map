@@ -741,6 +741,76 @@
         ]
     },
     {
+        "id": "Hat_HalloweenMask_Bunny_Black",
+        "name": "Bunny Mask (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Bunny_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Bunny_Gold",
+        "name": "Bunny Mask (Gold)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Bunny_Gold.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 140,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Bunny_Green",
+        "name": "Bunny Mask (Green)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Bunny_Green.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Bunny_Silver",
+        "name": "Bunny Mask (Silver)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Bunny_Silver.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Bunny_White",
+        "name": "Bunny Mask (White)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Bunny_White.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Shirt_ButtonDownShirt",
         "name": "Button Down Shirt",
         "type": "Shirt",
@@ -855,6 +925,76 @@
                 "level": 5,
                 "cost": 500,
                 "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Cat_Black",
+        "name": "Cat Mask (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Cat_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Cat_Blue",
+        "name": "Cat Mask (Blue)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Cat_Blue.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Cat_Gold",
+        "name": "Cat Mask (Gold)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Cat_Gold.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 140,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Cat_Silver",
+        "name": "Cat Mask (Silver)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Cat_Silver.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Cat_WhiteRed",
+        "name": "Cat Mask (White and Red)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Cat_WhiteRed.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
                 "available": true
             }
         ]
@@ -1130,6 +1270,34 @@
         ]
     },
     {
+        "id": "Hat_DevilHorns_Black",
+        "name": "Devil Horns (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_DevilHorns_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_DevilHorns_Red",
+        "name": "Devil Horns (Red)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_DevilHorns_Red.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Shoes_Docs",
         "name": "Docs",
         "type": "Shoes",
@@ -1311,6 +1479,26 @@
         ]
     },
     {
+        "id": "Hat_EnglishHorseHelmet_Pumpkin",
+        "name": "English Horse Helmet (Pumpkin)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_EnglishHorseHelmet_Pumpkin.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Hat_EnglishHorseHelmet_Racing",
         "name": "English Horse Helmet (Racing)",
         "type": "Hat",
@@ -1360,6 +1548,20 @@
         ]
     },
     {
+        "id": "Saddle_EnglishSaddle_BlackSilver",
+        "name": "English Saddle (Black and Silver)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EnglishSaddle_BlackSilver.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Gear",
+                "cost": 250,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Saddle_EnglishSaddle_Black",
         "name": "English Saddle (Black)",
         "type": "Saddle",
@@ -1398,6 +1600,22 @@
                 "level": 9,
                 "cost": 900,
                 "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_EnglishSaddle_White",
+        "name": "English Saddle (White)",
+        "type": "Saddle",
+        "statsType": "Agility",
+        "upgradeItem": "Water Lily",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EnglishSaddle_White.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
                 "available": true
             }
         ]
@@ -1924,6 +2142,34 @@
                 "bundle": "Crimson Goth Bundle",
                 "cost": 200,
                 "currency": "Raven Feather",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_AngelHalo_Blue",
+        "name": "Halo (Blue)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_AngelHalo_Blue.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 180,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_AngelHalo_Yellow",
+        "name": "Halo (Yellow)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_AngelHalo_Yellow.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 180,
+                "currency": "Gold Alders",
                 "available": true
             }
         ]
@@ -2611,6 +2857,26 @@
         ]
     },
     {
+        "id": "Shirt_LongTShirt_HappyHalloween_Black",
+        "name": "Long T-shirt (Happy Halloween, Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_HappyHalloween_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Dandelions",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Shirt_LongTShirt_IslandLife",
         "name": "Long T-shirt (Island Life)",
         "type": "Shirt",
@@ -2719,6 +2985,46 @@
         ]
     },
     {
+        "id": "Shirt_LongTShirt_DeathHorse_Beige",
+        "name": "Long T-shirt (Skeletal Horse, Beige)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_DeathHorse_Beige.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_DeathHorse_Black",
+        "name": "Long T-shirt (Skeletal Horse, Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_DeathHorse_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Shirt_LongTShirt_SouthShore_PaleBlue",
         "name": "Long T-shirt (South Shore, Pale Blue)",
         "type": "Shirt",
@@ -2758,6 +3064,26 @@
                 "shop": "Robert Quint's store",
                 "faction": "Hook's End",
                 "level": 6,
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_LongTShirt_SweetHalloween_Navy",
+        "name": "Long T-shirt (Sweet Halloween, Navy)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/LongTShirt_SweetHalloween_Navy.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
                 "cost": 600,
                 "currency": "Silver Sols",
                 "available": true
@@ -2930,6 +3256,90 @@
                 "shop": "Danny's Token Trade",
                 "cost": 50,
                 "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_BlackSilver",
+        "name": "Masquerade Mask (Black and Silver)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_Silver.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_Black",
+        "name": "Masquerade Mask (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_Gold",
+        "name": "Masquerade Mask (Gold)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_Gold.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 140,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_Purple",
+        "name": "Masquerade Mask (Purple)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_Purple.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_Silver",
+        "name": "Masquerade Mask (Silver)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_Silver.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Masquerade_WhiteGold",
+        "name": "Masquerade Mask (White and Gold)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Masquerade_WhiteGold.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
                 "available": true
             }
         ]
@@ -3163,6 +3573,20 @@
         ]
     },
     {
+        "id": "Pants_PleatedSkirt_BlackOrange",
+        "name": "Pleated Skirt (Black and Orange)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_PleatedSkirt_BlackOrange.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Legwraps_Polo",
         "name": "Polo Legwraps",
         "type": "Legwraps",
@@ -3361,6 +3785,21 @@
                 "shop": "Riding Club's Shop",
                 "cost": 5,
                 "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Legwraps_Polo_WhiteYellow",
+        "name": "Polo Legwraps (White & Yellow)",
+        "type": "Legwraps",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LegWrapping_PoloWraps_WhiteYellow.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (White)",
+                "cost": 900,
+                "currency": "Gold Alders",
                 "available": true
             }
         ]
@@ -3975,6 +4414,46 @@
         ]
     },
     {
+        "id": "Shirt_ShortTShirt_Nightmare_NeonGreen",
+        "name": "Short T-shirt (Nightmare, Neon Green)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_Nightmare_NeonGreen.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShortTShirt_Nightmare_Red",
+        "name": "Short T-shirt (Nightmare, Red)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_Nightmare_Red.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Poppy",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Shirt_ShortTShirt_HorsePeace_Day",
         "name": "Short T-shirt (Peace, Day)",
         "type": "Shirt",
@@ -4000,6 +4479,26 @@
                 "bundle": "Neon Riders Bundle",
                 "cost": 1500,
                 "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_ShortTShirt_StayCreepy",
+        "name": "Short T-shirt (Stay Creepy, White)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/ShortTShirt_StayCreepy.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
                 "available": true
             }
         ]
@@ -4251,6 +4750,20 @@
                 "level": 9,
                 "cost": 900,
                 "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Pants_SkinnyJeans_Pumpkin",
+        "name": "Skinny Jeans (Pumpkin)",
+        "type": "Pants",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_LowerBody_SkinnyJeans_Pumpkin.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
                 "available": true
             }
         ]
@@ -4518,6 +5031,21 @@
         ]
     },
     {
+        "id": "Blanket_Egyptian_White",
+        "name": "Sunrise Blanket (White)",
+        "type": "Blanket",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_EgyptianBlanket_White.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (White)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Bridle_Egyptian_Black",
         "name": "Sunrise Bridle (Black)",
         "type": "Bridle",
@@ -4579,6 +5107,21 @@
         ]
     },
     {
+        "id": "Bridle_Egyptian_White",
+        "name": "Sunrise Bridle (White)",
+        "type": "Bridle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Bridle_Egyptian_White.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (White)",
+                "cost": 900,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Saddle_Egyptian_Black",
         "name": "Sunrise Saddle (Black)",
         "type": "Saddle",
@@ -4635,6 +5178,21 @@
                 "shop": "Riding Club's Shop",
                 "cost": 5,
                 "currency": "Club Blue Ribbon",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Saddle_Egyptian_White",
+        "name": "Sunrise Saddle (White)",
+        "type": "Saddle",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Saddle_EgyptianSaddle_White.webp",
+        "listings": [
+            {
+                "shop": "Premium Shop Bundles",
+                "bundle": "Sunrise Bundle (White)",
+                "cost": 900,
+                "currency": "Gold Alders",
                 "available": true
             }
         ]
@@ -4767,7 +5325,7 @@
                 "shop": "Premium Shop Gear",
                 "cost": 1,
                 "currency": "Sunflower",
-                "available": true
+                "available": false
             }
         ]
     },
@@ -4801,6 +5359,106 @@
                 "cost": 100,
                 "currency": "Silver Sols",
                 "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_Pumpkin_Black",
+        "name": "Tight T-Shirt (Pumpkin, Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_Pumpkin_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Fireflies",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 600,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_Skeleton_Orange",
+        "name": "Tight T-Shirt (Skeleton, Orange)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_Skeleton_Orange.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Fossil",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_Skeleton_Purple",
+        "name": "Tight T-Shirt (Skeleton, Purple)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_Skeleton_Purple.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Fossil",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_TrickOrTreat_Pink",
+        "name": "Tight T-Shirt (Trick or Treat, Pink)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_TrickorTreat_Pink.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Delphinium",
+                "available": false
+            }
+        ]
+    },
+    {
+        "id": "Shirt_TightTShirt_TrickOrTreat_Yellow",
+        "name": "Tight T-Shirt (Trick or Treat, Yellow)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Shirt_TightTShirt_TrickorTreat_Yellow.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            },
+            {
+                "shop": "Halloween's Shop",
+                "cost": 100,
+                "currency": "Sunflower",
+                "available": false
             }
         ]
     },
@@ -5080,6 +5738,20 @@
                 "shop": "Danny's Token Trade",
                 "cost": 50,
                 "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "ManeAccessory_UnicornHorn_WhiteOrange",
+        "name": "Unicorn Horn (White and Orange)",
+        "type": "Mane Accessory",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Mane_UnicornHorn_WhiteOrange.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 180,
+                "currency": "Gold Alders",
                 "available": true
             }
         ]
@@ -5506,6 +6178,22 @@
         ]
     },
     {
+        "id": "Blanket_WesternPad_SolidColor_White",
+        "name": "Western Pad (White)",
+        "type": "Blanket",
+        "statsType": "Endurance",
+        "upgradeItem": "King Boletus Mushroom",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Blanket_WesternPad_Simple_White.webp",
+        "listings": [
+            {
+                "shop": "Danny's Token Trade",
+                "cost": 50,
+                "currency": "Activity Token",
+                "available": true
+            }
+        ]
+    },
+    {
         "id": "Saddle_Western",
         "name": "Western Saddle",
         "type": "Saddle",
@@ -5623,6 +6311,160 @@
                 "shop": "Premium Shop Early Access Rewards",
                 "cost": 1,
                 "currency": "Early Access Coin",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_AngelWings_Black",
+        "name": "Winged Vest (Angel Wings, Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Angel_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_AngelWings_White",
+        "name": "Winged Vest (Angel Wings, White)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Angel_White.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_DevilWings_Black",
+        "name": "Winged Vest (Devil Wings, Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Devil_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_DevilWings_Red",
+        "name": "Winged Vest (Devil Wings, Red)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Devil_Red.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_FairyWings_GreenPink",
+        "name": "Winged Vest (Fairy Wings, Green and Pink)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Fairy_GreenPink.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Shirt_WingedVest_FairyWings_RedBlack",
+        "name": "Winged Vest (Fairy Wings, Red and Black)",
+        "type": "Shirt",
+        "imagePath": "/icon/256/item/Wings_Fairy_RedBlack.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 360,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Wolf_Black",
+        "name": "Wolf Mask (Black)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Wolf_Black.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Wolf_Gold",
+        "name": "Wolf Mask (Gold)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Wolf_Gold.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 140,
+                "currency": "Gold Alders",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Wolf_Red",
+        "name": "Wolf Mask (Red)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Wolf_Red.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Wolf_Silver",
+        "name": "Wolf Mask (Silver)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Wolf_Silver.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 1000,
+                "currency": "Silver Sols",
+                "available": true
+            }
+        ]
+    },
+    {
+        "id": "Hat_HalloweenMask_Wolf_WhiteRed",
+        "name": "Wolf Mask (White and Red)",
+        "type": "Hat",
+        "imagePath": "/icon/256/item/UI_Icon_Gear_Headwear_Mask_Wolf_WhiteRed.webp",
+        "listings": [
+            {
+                "shop": "Halloween's Shop",
+                "cost": 40,
+                "currency": "Luminous Mushroom",
                 "available": true
             }
         ]
