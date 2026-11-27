@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import styles from '@/app/(database)/database/page.module.css';
 import Searchbar from '@/app/(shared)/components/searchbar/searchbar';
+import PatchLink from '@/app/(shared)/components/patch-link/patch-link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { FunnelIcon, MapTrifoldIcon } from '@phosphor-icons/react';
 import DatabaseTile from '@/app/(database)/components/database-tile';
@@ -29,20 +30,26 @@ function Content() {
                 <button
                     id="navigateToMapButton"
                     onClick={() => router.push('/')}
-                    className={styles.buttonLeft}
+                    className={`outline ${styles.iconButton} ${styles.left}`}
                     aria-label="Navigate back to the interactive map"
                 >
                     <MapTrifoldIcon size="2em" />
                 </button>
-                <Searchbar onSearchAction={writeSearchQuery} />
-                <button
-                    id="filter"
-                    onClick={() => setIsFilterOpen((prev) => !prev)}
-                    className={styles.buttonRight}
-                    aria-label="Filter the clothing and tack database"
-                >
-                    <FunnelIcon size="2em" />
-                </button>
+                <Searchbar
+                    onSearchAction={writeSearchQuery}
+                    className={styles.searchbar}
+                />
+                <div className={styles.right}>
+                    <PatchLink className={styles.patch} />
+                    <button
+                        id="filter"
+                        onClick={() => setIsFilterOpen((prev) => !prev)}
+                        className={`outline ${styles.iconButton}`}
+                        aria-label="Filter the clothing and tack database"
+                    >
+                        <FunnelIcon size="2em" />
+                    </button>
+                </div>
                 {isFilterOpen && <FilterMenu />}
             </div>
             <ActiveFilters />
