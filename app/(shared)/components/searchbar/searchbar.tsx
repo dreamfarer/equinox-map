@@ -5,9 +5,10 @@ import { XCircleIcon } from '@phosphor-icons/react';
 
 type Props = {
     onSearchAction: (query: string) => void;
+    className?: string;
 };
 
-export default function Searchbar({ onSearchAction }: Props) {
+export default function Searchbar({ onSearchAction, className }: Props) {
     const [query, setQuery] = useState('');
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +23,11 @@ export default function Searchbar({ onSearchAction }: Props) {
     };
 
     return (
-        <div id="searchBar" className="outline" style={{ gap: '0.5rem' }}>
+        <div
+            id="searchBar"
+            className={className ? `outline ${className}` : 'outline'}
+            style={{ gap: '0.5rem' }}
+        >
             <input
                 style={{ width: '100%' }}
                 placeholder="Search …"

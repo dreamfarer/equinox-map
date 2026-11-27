@@ -1,0 +1,5 @@
+.patch {
+    backdrop-filter: blur(0.5rem);
+    text-decoration: none;
+    text-wrap: nowrap;
+}

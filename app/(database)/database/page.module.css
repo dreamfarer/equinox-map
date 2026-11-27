@@ -19,40 +19,46 @@
     justify-content: center;
     align-items: center;
     align-self: stretch;
-    gap: var(--gap-xl);
-    padding: var(--gap-xl);
+    gap: var(--spacer-mini);
+    padding: var(--spacer-mini);
+    min-height: calc(4 * var(--spacer-mini));
     background-color: var(--tile-background);
     z-index: 1000;
     min-width: 0;
 }
 
-.button {
-    position: absolute;
-    background-color: var(--background-dark-transparent);
-    border: none;
+/* Same size as the buttons of the navbar on the map */
+.iconButton {
+    width: calc(4 * var(--spacer-mini));
     aspect-ratio: 1;
+    flex-shrink: 0;
+}
+
+/* Same height as the buttons next to it */
+.searchbar,
+.patch {
+    box-sizing: border-box;
+    height: calc(4 * var(--spacer-mini));
+}
+
+.left {
+    position: absolute;
+    top: var(--spacer-mini);
+    left: var(--spacer-mini);
+}
+
+.right {
+    position: absolute;
+    top: var(--spacer-mini);
+    right: var(--spacer-mini);
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--text-dark);
-    border-radius: 0.5rem;
-    height: 2.5rem;
-}
-
-.buttonLeft {
-    composes: button;
-    left: var(--gap-xl);
-}
-
-.buttonRight {
-    composes: button;
-    right: var(--gap-xl);
+    gap: var(--gap-6xs);
 }
 
 .grid {
     display: grid;
-    padding: 0 var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    padding: 0 var(--spacer-mini) var(--spacer-mini) var(--spacer-mini);
     row-gap: var(--gap-xl);
     column-gap: var(--gap-xl);
     flex: 1 0 0;
@@ -63,19 +69,23 @@
 }
 
 .buttonSkeletonLeft {
-    left: var(--gap-xl);
+    left: var(--spacer-mini);
+    top: var(--spacer-mini);
     position: absolute;
-    height: 2.5rem;
+    height: calc(4 * var(--spacer-mini));
     aspect-ratio: 1;
+    flex-shrink: 0;
     border-radius: 0.5rem;
     composes: skeleton from '../../global.module.css';
 }
 
 .buttonSkeletonRight {
-    right: var(--gap-xl);
+    right: var(--spacer-mini);
+    top: var(--spacer-mini);
     position: absolute;
-    height: 2.5rem;
+    height: calc(4 * var(--spacer-mini));
     aspect-ratio: 1;
+    flex-shrink: 0;
     border-radius: 0.5rem;
     composes: skeleton from '../../global.module.css';
 }
@@ -86,7 +96,7 @@
     width: 100%;
     border-radius: 0.5rem;
     min-width: 0;
-    min-height: 2.5rem;
+    min-height: calc(4 * var(--spacer-mini));
     composes: skeleton from '../../global.module.css';
 }
 
@@ -98,8 +108,17 @@
 }
 
 @media (max-width: 768px) {
-    .button,
-    .buttonSkeleton,
+    .patch {
+        display: none;
+    }
+
+    .searchbar {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .left,
+    .right,
     .buttonSkeletonLeft,
     .buttonSkeletonRight {
         position: static;

@@ -1,7 +1,7 @@
 .filterMenu {
     position: absolute;
-    right: 5rem;
-    top: var(--gap-xl);
+    right: calc(5 * var(--spacer-mini) + var(--gap-6xs));
+    top: var(--spacer-mini);
     width: 15rem;
     z-index: 1000;
     border-left: 2px solid var(--tile-background);
@@ -59,10 +59,10 @@
 
 @media (max-width: 768px) {
     .filterMenu {
-        left: var(--gap-xl);
-        right: var(--gap-xl);
+        left: var(--spacer-mini);
+        right: var(--spacer-mini);
         width: auto;
-        top: 5rem;
+        top: calc(6 * var(--spacer-mini));
         border-right: 2px solid var(--tile-background);
     }
 }

@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     align-self: stretch;
     gap: var(--gap-3xs);
-    padding: 0 var(--gap-xl) var(--gap-xl) var(--gap-xl);
+    padding: 0 var(--spacer-mini) var(--spacer-mini) var(--spacer-mini);
     max-height: 30vh;
     overflow-y: auto;
     scrollbar-width: thin;
