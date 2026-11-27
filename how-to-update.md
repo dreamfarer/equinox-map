@@ -1,12 +1,12 @@
 # How to Update the Map and Database for a New Game Version
 
-The following guide explains how to update the map and database for a new game version. Almost everything is automated, so an update comes down to logging in to the game, a single command, and a review of the changes.
+The following guide explains how to update the map and database for a new game version.
 
-- [Prerequisites](#prerequisites)
-- [Log In to the Game](#log-in-to-the-game)
-- [Run the Update](#run-the-update)
-- [Review the Changes](#review-the-changes)
-- [Upload the Icons](#upload-the-icons)
+- [1. Prerequisites](#1-prerequisites)
+- [2. Log In to the Game](#2-log-in-to-the-game)
+- [3. Run the Update](#3-run-the-update)
+- [4. Review the Changes](#4-review-the-changes)
+- [5. Upload the Icons](#5-upload-the-icons)
 
 ### Optional Steps
 
@@ -15,21 +15,21 @@ These steps are optional and can be skipped if you don't need them.
 - [Export the FModel Mapping](#export-the-fmodel-mapping)
 - [Adding a New Map](#adding-a-new-map)
 
-## Prerequisites
+## 1. Prerequisites
 
 1. Clone the repository: `git clone git@github.com:dreamfarer/equinox-map.git`
 2. Install dependencies: `npm install`
 3. Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0): `winget install Microsoft.DotNet.SDK.10`. It runs the exporter of the game files in `tools/exporter`, which is built on [CUE4Parse](https://github.com/FabianFG/CUE4Parse), the library behind [FModel](https://fmodel.app).
 4. Make sure Equinox: Homecoming is installed through Steam and updated to the new version.
 
-## Log In to the Game
+## 2. Log In to the Game
 
-The shop catalogues and prices are hosted by [LootLocker](https://lootlocker.com/), the backend of Equinox: Homecoming. To download them, the update uses the session of your own account, which the game stores in `%LOCALAPPDATA%\ThunderHorse\Saved\SaveGames` on every login.
+The shop catalogues and prices are hosted by [LootLocker](https://lootlocker.com/), the backend of Equinox: Homecoming. To download them, the update uses the current game session of your own account, which the game stores in `%LOCALAPPDATA%\ThunderHorse\Saved\SaveGames` on every login.
 
 1. Launch Equinox: Homecoming and log in until you are in the game world.
-2. Keep the game running until the update has finished.
+2. Keep the game running until the update procedure has finished fully.
 
-## Run the Update
+## 3. Run the Update
 
 ```sh
 npm run game:update
@@ -37,21 +37,21 @@ npm run game:update
 
 This runs the following steps in order and stops at the first one that fails. Each step can also be run on its own.
 
-1. `npm run game:export` exports the resource locations, item stats, shop data, and icons from the game files to `fmodel/Output/Exports`, just like FModel would. Steam is asked where the game is installed.
+1. `npm run game:export` exports the resource locations, item stats, shop data, and icons from the game files to `fmodel/Output/Exports`.
 2. `npm run build:extract` extracts the resource locations of the exported maps to `public/markers/resources`.
-3. `npm run database:fetch` downloads the catalogue of every shop the game files know to `lootlocker/catalogues`, using the session of the running game.
-4. `npm run database:import` regenerates `public/database/items.json` and the icons in `public/icon/256/item` and adds new items to `public/database/colours.json`. It stops with an explanation if the exports don't fit together. An icon that looks the same as before is left untouched.
+3. `npm run database:fetch` downloads the catalogue of every shop the game files know to `lootlocker/catalogues`.
+4. `npm run database:import` regenerates `public/database/items.json` and the icons in `public/icon/256/item` and adds new items to `public/database/colours.json`.
 5. `npm run database:validate` validates the database and lists the items that still need colours.
 
 _If the game is not installed through Steam, pass its directory: `npm run game:export -- --game "D:\Games\Project ThunderHorse"`._
 
-_If the export reports classes that couldn't be read, the mapping doesn't fit the new game version anymore. Objects of these classes are exported with properties missing, so don't skip this: generate the mapping again as described in [Export the FModel Mapping](#export-the-fmodel-mapping) and run the update again. A class that still can't be read with a fresh mapping, and that nothing depends on, can be added to `knownUnreadableClasses` in `tools/exporter/Program.cs`._
+_If the export reports classes that couldn't be read, the mapping doesn't fit the new game version any more. Objects of these classes are exported with properties missing, so don't skip this: generate the mapping again as described in [Export the FModel Mapping](#export-the-fmodel-mapping) and run the update again. A class that still can't be read with a fresh mapping, and that nothing depends on, can be added to `knownUnreadableClasses` in `tools/exporter/Program.cs`._
 
-_If LootLocker rejects the session, [log in to the game](#log-in-to-the-game) again and continue with `npm run database:fetch`. To use a different session, set `LOOTLOCKER_SESSION_TOKEN` in the file `.env` in the project root._
+_If LootLocker rejects the session, [log in to the game](#2-log-in-to-the-game) again and continue with `npm run database:fetch`. To use a different session, set `LOOTLOCKER_SESSION_TOKEN` in the file `.env` in the project root._
 
 _The export needs about 4 GB of free disk space._
 
-## Review the Changes
+## 4. Review the Changes
 
 Both `items.json` and the icons are fully generated, so never edit them by hand.
 
@@ -63,15 +63,13 @@ _Many marker categories, such as characters and weekly quests, are not part of t
 
 _Items that are not sold by any shop, like DLCs, are listed by hand in `public/database/extras.json`. Run `npm run database:import` again after adding an item there._
 
-_Nothing is removed from the database just because the game stops selling it. An item or listing that is gone from the catalogues, like the items of an event vendor after the event, is kept and marked as unavailable. To remove an item for good, delete it from `items.json` before running the import._
-
-_The same goes for the resources: a file in `public/markers/resources` is kept when its resource is gone from the maps._
+_Nothing is removed from the database just because the game stops selling it. An item or listing that is gone from the catalogues, like the items of an event vendor after the event, is kept and marked as unavailable. To remove an item for good, delete it from `items.json` before running the import. The same goes for the resources: a file in `public/markers/resources` is kept when its resource is gone from the maps._
 
 _A new kind of resource gets its own file in `public/markers/resources`, but doesn't show up on the map on its own. Give it a readable name in `nameOverrides` of `scripts/extract-resources.ts`, add it to `public/meta.json`, to `types/category.ts`, and to the filter menu in `app/(map)/components/sidebar/menu/filter/config.ts`, and create its icon in `public/icon/64`._
 
 _Shops that can't be visited in-game, like test shops, are left out by `excludedShops` in `scripts/database/fetch-catalogues.ts`._
 
-## Upload the Icons
+## 5. Upload the Icons
 
 The icons are served from a [Cloudflare R2](https://developers.cloudflare.com/r2/) bucket. This step uploads the new and changed icons in `public/icon` to it.
 
