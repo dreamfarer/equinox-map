@@ -12,28 +12,6 @@ export default function Information() {
     const { setTutorialDoneAt } = useMenuState();
     return (
         <>
-            <h1>Need Help, found a bug or want to contribute?</h1>
-            <p>
-                Don&#39;t hesitate to{' '}
-                {link(
-                    'open an issue',
-                    'https://github.com/dreamfarer/equinox-map/issues/new'
-                )}{' '}
-                on GitHub and I will gladly try to assist you. Questions, bug
-                reports and contributions are always warmly welcome!
-            </p>
-            <button
-                className="outline"
-                onClick={() =>
-                    window.open(
-                        'https://github.com/dreamfarer/equinox-map/issues/new',
-                        '_blank',
-                        'noopener,noreferrer'
-                    )
-                }
-            >
-                Open Issue
-            </button>
             <h1>Useful Links</h1>
             <ul>
                 <li>
@@ -74,6 +52,28 @@ export default function Information() {
                     on Github
                 </li>
             </ul>
+            <h1>Need Help, found a bug or want to contribute?</h1>
+            <p>
+                Don&#39;t hesitate to{' '}
+                {link(
+                    'open an issue',
+                    'https://github.com/dreamfarer/equinox-map/issues/new'
+                )}{' '}
+                on GitHub and I will gladly try to assist you. Questions, bug
+                reports and contributions are always warmly welcome!
+            </p>
+            <button
+                className="outline"
+                onClick={() =>
+                    window.open(
+                        'https://github.com/dreamfarer/equinox-map/issues/new',
+                        '_blank',
+                        'noopener,noreferrer'
+                    )
+                }
+            >
+                Open Issue
+            </button>
             <h1>Acknowledgements</h1>
             <p>
                 Thanks to all members of the discord, especially CookieFox,

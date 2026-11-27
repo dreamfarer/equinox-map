@@ -1,10 +1,22 @@
-.dropdownWrapper {
+.wrapper {
     margin: var(--spacer-mini);
     position: absolute;
     right: 0;
     z-index: 2;
+    display: flex;
+    gap: var(--gap-6xs);
+}
+
+.dropdown {
+    position: relative;
 }
 
 .button {
     backdrop-filter: blur(0.5rem);
+}
+
+.patch {
+    composes: button;
+    text-decoration: none;
+    text-wrap: nowrap;
 }
