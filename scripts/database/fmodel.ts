@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { contentDir } from './paths';
 
-/** An object of a package exported by FModel. */
+/** An object of a package exported by `game:export`, in the format of FModel. */
 export type GameObject = {
     Type: string;
     Name: string;
@@ -41,7 +41,7 @@ export function toExportPath(gamePath: string): string {
 }
 
 /**
- * Read a package exported with **Save Folder's Packages Properties (.json)**.
+ * Read an exported package.
  * @param gamePath - The path of the package, such as `/Game/Blueprints/Data/Shops/DA_Shop_Wendy`.
  * @returns The objects of the package.
  */
@@ -52,7 +52,7 @@ export function readPackage(gamePath: string): GameObject[] {
     const filePath = `${toExportPath(gamePath)}.json`;
     if (!existsSync(filePath)) {
         throw new Error(
-            `${gamePath} is missing in the FModel export. Export its folder as described in how-to-update.md.`
+            `${gamePath} is missing in the export of the game files. Run "npm run game:export" first.`
         );
     }
     const objects = JSON.parse(readFileSync(filePath, 'utf8')) as GameObject[];
@@ -69,7 +69,7 @@ export function listPackages(gameDir: string): string[] {
     const exportDir = toExportPath(gameDir);
     if (!existsSync(exportDir)) {
         throw new Error(
-            `${gameDir} is missing in the FModel export. Export it as described in how-to-update.md.`
+            `${gameDir} is missing in the export of the game files. Run "npm run game:export" first.`
         );
     }
     return (readdirSync(exportDir, { recursive: true }) as string[])

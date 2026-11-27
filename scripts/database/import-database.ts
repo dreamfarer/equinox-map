@@ -30,8 +30,8 @@ function compareListings(a: ImportedListing, b: ImportedListing): number {
 }
 
 /**
- * Match the Fiddler Classic export (_server data_) to the FModel export
- * (_local data_): the catalogues know what each shop sells at which price, the
+ * Match the catalogues of LootLocker (_server data_) to the export of the game
+ * files (_local data_): the catalogues know what each shop sells at which price, the
  * game files know everything else.
  * @param items - The items of the game.
  * @returns The listings of every item sold by a shop, by the item.
@@ -48,7 +48,7 @@ function readListings(items: Items): Map<GameItem, ImportedListing[]> {
         if (candidates.length !== 1) {
             throw new Error(
                 candidates.length === 0
-                    ? `No shop of the game offers the catalogue ${key}. Is the FModel export of /Game/Blueprints/Data/Shops up to date?`
+                    ? `No shop of the game offers the catalogue ${key}. Is the export of /Game/Blueprints/Data/Shops up to date?`
                     : `Multiple shops of the game offer the catalogue ${key}.`
             );
         }
@@ -72,9 +72,17 @@ function readListings(items: Items): Map<GameItem, ImportedListing[]> {
 
             for (const asset of assets) {
                 const item = items.byAssetId(asset.legacy_id);
+                if (item === undefined && !entry.purchasable) {
+                    // LootLocker already lists upcoming content that the
+                    // game files don't contain yet.
+                    console.warn(
+                        `Skipped ${asset.name} of ${key} because it is unknown to the game and can't be purchased yet.`
+                    );
+                    continue;
+                }
                 if (item === undefined) {
                     throw new Error(
-                        `${asset.name} (${asset.legacy_id}) of ${key} is unknown to the game. Is the FModel export of /Game/Blueprints/Items up to date?`
+                        `${asset.name} (${asset.legacy_id}) of ${key} is unknown to the game. Is the export of /Game/Blueprints/Items up to date?`
                     );
                 }
                 if (item === null) continue;
@@ -85,7 +93,7 @@ function readListings(items: Items): Map<GameItem, ImportedListing[]> {
                         : undefined;
                 if (entry.entity_kind === 'group' && !bundle) {
                     throw new Error(
-                        `The bundle ${entry.entity_name} of ${key} is unknown to the game. Is the FModel export of /Game/Blueprints/Data/ShopBundles up to date?`
+                        `The bundle ${entry.entity_name} of ${key} is unknown to the game. Is the export of /Game/Blueprints/Data/ShopBundles up to date?`
                     );
                 }
 
@@ -99,7 +107,7 @@ function readListings(items: Items): Map<GameItem, ImportedListing[]> {
                     if (names.length !== 1) {
                         throw new Error(
                             names.length === 0
-                                ? `The currency ${price.currency_name} of ${key} is unknown to the game. Is the FModel export of /Game/Blueprints/Data/Currency up to date?`
+                                ? `The currency ${price.currency_name} of ${key} is unknown to the game. Is the export of /Game/Blueprints/Data/Currency up to date?`
                                 : `The currency ${price.currency_name} of ${key} is ambiguous: ${names.join(', ')}.`
                         );
                     }
@@ -124,7 +132,7 @@ function readListings(items: Items): Map<GameItem, ImportedListing[]> {
         const exported = keys.filter((key) => catalogueExports.has(key));
         if (exported.length > 0 && exported.length < keys.length) {
             throw new Error(
-                `${shop} is incomplete, the Fiddler Classic export is missing: ${keys.filter((key) => !catalogueExports.has(key)).join(', ')}`
+                `${shop} is incomplete, the downloaded catalogues are missing: ${keys.filter((key) => !catalogueExports.has(key)).join(', ')}`
             );
         }
     }
@@ -157,6 +165,59 @@ function readExtraItems(items: Items): GameItem[] {
     );
 }
 
+function listingKey(listing: ImportedListing): string {
+    return JSON.stringify([
+        listing.shop,
+        listing.faction,
+        listing.level,
+        listing.bundle,
+        listing.currency,
+    ]);
+}
+
+/**
+ * Keep what the previous import knew but the game no longer offers, like the
+ * items of an event that has ended: their listings are marked as unavailable
+ * instead of being removed.
+ * @param items - The items of the game.
+ * @param listings - The current listings by the item, gets the past listings added.
+ * @returns The items that are gone from the game files altogether.
+ */
+function keepPastListings(
+    items: Items,
+    listings: Map<GameItem, ImportedListing[]>
+): ImportedItem[] {
+    if (!existsSync(itemsPath)) return [];
+
+    const previousItems = JSON.parse(
+        readFileSync(itemsPath, 'utf8')
+    ) as ImportedItem[];
+    const goneItems: ImportedItem[] = [];
+
+    for (const previous of previousItems) {
+        const past = previous.listings.map((listing) => ({
+            ...listing,
+            available: false,
+        }));
+        if (past.length === 0) continue;
+
+        const item = items.byId(previous.id);
+        if (!item) {
+            goneItems.push({ ...previous, listings: past });
+            continue;
+        }
+
+        const current = listings.get(item) ?? [];
+        const currentKeys = new Set(current.map(listingKey));
+        const missing = past.filter(
+            (listing) => !currentKeys.has(listingKey(listing))
+        );
+        if (missing.length > 0) listings.set(item, [...current, ...missing]);
+    }
+
+    return goneItems;
+}
+
 /**
  * Build `items.json` and the item icons from the exports of the game and add
  * new items to `colours.json`.
@@ -168,11 +229,16 @@ async function importDatabase() {
         if (!listings.has(item)) listings.set(item, []);
     }
 
+    const goneItems = keepPastListings(items, listings);
+
     const texturePaths = new Set<string>();
     for (const item of listings.keys()) {
         if (item.texturePath) texturePaths.add(item.texturePath);
     }
-    const imagePaths = await prepareIcons(texturePaths);
+    const imagePaths = await prepareIcons(
+        texturePaths,
+        goneItems.flatMap(({ imagePath }) => imagePath ?? [])
+    );
 
     const importedItems = [...listings]
         .map(([{ texturePath, ...item }, itemListings]): ImportedItem => {
@@ -189,6 +255,7 @@ async function importDatabase() {
                 listings: [...unique.values()].sort(compareListings),
             };
         })
+        .concat(goneItems)
         .sort(
             (a, b) =>
                 collator.compare(a.name, b.name) || collator.compare(a.id, b.id)
@@ -199,6 +266,15 @@ async function importDatabase() {
     console.log(
         `Imported ${importedItems.length} item(s) with ${imagePaths.size} icon(s) to ${itemsPath}.`
     );
+
+    const unavailable = importedItems.filter(({ listings }) =>
+        listings.every(({ available }) => !available)
+    );
+    if (unavailable.length > 0) {
+        console.log(
+            `${unavailable.length} item(s) are kept although no shop offers them anymore${goneItems.length > 0 ? `, ${goneItems.length} of them are gone from the game files` : ''}.`
+        );
+    }
 
     const added = await addMissingColours(importedItems.map(({ id }) => id));
     if (added.length > 0) {

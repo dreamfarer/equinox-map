@@ -89,6 +89,13 @@
         "icon": "eagle-feather"
     },
     {
+        "title": "Fireflies",
+        "category": "firefly",
+        "path": "markers/resources/fireflies.json",
+        "anchor": "center",
+        "icon": "firefly"
+    },
+    {
         "title": "Fossils",
         "category": "fossil",
         "path": "markers/resources/fossils.json",
@@ -108,6 +115,13 @@
         "path": "markers/resources/king-boletus-mushrooms.json",
         "anchor": "center",
         "icon": "king-boletus-mushroom"
+    },
+    {
+        "title": "Luminous Mushrooms",
+        "category": "luminous-mushroom",
+        "path": "markers/resources/luminous-mushrooms.json",
+        "anchor": "center",
+        "icon": "luminous-mushroom"
     },
     {
         "title": "Moss",
